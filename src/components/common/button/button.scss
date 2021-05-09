@@ -1,0 +1,24 @@
+.btn {
+  padding: 10px 25px;
+  border-radius: 0.12rem;
+  border: none;
+  color: white;
+  background: $purple;
+  transition: 0.3s ease;
+  min-width: 100px;
+  &:hover {
+    background: $purple-70;
+  }
+  &.primary {
+    background: $purple;
+    &:hover {
+      background: $purple-70;
+    }
+  }
+  &.secondary {
+    background: $black;
+    &:hover {
+      background: rgba($black, 0.7);
+    }
+  }
+}

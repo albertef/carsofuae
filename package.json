@@ -1,22 +1,47 @@
 {
   "name": "carsofuae",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Classifieds website for used cars",
+  "main": "main.js",
+  "repository": "https://github.com/albertef/carsofuae.git",
+  "author": "Albert Francis <albertef@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "clean": "vue-cli-service clean"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vuex": "^3.4.0"
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0",
+    "axios": "0.21.1",
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "@popperjs/core": "^2.9.2",
+    "popper.js": "^1.16.1",
+    "node-sass": "4.13.1",
+    "sass-loader": "8.0.2",
+    "vue-carousel": "^0.18.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.19",
+    "@fortawesome/free-solid-svg-icons": "5.9.0",
+    "@fortawesome/vue-fontawesome": "0.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

@@ -1,0 +1,88 @@
+.post-list-wrapper {
+  // background: url("../../assets/post-bg.png") no-repeat 100% 50%;
+  // background-size: contain;
+  .card {
+    border-color: rgba($black, 0.1);
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover {
+      box-shadow: $shadow-purple;
+    }
+    &.featured {
+      &:hover {
+        border-color: $purple-50;
+      }
+    }
+    .thumb-wrapper {
+      height: 250px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .post-details {
+      h5 {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 0.875rem;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin-bottom: 8px;
+        span {
+          color: $purple;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .featured-icon {
+      &:before {
+        content: "";
+        border: 15px solid $purple;
+        background: transparent;
+        border-bottom-color: transparent;
+        border-top-right-radius: 2px;
+        position: absolute;
+        height: 42px;
+        top: -6px;
+        right: 6px;
+        z-index: 2;
+      }
+      &:after {
+        content: "";
+        border: 15px solid $purple-60;
+        background: transparent;
+        border-bottom-color: transparent;
+        position: absolute;
+        height: 42px;
+        top: 0;
+        right: 6px;
+        z-index: 1;
+      }
+      span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: transparent;
+        right: 30px;
+        border: 6px solid transparent;
+        border-bottom-color: $purple-60;
+        top: -12px;
+      }
+      svg {
+        z-index: 3;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 9px;
+        top: -6px;
+        color: white;
+      }
+    }
+  }
+}

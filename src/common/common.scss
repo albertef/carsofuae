@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Nunito:wght@200;400;600&family=Poppins:wght@400;600;700&display=swap");
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "./colors.scss";
+
+$primary-font: "Nunito", sans-serif;
+$secondary-font: "Poppins", sans-serif;
+
+$shadow-small: 0 0px 15px 0px rgba($black, 0.1);
+$shadow-purple: 0 0px 15px 0px rgba($purple, 0.2);
+
+body {
+  font-family: $primary-font;
+  overflow-x: hidden;
+}
+* {
+  &:focus {
+    box-shadow: none;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $secondary-font;
+  margin-bottom: 0;
+  font-weight: 700;
+  color: $black;
+  position: relative;
+  > span {
+    color: $purple-80;
+  }
+  &.heading {
+    padding-bottom: 15px;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 55px;
+      bottom: 0;
+      left: 0;
+      background-color: rgb(233, 12, 186);
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 100px;
+      bottom: 6px;
+      left: 0;
+      background-color: $black;
+    }
+  }
+}
+
+button {
+  font-size: 0.875rem;
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+a {
+  transition: 0.3s ease;
+}
