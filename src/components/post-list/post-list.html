@@ -1,43 +1,39 @@
-<div class="post-list-wrapper container-fluid p-0 my-5">
+<div class="post-list-wrapper container-fluid my-5">
   <div class="row">
     <div class="col-12">
       <div class="container">
         <div class="row">
-          <div class="col-12 mb-5">
+          <div class="col-12 mb-5 p-0">
             <h3 class="heading">Featured <span>posts</span></h3>
           </div>
-          <div class="col-4" v-for="post in featuredPostData">
-            <div class="card mb-5" :class="post.featured && 'featured'">
+          <div class="col-6 col-md-4 p-0" v-for="post in featuredPostData">
+            <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />
               </div>
-              <div class="post-details m-2">
+              <div class="post-details">
                 <h5 class="my-2">{{ post.make }} {{ post.company }} {{ post.model }}</h5>
-                <p :title="post.desc">{{ post.desc }}</p>
-                <p><span>{{ post.distance }}</span> | Price: <span>{{ post.price }}</span></p>
+                <p>Price: <span>{{ post.price }}</span></p>
               </div>
               <span class="featured-icon" title="Featured Post">
                 <font-awesome-icon :icon="['fas','medal']" />
-                <span></span>
               </span>
             </div>
           </div>
-          <div class="col-12 my-5">
+          <div class="col-12 p-0 my-5">
             <h3 class="heading">Latest <span>posts</span></h3>
           </div>
-          <div class="col-4" v-for="post in postData.slice(0,6)">
-            <div class="card mb-5" :class="post.featured && 'featured'">
+          <div class="col-6 col-md-4 p-0" v-for="post in postData">
+            <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />
               </div>
-              <div class="post-details m-2">
+              <div class="post-details">
                 <h5 class="my-2">{{ post.make }} {{ post.company }} {{ post.model }}</h5>
-                <p :title="post.desc">{{ post.desc }}</p>
-                <p><span>{{ post.distance }}</span> | Price: <span>{{ post.price }}</span></p>
+                <p>Price: <span>{{ post.price }}</span></p>
               </div>
-              <span class="featured-icon" v-if="post.featured" title="Featured Post">
+              <span class="featured-icon" title="Featured Post" v-if="post.featured">
                 <font-awesome-icon :icon="['fas','medal']" />
-                <span></span>
               </span>
             </div>
           </div>

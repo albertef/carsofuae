@@ -2,6 +2,7 @@
   <div id="app">
     <Header />
     <Banner />
+    <Services />
     <PostList />
     <font-awesome-icon :icon="['fas', 'sliders-h']" />
   </div>

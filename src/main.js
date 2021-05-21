@@ -2,27 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import "bootstrap";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import VueCarousel from 'vue-carousel';
-
-import {
-  faFilm,
-  faSearch,
-  faLongArrowAltRight,
-  faArrowLeft,
-  faTimes,
-  faSlidersH,
-  faMedal,
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-library.add(faFilm);
-library.add(faSearch);
-library.add(faLongArrowAltRight);
-library.add(faArrowLeft);
-library.add(faTimes);
-library.add(faSlidersH);
-library.add(faMedal);
+import "@/meta/icons.js";
 
 Vue.use(VueCarousel);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
