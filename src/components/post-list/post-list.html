@@ -1,4 +1,4 @@
-<div class="post-list-wrapper container-fluid my-5">
+<div class="post-list-wrapper container-fluid my-5 pb-5">
   <div class="row">
     <div class="col-12">
       <div class="container">
@@ -6,7 +6,7 @@
           <div class="col-12 mb-5 p-0">
             <h3 class="heading">Featured <span>posts</span></h3>
           </div>
-          <div class="col-6 col-md-4 p-0" v-for="post in featuredPostData">
+          <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
             <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />
@@ -23,7 +23,7 @@
           <div class="col-12 p-0 my-5">
             <h3 class="heading">Latest <span>posts</span></h3>
           </div>
-          <div class="col-6 col-md-4 p-0" v-for="post in postData">
+          <div class="col-4 col-md-3 p-0" v-for="post in postData">
             <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />
@@ -36,6 +36,10 @@
                 <font-awesome-icon :icon="['fas','medal']" />
               </span>
             </div>
+          </div>
+          <div class="col-12 p-0 my-4">
+            <!-- prettier-ignore -->
+            <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
           </div>
         </div>
       </div>

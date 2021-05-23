@@ -10,6 +10,8 @@ nav {
     z-index: 99;
     .navbar-nav {
       .nav-item {
+        display: inline-flex;
+        align-items: center;
         .nav-link {
           font-family: $secondary-font;
           text-transform: uppercase;
@@ -19,6 +21,62 @@ nav {
         &.active {
           .nav-link {
             color: $purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    &.navbar {
+      height: 70px;
+    }
+  }
+  .navbar-collapse {
+    position: absolute;
+    z-index: 99;
+    max-height: max-content;
+    width: 100%;
+    padding: 0;
+    background: rgba($black, 0.7);
+    overflow: hidden;
+    top: 70px;
+    left: 0;
+    ul {
+      background: $white;
+      width: 85%;
+      margin-top: 0 !important;
+      float: left !important;
+      height: calc(100vh - 70px) !important;
+      overflow-y: auto;
+      box-shadow: $shadow-small inset;
+      li {
+        border-bottom: 1px solid rgba($purple, 0.2);
+        position: relative;
+        button {
+          margin: 15px;
+        }
+        a {
+          text-align: left !important;
+          width: 100%;
+          padding: 15px;
+          transition: 0.3s ease;
+          &.active,
+          &:hover {
+            background-color: rgba($purple, 0.1);
+            &:before {
+              transition: 0.3s ease;
+              content: "";
+              background-color: $purple;
+              bottom: 0 !important;
+              left: 0 !important;
+              width: 3px !important;
+              height: 100% !important;
+              margin: 0 !important;
+              position: absolute;
+            }
           }
         }
       }

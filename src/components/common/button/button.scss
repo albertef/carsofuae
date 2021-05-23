@@ -21,4 +21,13 @@
       background: rgba($black, 0.7);
     }
   }
+  &.hollow {
+    background: transparent;
+    border: 1px solid $purple;
+    color: $purple;
+    &:hover {
+      background: rgba($purple, 0.7);
+      color: $white;
+    }
+  }
 }

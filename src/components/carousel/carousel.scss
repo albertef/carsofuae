@@ -2,4 +2,45 @@
   background: url("../../assets/main-bg.png") no-repeat;
   background-size: cover;
   padding-top: 100px !important;
+  .slide-row {
+    display: flex;
+    > div {
+      &:nth-child(2) {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @media screen and (max-width: 1024px) {
+    .slide-row {
+      > div {
+        &:nth-child(1) {
+          order: 2;
+        }
+      }
+      .slide-content {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        h1 {
+          font-size: 2rem;
+          margin: 20px 0 !important;
+        }
+        button {
+          margin: 20px 0 !important;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .carousel-wrapper {
+    padding-top: 70px !important;
+  }
 }
