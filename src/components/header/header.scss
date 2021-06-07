@@ -16,6 +16,9 @@ nav {
           font-family: $secondary-font;
           text-transform: uppercase;
           font-size: 0.875rem;
+          svg {
+            display: none;
+          }
         }
         &:hover,
         &.active {
@@ -28,33 +31,105 @@ nav {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   nav {
     &.navbar {
       height: 70px;
     }
   }
+  .navbar-toggler {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: 0.3s ease;
+    padding: 0.5rem;
+    &:hover {
+      span {
+        background-color: $purple;
+      }
+    }
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: $black;
+      display: block;
+      margin-bottom: 0.2rem;
+      transition: 0.3s ease;
+      &:nth-child(2) {
+        width: 21px;
+      }
+      &:nth-child(3) {
+        width: 18px;
+      }
+    }
+    &:not(.collapsed) {
+      background-color: $purple;
+      border-radius: 50px 50px 0 0;
+      span {
+        background-color: $white;
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 5px);
+          width: 20px;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(3px, -3px);
+          width: 20px;
+        }
+      }
+    }
+  }
   .navbar-collapse {
     position: absolute;
-    z-index: 99;
-    max-height: max-content;
     width: 100%;
-    padding: 0;
-    background: rgba($black, 0.7);
-    overflow: hidden;
-    top: 70px;
-    left: 0;
+    top: 38px;
+
+    .overlay {
+      height: 0;
+      position: fixed;
+      z-index: 0;
+      width: 100%;
+      padding: 0;
+      background: rgba($black, 0.7);
+      top: 70px;
+      left: 0;
+      transition: 0.1s ease;
+    }
+    &.show,
+    &.collapsing {
+      .overlay {
+        height: calc(100vh - 70px);
+      }
+    }
+
     ul {
-      background: $white;
       width: 85%;
       margin-top: 0 !important;
-      float: left !important;
+      float: right !important;
       height: calc(100vh - 70px) !important;
       overflow-y: auto;
-      box-shadow: $shadow-small inset;
+      right: 0;
+
+      @for $index from 1 through length($purpleArray) {
+        li:nth-child(#{length($purpleArray)}n + #{$index}) a {
+          background: unquote(nth($purpleArray, $index));
+        }
+      }
       li {
-        border-bottom: 1px solid rgba($purple, 0.2);
+        background: $white;
         position: relative;
+        overflow: hidden;
+        transition: 0.3s ease;
+        &:first-child {
+          border-top-left-radius: 30px;
+        }
+        &:nth-last-child(3) {
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+        }
         button {
           margin: 15px;
         }
@@ -63,20 +138,20 @@ nav {
           width: 100%;
           padding: 15px;
           transition: 0.3s ease;
-          &.active,
+          color: $white !important;
+          display: inline-flex;
+          align-items: center;
+          svg {
+            display: inline !important;
+            min-width: 30px;
+          }
           &:hover {
-            background-color: rgba($purple, 0.1);
-            &:before {
-              transition: 0.3s ease;
-              content: "";
-              background-color: $purple;
-              bottom: 0 !important;
-              left: 0 !important;
-              width: 3px !important;
-              height: 100% !important;
-              margin: 0 !important;
-              position: absolute;
-            }
+            background-color: $purple;
+          }
+        }
+        &.active {
+          a {
+            background-color: $purple;
           }
         }
       }

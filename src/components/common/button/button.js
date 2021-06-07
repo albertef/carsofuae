@@ -16,13 +16,23 @@ export default {
 		rounded: {
 			trype: Boolean,
 			default: false,
+		},
+		circle: {
+			trype: Boolean,
+			default: false,
+		},
+		icon: {
+			type: Array,
+			default: null,
 		}
 	},
 	computed: {
 		buttonStyle: function () {
+			const borderRadius = this.rounded ? '30px' : (this.circle ? '50%' : '');
 			return {
 				width: this.width,
-				borderRadius: this.rounded && '30px',
+				borderRadius: borderRadius,
+				height: this.circle && this.width,
 			};
 		},
 	},

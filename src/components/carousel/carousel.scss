@@ -17,7 +17,7 @@
     align-items: flex-start;
     justify-content: center;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 991px) {
     .slide-row {
       > div {
         &:nth-child(1) {
@@ -39,7 +39,7 @@
     }
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .carousel-wrapper {
     padding-top: 70px !important;
   }

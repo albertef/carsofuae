@@ -16,6 +16,7 @@ html {
 * {
   &:focus {
     box-shadow: none;
+    outline: none !important;
   }
 }
 h1,
@@ -66,7 +67,7 @@ a {
   transition: 0.3s ease;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 991px) {
   h1,
   h2,
   h3,

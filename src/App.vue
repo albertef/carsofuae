@@ -5,6 +5,7 @@
     <Services />
     <PostList />
     <Footer />
+    <FixedHomeButtons />
   </div>
 </template>
 

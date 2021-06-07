@@ -1,36 +1,30 @@
 <div class="header-wrapper container-fluid p-0">
   <div class="row">
-    <div class="col-12 justify-content-between d-flex">
+    <div class="col-12 col-xs-12 col-sm-6 col-md-4 justify-content-between d-flex">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container p-0">
+        <div class="container p-0 position-relative">
           <a class="navbar-brand" href="#">
             <h3>cars of uae</h3>
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          <div class="collapse navbar-collapse mr-4 justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="overlay" data-toggle="collapse" data-target="#navbarNav"></div>
+            <ul class="navbar-nav my-5">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#"><font-awesome-icon :icon="['fas','home']" class="mr-2" />Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Rental</a>
+              <li class="nav-item" v-for="service in services">
+                <a class="nav-link" href="#"><font-awesome-icon :icon="service.icon" class="mr-2" /> {{service.name}}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Lease a car</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Garages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Spare parts</a>
-              </li>
-              <li class="nav-item">
+              <li class="nav-item d-none d-lg-block">
                 <!-- prettier-ignore -->
                 <Button type="secondary" text="buy a car" @click="clicked" class="ml-3" />
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-none d-lg-block">
                 <!-- prettier-ignore -->
                 <Button type="primary" text="sell your car" @click="clicked" class="ml-3" />
               </li>

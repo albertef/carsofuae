@@ -6,20 +6,26 @@
           <div class="col-12 mb-5 p-0">
             <h3 class="heading">Featured <span>posts</span></h3>
           </div>
-          <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
-            <div class="card" :class="post.featured && 'featured'">
-              <div class="thumb-wrapper">
-                <img :src="post.thumb" class="img-fluid" />
+          <Carousel id="post-carousel" controls="true" :navigationEnabled="true" :autoplay="true">
+            <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
+              <div class="card" :class="post.featured && 'featured'">
+                <div class="thumb-wrapper">
+                  <img :src="post.thumb" class="img-fluid" />
+                </div>
+                <div class="post-details">
+                  <h5 class="my-2" :title="`${post.make} ${post.company} ${post.model}`">
+                    <span>{{ post.make }} {{ post.company }} {{ post.model }}</span>
+                    <em></em>
+                  </h5>
+                  <p class="distance"><span>{{ formatDistance(post.distance, 3) }} kms</span><em></em></p>
+                  <p><em></em> <span>AED {{ post.price }}</span></p>
+                </div>
+                <span class="featured-icon" title="Featured Post">
+                  <font-awesome-icon :icon="['fas','medal']" />
+                </span>
               </div>
-              <div class="post-details">
-                <h5 class="my-2">{{ post.make }} {{ post.company }} {{ post.model }}</h5>
-                <p>Price: <span>{{ post.price }}</span></p>
-              </div>
-              <span class="featured-icon" title="Featured Post">
-                <font-awesome-icon :icon="['fas','medal']" />
-              </span>
             </div>
-          </div>
+          </Carousel>
           <div class="col-12 p-0 my-5">
             <h3 class="heading">Latest <span>posts</span></h3>
           </div>
@@ -29,15 +35,19 @@
                 <img :src="post.thumb" class="img-fluid" />
               </div>
               <div class="post-details">
-                <h5 class="my-2">{{ post.make }} {{ post.company }} {{ post.model }}</h5>
-                <p>Price: <span>{{ post.price }}</span></p>
+                <h5 class="my-2" :title="`${post.make} ${post.company} ${post.model}`">
+                  <span>{{ post.make }} {{ post.company }} {{ post.model }}</span>
+                  <em></em>
+                </h5>
+                <p class="distance"><span>{{ formatDistance(post.distance, 3) }} kms</span><em></em></p>
+                <p><em></em> <span>AED {{ post.price }}</span></p>
               </div>
               <span class="featured-icon" title="Featured Post" v-if="post.featured">
                 <font-awesome-icon :icon="['fas','medal']" />
               </span>
             </div>
           </div>
-          <div class="col-12 p-0 my-4">
+          <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
             <!-- prettier-ignore -->
             <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
           </div>

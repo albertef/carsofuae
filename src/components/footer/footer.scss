@@ -1,16 +1,58 @@
 .footer-wrapper {
-  padding: 20px 0;
   box-shadow: $shadow-small;
   position: fixed;
   bottom: 0;
   z-index: 99;
   background-color: $white;
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    .mobile-footer-menu {
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 0;
+        width: 100%;
+        margin-bottom: 0;
+        li {
+          list-style: none;
+          width: 100%;
+          text-align: center;
+          width: 100%;
+          padding: 10px 0;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          svg {
+            color: $purple;
+          }
+          span {
+            color: $black;
+            font-size: 0.75rem;
+          }
+          &:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background-color: $purple-10;
+            transition: 0.3s ease-in-out;
+          }
+          &:hover,
+          &:focus {
+            &:before {
+              left: 0;
+            }
+          }
+        }
+      }
+    }
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .container {
       justify-content: center;
     }

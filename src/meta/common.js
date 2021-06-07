@@ -1,6 +1,10 @@
 export const META = {
 	serviceList: [
 		{
+			name: "Classifieds",
+			icon: ['fas', 'newspaper'],
+		},
+		{
 			name: "Rental",
 			icon: ['fas', 'car-side'],
 		},

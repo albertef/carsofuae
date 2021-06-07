@@ -1,22 +1,38 @@
 .post-list-wrapper {
   // background: url("../../assets/post-bg.png") no-repeat 100% 50%;
   // background-size: contain;
+  padding-left: 0;
+  padding-right: 0;
   .card {
     border-color: rgba($black, 0.1);
     cursor: pointer;
     transition: 0.3s ease;
     position: relative;
     border-radius: 0;
+    overflow: hidden;
     &:hover {
       box-shadow: $shadow-purple;
+      .thumb-wrapper {
+        transform: scale(1.1);
+      }
     }
     &.featured {
       &:hover {
         border-color: $purple-50;
       }
+      .post-details {
+        h5 {
+          max-width: 85%;
+          &:after {
+            left: calc(75% + 15px);
+          }
+        }
+      }
     }
     .thumb-wrapper {
       height: 250px;
+      transition: 0.3s ease-in-out;
+      transform: scale(1);
       img {
         height: 100%;
         width: 100%;
@@ -26,27 +42,65 @@
 
     .post-details {
       h5 {
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 400;
+        font-size: 0.875rem;
         position: absolute;
         top: 10px;
-        background: rgba($white, 0.9);
-        padding: 2px 10px;
-        max-width: 75%;
-        border-radius: 0 10px 10px 0;
+        display: flex;
+        max-width: 100%;
+        span {
+          color: $black;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          background: rgba($white, 0.9);
+          padding: 2px 10px;
+          height: 20px;
+          display: inline-block;
+          width: 100%;
+          line-height: 140%;
+        }
+        em {
+          border-top: 20px solid rgba($white, 0.9);
+          border-right: 20px solid transparent;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          left: calc(90% + 16px);
+          top: 0;
+        }
       }
       p {
-        font-size: 0.875rem;
-        font-weight: 400;
         position: absolute;
         bottom: 10px;
         right: 0;
-        border-radius: 10px 0 0 10px;
-        background: rgba($white, 0.9);
-        padding: 2px 10px;
+        display: flex;
+        height: 20px;
+        &.distance {
+          left: 0;
+          span {
+            padding: 2px 0 2px 5px;
+          }
+          em {
+            border-bottom: 20px solid rgba($white, 0.9);
+            border-right: 20px solid transparent;
+            border-left: none;
+            border-top: none;
+          }
+        }
         span {
+          font-size: 0.75rem;
+          font-weight: 700;
+          padding: 2px 5px 2px 0;
+          line-height: 140%;
           color: $purple;
           font-weight: 700;
+          background-color: rgba($white, 0.9);
+        }
+        em {
+          border-top: 20px solid rgba($white, 0.9);
+          border-left: 20px solid transparent;
         }
       }
     }
@@ -85,8 +139,9 @@
       }
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 991px) {
     .card {
+      max-height: 150px;
       .thumb-wrapper {
         height: 150px;
       }

@@ -3,6 +3,7 @@ import Banner from "@/components/carousel/carousel.vue";
 import Services from "@/components/services/services.vue";
 import PostList from "@/components/post-list/post-list.vue";
 import Footer from "@/components/footer/footer.vue";
+import FixedHomeButtons from "@/components/fixed-home-buttons/fixed-home-buttons.vue"
 
 export default {
   name: "app",
@@ -12,6 +13,7 @@ export default {
     Services,
     PostList,
     Footer,
+    FixedHomeButtons
   },
   mounted() {
     document.body.classList.add('hide-overflow');
