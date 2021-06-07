@@ -7,12 +7,12 @@ const state = {
 const actions = {
   async getPostList({ commit }) {
     let dataset = {},
-      url;
-    if (process.env.NODE_ENV === "development") {
       url = "/mocks/posts.json";
-    } else {
-      url = "http://localhost/get_posts";
-    }
+    // if (process.env.NODE_ENV === "development") {
+    //   url = "/mocks/posts.json";
+    // } else {
+    //   url = "http://localhost/get_posts";
+    // }
     dataset = await axiosInstance.get(url);
     if (dataset.status !== false) {
       commit("updatePostList", dataset.data);
