@@ -8,6 +8,11 @@ nav {
     background: $white;
     box-shadow: $shadow-small;
     z-index: 99;
+    .navbar-brand {
+      img {
+        max-height: 80px;
+      }
+    }
     .navbar-nav {
       .nav-item {
         display: inline-flex;
@@ -35,6 +40,11 @@ nav {
   nav {
     &.navbar {
       height: 70px;
+      .navbar-brand {
+        img {
+          max-height: 50px;
+        }
+      }
     }
   }
   .navbar-toggler {
