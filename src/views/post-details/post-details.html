@@ -2,7 +2,6 @@
   <div class="row" v-if="!postData">
     <div class="col-12 mb-5 p-0">
       <h3 class="d-flex justify-content-center align-items-center">Loading...</h3>
-      <p>{{postData.place}}</p>
     </div>
   </div>
     <div class="row" v-else>
@@ -19,36 +18,40 @@
           </p>
           <div class="image-wrapper mb-4"><img :src="postData.large" class="img-fluid" /></div>
         </div>
-        <h5>Overview</h5>
-        <ul class="overview-table my-3">
-          <li>
-            <p>Make</p>
-            <p>{{postData.make}}</p>
-          </li>
-          <li>
-            <p>Model</p>
-            <p>{{postData.model}}</p>
-          </li>
-          <li>
-            <p>Brand</p>
-            <p>{{postData.company}}</p>
-          </li>
-          <li>
-            <p>Description</p>
-            <p>{{postData.desc}}</p>
-          </li>
-          <li>
-            <p>Distance</p>
-            <p>{{postData.distance}} kms</p>
-          </li>
-        </ul>
-        <div class="user-desc mb-4">
-          <img src="../../assets/user-profile.png" />
-          <p><span>Chris's Take</span>Now this is a cool Defender! Not only does it look absolutely awesome, but it touts some great modifications that will clearly enhance its capabilities off the pavement -- including a lift, bigger tires, a winch, and a snorkel.</p>
-        </div>
-        <h5>Video</h5>
-        <div class="video-wrapper mt-3">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fKNdoxRld34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="row">
+          <div class="col-md-9">
+            <h5>Overview</h5>
+            <ul class="overview-table my-3">
+              <li>
+                <p>Make</p>
+                <p>{{postData.make}}</p>
+              </li>
+              <li>
+                <p>Model</p>
+                <p>{{postData.model}}</p>
+              </li>
+              <li>
+                <p>Brand</p>
+                <p>{{postData.company}}</p>
+              </li>
+              <li>
+                <p>Description</p>
+                <p>{{postData.desc}}</p>
+              </li>
+              <li>
+                <p>Distance</p>
+                <p>{{postData.distance}} kms</p>
+              </li>
+            </ul>
+            <div class="user-desc mb-4">
+              <img src="../../assets/user-profile.png" />
+              <p><span>Chris's Take</span>Now this is a cool Defender! Not only does it look absolutely awesome, but it touts some great modifications that will clearly enhance its capabilities off the pavement -- including a lift, bigger tires, a winch, and a snorkel.</p>
+            </div>
+            <h5>Video</h5>
+            <div class="video-wrapper mt-3">
+              <iframe width="100%" height="400px" src="https://www.youtube.com/embed/fKNdoxRld34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </div>
