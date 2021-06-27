@@ -1,4 +1,5 @@
 import Vue from "vue";
+import Router from "@/router";
 import App from "./App.vue";
 import Store from "@/store";
 import "bootstrap";
@@ -14,5 +15,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   store: Store,
-  render: h => h(App)
-}).$mount("#app");
+  render: h => h(App),
+  router: Router,
+}).$mount("#carsofuae-app");

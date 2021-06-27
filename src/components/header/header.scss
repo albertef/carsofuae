@@ -24,10 +24,7 @@ nav {
           svg {
             display: none;
           }
-        }
-        &:hover,
-        &.active {
-          .nav-link {
+          &:hover, &.router-link-active.router-link-exact-active {
             color: $purple;
           }
         }

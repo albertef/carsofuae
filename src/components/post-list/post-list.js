@@ -1,5 +1,7 @@
 import Button from "@/components/common/button/button.vue";
 import { Carousel, Slide } from 'vue-carousel';
+import { UTILS } from "@/utility/utils.js";
+import router from "@/router";
 
 const LOAD_COUNT = 9;
 
@@ -37,20 +39,14 @@ export default {
 			this.postCount = this.fullPostData.length > this.postCount ? this.postCount + LOAD_COUNT : this.fullPostData.length;
 		},
 		formatDistance(num, digits) {
-			const lookup = [
-				{ value: 1, symbol: "" },
-				{ value: 1e3, symbol: "K" },
-				{ value: 1e6, symbol: "M" },
-				{ value: 1e9, symbol: "G" },
-				{ value: 1e12, symbol: "T" },
-				{ value: 1e15, symbol: "P" },
-				{ value: 1e18, symbol: "E" }
-			];
-			const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-			var item = lookup.slice().reverse().find((item) => {
-				return num >= item.value;
+			return UTILS.formatDistance(num, digits);
+		},
+		viewPostDetails(id) {
+			console.log(id);
+			router.push({
+				name: "PostDetails",
+				params: {id: id},
 			});
-			return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
 		}
 	}
 };

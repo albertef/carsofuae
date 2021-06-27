@@ -15,7 +15,13 @@ import {
 	faHome,
 	faUserAlt,
 	faPlus,
+	faMapMarkerAlt,
+	faUserTie
 } from "@fortawesome/free-solid-svg-icons";
+
+import {
+	faCalendarAlt
+} from "@fortawesome/free-regular-svg-icons";
 
 library.add(faSearch);
 library.add(faLongArrowAltRight);
@@ -31,3 +37,6 @@ library.add(faNewspaper);
 library.add(faHome);
 library.add(faUserAlt);
 library.add(faPlus);
+library.add(faMapMarkerAlt);
+library.add(faCalendarAlt);
+library.add(faUserTie);

@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <Banner />
-    <Services />
-    <PostList />
+      <router-view />
+    
     <Footer />
-    <FixedHomeButtons />
+    
   </div>
 </template>
 

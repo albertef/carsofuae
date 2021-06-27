@@ -31,7 +31,7 @@
             <h3 class="heading">Latest <span>posts</span></h3>
           </div>
           <div class="col-4 col-md-3 p-0" v-for="post in postData">
-            <div class="card" :class="post.featured && 'featured'">
+            <div class="card" :class="post.featured && 'featured'" @click="viewPostDetails(post.id)">
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />
               </div>

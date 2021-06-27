@@ -1,10 +1,12 @@
 <div class="service-wrapper container p-0 mt-5">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-6 col-md-4 mb-4" v-for="service in services">
-      <div class="service-list">
-        <font-awesome-icon class="mr-3" :icon="service.icon" />
-        <h5>{{service.name}}</h5>
-      </div>
+      <router-link :to="service.url">
+        <div class="service-list">
+          <font-awesome-icon class="mr-3" :icon="service.icon" />
+          <h5>{{service.name}}</h5>
+        </div>
+      </router-link>
     </div>
   </div>
 </div>

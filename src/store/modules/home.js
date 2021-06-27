@@ -22,7 +22,13 @@ const actions = {
 };
 
 const getters = {
-
+  getSinglePostData(state) {
+    return function (id) {
+      return state.postList.find(post => {
+        return post.id === Number(id)
+      });
+    }
+  }
 };
 
 const mutations = {
