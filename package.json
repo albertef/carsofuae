@@ -26,6 +26,7 @@
     "node-sass": "4.13.1",
     "sass-loader": "8.0.2",
     "vue-carousel": "^0.18.0",
+    "vue-cool-lightbox": "2.7.4",
     "@fortawesome/fontawesome-svg-core": "1.2.19",
     "@fortawesome/free-solid-svg-icons": "5.9.0",
     "@fortawesome/free-regular-svg-icons": "5.9.0",

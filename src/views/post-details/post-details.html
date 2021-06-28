@@ -6,7 +6,7 @@
   </div>
     <div class="row" v-else>
       <div class="col-12 mb-5 p-0">
-        <div class="image-title-wrapper">
+        <div class="image-title-wrapper mb-4">
           <h3 class="mb-1">{{postData.company}} {{postData.model}} <span>{{postData.make}}</span></h3>
           <p class="date-place">
             <font-awesome-icon :icon="['fas', 'map-marker-alt']" class="icon" /> 
@@ -16,7 +16,21 @@
               {{postData.date}}
             </span>
           </p>
-          <div class="image-wrapper mb-4"><img :src="postData.large" class="img-fluid" /></div>
+          <div class="image-scroll-wrapper">
+            <CoolLightBox 
+              :items="postData.gallery" 
+              :index="index"
+              @close="index = null">
+            </CoolLightBox>
+            <div class="image-wrapper" v-if="postData.gallery">
+              <div 
+                v-for="(image, imageIndex) in postData.gallery.slice(0,7)"
+                :data-count="postData.gallery.length"
+                :key="imageIndex"
+                @click="index = imageIndex"
+                :style="{ backgroundImage: 'url(' + image + ')' }"><img :src="image" /></div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-md-9">

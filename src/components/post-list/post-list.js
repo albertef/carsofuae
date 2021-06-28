@@ -42,7 +42,6 @@ export default {
 			return UTILS.formatDistance(num, digits);
 		},
 		viewPostDetails(id) {
-			console.log(id);
 			router.push({
 				name: "PostDetails",
 				params: {id: id},
