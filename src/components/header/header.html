@@ -1,24 +1,57 @@
 <div class="header-wrapper container-fluid p-0">
   <div class="row">
-    <div class="col-12 col-xs-12 col-sm-6 col-md-4 justify-content-between d-flex">
+    <div
+      class="col-12 col-xs-12 col-sm-6 col-md-4 justify-content-between d-flex"
+    >
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container p-0 position-relative">
           <router-link class="navbar-brand" to="/">
             <img src="../../assets/logo.png" class="img-fluid" />
           </router-link>
-          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span></span>
             <span></span>
             <span></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <div class="overlay" data-toggle="collapse" data-target="#navbarNav"></div>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <div
+              class="overlay"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+            ></div>
             <ul class="navbar-nav my-5">
               <li class="nav-item">
-                <router-link class="nav-link" to="/home"><font-awesome-icon :icon="['fas','home']" class="mr-2" />Home</router-link>
+                <router-link
+                  class="nav-link"
+                  to="/home"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  ><font-awesome-icon
+                    :icon="['fas','home']"
+                    class="mr-2"
+                  />Home</router-link
+                >
               </li>
               <li class="nav-item" v-for="service in services">
-                <router-link class="nav-link" :to="service.url"><font-awesome-icon :icon="service.icon" class="mr-2" /> {{service.name}}</router-link>
+                <router-link
+                  class="nav-link"
+                  :to="service.url"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  ><font-awesome-icon :icon="service.icon" class="mr-2" />
+                  {{service.name}}</router-link
+                >
               </li>
               <li class="nav-item d-none d-lg-block">
                 <!-- prettier-ignore -->
