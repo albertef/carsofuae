@@ -46,20 +46,14 @@
           <PostDetailTable :data="postData" />
           <div class="user-desc mb-4">
             <img src="../../assets/user-profile.png" />
-            <p>
-              <span>Chris's Take</span>Now this is a cool Defender! Not only
-              does it look absolutely awesome, but it touts some great
-              modifications that will clearly enhance its capabilities off the
-              pavement -- including a lift, bigger tires, a winch, and a
-              snorkel.
-            </p>
+            <p><span>Chris's Take</span>{{postData.desc}}</p>
           </div>
           <h5>Video</h5>
-          <div class="video-wrapper mt-3">
+          <div class="video-wrapper my-3">
             <iframe
               width="100%"
-              height="400px"
-              src="https://www.youtube.com/embed/fKNdoxRld34"
+              height="100%"
+              src="https://www.youtube.com/embed/mPaUWBjxAHw"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

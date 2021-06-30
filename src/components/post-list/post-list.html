@@ -16,7 +16,7 @@
               <div
                 class="card"
                 :class="post.featured && 'featured'"
-                @click="viewPostDetails(post.id)"
+                @click="viewPostDetails(post)"
               >
                 <div class="thumb-wrapper">
                   <img :src="post.thumb" class="img-fluid" />
@@ -51,7 +51,7 @@
             <div
               class="card"
               :class="post.featured && 'featured'"
-              @click="viewPostDetails(post.id)"
+              @click="viewPostDetails(post)"
             >
               <div class="thumb-wrapper">
                 <img :src="post.thumb" class="img-fluid" />

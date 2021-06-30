@@ -19,7 +19,7 @@ const router = new Router({
       redirect: "/home",
     },
     {
-      path: "/post-details/:id",
+      path: "/post-details/",
       name: "PostDetails",
       component: PostDetails,
       params: true,

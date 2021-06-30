@@ -20,10 +20,10 @@ export default {
   },
   computed: {
     getPostId() {
-      return this.$route.params;
+      return this.$route.query.id;
     },
     postData() {
-      return this.$store?.getters.getSinglePostData(this.getPostId.id);
+      return this.$store?.getters.getSinglePostData(this.getPostId);
     },
   },
 };

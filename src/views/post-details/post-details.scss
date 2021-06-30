@@ -47,6 +47,14 @@
             grid-row-start: 1;
             grid-row-end: 7;
           }
+          // @for $i from 2 through 20 {
+          //   &:nth-child(#{$i}) {
+          //     grid-column-start: 5;
+          //     grid-column-end: 6;
+          //     grid-row-start: 1;
+          //     grid-row-end: 3;
+          //   }
+          // }
           &:nth-child(2) {
             grid-column-start: 5;
             grid-column-end: 6;
@@ -82,19 +90,19 @@
             grid-column-end: 6;
             grid-row-start: 5;
             grid-row-end: 7;
-            &:after {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              background-color: rgba($black, 0.7);
-              color: $white;
-              content: "All Photos (" attr(data-count) ")";
-            }
+            // &:after {
+            //   position: absolute;
+            //   top: 0;
+            //   left: 0;
+            //   width: 100%;
+            //   height: 100%;
+            //   display: flex;
+            //   align-items: center;
+            //   justify-content: center;
+            //   background-color: rgba($black, 0.7);
+            //   color: $white;
+            //   content: "All Photos (" attr(data-count) ")";
+            // }
           }
         }
       }
@@ -122,6 +130,17 @@
         display: flex;
         margin-bottom: 10px;
       }
+    }
+  }
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 }
