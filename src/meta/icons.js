@@ -1,27 +1,27 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
-	faSearch,
-	faLongArrowAltRight,
-	faArrowLeft,
-	faTimes,
-	faSlidersH,
-	faMedal,
-	faCarSide,
-	faFileInvoice,
-	faWarehouse,
-	faCogs,
-	faNewspaper,
-	faHome,
-	faUserAlt,
-	faPlus,
-	faMapMarkerAlt,
-	faUserTie
+  faSearch,
+  faLongArrowAltRight,
+  faArrowLeft,
+  faTimes,
+  faSlidersH,
+  faMedal,
+  faCarSide,
+  faFileInvoice,
+  faWarehouse,
+  faCogs,
+  faNewspaper,
+  faHome,
+  faUserAlt,
+  faPlus,
+  faMapMarkerAlt,
+  faUserTie,
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {
-	faCalendarAlt
-} from "@fortawesome/free-regular-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 
 library.add(faSearch);
 library.add(faLongArrowAltRight);
@@ -40,3 +40,5 @@ library.add(faPlus);
 library.add(faMapMarkerAlt);
 library.add(faCalendarAlt);
 library.add(faUserTie);
+library.add(faArrowAltCircleLeft);
+library.add(faArrowAltCircleRight);

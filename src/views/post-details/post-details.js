@@ -26,4 +26,12 @@ export default {
       return this.$store?.getters.getSinglePostData(this.getPostId);
     },
   },
+  methods: {
+    leftArrowClick() {
+      this.$refs.scroller.scrollLeft += 250;
+    },
+    rightArrowClick() {
+      this.$refs.scroller.scrollLeft -= 250;
+    },
+  },
 };

@@ -20,7 +20,19 @@
             {{postData.date}}
           </span>
         </p>
-        <div class="image-scroll-wrapper">
+        <div class="image-scroll-wrapper" ref="scroller">
+          <div class="left-arrow arrows" @click="leftArrowClick">
+            <font-awesome-icon
+              :icon="['fas', 'arrow-alt-circle-left']"
+              class="icon"
+            />
+          </div>
+          <div class="right-arrow arrows" @click="rightArrowClick">
+            <font-awesome-icon
+              :icon="['fas', 'arrow-alt-circle-right']"
+              class="icon"
+            />
+          </div>
           <CoolLightBox
             :items="postData.gallery"
             :index="index"
@@ -29,7 +41,7 @@
           </CoolLightBox>
           <div class="image-wrapper" v-if="postData.gallery">
             <div
-              v-for="(image, imageIndex) in postData.gallery.slice(0,7)"
+              v-for="(image, imageIndex) in postData.gallery"
               :data-count="postData.gallery.length"
               :key="imageIndex"
               @click="index = imageIndex"
