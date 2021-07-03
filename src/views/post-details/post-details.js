@@ -28,10 +28,10 @@ export default {
   },
   methods: {
     leftArrowClick() {
-      this.$refs.scroller.scrollLeft += 1250;
+      this.$refs.scroller.scrollLeft -= 1250;
     },
     rightArrowClick() {
-      this.$refs.scroller.scrollLeft -= 1250;
+      this.$refs.scroller.scrollLeft += 1250;
     },
   },
 };
