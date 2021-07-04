@@ -46,14 +46,14 @@
           position: relative;
           overflow: hidden;
           cursor: pointer;
-          width: 180px;
+          width: 400px;
           height: 150px;
-          flex: 1 1 150px;
+          flex: 1 1 227px;
           img {
             transform: scale(1) !important;
           }
           &:nth-child(1) {
-            width: 700px;
+            width: 850px;
             height: 500px;
             flex: 1 1 auto;
           }
@@ -134,21 +134,16 @@
           flex-direction: column;
           max-height: 305px;
           div {
-            width: 180px;
+            width: 250px;
             height: 150px;
-            flex: 1 1 150px;
+            flex: 1 1 107px;
             img {
               transform: scale(1) !important;
             }
             &:nth-child(1) {
-              width: 360px;
+              width: 380px;
               height: 300px;
-              flex: 1 1 360px;
-            }
-            &:nth-child(7) {
-              &:after {
-                display: none;
-              }
+              flex: 1 1 220px;
             }
           }
         }
