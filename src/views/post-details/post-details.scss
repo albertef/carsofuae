@@ -57,6 +57,11 @@
             height: 500px;
             flex: 1 1 auto;
           }
+          &:nth-child(2):nth-last-child(1) {
+            width: 850px;
+            height: 500px;
+            flex: 1 1 auto;
+          }
         }
       }
     }
@@ -141,6 +146,11 @@
               transform: scale(1) !important;
             }
             &:nth-child(1) {
+              width: 380px;
+              height: 300px;
+              flex: 1 1 255px;
+            }
+            &:nth-child(2):nth-last-child(1) {
               width: 380px;
               height: 300px;
               flex: 1 1 255px;
