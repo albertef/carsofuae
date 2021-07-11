@@ -68,7 +68,7 @@
           span {
             width: 30px;
             svg {
-              color: rgba($green, 1);
+              color: $green;
             }
           }
           p {
@@ -90,8 +90,6 @@
       }
     }
     .garage-list-container {
-      margin-bottom: 0 !important;
-      padding-bottom: 0 !important;
       .garage-list {
         h5 {
           font-size: 1.1rem;
