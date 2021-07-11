@@ -19,9 +19,44 @@ import {
   faUserTie,
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
+  faBolt,
+  faStar,
+  faStarHalfAlt,
+  faCar,
+  faCarCrash,
+  faPlayCircle,
+  faTools,
+  faToolbox,
+  faExclamationTriangle,
+  faPlug,
+  faWind,
+  faCog,
+  faFan,
+  faCarBattery,
+  faPause,
+  faWrench,
+  faLifeRing,
+  faCircleNotch,
+  faUserCheck,
+  faThumbtack,
+  faDrumSteelpan,
+  faShieldAlt,
+  faBullseye,
+  faMapMarkedAlt,
+  faKey,
+  faTachometerAlt,
+  faPowerOff,
+  faHandshake,
+  faChargingStation,
+  faDiagnoses,
+  faHandSparkles,
+  faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
+import {
+  faCalendarAlt,
+  faStar as faStarRegular,
+} from "@fortawesome/free-regular-svg-icons";
 
 library.add(faSearch);
 library.add(faLongArrowAltRight);
@@ -42,3 +77,36 @@ library.add(faCalendarAlt);
 library.add(faUserTie);
 library.add(faArrowAltCircleLeft);
 library.add(faArrowAltCircleRight);
+library.add(faBolt);
+library.add(faStar);
+library.add(faStarHalfAlt);
+library.add(faStarRegular);
+library.add(faCar);
+library.add(faCarCrash);
+library.add(faPlayCircle);
+library.add(faTools);
+library.add(faToolbox);
+library.add(faExclamationTriangle);
+library.add(faPlug);
+library.add(faWind);
+library.add(faCog);
+library.add(faFan);
+library.add(faCarBattery);
+library.add(faPause);
+library.add(faWrench);
+library.add(faLifeRing);
+library.add(faCircleNotch);
+library.add(faUserCheck);
+library.add(faThumbtack);
+library.add(faDrumSteelpan);
+library.add(faShieldAlt);
+library.add(faBullseye);
+library.add(faMapMarkedAlt);
+library.add(faKey);
+library.add(faTachometerAlt);
+library.add(faPowerOff);
+library.add(faHandshake);
+library.add(faChargingStation);
+library.add(faDiagnoses);
+library.add(faHandSparkles);
+library.add(faCheckSquare);

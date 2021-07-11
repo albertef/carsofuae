@@ -7,7 +7,7 @@ export default {
     Header,
     Footer,
   },
-  mounted() {
-    document.body.classList.add('hide-overflow');
-  }
-}
+  created() {
+    document.body.classList.add("hide-overflow");
+  },
+};

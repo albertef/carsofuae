@@ -8,9 +8,27 @@
           </div>
           <div class="col-12 p-0 d-lg-none mobile-footer-menu">
             <ul>
-              <li><font-awesome-icon :icon="['fas','home']" /><span>Home</span></li>
-              <li><font-awesome-icon :icon="['fas','search']" /><span>Search</span></li>
-              <li><font-awesome-icon :icon="['fas','user-alt']" /><span>Profile</span></li>
+              <li>
+                <router-link class="nav-link" to="/home"
+                  ><font-awesome-icon :icon="['fas','home']" /><span
+                    >Home</span
+                  ></router-link
+                >
+              </li>
+              <li>
+                <router-link class="nav-link" to="/search"
+                  ><font-awesome-icon :icon="['fas','search']" /><span
+                    >Search</span
+                  ></router-link
+                >
+              </li>
+              <li>
+                <router-link class="nav-link" to="/profile"
+                  ><font-awesome-icon :icon="['fas','user-alt']" /><span
+                    >Profile</span
+                  ></router-link
+                >
+              </li>
             </ul>
           </div>
         </div>

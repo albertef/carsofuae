@@ -1,0 +1,12 @@
+<div class="star-wrapper">
+  <span v-for="i in roundedValue">
+    <font-awesome-icon :icon="['fas', 'star']" class="selected" />
+  </span>
+  <span v-if="halfStar">
+    <font-awesome-icon :icon="['fas', 'star-half-alt']" class="selected" />
+  </span>
+  <span v-for="i in remainingStarValue">
+    <font-awesome-icon :icon="['fas', 'star']" />
+  </span>
+  <span class="ml-2 rating-value">{{actualValue}}</span>
+</div>

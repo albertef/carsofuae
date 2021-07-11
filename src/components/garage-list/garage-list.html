@@ -1,0 +1,48 @@
+<div class="garage-list-wrapper">
+  <div class="row sticky-head">
+    <div class="col-12 mt-3 mb-2">
+      <div class="top-tabs">
+        <div
+          class="tab"
+          :class="garageCategory === 'deals' && 'active'"
+          @click="updateGarageCategory('deals')"
+        >
+          <font-awesome-icon :icon="['fas','bolt']" />View Deals
+        </div>
+
+        <div
+          class="tab"
+          :class="garageCategory === 'browse' && 'active'"
+          @click="updateGarageCategory('browse')"
+        >
+          <font-awesome-icon :icon="['fas', 'warehouse']" />Browse Garages
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2 pt-3 garage-list-container">
+    <div
+      class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
+      v-for="garages in garageList"
+    >
+      <div class="garage-list px-4 py-3">
+        <h5 class="mb-1">
+          {{garages.name}}
+          <font-awesome-icon :icon="['fas','bolt']" v-if="garages.deals" />
+        </h5>
+        <Star :value="calculateStarValue(garages.reviews)" />
+        <p class="my-1">
+          <font-awesome-icon :icon="['fas','map-marker-alt']" />
+          {{garages.place}}
+        </p>
+
+        <div class="garage-service-wrapper mt-3">
+          <div v-for="service in getServiceList(garages.services)">
+            <span><font-awesome-icon :icon="service.icon" /></span>
+            <p>{{service.title}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

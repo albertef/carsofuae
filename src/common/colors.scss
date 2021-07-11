@@ -1,5 +1,7 @@
 $black: #000000;
 $white: #ffffff;
+$red: #ff3015;
+$green: #207537;
 
 $purple: #6308d3; //e90cba
 $purple-90: rgba($purple, 0.9);
@@ -12,4 +14,15 @@ $purple-30: rgba($purple, 0.3);
 $purple-20: rgba($purple, 0.2);
 $purple-10: rgba($purple, 0.1);
 
-$purpleArray: ($purple, $purple-90, $purple-80, $purple-70, $purple-60, $purple-50, $purple-40, $purple-30, $purple-20, $purple-10);
+$purpleArray: (
+  $purple,
+  $purple-90,
+  $purple-80,
+  $purple-70,
+  $purple-60,
+  $purple-50,
+  $purple-40,
+  $purple-30,
+  $purple-20,
+  $purple-10
+);

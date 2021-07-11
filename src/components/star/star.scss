@@ -1,0 +1,15 @@
+.star-wrapper {
+  span {
+    svg {
+      &.selected {
+        color: $purple;
+      }
+      color: rgba($black, 0.2);
+    }
+  }
+  .rating-value {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: $purple;
+  }
+}

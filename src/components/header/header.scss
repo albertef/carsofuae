@@ -1,8 +1,6 @@
 nav {
   &.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100px;
     background: $white;
@@ -24,7 +22,9 @@ nav {
           svg {
             display: none;
           }
-          &:hover, &.router-link-active.router-link-exact-active {
+          &:hover,
+          &.router-link-active,
+          &.router-link-active.router-link-exact-active {
             color: $purple;
           }
         }
@@ -67,7 +67,7 @@ nav {
         width: 21px;
       }
       &:nth-child(3) {
-        width: 18px;
+        width: 17px;
       }
     }
     &:not(.collapsed) {
@@ -152,12 +152,9 @@ nav {
             display: inline !important;
             min-width: 30px;
           }
-          &:hover {
-            background-color: $purple;
-          }
-        }
-        &.active {
-          a {
+          &:hover,
+          &.router-link-active,
+          &.router-link-active.router-link-exact-active {
             background-color: $purple;
           }
         }

@@ -1,7 +1,6 @@
 .carousel-wrapper {
   background: url("../../assets/main-bg.png") no-repeat;
   background-size: cover;
-  padding-top: 100px !important;
   .slide-row {
     display: flex;
     > div {
@@ -40,7 +39,4 @@
   }
 }
 @media screen and (max-width: 991px) {
-  .carousel-wrapper {
-    padding-top: 70px !important;
-  }
 }

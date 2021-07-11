@@ -1,5 +1,4 @@
 .post-details-wrapper {
-  padding-top: 100px !important;
   .image-title-wrapper {
     .icon {
       color: $purple;
@@ -105,7 +104,6 @@
 
 @media screen and (max-width: 991px) {
   .post-details-wrapper {
-    padding-top: 70px !important;
     margin-top: 0 !important;
     .image-title-wrapper {
       display: flex;

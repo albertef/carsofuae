@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/home/home.vue";
 import PostDetails from "@/views/post-details/post-details.vue";
+import Garages from "@/views/garages/garages.vue";
 import ComingSoon from "@/views/coming-soon/coming-soon.vue";
 
 Vue.use(Router);
@@ -46,7 +47,8 @@ const router = new Router({
     {
       path: "/garages",
       name: "Garages",
-      component: ComingSoon,
+      params: true,
+      component: Garages,
       meta: { title: "Garages" },
     },
     {
@@ -55,9 +57,23 @@ const router = new Router({
       component: ComingSoon,
       meta: { title: "Spare Parts" },
     },
+    {
+      path: "/search",
+      name: "Search",
+      component: ComingSoon,
+      meta: { title: "Search" },
+    },
+    {
+      path: "/profile",
+      name: "Profile",
+      component: ComingSoon,
+      meta: { title: "Profile" },
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    const mainEl = document.getElementById("main");
+    mainEl.scrollTo(0, 0);
+    return { el: mainEl, x: 0, y: 0 };
   },
 });
 

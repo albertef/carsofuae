@@ -1,3 +1,16 @@
 .hide-overflow {
-  overflow-x: hidden;
+  overflow: hidden;
+}
+.main {
+  max-height: calc(100vh - 155px);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .main {
+    max-height: calc(100vh - 125px);
+  }
 }

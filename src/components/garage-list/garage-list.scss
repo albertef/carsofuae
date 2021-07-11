@@ -1,0 +1,105 @@
+.garage-list-wrapper {
+  .sticky-head {
+    background-color: $white;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+  }
+  .top-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .tab {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid $purple;
+      color: $purple;
+      transition: 0.3s ease;
+      &:first-child {
+        border-radius: 0.12rem 0 0 0.12rem;
+      }
+      &:last-child {
+        border-radius: 0 0.12rem 0.12rem 0;
+      }
+      &:hover,
+      &.active {
+        background: $purple;
+        color: $white;
+      }
+      svg {
+        margin-right: 15px;
+      }
+    }
+  }
+  .garage-list-container {
+    .garage-list {
+      border: 1px solid rgba($black, 0.05);
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: $shadow-small;
+      transition: 0.3s ease;
+      cursor: pointer;
+      &:hover,
+      &:active,
+      &:focus {
+        box-shadow: $shadow-purple;
+      }
+      h5 {
+        font-weight: 600;
+        svg {
+          float: right;
+          color: $red;
+        }
+      }
+      .garage-service-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        > div {
+          display: inline-flex;
+          min-width: 50%;
+          margin: 5px 0;
+          span {
+            width: 30px;
+            svg {
+              color: rgba($green, 1);
+            }
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .top-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .tab {
+        font-size: 1rem;
+        padding: 12px 0;
+      }
+    }
+    .garage-list-container {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+      .garage-list {
+        h5 {
+          font-size: 1.1rem;
+        }
+        p {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
