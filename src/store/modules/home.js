@@ -4,30 +4,23 @@ const state = {
   postList: [],
   garageList: [],
   garageCategory: "browse",
+  garageDetailsEnabled: false,
+  selectedGarage: null,
 };
 
 const actions = {
   async getPostList({ commit }) {
     let dataset = {},
       url = "/mocks/posts.json";
-    // if (process.env.NODE_ENV === "development") {
-    //   url = "/mocks/posts.json";
-    // } else {
-    //   url = "http://localhost/get_posts";
-    // }
     dataset = await axiosInstance.get(url);
-    if (dataset.status !== false) {
-      commit("updatePostList", dataset.data);
-    }
+    commit("updatePostList", dataset);
     return dataset;
   },
   async getGarageList({ commit }) {
     let dataset = {},
       url = "/mocks/garages.json";
     dataset = await axiosInstance.get(url);
-    if (dataset.status !== false) {
-      commit("updateGarageList", dataset.data);
-    }
+    commit("updateGarageList", dataset);
     return dataset;
   },
 };
@@ -37,6 +30,13 @@ const getters = {
     return function (id) {
       return state.postList.find((post) => {
         return post.id === Number(id);
+      });
+    };
+  },
+  getSingleGarageData(state) {
+    return function (id) {
+      return state.garageList.find((garage) => {
+        return garage.id === Number(id);
       });
     };
   },
@@ -51,6 +51,12 @@ const mutations = {
   },
   updateGarageCategory(state, value) {
     state.garageCategory = value;
+  },
+  updateGarageDetailsEnabled(state, value) {
+    state.garageDetailsEnabled = value;
+  },
+  updateSelectedGarage(state, value) {
+    state.selectedGarage = value;
   },
 };
 

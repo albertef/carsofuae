@@ -51,12 +51,20 @@ import {
   faDiagnoses,
   faHandSparkles,
   faCheckSquare,
+  faPhone,
+  faFace,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
   faCalendarAlt,
   faStar as faStarRegular,
 } from "@fortawesome/free-regular-svg-icons";
+
+import {
+  faLinkedin,
+  faInstagramSquare,
+  faFacebookSquare,
+} from "@fortawesome/free-brands-svg-icons";
 
 library.add(faSearch);
 library.add(faLongArrowAltRight);
@@ -110,3 +118,7 @@ library.add(faChargingStation);
 library.add(faDiagnoses);
 library.add(faHandSparkles);
 library.add(faCheckSquare);
+library.add(faPhone);
+library.add(faFacebookSquare);
+library.add(faInstagramSquare);
+library.add(faLinkedin);

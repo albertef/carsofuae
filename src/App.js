@@ -10,4 +10,9 @@ export default {
   created() {
     document.body.classList.add("hide-overflow");
   },
+  computed: {
+    showLoader() {
+      return this.$store.state.common.loader;
+    },
+  },
 };

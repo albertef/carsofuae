@@ -1,4 +1,12 @@
-<button :class="`btn ${type} d-flex justify-content-center align-items-center`" @click="clicked" :style="buttonStyle">
-  <font-awesome-icon :icon="icon" v-if="icon && icon.length" />
-  <span v-else>{{ text }}</span>
+<button
+  :class="`btn ${type} d-flex justify-content-center align-items-center`"
+  @click="clicked"
+  :style="buttonStyle"
+>
+  <font-awesome-icon
+    :icon="icon"
+    v-if="icon && icon.length"
+    :class="text && 'small-font'"
+  />
+  <span v-if="text">{{ text }}</span>
 </button>

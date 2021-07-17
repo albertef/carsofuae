@@ -46,18 +46,38 @@
       box-shadow: $shadow-small;
       transition: 0.3s ease;
       cursor: pointer;
+      min-width: 100%;
+      position: relative;
       &:hover,
       &:active,
       &:focus {
         box-shadow: $shadow-purple;
       }
-      h5 {
-        font-weight: 600;
-        svg {
-          float: right;
-          color: $red;
+      .garage-list-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        h5 {
+          font-weight: 600;
+          position: static;
+          svg {
+            color: $red;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+          }
+        }
+        > div {
+          width: 100%;
+        }
+        .garage-dp {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          object-fit: cover;
         }
       }
+
       .garage-service-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -75,6 +95,31 @@
             margin: 0;
           }
         }
+      }
+    }
+    &.deals-container {
+      h5 {
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        em {
+          font-style: normal;
+        }
+        span {
+          font-size: 0.75rem;
+          font-weight: 400;
+          float: right;
+          svg {
+            float: none;
+            color: $purple;
+          }
+        }
+      }
+      img {
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
       }
     }
   }

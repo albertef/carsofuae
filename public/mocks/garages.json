@@ -5,6 +5,7 @@
     "desc": "<p>A family run business established in 1983 by Steve Cross, Cross Motor Engineering has enjoyed a continued relationship with the local community and their vehicles. Upon Steve’s retirement in 2004, Luke Cross took over and has increased both the number of staff as well as the number of services provided. In 2008, Cross Motor Engineering moved to the current site in Bidford Upon Avon.</p><p>Cross Motor Engineering work with private customers, businesses and partners alike across Warwickshire and the West Midlands. The combined experience, training and knowledge of the Cross Motor Engineering team has created a “go to” reputation within the local area if either the problem or the vehicle is a little out of the ordinary. Our aim is to provide a top quality service for all our customers’ automotive needs. We service all makes and models of vehicle using O.E quality parts.</p>",
     "place": "19c, Bidavon Industrial Estate, Waterloo Rd, Bidford-on-Avon, Bidford-On-Avon, B50 4JN",
     "phone": "01789 579 113",
+    "profilePicture": "https://www.teahub.io/photos/full/155-1559995_car-dp-for-whatsapp.jpg",
     "reviews": [
       {
         "date": "12-12-2021",
@@ -59,8 +60,13 @@
       }
     ],
     "location": {
-      "lang": "52.207628",
-      "lat": "-1.730089"
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    },
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
     }
   },
   {
@@ -69,6 +75,7 @@
     "desc": "<p>A family run business established in 1983 by Steve Cross, Cross Motor Engineering has enjoyed a continued relationship with the local community and their vehicles. Upon Steve’s retirement in 2004, Luke Cross took over and has increased both the number of staff as well as the number of services provided. In 2008, Cross Motor Engineering moved to the current site in Bidford Upon Avon.</p><p>Cross Motor Engineering work with private customers, businesses and partners alike across Warwickshire and the West Midlands. The combined experience, training and knowledge of the Cross Motor Engineering team has created a “go to” reputation within the local area if either the problem or the vehicle is a little out of the ordinary. Our aim is to provide a top quality service for all our customers’ automotive needs. We service all makes and models of vehicle using O.E quality parts.</p>",
     "place": "19c, Bidavon Industrial Estate, Waterloo Rd, Bidford-on-Avon, Bidford-On-Avon, B50 4JN",
     "phone": "01789 579 113",
+    "profilePicture": "https://www.teahub.io/photos/full/156-1560247_free-car-wallpapers-for-whatsapp-dp-aston-martin.jpg",
     "reviews": [
       {
         "date": "12-12-2021",
@@ -123,10 +130,32 @@
       }
     ],
     "location": {
-      "lang": "52.207628",
-      "lat": "-1.730089"
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
     },
-    "deals": true
+    "isDeals": true,
+    "deals": [
+      {
+        "date": "07-12-2021",
+        "title": "Best Car Deal 1",
+        "poster": "http://www.abexcarrental.com/ckfinder/userfiles/images/banner_eng.jpg"
+      },
+      {
+        "date": "07-10-2021",
+        "title": "Best Car Deal 1",
+        "poster": "https://d2dgtayfmpkokn.cloudfront.net/wp-content/uploads/sites/226/2018/07/28131809/july-vw-offer-banner.jpg"
+      },
+      {
+        "date": "07-08-2021",
+        "title": "Best Car Deal 1",
+        "poster": "https://avdgraph.com/wp-content/uploads/car-rental-banner.jpg"
+      }
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    }
   },
   {
     "id": 3,
@@ -134,6 +163,7 @@
     "desc": "<p>A family run business established in 1983 by Steve Cross, Cross Motor Engineering has enjoyed a continued relationship with the local community and their vehicles. Upon Steve’s retirement in 2004, Luke Cross took over and has increased both the number of staff as well as the number of services provided. In 2008, Cross Motor Engineering moved to the current site in Bidford Upon Avon.</p><p>Cross Motor Engineering work with private customers, businesses and partners alike across Warwickshire and the West Midlands. The combined experience, training and knowledge of the Cross Motor Engineering team has created a “go to” reputation within the local area if either the problem or the vehicle is a little out of the ordinary. Our aim is to provide a top quality service for all our customers’ automotive needs. We service all makes and models of vehicle using O.E quality parts.</p>",
     "place": "19c, Bidavon Industrial Estate, Waterloo Rd, Bidford-on-Avon, Bidford-On-Avon, B50 4JN",
     "phone": "01789 579 113",
+    "profilePicture": "https://car-images.bauersecure.com/upload/32859/images/560x315/astonconcept_0440824.jpg",
     "reviews": [
       {
         "date": "12-12-2021",
@@ -188,8 +218,13 @@
       }
     ],
     "location": {
-      "lang": "52.207628",
-      "lat": "-1.730089"
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    },
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
     }
   },
   {
@@ -198,6 +233,7 @@
     "desc": "<p>A family run business established in 1983 by Steve Cross, Cross Motor Engineering has enjoyed a continued relationship with the local community and their vehicles. Upon Steve’s retirement in 2004, Luke Cross took over and has increased both the number of staff as well as the number of services provided. In 2008, Cross Motor Engineering moved to the current site in Bidford Upon Avon.</p><p>Cross Motor Engineering work with private customers, businesses and partners alike across Warwickshire and the West Midlands. The combined experience, training and knowledge of the Cross Motor Engineering team has created a “go to” reputation within the local area if either the problem or the vehicle is a little out of the ordinary. Our aim is to provide a top quality service for all our customers’ automotive needs. We service all makes and models of vehicle using O.E quality parts.</p>",
     "place": "19c, Bidavon Industrial Estate, Waterloo Rd, Bidford-on-Avon, Bidford-On-Avon, B50 4JN",
     "phone": "01789 579 113",
+    "profilePicture": "https://cdn.jhmrad.com/wp-content/uploads/modern-shed-roof-house-plan-dashing-hireonic_2422091-670x400.jpg",
     "reviews": [
       {
         "date": "12-12-2021",
@@ -252,10 +288,32 @@
       }
     ],
     "location": {
-      "lang": "52.207628",
-      "lat": "-1.730089"
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
     },
-    "deals": true
+    "isDeals": true,
+    "deals": [
+      {
+        "date": "07-11-2021",
+        "title": "Best Car Deal 2",
+        "poster": "http://www.abexcarrental.com/ckfinder/userfiles/images/banner_eng.jpg"
+      },
+      {
+        "date": "07-09-2021",
+        "title": "Best Car Deal 2",
+        "poster": "https://d2dgtayfmpkokn.cloudfront.net/wp-content/uploads/sites/226/2018/07/28131809/july-vw-offer-banner.jpg"
+      },
+      {
+        "date": "07-07-2021",
+        "title": "Best Car Deal 2",
+        "poster": "https://avdgraph.com/wp-content/uploads/car-rental-banner.jpg"
+      }
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    }
   },
   {
     "id": 5,
@@ -263,6 +321,7 @@
     "desc": "<p>A family run business established in 1983 by Steve Cross, Cross Motor Engineering has enjoyed a continued relationship with the local community and their vehicles. Upon Steve’s retirement in 2004, Luke Cross took over and has increased both the number of staff as well as the number of services provided. In 2008, Cross Motor Engineering moved to the current site in Bidford Upon Avon.</p><p>Cross Motor Engineering work with private customers, businesses and partners alike across Warwickshire and the West Midlands. The combined experience, training and knowledge of the Cross Motor Engineering team has created a “go to” reputation within the local area if either the problem or the vehicle is a little out of the ordinary. Our aim is to provide a top quality service for all our customers’ automotive needs. We service all makes and models of vehicle using O.E quality parts.</p>",
     "place": "19c, Bidavon Industrial Estate, Waterloo Rd, Bidford-on-Avon, Bidford-On-Avon, B50 4JN",
     "phone": "01789 579 113",
+    "profilePicture": "https://design-milk.com/images/2012/07/autospace.jpg",
     "reviews": [
       {
         "date": "12-12-2021",
@@ -317,9 +376,30 @@
       }
     ],
     "location": {
-      "lang": "52.207628",
-      "lat": "-1.730089"
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
     },
-    "deals": true
+    "isDeals": true,
+    "deals": [
+      {
+        "date": "07-13-2021",
+        "title": "Best Car Deal 3",
+        "poster": "http://www.abexcarrental.com/ckfinder/userfiles/images/banner_eng.jpg"
+      },
+      {
+        "date": "07-08-2021",
+        "title": "Best Car Deal 3",
+        "poster": "https://d2dgtayfmpkokn.cloudfront.net/wp-content/uploads/sites/226/2018/07/28131809/july-vw-offer-banner.jpg"
+      },
+      {
+        "date": "07-06-2021",
+        "title": "Best Car Deal 3",
+        "poster": "https://avdgraph.com/wp-content/uploads/car-rental-banner.jpg"
+      }
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com"
+    }
   }
 ]

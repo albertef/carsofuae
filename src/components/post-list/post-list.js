@@ -49,14 +49,11 @@ export default {
         name: "PostDetails",
         query: {
           id: data.id,
-          title: `${this.formatTitle(data.make)}-${this.formatTitle(
+          title: `${UTILS.formatTitle(data.make)}-${UTILS.formatTitle(
             data.company
-          )}-${this.formatTitle(data.model)}-${this.formatTitle(data.desc)}`,
+          )}-${UTILS.formatTitle(data.model)}-${UTILS.formatTitle(data.desc)}`,
         },
       });
-    },
-    formatTitle(value) {
-      return value?.replace(/[\. ,:-]+/g, "-").toLowerCase();
     },
   },
 };

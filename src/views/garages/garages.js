@@ -1,20 +1,37 @@
 import router from "@/router";
 import garageList from "@/components/garage-list/garage-list.vue";
+import garageDetails from "@/components/garage-details/garage-details.vue";
 
 export default {
   name: "garages",
   components: {
     garageList,
+    garageDetails,
   },
-  mounted() {},
+  mounted() {
+    if (this.$route.query.id) {
+      this.$store.commit("updateSelectedGarage", this.$route.query.id);
+      this.$store.commit("updateGarageDetailsEnabled", true);
+    } else {
+      this.$store.commit("updateSelectedGarage", null);
+      this.$store.commit("updateGarageDetailsEnabled", false);
+    }
+  },
   computed: {
     garageCategory() {
-      return this.$route.query.category;
+      return this.$store.state.home.garageCategory;
     },
-  },
-  methods: {
-    getServiceList1(value) {
-      return this.garageServices.filter((item) => value.includes(item.id));
+    isDetailEnabled() {
+      return this.$store.state.home.garageDetailsEnabled;
+    },
+    isListEnabled() {
+      if (this.$route.query.category) {
+        this.$store.commit("updateGarageDetailsEnabled", false);
+        return true;
+      } else {
+        this.$store.commit("updateGarageDetailsEnabled", true);
+        return false;
+      }
     },
   },
 };

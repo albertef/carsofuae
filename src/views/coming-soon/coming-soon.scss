@@ -1,10 +1,10 @@
 .coming-soon-wrapper {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-        max-height: 250px;
-    }
+  width: 100%;
+  height: calc(100vh - 155px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    max-height: 250px;
+  }
 }

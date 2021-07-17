@@ -1,6 +1,11 @@
 import router from "@/router";
 import Star from "@/components/star/star.vue";
 import garageServiceList from "@/meta/services.json";
+import dayjs from "dayjs";
+import { UTILS } from "@/utility/utils.js";
+
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 const GARAGE_CATEGORY = {
   deals: "deals",
@@ -12,20 +17,29 @@ export default {
   components: {
     Star,
   },
-  mounted() {
-    this.$store.dispatch("getGarageList");
+  async mounted() {
+    await this.$store.dispatch("getGarageList");
+    this.$store.commit("updateGarageCategory", this.$route.query.category);
   },
   computed: {
     garageCategory() {
-      return this.$route.query.category;
+      return this.$store.state.home.garageCategory;
     },
     garageList() {
-      if (this.garageCategory === GARAGE_CATEGORY.deals) {
-        return this.$store.state.home.garageList.filter(
-          (item) => item.deals === true
-        );
-      }
       return this.$store.state.home.garageList;
+    },
+    dealsList() {
+      let dealsArray = [];
+      this.$store.state.home.garageList.filter((item) => {
+        if (item.isDeals && item.deals.length) {
+          const deals = item.deals.map((deal) => {
+            let id = { id: item.id };
+            return { ...id, ...deal };
+          });
+          dealsArray = [...dealsArray, ...deals];
+        }
+      });
+      return dealsArray.sort((a, b) => dayjs(b.date) - dayjs(a.date));
     },
   },
   methods: {
@@ -42,11 +56,14 @@ export default {
       return garageServiceList.filter((item) => value.includes(item.id));
     },
     calculateStarValue(value) {
-      let starValue = 0;
-      for (let index of value) {
-        starValue += index.star;
-      }
-      return starValue / value.length;
+      return UTILS.calculateStarValue(value);
+    },
+    formatDate(date) {
+      return UTILS.formatDate(date);
+    },
+    garageDetails(id) {
+      this.$store.commit("updateSelectedGarage", id);
+      this.$store.commit("updateGarageDetailsEnabled", true);
     },
   },
 };

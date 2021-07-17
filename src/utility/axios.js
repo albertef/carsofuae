@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import store from "@/store";
 
 const BASE_URL = "//";
@@ -15,7 +14,7 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   (error) => {
-    Common.showAlertMessage(networkErrorMessage, "error");
+    updateLoader(false);
     console.error(error);
     return false;
   }
@@ -24,23 +23,12 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response) => {
     updateLoader(false);
-    if (response.status >= 200 && response.status <= 299 && !response.data.errors) {
-      const responseData = response.data ? response.data : {};
-      return {
-        status: true,
-        data: responseData,
-      };
-    } else {
-      const error = response.data.errors ? response.data.errors.message : networkErrorMessage;
-      Common.showAlertMessage(error, "error");
-      return getErrorMessage(error);
-    }
+    return response.data ? response.data : {};
   },
   (error = {}) => {
     updateLoader(false);
     console.error(error);
-    const response = error.response ? error.response : {};
-    return getErrorMessage(networkErrorMessage);
+    return false;
   }
 );
 

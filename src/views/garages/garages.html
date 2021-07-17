@@ -1,3 +1,4 @@
 <div class="garages-wrapper container p-0">
-  <garageList />
+  <garageDetails v-if="isDetailEnabled" />
+  <garageList v-if="isListEnabled" />
 </div>

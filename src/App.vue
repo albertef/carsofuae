@@ -5,6 +5,7 @@
       <router-view />
     </div>
     <Footer />
+    <Loader :show="showLoader" />
   </div>
 </template>
 

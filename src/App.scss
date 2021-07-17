@@ -1,9 +1,11 @@
 .hide-overflow {
   overflow: hidden;
+  min-height: calc(100vh - 155px);
 }
 .main {
   max-height: calc(100vh - 155px);
   overflow-y: auto;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     display: none;
   }

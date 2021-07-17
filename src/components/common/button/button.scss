@@ -23,6 +23,18 @@
       background: rgba($black, 0.7);
     }
   }
+  &.green {
+    background: $green;
+    &:hover {
+      background: rgba($green, 0.85);
+    }
+  }
+  &.red {
+    background: $red;
+    &:hover {
+      background: rgba($red, 0.85);
+    }
+  }
   &.hollow {
     background: transparent;
     border: 1px solid $purple;
@@ -36,5 +48,9 @@
     font-size: 1.5rem;
     transition: 0.3s ease;
     transform: rotate(0deg);
+    &.small-font {
+      font-size: 0.875rem;
+      margin-right: 10px;
+    }
   }
 }
