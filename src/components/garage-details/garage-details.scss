@@ -36,6 +36,11 @@
         height: 60px;
         border-radius: 50%;
         object-fit: cover;
+        margin-right: 20px;
+      }
+      .phone {
+        display: flex;
+        justify-content: space-between;
       }
     }
     .social-rating {
@@ -46,7 +51,7 @@
       .social {
         .icon {
           margin-left: 0.5rem;
-          font-size: 2.2rem;
+          width: 40px;
           cursor: pointer;
           &.facebook {
             color: map-get($brand, "facebook");
@@ -88,6 +93,12 @@
         margin-top: 0 !important;
       }
     }
+    ::v-deep .VueCarousel-navigation-prev {
+      left: 7px;
+    }
+    ::v-deep .VueCarousel-navigation-next {
+      right: 5px;
+    }
     .services {
       display: flex;
       flex-wrap: wrap;
@@ -101,7 +112,7 @@
         span {
           width: 30px;
           svg {
-            color: $green;
+            color: $purple;
           }
         }
         p {
@@ -156,6 +167,20 @@
         margin: 20px 0;
         width: 100%;
         text-align: center;
+      }
+      .garage-dp {
+        margin-right: 0 !important;
+      }
+      .phone {
+        width: 100%;
+        > button {
+          &:first-child {
+            margin-right: 5px;
+          }
+          &:last-child {
+            margin-left: 5px;
+          }
+        }
       }
       button {
         width: 100% !important;

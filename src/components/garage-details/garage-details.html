@@ -18,32 +18,42 @@
             class="garage-dp img-fluid"
           />
           <h4>{{getSingleGarageDetails.name}}</h4>
-          <!-- prettier-ignore -->
-          <Button
-            type="green"
-            :text="getSingleGarageDetails.phone"
-            class="ml-3"
-            :icon="['fas', 'phone']"
-            @click="openPhone(getSingleGarageDetails.phone)"
-          />
+          <div class="phone">
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Call"
+              class="ml-3"
+              :icon="['fas', 'phone']"
+              @click="openPhone(getSingleGarageDetails.phone)"
+            />
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Whatsapp"
+              class="ml-3"
+              :icon="['fab', 'whatsapp']"
+              @click="openWhatsapp(getSingleGarageDetails.phone)"
+            />
+          </div>
         </div>
         <div class="social-rating">
           <Star :value="calculateStarValue(getSingleGarageDetails.reviews)" />
           <div class="social">
-            <font-awesome-icon
-              :icon="['fab', 'facebook-square']"
+            <img
+              src="../../assets/facebook.png"
               class="icon facebook"
               v-if="getSingleGarageDetails.social.facebook"
               @click="socialOpen(getSingleGarageDetails.social.facebook)"
             />
-            <font-awesome-icon
-              :icon="['fab', 'linkedin']"
+            <img
+              src="../../assets/linkedin.png"
               class="icon linkedin"
               v-if="getSingleGarageDetails.social.linkedin"
               @click="socialOpen(getSingleGarageDetails.social.linkedin)"
             />
-            <font-awesome-icon
-              :icon="['fab', 'instagram-square']"
+            <img
+              src="../../assets/instagram.png"
               class="icon instagram"
               v-if="getSingleGarageDetails.social.instagram"
               @click="socialOpen(getSingleGarageDetails.social.instagram)"
@@ -52,7 +62,13 @@
         </div>
 
         <div class="slider mt-3">
-          <Carousel id="garage-carousel" :per-page="1" :loop="true">
+          <Carousel
+            id="garage-carousel"
+            :per-page="1"
+            :loop="true"
+            :autoplay="true"
+            :navigationEnabled="true"
+          >
             <Slide
               v-for="image, index in getSingleGarageDetails.gallery"
               v-bind:key="index"
@@ -76,7 +92,13 @@
             <font-awesome-icon :icon="['fas','bolt']" class="bolt-icon" /> Our
             Deals
           </h5>
-          <Carousel id="deals-carousel" :per-page="1" :loop="true">
+          <Carousel
+            id="deals-carousel"
+            :per-page="1"
+            :loop="true"
+            :autoplay="true"
+            :navigationEnabled="true"
+          >
             <Slide
               v-for="image, index in getSingleGarageDetails.deals"
               v-bind:key="index"

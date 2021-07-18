@@ -62,6 +62,9 @@ export default {
     socialOpen(link) {
       window.open(link);
     },
+    openWhatsapp(num) {
+      window.open(`https://wa.me/${num.replace(/[^\d\+]/g, "")}`);
+    },
     calculateStarValue(value) {
       return UTILS.calculateStarValue(value);
     },
