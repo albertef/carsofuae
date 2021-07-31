@@ -200,5 +200,9 @@
         height: 200px !important;
       }
     }
+    ::v-deep .VueCarousel-navigation-prev,
+    ::v-deep .VueCarousel-navigation-next {
+      display: none;
+    }
   }
 }
