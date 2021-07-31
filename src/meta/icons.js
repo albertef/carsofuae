@@ -52,7 +52,8 @@ import {
   faHandSparkles,
   faCheckSquare,
   faPhone,
-  faFace,
+  faChevronRight,
+  faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -124,3 +125,5 @@ library.add(faFacebookSquare);
 library.add(faInstagramSquare);
 library.add(faLinkedin);
 library.add(faWhatsapp);
+library.add(faChevronRight);
+library.add(faChevronLeft);

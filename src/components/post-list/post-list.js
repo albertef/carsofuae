@@ -17,9 +17,19 @@ export default {
       postCount: LOAD_COUNT,
     };
   },
-  mounted() {
-    this.$store.dispatch("getPostList");
+  props: {
+    data: {
+      type: Array,
+      default: [],
+    },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
   },
+  // mounted() {
+  //   this.$store.dispatch("getPostList");
+  // },
   computed: {
     featuredPostData() {
       return this.fullPostData.filter((item) => item.featured === true);
@@ -31,7 +41,7 @@ export default {
       return this.fullPostData?.slice(0, this.postCount);
     },
     fullPostData() {
-      return this.$store.state.home.postList;
+      return this.data;
     },
   },
   methods: {

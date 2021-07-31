@@ -9,6 +9,14 @@ export default {
     Banner,
     Services,
     PostList,
-    FixedHomeButtons
+    FixedHomeButtons,
+  },
+  async mounted() {
+    await this.$store.dispatch("getPostList");
+  },
+  computed: {
+    fullPostData() {
+      return this.$store.state.home.postList;
+    },
   },
 };

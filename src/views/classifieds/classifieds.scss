@@ -1,0 +1,32 @@
+.classifieds-wrapper {
+  .bread-crumb {
+    font-size: 12px;
+    display: flex;
+    span {
+      cursor: pointer;
+      color: $purple;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 700;
+      em {
+        font-style: normal;
+        color: rgba($black, 0.8);
+        cursor: default;
+      }
+      &:last-child {
+        em {
+          display: none;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .bread-crumb {
+      span {
+        em {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}

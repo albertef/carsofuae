@@ -2,6 +2,8 @@ import CoolLightBox from "vue-cool-lightbox";
 import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 import { Disqus } from "vue-disqus";
 import PostDetailTable from "@/components/post-detail-table/post-detail-table.vue";
+import store from "@/store";
+import Button from "@/components/common/button/button.vue";
 
 export default {
   name: "post-details",
@@ -9,6 +11,7 @@ export default {
     CoolLightBox,
     PostDetailTable,
     Disqus,
+    Button,
   },
   data() {
     return {
@@ -16,7 +19,9 @@ export default {
     };
   },
   async mounted() {
+    store.commit("updateLoader", true);
     await this.$store.dispatch("getPostList");
+    store.commit("updateLoader", false);
   },
   computed: {
     getPostId() {
@@ -32,6 +37,12 @@ export default {
     },
     rightArrowClick() {
       this.$refs.scroller.scrollLeft += 1250;
+    },
+    openPhone(num) {
+      document.location.href = `tel:${num}`;
+    },
+    openWhatsapp(num) {
+      window.open(`https://wa.me/${num.replace(/[^\d\+]/g, "")}`);
     },
   },
 };

@@ -151,6 +151,15 @@
       // }
     }
   }
+  .no-result {
+    min-height: 400px;
+    h6 {
+      font-weight: 600;
+    }
+    p {
+      font-size: 0.875rem;
+    }
+  }
   @media screen and (max-width: 991px) {
     .card {
       max-height: 150px;

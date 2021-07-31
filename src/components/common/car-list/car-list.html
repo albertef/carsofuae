@@ -1,0 +1,43 @@
+<div class="car-list-wrapper container mb-5">
+  <div class="row">
+    <div class="col-12 mt-4 mb-1">
+      <h5 class="heading">
+        Select Car <span>{{getSelectedCarMake ? 'Model' : 'Make'}}</span>
+      </h5>
+    </div>
+    <div class="col-12 my-3 search-wrapper">
+      <InputText
+        :id="filterInputId"
+        class="inputText"
+        :placeholder="getSelectedCarMake ? 'Search Model' : 'Search Car'"
+        @value="filterCarData($event)"
+      />
+      <div class="d-flex justify-content-center mt-2 text-uppercase">
+        {{getSelectedCarMake ? `${getCarModelCount} Models Found` :
+        `${getCarMakeCount} Cars Found`}}
+      </div>
+    </div>
+    <template v-if="!getSelectedCarMake">
+      <div
+        class="col-xs-12 col-lg-2 my-3 car-list-cont"
+        v-for="make in getCarMakes"
+      >
+        <div @click="getCarModels(make)" class="car-list">
+          {{make}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+    <template v-else>
+      <div
+        class="col-xs-12 col-lg-2 my-3 car-list-cont"
+        v-for="model in getAllCarModels"
+      >
+        <div @click="getposts(model)" class="car-list">
+          {{model}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+  </div>
+</div>

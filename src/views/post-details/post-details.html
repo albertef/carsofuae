@@ -53,6 +53,28 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-12">
+          <div class="phone d-flex px-3 px-lg-0 mb-4">
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Call"
+              class="flex-fill mr-1"
+              :icon="['fas', 'phone']"
+              @click="openPhone(postData.phone)"
+            />
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Whatsapp"
+              class="flex-fill ml-1"
+              :icon="['fab', 'whatsapp']"
+              @click="openWhatsapp(postData.phone)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-9">
           <h5>Overview</h5>
           <PostDetailTable :data="postData" />

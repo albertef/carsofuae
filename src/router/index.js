@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "@/views/home/home.vue";
 import PostDetails from "@/views/post-details/post-details.vue";
 import Garages from "@/views/garages/garages.vue";
+import Classifieds from "@/views/classifieds/classifieds.vue";
 import ComingSoon from "@/views/coming-soon/coming-soon.vue";
 
 Vue.use(Router);
@@ -29,7 +30,7 @@ const router = new Router({
     {
       path: "/classifieds",
       name: "Classifieds",
-      component: ComingSoon,
+      component: Classifieds,
       meta: { title: "Classifieds" },
     },
     {

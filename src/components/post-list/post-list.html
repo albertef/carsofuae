@@ -1,18 +1,56 @@
-<div class="post-list-wrapper container-fluid my-5 pb-5">
+<div class="post-list-wrapper container-fluid mb-5 pb-5">
   <div class="row">
     <div class="col-12">
       <div class="container">
-        <div class="row">
-          <div class="col-12 mb-5 p-0">
-            <h3 class="heading">Featured <span>posts</span></h3>
+          <div class="row featured-wrapper mt-5" v-if="featured">
+            <div class="col-12 mb-5 p-0">
+              <h3 class="heading">Featured <span>posts</span></h3>
+            </div>
+            <Carousel
+              id="post-carousel"
+              controls="true"
+              :navigationEnabled="true"
+              :autoplay="true"
+            >
+              <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
+                <div
+                  class="card"
+                  :class="post.featured && 'featured'"
+                  @click="viewPostDetails(post)"
+                >
+                  <div class="thumb-wrapper">
+                    <img :src="post.thumb" class="img-fluid" />
+                  </div>
+                  <div class="post-details">
+                    <h5
+                      class="my-2"
+                      :title="`${post.make} ${post.company} ${post.model}`"
+                    >
+                      <span
+                        >{{ post.make }} {{ post.company }} {{ post.model
+                        }}</span
+                      >
+                      <em></em>
+                    </h5>
+                    <p class="distance">
+                      <span>{{ formatDistance(post.distance, 3) }} kms</span
+                      ><em></em>
+                    </p>
+                    <p><em></em> <span>AED {{ post.price }}</span></p>
+                  </div>
+                  <span class="featured-icon" title="Featured Post">
+                    <!-- <font-awesome-icon :icon="['fas','medal']" /> -->
+                    <img src="../../assets/featured.png" class="img-fluid" />
+                  </span>
+                </div>
+              </div>
+            </Carousel>
           </div>
-          <Carousel
-            id="post-carousel"
-            controls="true"
-            :navigationEnabled="true"
-            :autoplay="true"
-          >
-            <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
+          <div class="row latest-posts" v-if="postData.length">
+            <div class="col-12 p-lg-0 my-3 my-lg-5">
+              <h3 class="heading">Latest <span>posts</span></h3>
+            </div>
+            <div class="col-4 col-md-3 p-0" v-for="post in postData">
               <div
                 class="card"
                 :class="post.featured && 'featured'"
@@ -37,53 +75,24 @@
                   </p>
                   <p><em></em> <span>AED {{ post.price }}</span></p>
                 </div>
-                <span class="featured-icon" title="Featured Post">
-                  <!-- <font-awesome-icon :icon="['fas','medal']" /> -->
+                <span
+                  class="featured-icon"
+                  title="Featured Post"
+                  v-if="post.featured"
+                >
                   <img src="../../assets/featured.png" class="img-fluid" />
                 </span>
               </div>
             </div>
-          </Carousel>
-          <div class="col-12 p-0 my-5">
-            <h3 class="heading">Latest <span>posts</span></h3>
-          </div>
-          <div class="col-4 col-md-3 p-0" v-for="post in postData">
-            <div
-              class="card"
-              :class="post.featured && 'featured'"
-              @click="viewPostDetails(post)"
-            >
-              <div class="thumb-wrapper">
-                <img :src="post.thumb" class="img-fluid" />
-              </div>
-              <div class="post-details">
-                <h5
-                  class="my-2"
-                  :title="`${post.make} ${post.company} ${post.model}`"
-                >
-                  <span
-                    >{{ post.make }} {{ post.company }} {{ post.model }}</span
-                  >
-                  <em></em>
-                </h5>
-                <p class="distance">
-                  <span>{{ formatDistance(post.distance, 3) }} kms</span
-                  ><em></em>
-                </p>
-                <p><em></em> <span>AED {{ post.price }}</span></p>
-              </div>
-              <span
-                class="featured-icon"
-                title="Featured Post"
-                v-if="post.featured"
-              >
-                <img src="../../assets/featured.png" class="img-fluid" />
-              </span>
+            <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
+              <!-- prettier-ignore -->
+              <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
             </div>
           </div>
-          <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
-            <!-- prettier-ignore -->
-            <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
+          <div v-else class="d-flex flex-column justify-content-center align-items-center no-result">
+            <img src="../../assets/no-results.png" class="img-fluid" />
+            <h6>No Results Found</h6>
+            <p class="my-2">try changing the filters or search term</p>
           </div>
         </div>
       </div>

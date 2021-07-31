@@ -6,6 +6,9 @@ const state = {
   garageCategory: "browse",
   garageDetailsEnabled: false,
   selectedGarage: null,
+  carData: [],
+  selectedCarMake: "",
+  selectedCarModel: "",
 };
 
 const actions = {
@@ -21,6 +24,13 @@ const actions = {
       url = "/mocks/garages.json";
     dataset = await axiosInstance.get(url);
     commit("updateGarageList", dataset);
+    return dataset;
+  },
+  async getCarList({ commit }) {
+    let dataset = {},
+      url = "/mocks/car.json";
+    dataset = await axiosInstance.get(url);
+    commit("updateCarList", dataset);
     return dataset;
   },
 };
@@ -40,6 +50,20 @@ const getters = {
       });
     };
   },
+  getAllCarMakes(state) {
+    return [...new Set(state.carData.map((make) => make.make))].sort();
+  },
+  getAllCarModels(state) {
+    return function (make) {
+      return [
+        ...new Set(
+          state.carData
+            ?.filter((item) => item.make === make)
+            ?.map((el) => el.model)
+        ),
+      ].sort();
+    };
+  },
 };
 
 const mutations = {
@@ -48,6 +72,15 @@ const mutations = {
   },
   updateGarageList(state, dataset) {
     state.garageList = dataset;
+  },
+  updateCarList(state, dataset) {
+    state.carData = dataset;
+  },
+  updateSelectedCarMake(state, make) {
+    state.selectedCarMake = make;
+  },
+  updateSelectedCarModel(state, model) {
+    state.selectedCarModel = model;
   },
   updateGarageCategory(state, value) {
     state.garageCategory = value;
