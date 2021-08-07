@@ -18,8 +18,13 @@
           <font-awesome-icon :icon="['fas', 'warehouse']" />Browse Garages
         </div>
       </div>
-      <div class="filter">
-        <div class="options"></div>
+      <div class="filter-wrapper mt-3 d-flex justify-content-end">
+        <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
+        <GarageFilter
+          :data="garageList"
+          @close="filterToggle"
+          v-if="filterEnabled"
+        />
       </div>
     </div>
   </div>

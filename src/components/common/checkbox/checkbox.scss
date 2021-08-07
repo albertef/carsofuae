@@ -1,0 +1,38 @@
+.checkbox-wrapper {
+  display: inline-flex;
+  user-select: none;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+}
+.icon {
+  color: rgba($black, 0.2);
+  height: 1.125rem;
+  width: 1.125rem;
+  font-size: 1.125rem;
+  display: flex;
+  transition: 0.3s ease;
+  &:hover {
+    color: $purple;
+  }
+  &.checked,
+  &.indeterminate {
+    color: $purple;
+  }
+  &.disabled {
+    color: rgba($black, 0.1);
+    pointer-events: none;
+    cursor: not-allowed;
+    &.checked,
+    &.indeterminate {
+      color: $purple-20;
+    }
+  }
+}
+.label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  padding-left: 10px;
+}

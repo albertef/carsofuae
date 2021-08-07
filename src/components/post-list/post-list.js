@@ -2,6 +2,7 @@ import Button from "@/components/common/button/button.vue";
 import { Carousel, Slide } from "vue-carousel";
 import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
+import PostFilter from "@/components/post-filter/post-filter.vue";
 
 const LOAD_COUNT = 9;
 
@@ -11,10 +12,12 @@ export default {
     Button,
     Carousel,
     Slide,
+    PostFilter,
   },
   data() {
     return {
       postCount: LOAD_COUNT,
+      filterEnabled: false,
     };
   },
   props: {
@@ -64,6 +67,9 @@ export default {
           )}-${UTILS.formatTitle(data.model)}-${UTILS.formatTitle(data.desc)}`,
         },
       });
+    },
+    filterToggle() {
+      this.filterEnabled = !this.filterEnabled;
     },
   },
 };

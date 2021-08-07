@@ -1,0 +1,39 @@
+<div class="garage-filter-wrapper container-fluid mb-5 p-4 pb-5">
+  <div class="container p-0 pb-4">
+    <div class="row">
+      <div class="col-12 mb-3 heading">
+        <h5>Select Filter Options</h5>
+        <font-awesome-icon :icon="['fas', 'times']" @click="closeFilter" />
+      </div>
+      <div class="col-12 col-lg-4 filter-column">
+        <label>Location</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Location" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-4 filter-column">
+        <label>Rating</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Rating" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-4 filter-column">
+        <label>Deals</label>
+        <Radio :selected="false" value="With Deals" name="deals" />
+        <Radio :selected="true" value="Without Deals" name="deals" />
+      </div>
+      <div class="col-12 col-lg-12 filter-column">
+        <label>Services Offered</label>
+        <div class="service-choices">
+          <span v-for="service in garageServiceList" class="service-list">
+            <Checkbox :value="false" :label="service.title" />
+          </span>
+        </div>
+      </div>
+      <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+        <!-- prettier-ignore -->
+        <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
+        <!-- prettier-ignore -->
+        <Button type="primary" text="Apply" @click="closeFilter" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.radio-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+  .radio-container {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    .hidden-radio:checked ~ .inner {
+      visibility: visible;
+    }
+    .hidden-radio:checked ~ .outer {
+      border: 0.0625rem solid $purple;
+    }
+    .circle {
+      background: $white;
+      box-sizing: border-box;
+      border-radius: 0.5625rem;
+      &.inner {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: $purple;
+        position: absolute;
+        visibility: hidden;
+        transition: 0.3s ease;
+      }
+      &.outer {
+        width: 1.125rem;
+        height: 1.125rem;
+        border: 0.0625rem solid rgba($black, 0.2);
+        transition: 0.3s ease;
+      }
+      &.outer:hover {
+        border: 0.0625rem solid $purple;
+      }
+    }
+    .hidden-radio {
+      display: none;
+      &.disabled {
+        ~ .inner,
+        ~ .outer,
+        ~ .outer:hover {
+          background: rgba($black, 0.2);
+          border-color: rgba($black, 0.2);
+        }
+        &:checked {
+          ~ .circle {
+            background: rgba($black, 0.4);
+            &.inner {
+              background: rgba($black, 0.4);
+            }
+            &.outer,
+            &.outer:hover {
+              border-color: rgba($black, 0.4);
+            }
+          }
+        }
+      }
+    }
+  }
+  .label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: 0.03125rem;
+    color: rgba($black, 0.4);
+    display: flex;
+    padding-left: 10px;
+    user-select: none;
+    justify-content: center;
+  }
+}

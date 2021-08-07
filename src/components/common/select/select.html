@@ -1,0 +1,18 @@
+<div class="select-wrapper" @blur="open = false">
+  <div class="selected" :class="{ open: open }" @click="open = !open">
+    {{ selected }}
+  </div>
+  <div class="items" :class="{ selectHide: !open }">
+    <div
+      v-for="(option, i) of options"
+      :key="i"
+      @click="
+        selected = option;
+        open = false;
+        $emit('selectValue', option);
+      "
+    >
+      {{ option }}
+    </div>
+  </div>
+</div>

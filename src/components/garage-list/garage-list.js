@@ -3,6 +3,7 @@ import Star from "@/components/star/star.vue";
 import garageServiceList from "@/meta/services.json";
 import dayjs from "dayjs";
 import { UTILS } from "@/utility/utils.js";
+import GarageFilter from "@/components/garage-filter/garage-filter.vue";
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
@@ -16,6 +17,12 @@ export default {
   name: "garageList",
   components: {
     Star,
+    GarageFilter,
+  },
+  data() {
+    return {
+      filterEnabled: false,
+    };
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
@@ -64,6 +71,9 @@ export default {
     garageDetails(id) {
       this.$store.commit("updateSelectedGarage", id);
       this.$store.commit("updateGarageDetailsEnabled", true);
+    },
+    filterToggle() {
+      this.filterEnabled = !this.filterEnabled;
     },
   },
 };

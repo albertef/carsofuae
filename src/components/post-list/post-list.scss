@@ -206,4 +206,23 @@
       }
     }
   }
+  .latest-posts {
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      .filter-wrapper {
+        svg {
+          cursor: pointer;
+          color: rgba($black, 0.8);
+          transition: 0.3s ease;
+          margin-right: 3px;
+          font-size: 1.2rem;
+
+          &:hover {
+            color: rgba($black, 0.4);
+          }
+        }
+      }
+    }
+  }
 }

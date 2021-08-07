@@ -50,15 +50,18 @@ import {
   faChargingStation,
   faDiagnoses,
   faHandSparkles,
-  faCheckSquare,
   faPhone,
   faChevronRight,
   faChevronLeft,
+  faCheckSquare,
+  faMinusSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
   faCalendarAlt,
   faStar as faStarRegular,
+  faCheckSquare as faCheckSquareRegular,
+  faSquare,
 } from "@fortawesome/free-regular-svg-icons";
 
 import {
@@ -127,3 +130,7 @@ library.add(faLinkedin);
 library.add(faWhatsapp);
 library.add(faChevronRight);
 library.add(faChevronLeft);
+library.add(faCheckSquare);
+library.add(faCheckSquareRegular);
+library.add(faSquare);
+library.add(faMinusSquare);

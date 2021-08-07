@@ -47,8 +47,12 @@
             </Carousel>
           </div>
           <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 p-lg-0 my-3 my-lg-5">
+            <div class="col-12 p-lg-0 my-3 my-lg-5 heading">
               <h3 class="heading">Latest <span>posts</span></h3>
+              <div class="filter-wrapper">
+                <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
+                <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
+              </div>
             </div>
             <div class="col-4 col-md-3 p-0" v-for="post in postData">
               <div

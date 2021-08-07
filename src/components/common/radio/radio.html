@@ -1,0 +1,16 @@
+<div class="radio-wrapper" @click="checked">
+  <div class="radio-container">
+    <input
+      type="radio"
+      class="hidden-radio"
+      :class="disabled && 'disabled'"
+      :name="name"
+      :checked="selected"
+    />
+    <div class="circle outer" />
+    <div class="circle inner" />
+  </div>
+  <div class="label">
+    <slot> {{ value }} </slot>
+  </div>
+</div>

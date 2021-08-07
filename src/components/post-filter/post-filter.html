@@ -1,0 +1,111 @@
+<div class="post-filter-wrapper container-fluid mb-5 p-4 pb-5">
+  <div class="container p-0 pb-4">
+    <div class="row">
+      <div class="col-12 mb-3 heading">
+        <h5>Select Filter Options</h5>
+        <font-awesome-icon :icon="['fas', 'times']" @click="closeFilter" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Brand</label>
+        <!-- prettier-ignore -->
+        <Select :options="getCarMakes" default="Select Brand" @selectValue="updateSelectedCarMake" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Model</label>
+        <!-- prettier-ignore -->
+        <Select :options="getAllCarModels" default="Select Model" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Year</label>
+        <!-- prettier-ignore -->
+        <Select :options="yeardropdownValues" default="Select Year" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Trim</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Trim" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Kilometers</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Kilometers" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Regional Specs</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Regional Specs" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Body Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Body Type" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Warranty" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>No.of Cylinders</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select No.of Cylinders" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Transmission Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Transmission Type" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Horse Power</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Horse Power" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Fuel Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Fuel Type" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Steering Side</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Steering Side" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Exterior Color</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Exterior Color" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Interior Color</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Interior Color" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Doors</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Doors" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Body Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Body Condition" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Mechanical Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Mechanical Condition" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Seller Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="[]" default="Select Seller Type" @selectValue="getSelectInput" />
+      </div>
+      <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+        <!-- prettier-ignore -->
+        <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
+        <!-- prettier-ignore -->
+        <Button type="primary" text="Apply" @click="closeFilter" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.post-filter-wrapper {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 155px);
+  background-color: $white;
+  top: 100px;
+  left: 0;
+  z-index: 9;
+  overflow-y: auto;
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba($black, 0.1);
+    svg {
+      cursor: pointer;
+    }
+  }
+  .filter-column {
+    margin-bottom: 20px;
+    label {
+      font-weight: 700;
+      color: $black;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    top: 70px;
+    height: calc(100vh - 125px);
+  }
+}
