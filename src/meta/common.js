@@ -20,6 +20,10 @@ export const META = {
       name: "Number Plates",
       image: "license-plate.png",
     },
+    {
+      name: "Accessories and Parts",
+      image: "accessories.png",
+    },
   ],
   serviceList: [
     {
