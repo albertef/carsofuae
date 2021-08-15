@@ -1,4 +1,26 @@
 export const META = {
+  classifiedsCategories: [
+    {
+      name: "Used Cars",
+      image: "car.png",
+    },
+    {
+      name: "Motorcycles",
+      image: "bike.png",
+    },
+    {
+      name: "Heavy Vehicles",
+      image: "truck.png",
+    },
+    {
+      name: "Boats",
+      image: "boat.png",
+    },
+    {
+      name: "Number Plates",
+      image: "license-plate.png",
+    },
+  ],
   serviceList: [
     {
       name: "Classifieds",

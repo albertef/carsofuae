@@ -5,14 +5,15 @@
   outline: none;
   height: auto;
   line-height: 140%;
+
   .selected {
     background-color: $white;
     border-radius: 3px;
-    border: 1px solid rgba($black, 0.2);
     color: rgba($black, 0.4);
     padding: 0.5em;
     cursor: pointer;
     user-select: none;
+    box-shadow: $shadow-small;
     &:after {
       position: absolute;
       content: "";
@@ -25,14 +26,14 @@
     }
   }
   .selected.open {
-    border: 1px solid rgba($black, 0.1);
     border-radius: 3px 3px 0px 0px;
+    box-shadow: $shadow-purple;
   }
   .items {
     color: rgba($black, 0.2);
     border-radius: 0px 0px 3px 3px;
     overflow: hidden;
-    border: 1px solid rgba($black, 0.1);
+    box-shadow: $shadow-small;
     border-top: none;
     position: absolute;
     background-color: $white;
@@ -41,6 +42,7 @@
     z-index: 1;
     max-height: 300px;
     overflow-y: auto;
+
     div {
       color: rgba($black, 0.4);
       padding: 0.5em;

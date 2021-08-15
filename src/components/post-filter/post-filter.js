@@ -2,6 +2,7 @@ import Button from "@/components/common/button/button.vue";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 import Radio from "@/components/common/radio/radio.vue";
 import Select from "@/components/common/select/select.vue";
+import InputText from "@/components/common/input-text/input-text.vue";
 
 export default {
   name: "PostFilter",
@@ -10,6 +11,7 @@ export default {
     Checkbox,
     Radio,
     Select,
+    InputText,
   },
   data() {
     return {

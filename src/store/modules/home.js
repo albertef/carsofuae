@@ -9,6 +9,7 @@ const state = {
   carData: [],
   selectedCarMake: "",
   selectedCarModel: "",
+  selectedClassifiedCategory: "",
 };
 
 const actions = {
@@ -90,6 +91,9 @@ const mutations = {
   },
   updateSelectedGarage(state, value) {
     state.selectedGarage = value;
+  },
+  updateSelectedClassifiedCategory(state, value) {
+    state.selectedClassifiedCategory = value;
   },
 };
 
