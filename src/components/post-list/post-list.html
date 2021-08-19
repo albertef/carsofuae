@@ -1,83 +1,74 @@
-<div class="post-list-wrapper container-fluid mb-5 pb-5">
+<div class="post-list-wrapper container-fluid mb-5 pb-5" :class="listView && 'list-view'">
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row featured-wrapper mt-5" v-if="featured">
-            <div class="col-12 mb-5 p-0">
-              <h3 class="heading">Featured <span>posts</span></h3>
+          <div class="row latest-posts" v-if="postData.length">
+            <div class="col-12 p-lg-0 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
+              <h3 class="heading">Latest <span> posts</span></h3>
+              <div class="right-column">
+                <div class="filter-wrapper" title="Filter Options">
+                  <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
+                  <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
+                </div>
+                <div class="view-wrapper">
+                  <span :class="!listView && 'active'" @click="viewToggle('grid')" title="Grid View">
+                    <font-awesome-icon :icon="['fas', 'grip-horizontal']" />
+                  </span>
+                  <span :class="listView && 'active'" @click="viewToggle('list')" title="List View">
+                    <font-awesome-icon :icon="['fas', 'grip-lines']" />
+                  </span>
+                </div>
+              </div>
             </div>
-            <Carousel
-              id="post-carousel"
-              controls="true"
-              :navigationEnabled="true"
-              :autoplay="true"
-            >
-              <div class="col-4 col-md-3 p-0" v-for="post in featuredPostData">
-                <div
-                  class="card"
-                  :class="post.featured && 'featured'"
-                  @click="viewPostDetails(post)"
-                >
-                  <div class="thumb-wrapper">
-                    <img :src="post.thumb" class="img-fluid" />
-                  </div>
-                  <div class="post-details">
+            <div :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'" v-for="post in postData">
+              <div
+                class="card"
+                :class="post.featured && 'featured'"
+                @click="listView ? '' : viewPostDetails(post)"
+              >
+                <div class="thumb-wrapper" @click="listView ? viewPostDetails(post) : ''">
+                  <img :src="post.thumb" class="img-fluid" />
+                </div>
+                <div class="post-details">
+                  <div @click="listView ? viewPostDetails(post) : ''">
+                    <p class="grid-hide"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</p>
                     <h5
                       class="my-2"
                       :title="`${post.make} ${post.company} ${post.model}`"
                     >
                       <span
-                        >{{ post.make }} {{ post.company }} {{ post.model
-                        }}</span
+                        >{{ post.make }} {{ post.company }} {{ post.model }}</span
                       >
                       <em></em>
                     </h5>
-                    <p class="distance">
-                      <span>{{ formatDistance(post.distance, 3) }} kms</span
-                      ><em></em>
-                    </p>
-                    <p><em></em> <span>AED {{ post.price }}</span></p>
+                    <p class="grid-hide mb-2">{{post.desc}}</p>
+                    <p class="grid-hide"><font-awesome-icon :icon="['fas', 'map-marker-alt']" class="mr-1" /> {{post.place}}</p>
+                    <div class="distance-price">
+                      <p class="distance">
+                        <span>{{listView ? 'Kilometers: ' : ''}}{{ formatDistance(post.distance, 3) }} kms</span
+                        ><em></em>
+                      </p>
+                      <p class="price"><em></em> <span>{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span></p>
+                    </div>
                   </div>
-                  <span class="featured-icon" title="Featured Post">
-                    <!-- <font-awesome-icon :icon="['fas','medal']" /> -->
-                    <img src="../../assets/featured.png" class="img-fluid" />
-                  </span>
-                </div>
-              </div>
-            </Carousel>
-          </div>
-          <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 p-lg-0 my-3 my-lg-5 heading">
-              <h3 class="heading">Latest <span>posts</span></h3>
-              <div class="filter-wrapper">
-                <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
-              </div>
-            </div>
-            <div class="col-4 col-md-3 p-0" v-for="post in postData">
-              <div
-                class="card"
-                :class="post.featured && 'featured'"
-                @click="viewPostDetails(post)"
-              >
-                <div class="thumb-wrapper">
-                  <img :src="post.thumb" class="img-fluid" />
-                </div>
-                <div class="post-details">
-                  <h5
-                    class="my-2"
-                    :title="`${post.make} ${post.company} ${post.model}`"
-                  >
-                    <span
-                      >{{ post.make }} {{ post.company }} {{ post.model }}</span
-                    >
-                    <em></em>
-                  </h5>
-                  <p class="distance">
-                    <span>{{ formatDistance(post.distance, 3) }} kms</span
-                    ><em></em>
-                  </p>
-                  <p><em></em> <span>AED {{ post.price }}</span></p>
+                  <div class="phone px-lg-0 mt-4 grid-hide">
+                    <!-- prettier-ignore -->
+                    <Button
+                      type="green"
+                      text="Call"
+                      class="flex-fill mr-1"
+                      :icon="['fas', 'phone']"
+                      @click="openPhone(post.phone)"
+                    />
+                    <!-- prettier-ignore -->
+                    <Button
+                      type="green"
+                      text="Whatsapp"
+                      class="flex-fill ml-1"
+                      :icon="['fab', 'whatsapp']"
+                      @click="openWhatsapp(post.phone)"
+                    />
+                  </div>
                 </div>
                 <span
                   class="featured-icon"

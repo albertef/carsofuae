@@ -10,6 +10,7 @@ const state = {
   selectedCarMake: "",
   selectedCarModel: "",
   selectedClassifiedCategory: "",
+  postView: false,
 };
 
 const actions = {
@@ -94,6 +95,9 @@ const mutations = {
   },
   updateSelectedClassifiedCategory(state, value) {
     state.selectedClassifiedCategory = value;
+  },
+  updatePostView(state, value) {
+    state.postView = value;
   },
 };
 

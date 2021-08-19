@@ -55,6 +55,8 @@ import {
   faChevronLeft,
   faCheckSquare,
   faMinusSquare,
+  faGripHorizontal,
+  faGripLines,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -134,3 +136,5 @@ library.add(faCheckSquare);
 library.add(faCheckSquareRegular);
 library.add(faSquare);
 library.add(faMinusSquare);
+library.add(faGripHorizontal);
+library.add(faGripLines);

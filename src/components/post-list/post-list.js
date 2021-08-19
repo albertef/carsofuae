@@ -25,18 +25,8 @@ export default {
       type: Array,
       default: [],
     },
-    featured: {
-      type: Boolean,
-      default: false,
-    },
   },
-  // mounted() {
-  //   this.$store.dispatch("getPostList");
-  // },
   computed: {
-    featuredPostData() {
-      return this.fullPostData.filter((item) => item.featured === true);
-    },
     isPostlength() {
       return this.fullPostData.length > this.postCount;
     },
@@ -45,6 +35,9 @@ export default {
     },
     fullPostData() {
       return this.data;
+    },
+    listView() {
+      return this.$store.state.home.postView;
     },
   },
   methods: {
@@ -70,6 +63,15 @@ export default {
     },
     filterToggle() {
       this.filterEnabled = !this.filterEnabled;
+    },
+    viewToggle(value) {
+      this.$store.commit("updatePostView", value === "list" ? true : false);
+    },
+    openPhone(num) {
+      document.location.href = `tel:${num}`;
+    },
+    openWhatsapp(num) {
+      window.open(`https://wa.me/${num.replace(/[^\d\+]/g, "")}`);
     },
   },
 };
