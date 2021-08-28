@@ -26,9 +26,27 @@
                 :class="post.featured && 'featured'"
                 @click="listView ? '' : viewPostDetails(post)"
               >
-                <div class="thumb-wrapper" @click="listView ? viewPostDetails(post) : ''">
-                  <img :src="post.thumb" class="img-fluid" />
-                </div>
+              <div class="thumb-wrapper">
+                <Carousel
+                  id="post-list-carousel"
+                  :per-page="1"
+                  :navigationEnabled="true"
+                  easing="ease-out"
+                  class="post-list-carousel"
+                >
+                  <Slide
+                    v-for="(image, index) in post.gallery"
+                    v-bind:key="index"
+                  >
+                    <span class="gallery-counter">{{index+1}}/{{post.gallery.length}}</span>
+                    <img :src="image" class="img-fluid" />
+                  </Slide>
+                </Carousel>
+                <img :src="post.thumb" class="img-fluid post-list-image" @click="listView ? viewPostDetails(post) : ''" />
+              </div>
+                
+                
+                
                 <div class="post-details">
                   <div @click="listView ? viewPostDetails(post) : ''">
                     <p class="grid-hide"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</p>
