@@ -58,8 +58,9 @@ export default {
       const shareData = {
         title: "Cars Of UAE",
         text: "Cars Of UAE",
-        url: encodeURIComponent(window.location.href),
+        url: encodeURIComponent(this.$route.fullPath),
       };
+
       try {
         await navigator.share(shareData);
         alert("Page Shared successfully");
