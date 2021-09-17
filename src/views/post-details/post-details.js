@@ -58,7 +58,7 @@ export default {
       const shareData = {
         title: "Cars Of UAE",
         text: "Cars Of UAE",
-        url: encodeURIComponent(this.$route.fullPath),
+        url: decodeURIComponent(this.$route.fullPath),
       };
 
       try {
