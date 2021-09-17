@@ -62,7 +62,7 @@ export default {
       };
       try {
         await navigator.share(shareData);
-        alert("MDN shared successfully");
+        alert("Page Shared successfully");
       } catch (err) {
         this.modalDisplay = true;
       }
