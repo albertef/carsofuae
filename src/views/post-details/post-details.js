@@ -56,9 +56,9 @@ export default {
     },
     async sharePage() {
       const shareData = {
-        title: "MDN",
-        text: "Learn web development on MDN!",
-        url: "https://developer.mozilla.org",
+        title: "Cars Of UAE",
+        text: "Share page",
+        url: `${encodeURIComponent(window.location.href)}`,
       };
       try {
         await navigator.share(shareData);
