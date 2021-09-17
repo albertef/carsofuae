@@ -10,7 +10,9 @@ const state = {
   selectedCarMake: "",
   selectedCarModel: "",
   selectedClassifiedCategory: "",
+  selectedRentalCategory: "",
   postView: false,
+  rentalData: [],
 };
 
 const actions = {
@@ -33,6 +35,13 @@ const actions = {
       url = "/mocks/car.json";
     dataset = await axiosInstance.get(url);
     commit("updateCarList", dataset);
+    return dataset;
+  },
+  async getRentalList({ commit }) {
+    let dataset = {},
+      url = "/mocks/rental.json";
+    dataset = await axiosInstance.get(url);
+    commit("updateRentalList", dataset);
     return dataset;
   },
 };
@@ -98,6 +107,12 @@ const mutations = {
   },
   updatePostView(state, value) {
     state.postView = value;
+  },
+  updateSelectedRentalCategory(state, value) {
+    state.selectedRentalCategory = value;
+  },
+  updateRentalList(state, dataset) {
+    state.rentalData = dataset;
   },
 };
 

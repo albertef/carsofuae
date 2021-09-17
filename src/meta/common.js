@@ -104,4 +104,66 @@ export const META = {
       title: "Body Work",
     },
   ],
+  rentalCarTypes: [
+    {
+      name: "Luxury Cars",
+      image: "luxury.png",
+    },
+    {
+      name: "SUV",
+      image: "suv.png",
+    },
+    {
+      name: "Economy",
+      image: "economy.png",
+    },
+    {
+      name: "Sedan",
+      image: "sedan.png",
+    },
+    {
+      name: "Super Car",
+      image: "supercar.png",
+    },
+    {
+      name: "Sports Car",
+      image: "sportscar.png",
+    },
+    {
+      name: "Convertable",
+      image: "convertable.png",
+    },
+    {
+      name: "Crossover",
+      image: "crossover.png",
+    },
+    {
+      name: "Coupe",
+      image: "coupe.png",
+    },
+    {
+      name: "Compact",
+      image: "compact.png",
+    },
+    {
+      name: "Muscle",
+      image: "muscle.png",
+    },
+    {
+      name: "Special Edition",
+      image: "specialedition.png",
+    },
+    {
+      name: "Electric",
+      image: "electric.png",
+    },
+    {
+      name: "Van",
+      image: "van.png",
+    },
+    {
+      name: "Mini Van",
+      image: "minivan.png",
+    },
+  ],
 };

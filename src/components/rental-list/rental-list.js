@@ -39,9 +39,6 @@ export default {
     fullPostData() {
       return this.data;
     },
-    listView() {
-      return this.$store.state.home.postView;
-    },
   },
   methods: {
     loadMore() {
@@ -85,12 +82,6 @@ export default {
           window.location.href
         )}`
       );
-    },
-    transitionStart() {
-      document.body.classList.add("hide-overflow");
-    },
-    transitionEnd() {
-      document.body.classList.remove("hide-overflow");
     },
   },
 };

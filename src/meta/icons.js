@@ -57,6 +57,8 @@ import {
   faMinusSquare,
   faGripHorizontal,
   faGripLines,
+  faShareAlt,
+  faSort,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -138,3 +140,5 @@ library.add(faSquare);
 library.add(faMinusSquare);
 library.add(faGripHorizontal);
 library.add(faGripLines);
+library.add(faShareAlt);
+library.add(faSort);

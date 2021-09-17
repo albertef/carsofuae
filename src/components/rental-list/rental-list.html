@@ -1,10 +1,10 @@
-<div class="post-list-wrapper container-fluid mb-5 pb-5" :class="listView && 'list-view'">
+<div class="post-list-wrapper container-fluid mb-5 pb-5 list-view">
   <div class="row">
     <div class="col-12">
       <div class="container">
           <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 p-lg-0 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
-              <h3 class="heading">Latest <span> posts</span></h3>
+            <div class="col-12 p-lg-0 my-3 heading-wrapper mt-lg-5 mb-lg-4">
+              <h5 class="heading">Latest <span> rental cars</span></h5>
               <div class="right-column">
                 <div class="sort-wrapper" title="Sort Options">
                   <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
@@ -15,31 +15,21 @@
                   <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
                   <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
                 </div>
-                <div class="view-wrapper">
-                  <span :class="!listView && 'active'" @click="viewToggle('grid')" title="Grid View">
-                    <font-awesome-icon :icon="['fas', 'grip-horizontal']" />
-                  </span>
-                  <span :class="listView && 'active'" @click="viewToggle('list')" title="List View">
-                    <font-awesome-icon :icon="['fas', 'grip-lines']" />
-                  </span>
-                </div>
               </div>
             </div>
-            <div :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'" v-for="post in postData">
+            <div class="col-12 py-3 px-0" v-for="post in postData">
               <div
                 class="card"
                 :class="post.featured && 'featured'"
-                @click="listView ? '' : viewPostDetails(post)"
               >
               <div class="thumb-wrapper">
                 <Carousel
                   id="post-list-carousel"
+                  :autoplay="true"
                   :per-page="1"
                   :navigationEnabled="true"
                   easing="ease-out"
                   class="post-list-carousel"
-                  @transition-start="transitionStart"
-                  @transition-end="transitionEnd"
                 >
                   <Slide
                     v-for="(image, index) in post.gallery"
@@ -49,19 +39,20 @@
                     <img :src="image" class="img-fluid" />
                   </Slide>
                 </Carousel>
-                <img :src="post.thumb" class="img-fluid post-list-image" @click="listView ? viewPostDetails(post) : ''" />
+                <img :src="post.thumb" class="img-fluid post-list-image" @click="viewPostDetails(post)" />
               </div>
                 
                 
                 
                 <div class="post-details">
-                  <div @click="listView ? viewPostDetails(post) : ''">
-                    <p class="grid-hide list-view-price">
-                      <span class="price">
-                        <em>Selling Price</em>
-                        <span>AED {{ post.price }}</span>
-                      </span>
-                      <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span></p>
+                  <div @click="viewPostDetails(post)">
+                    <div class="list-view-price">
+                        <div v-for="val in post.price">
+                          <span>AED {{ val.price }}/{{ val.per }}</span>
+                          <span>{{ val.km }} kms</span>
+                        </div>
+                      </div>
+                    <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span>
                     <h5
                       class="my-2"
                       :title="`${post.make} ${post.company} ${post.model}`"
@@ -74,7 +65,7 @@
                     <p class="grid-hide desc">{{post.desc}}</p>
                     <div class="distance-price">
                       <p class="distance">
-                        <span><img src="../../assets/distance.png" v-if="listView" /> {{ formatDistance(post.distance, 3) }} kms</span
+                        <span><img src="../../assets/distance.png" /> {{ formatDistance(post.distance, 3) }} kms</span
                         ><em></em>
                       </p>
                       <p class="price"><em></em> <span>{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span></p>

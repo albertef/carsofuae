@@ -50,6 +50,32 @@
               <img :src="image" />
             </div>
           </div>
+          <span @click="sharePage" class="shareIcon">
+            <font-awesome-icon :icon="['fas', 'share-alt']" />
+          </span>
+          <Modal
+            class="small share-modal"
+            @escape="hideModal"
+            v-if="modalDisplay"
+          >
+            <template v-slot:header>
+              <div>
+                <h5>Share to</h5>
+                <font-awesome-icon
+                  :icon="['fas', 'times']"
+                  @click="hideModal"
+                />
+              </div>
+            </template>
+            <template v-slot:body>
+              <div class="icon-wrapper">
+                <img src="../../assets/facebook.png" class="icon facebook" />
+                <img src="../../assets/twitter.png" class="icon twitter" />
+                <img src="../../assets/whatsapp.png" class="icon whatsapp" />
+                <img src="../../assets/email.png" class="icon email" />
+              </div>
+            </template>
+          </Modal>
         </div>
       </div>
       <div class="row">
@@ -75,7 +101,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-12">
           <h5>Overview</h5>
           <PostDetailTable :data="postData" />
           <div class="user-desc mb-4">

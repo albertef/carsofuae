@@ -10,11 +10,10 @@
     position: relative;
     border-radius: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
     &:hover {
       box-shadow: $shadow-purple;
-      .thumb-wrapper {
-        transform: scale(1.1);
-      }
     }
     &.featured {
       .post-details {
@@ -30,11 +29,15 @@
       height: 250px;
       transition: 0.3s ease-in-out;
       transform: scale(1);
+      overflow: hidden;
+      max-width: 350px;
+      width: 100%;
+      display: inline-flex;
       .post-list-carousel {
-        display: none;
+        display: block;
       }
       .post-list-image {
-        display: block;
+        display: none;
       }
       .gallery-counter {
         position: absolute;
@@ -92,24 +95,60 @@
     }
 
     .post-details {
-      .grid-hide {
-        display: none;
+      padding: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      > div {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .list-view-price {
+        display: flex;
+        justify-content: space-between;
+        background-color: $purple-10;
+        border-radius: 5px;
+        border-bottom: 3px solid $purple-60;
+        margin: 10px 0 20px;
+        > div {
+          padding: 10px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          border-radius: 4px;
+          &.active,
+          &:hover {
+            background-color: $purple-60;
+          }
+          span {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .phone {
+        display: inline-flex;
+        flex-direction: row;
       }
       h5 {
-        font-weight: 400;
-        font-size: 0.875rem;
-        position: absolute;
-        top: 10px;
         display: flex;
         max-width: 100%;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: $primary-font;
+        text-transform: uppercase;
         span {
           color: $black;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
           background: rgba($white, 0.9);
-          padding: 2px 10px;
-          height: 20px;
+          height: 100%;
+          padding: 0;
           display: inline-block;
           width: 100%;
           line-height: 120%;
@@ -118,24 +157,20 @@
           border-top: 20px solid rgba($white, 0.9);
           border-right: 20px solid transparent;
         }
-        &:after {
-          content: "";
-          position: absolute;
-          left: calc(90% + 16px);
-          top: 0;
-        }
       }
       p {
-        position: absolute;
-        bottom: 10px;
-        right: 0;
         display: flex;
         align-items: center;
-        height: 20px;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-size: 0.875rem;
         &.distance {
           left: 0;
           span {
             padding: 2px 0 2px 5px;
+            height: 100%;
+            font-size: 0.65rem;
           }
           em {
             border-bottom: 20px solid rgba($white, 0.9);
@@ -143,6 +178,13 @@
             border-left: none;
             border-top: none;
           }
+        }
+        &.desc {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%;
+          display: block;
         }
         span {
           font-size: 0.75rem;
@@ -158,6 +200,28 @@
         em {
           border-top: 20px solid rgba($white, 0.9);
           border-left: 20px solid transparent;
+        }
+      }
+      label {
+        font-size: 0.875rem;
+      }
+      .distance-price {
+        display: inline-flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        .distance,
+        .price {
+          span {
+            padding: 0 !important;
+            font-size: 0.875rem;
+          }
+          img {
+            max-height: 12px;
+            margin-right: 10px;
+          }
+        }
+        .price {
+          display: none;
         }
       }
     }
@@ -204,133 +268,26 @@
       font-size: 0.875rem;
     }
   }
-  &.list-view {
-    .card {
-      display: flex;
-      flex-direction: row;
-      &:hover {
-        .thumb-wrapper {
-          transform: scale(1);
-        }
-      }
-      .thumb-wrapper {
-        overflow: hidden;
-        max-width: 350px;
-        width: 100%;
-        display: inline-flex;
-        .post-list-carousel {
-          display: block;
-        }
-        .post-list-image {
-          display: none;
-        }
-      }
-      .post-details {
-        padding: 20px;
-        .grid-hide {
-          display: inline-flex;
-        }
-        .list-view-price {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          .price {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            em {
-              border: 0;
-              color: rgba($black, 0.4);
-            }
-            span {
-              color: $red;
-              font-size: 1.2rem;
-              font-weight: 700;
-              font-family: $secondary-font;
-            }
-          }
-        }
-        > div {
-          width: 100%;
-          display: inline-flex;
-          flex-direction: column;
-        }
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        .phone {
-          display: inline-flex;
-          flex-direction: row;
-        }
-        h5,
-        p {
-          position: static;
-          width: 100%;
-          height: 100%;
-        }
-        h5 {
-          font-size: 1rem;
-          font-weight: 700;
-          font-family: $primary-font;
-          text-transform: uppercase;
-          span {
-            height: 100%;
-            padding: 0;
-          }
-          &:after {
-            display: none;
-          }
-        }
-        p {
-          margin: 0;
-          font-size: 0.875rem;
-          span {
-            height: 100%;
-            font-size: 0.65rem;
-          }
-          &.desc {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 100%;
-            display: block;
-          }
-        }
-        label {
-          font-size: 0.875rem;
-        }
-        .distance-price {
-          display: inline-flex;
-          justify-content: space-between;
-          margin: 10px 0;
-          .distance,
-          .price {
-            span {
-              padding: 0 !important;
-              font-size: 0.875rem;
-            }
-            img {
-              max-height: 12px;
-              margin-right: 10px;
-            }
-          }
-          .price {
-            display: none;
-          }
-        }
-      }
-    }
-  }
   @media screen and (max-width: 991px) {
     .card {
-      max-height: 150px;
+      max-height: none;
+      flex-direction: column;
+      margin: 0 15px;
+      border-radius: 5px;
+      box-shadow: $shadow-small;
+      border-color: rgba($black, 0.4);
 
       .thumb-wrapper {
-        height: 150px;
+        height: 250px;
+        max-width: 100% !important;
+        img {
+          width: 100%;
+        }
       }
       .post-details {
+        padding: 10px !important;
         h5 {
-          font-size: 0.75rem;
+          font-size: 0.875rem;
           top: 5px;
           margin: 0 !important;
         }
@@ -341,6 +298,9 @@
             height: 20px;
             font-size: 0.65rem;
           }
+        }
+        .distance-price {
+          margin: 5px 0;
         }
       }
       .featured-icon {
@@ -360,32 +320,6 @@
         img {
           width: 16px;
           right: 8px;
-        }
-      }
-    }
-    &.list-view {
-      .card {
-        max-height: none;
-        flex-direction: column;
-        margin: 0 15px;
-        border-radius: 5px;
-        box-shadow: $shadow-small;
-        border-color: rgba($black, 0.4);
-        .thumb-wrapper {
-          height: 250px;
-          max-width: 100% !important;
-          img {
-            width: 100%;
-          }
-        }
-        .post-details {
-          padding: 10px !important;
-          h5 {
-            font-size: 0.875rem;
-          }
-          .distance-price {
-            margin: 5px 0;
-          }
         }
       }
     }
@@ -430,7 +364,7 @@
         .filter-wrapper {
           display: inline-flex;
           align-items: center;
-          margin-right: 15px;
+          margin-left: 15px;
           svg {
             cursor: pointer;
             color: rgba($black, 0.8);
@@ -446,7 +380,7 @@
         .sort-wrapper {
           display: inline-flex;
           align-items: center;
-          margin-right: 15px;
+          margin-left: 15px;
           svg {
             cursor: pointer;
             color: rgba($black, 0.8);

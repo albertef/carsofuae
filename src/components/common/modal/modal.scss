@@ -1,0 +1,112 @@
+.popup-mask {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  transition: opacity 0.3s ease;
+  background: rgba($black, 0.5);
+
+  .popup-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+
+    .popup-container {
+      max-height: 100vh;
+      overflow: auto;
+      box-sizing: border-box;
+      width: 93%;
+      height: auto;
+      margin: 0px auto;
+      padding: 20px;
+      background-color: $white;
+      border-radius: 2px;
+      box-shadow: $shadow-small;
+      transition: all 0.3s ease;
+      font-family: inherit;
+
+      .popup-header h3 {
+        margin-top: 0;
+      }
+
+      .popup-body {
+        position: relative;
+        margin: 15px 0;
+      }
+      .popup-footer {
+        min-height: 32px;
+      }
+    }
+  }
+  //add class="medium" for half sized popup.
+  &.medium {
+    .popup-wrapper {
+      .popup-container {
+        width: 50%;
+        max-width: 93%;
+      }
+    }
+  }
+
+  &.medium-large {
+    .popup-wrapper {
+      .popup-container {
+        width: 80%;
+        max-width: 93%;
+      }
+    }
+  }
+
+  &.small {
+    .popup-wrapper {
+      .popup-container {
+        width: 40%;
+        max-width: 480px;
+      }
+    }
+  }
+
+  //add class="bgWhite" for white background popup.
+  &.bg-white-overlay {
+    .popup-wrapper {
+      .popup-container {
+        background: $white;
+      }
+    }
+  }
+  &.no-padding {
+    .popup-wrapper {
+      .popup-container {
+        padding: 0;
+        .popup-body {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="popup" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the popup transition by editing
+ * these styles.
+ */
+
+.popup-enter {
+  opacity: 0;
+}
+
+.popup-leave-active {
+  opacity: 0;
+}
+
+.popup-enter .popup-container,
+.popup-leave-active .popup-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
