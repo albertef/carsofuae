@@ -57,8 +57,8 @@ export default {
     async sharePage() {
       const shareData = {
         title: "Cars Of UAE",
-        text: "Share page",
-        url: `${encodeURIComponent(window.location.href)}`,
+        text: "Cars Of UAE",
+        url: encodeURIComponent(window.location.href),
       };
       try {
         await navigator.share(shareData);
