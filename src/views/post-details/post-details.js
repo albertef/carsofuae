@@ -65,6 +65,9 @@ export default {
         await navigator.share(shareData);
         alert("Page Shared successfully");
       } catch (err) {
+        if (err.toString().includes("AbortError")) {
+          return;
+        }
         this.modalDisplay = true;
       }
     },
