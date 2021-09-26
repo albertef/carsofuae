@@ -1,0 +1,199 @@
+<div class="rental-details-wrapper container" v-if="rentalData">
+  <div class="row mt-4 mb-5 pb-3">
+    <div class="col-12 col-lg-8">
+      <div class="shadow-container p-3 mb-3">
+        <div class="header">
+          <h4>{{rentalData.name}}</h4>
+          <div class="rental-price">
+            AED {{getMonthlyPrice(rentalData.price)}}<span>/month</span>
+          </div>
+        </div>
+        <div class="featured">
+          <span v-if="rentalData.featured"
+            ><font-awesome-icon :icon="['fas','star']" /> Featured</span
+          >
+          <span v-if="rentalData.verified" class="ml-3"
+            ><font-awesome-icon :icon="['fas','user-check']" /> Verified</span
+          >
+        </div>
+
+        <div class="slider mt-3">
+          <Carousel
+            id="garage-carousel"
+            :per-page="1"
+            :loop="true"
+            :autoplay="true"
+            :navigationEnabled="true"
+          >
+            <Slide
+              v-for="image, index in rentalData.gallery"
+              v-bind:key="index"
+            >
+              <img :src="image" class="img-fluid" />
+            </Slide>
+          </Carousel>
+        </div>
+        <div class="price-table mt-5 table-responsive">
+          <table
+            class="table table-striped table-bordered table-hover table-sm"
+          >
+            <thead class="thead-dark">
+              <tr>
+                <th>Rental Period</th>
+                <th>Rental Cost</th>
+                <th>Mileage Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="price in rentalData.price">
+                <td>{{price.per}}</td>
+                <td>AED {{price.price}}</td>
+                <td>{{price.km}} Kms</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note my-3">
+          <span>Supplier Note: </span>{{rentalData.note}}
+        </div>
+        <div class="services mt-4">
+          <h5 class="mb-3">Car Specifications</h5>
+          <div v-for="specs in getRentalSpecs">
+            <span
+              ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
+            /></span>
+            <p>{{specs.title}}</p>
+          </div>
+        </div>
+        <div class="services mt-4">
+          <h5 class="mb-3">Car Features</h5>
+          <div v-for="feature in getRentalFeatures">
+            <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
+            <p>{{feature.title}}</p>
+          </div>
+        </div>
+        <div class="desc">
+          <h5 class="mt-4 mb-3">Description</h5>
+          <p>{{rentalData.desc}}</p>
+          <h5 class="mt-4 mb-3">
+            Why Choose {{rentalData.company}} {{rentalData.model}}
+          </h5>
+          <p>{{rentalData.whyChoose}}</p>
+          <h5 class="mt-4 mb-3">Can I get this car delivered ?</h5>
+          <p>{{rentalData.canDeliver}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="shadow-container p-3 mb-3">
+        <div class="dealer-logo mb-4 mt-2">
+          <img :src="rentalData.dealerLogo" />
+        </div>
+
+        <div class="open-times mb-4">
+          <p
+            class="open-or-closed mb-2"
+            :class="checkOpenTime(rentalData.openTimes).title === 'Open Now' && 'open'"
+            @click="openTimingContainer"
+          >
+            <span>
+              <font-awesome-icon :icon="['fas','clock']" />
+              {{checkOpenTime(rentalData.openTimes).title}}
+            </span>
+            <span>
+              {{timing ? 'Close' : 'View' }} Timings
+              <font-awesome-icon
+                :icon="['fas', timing ? 'chevron-circle-up' : 'chevron-circle-down']"
+              />
+            </span>
+          </p>
+          <p>
+            {{checkOpenTime(rentalData.openTimes).data[0].day}}
+            {{checkOpenTime(rentalData.openTimes).data[0].time}}
+          </p>
+          <div class="openDetail" :class="timing && 'active'">
+            <div v-for="item in rentalData.openTimes" class="py-1 px-2">
+              <p>{{item.day}}</p>
+              <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
+                {{item.time}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="phone mb-4">
+          <!-- prettier-ignore -->
+          <Button
+            type="green"
+            text="Call"
+            class="mr-2"
+            :icon="['fas', 'phone']"
+            @click="openPhone(rentalData.phone)"
+            width= "100%"
+          />
+          <!-- prettier-ignore -->
+          <Button
+            type="green"
+            text="Whatsapp"
+            class="ml-2"
+            :icon="['fab', 'whatsapp']"
+            @click="openWhatsapp(rentalData.phone)"
+            width= "100%"
+          />
+        </div>
+
+        <div class="map mt-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541313772!2d55.27437637712276!3d25.19719697699969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1626510499995!5m2!1sen!2sin"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="social-rating mt-4">
+          <Star :value="calculateStarValue(rentalData.reviews)" />
+          <div class="social">
+            <img
+              src="../../assets/facebook.png"
+              class="icon facebook"
+              v-if="rentalData.social.facebook"
+              @click="socialOpen(rentalData.social.facebook)"
+            />
+            <img
+              src="../../assets/linkedin.png"
+              class="icon linkedin"
+              v-if="rentalData.social.linkedin"
+              @click="socialOpen(rentalData.social.linkedin)"
+            />
+            <img
+              src="../../assets/instagram.png"
+              class="icon instagram"
+              v-if="rentalData.social.instagram"
+              @click="socialOpen(rentalData.social.instagram)"
+            />
+          </div>
+        </div>
+        <div class="desc mt-5 mb-4">
+          <h5 class="mt-4 mb-3">Why book through Cars of UAE?</h5>
+          <p>{{rentalData.whyUs}}</p>
+        </div>
+        <div class="mt-4">
+          <h5 class="my-3">Frequently Asked Questions</h5>
+          <accordion>
+            <accordion-item v-for="faq, index in getRentalFAQ" :key="index">
+              <template slot="accordion-trigger">
+                <p>{{faq.q}}</p>
+                <font-awesome-icon :icon="['fas','chevron-circle-down']" />
+              </template>
+              <template slot="accordion-content">
+                <span>{{faq.a}}</span>
+              </template>
+            </accordion-item>
+          </accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -59,6 +59,11 @@ import {
   faGripLines,
   faShareAlt,
   faSort,
+  faDoorOpen,
+  faSuitcase,
+  faClock,
+  faChevronCircleDown,
+  faChevronCircleUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -142,3 +147,9 @@ library.add(faGripHorizontal);
 library.add(faGripLines);
 library.add(faShareAlt);
 library.add(faSort);
+library.add(faDoorOpen);
+library.add(faSuitcase);
+library.add(faClock);
+library.add(faChevronCircleDown);
+library.add(faChevronCircleUp);
+library.add(faUserCheck);

@@ -52,7 +52,6 @@ export default {
       } else if (!this.$route.query.model) {
         store.commit("updateSelectedCarModel", "");
       } else if (!this.$route.query.category) {
-        debugger;
         store.commit("updateSelectedClassifiedCategory", "");
       }
       return this.$route.query;

@@ -31,7 +31,7 @@ export default {
       return META.rentalCarTypes;
     },
     getSelectedRentalCategory() {
-      return this.$store.state.home.selectedClassifiedCategory;
+      return this.$store.state.home.selectedRentalCategory;
     },
     queryParams() {
       if (!this.$route.query.category) {

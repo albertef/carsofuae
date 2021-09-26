@@ -1,0 +1,42 @@
+.accordion__item {
+  cursor: pointer;
+  position: relative;
+  &:last-child {
+    .accordion__trigger {
+      border-bottom: 1px solid rgba($black, 0.1);
+    }
+  }
+}
+
+.accordion__trigger {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba($black, 0.1);
+  border-bottom: 0;
+  padding: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.accordion__content {
+  border: 1px solid rgba($black, 0.1);
+  padding: 10px;
+  ul {
+    padding: 0;
+  }
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}

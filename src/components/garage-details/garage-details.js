@@ -36,7 +36,6 @@ export default {
       .catch(() => {});
   },
   unmounted() {
-    debugger;
     router.push({
       name: "Garages",
       query: {

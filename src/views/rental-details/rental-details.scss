@@ -1,0 +1,323 @@
+.rental-details-wrapper {
+  div[class*="col-"] {
+    display: flex;
+  }
+  > .row {
+    position: relative;
+    .back-btn {
+      position: absolute;
+      top: -15px;
+      right: 0;
+      z-index: 98;
+      padding: 10px !important;
+      ::v-deep svg {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .shadow-container {
+    width: 100%;
+    box-shadow: $shadow-small;
+    transition: 0.3s ease;
+    border-radius: 5px;
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: $shadow-purple;
+    }
+
+    .phone {
+      display: flex;
+      justify-content: space-between;
+      button {
+        width: 100%;
+      }
+    }
+    .header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .rental-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: $secondary-font;
+        color: $red;
+        width: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        span {
+          color: rgba($black, 0.5);
+          font-weight: 400;
+          font-size: 0.875rem;
+        }
+      }
+    }
+    .featured {
+      color: $green;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: flex;
+      justify-content: flex-end;
+      span {
+        padding: 3px 5px;
+        background-color: rgba($green, 0.1);
+        border-radius: 3px;
+        border: 1px solid rgba($green, 0.5);
+      }
+      svg {
+        font-size: 0.875rem;
+      }
+    }
+    .note {
+      background-color: rgba($green, 0.1);
+      padding: 15px;
+      color: $green;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 5px;
+      border: 1px solid $green;
+      span {
+        color: $red;
+      }
+    }
+    .social-rating {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1rem 0;
+      .social {
+        .icon {
+          margin-left: 0.5rem;
+          width: 40px;
+          cursor: pointer;
+          &.facebook {
+            color: map-get($brand, "facebook");
+          }
+          &.instagram {
+            color: map-get($brand, "instagram");
+          }
+          &.linkedin {
+            color: map-get($brand, "linkedin");
+          }
+        }
+      }
+    }
+
+    .slider {
+      ::v-deep .VueCarousel-slide {
+        img {
+          height: 400px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .deals {
+      img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+      }
+      .bolt-icon {
+        color: $red;
+      }
+    }
+    ::v-deep .VueCarousel-pagination {
+      > div {
+        margin-top: 0 !important;
+      }
+      button {
+        margin-top: 0 !important;
+      }
+    }
+    ::v-deep .VueCarousel-navigation-prev {
+      left: 7px;
+    }
+    ::v-deep .VueCarousel-navigation-next {
+      right: 5px;
+    }
+    ::v-deep .VueCarousel-pagination {
+      position: absolute;
+      bottom: 5px;
+      z-index: 9;
+      > div {
+        margin-top: 0 !important;
+      }
+      button {
+        width: 7px !important;
+        height: 7px !important;
+        margin-top: 0 !important;
+        padding: 5px !important;
+        background-color: $white !important;
+        &.VueCarousel-dot--active {
+          background-color: $purple !important;
+        }
+      }
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      h5 {
+        width: 100%;
+      }
+      > div {
+        display: inline-flex;
+        min-width: 50%;
+        margin: 5px 0;
+        span {
+          width: 30px;
+          svg {
+            color: $purple;
+          }
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .open-times {
+      > div.openDetail {
+        height: 0;
+        overflow: hidden;
+        transition: 0.3s ease;
+        > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 5px;
+
+          &:nth-child(even) {
+            background-color: rgba($black, 0.05);
+          }
+          p {
+            width: 100%;
+            margin-bottom: 0;
+            padding: 5px 0;
+            font-weight: 600;
+            &:last-child {
+              text-align: right;
+              color: $green !important;
+            }
+            &.closed {
+              color: $red !important;
+            }
+          }
+        }
+        &.active {
+          height: auto;
+          transition: 0.3s ease;
+        }
+      }
+      .open-or-closed {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $red !important;
+        width: 100%;
+        cursor: pointer;
+        &.open {
+          color: $green !important;
+        }
+        span {
+          display: inline-flex;
+          align-items: center;
+          svg {
+            margin-right: 5px;
+          }
+          &:last-child {
+            color: rgba($black, 0.6);
+            font-size: 0.875rem;
+            svg {
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+    h5 {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    ::v-deep p {
+      color: rgba($black, 0.6) !important;
+      font-size: 0.95rem;
+      line-height: 140%;
+    }
+    .dealer-logo {
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    > .row {
+      .back-btn {
+        top: -10px;
+        right: 5px;
+      }
+    }
+    .header {
+      flex-direction: column;
+      h4 {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+      .garage-dp {
+        margin-right: 0 !important;
+      }
+      .rental-price {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .phone {
+        width: 100%;
+        > button {
+          &:first-child {
+            margin-right: 5px;
+          }
+          &:last-child {
+            margin-left: 5px;
+          }
+        }
+      }
+      button {
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
+    }
+    .featured {
+      justify-content: center !important;
+      margin-top: 10px;
+    }
+    .price-table {
+      margin-top: 1rem !important;
+    }
+    .deals {
+      img {
+        height: 140px !important;
+      }
+    }
+    .social {
+      justify-content: center !important;
+    }
+    .slider {
+      img {
+        height: 200px !important;
+      }
+    }
+    ::v-deep .VueCarousel-navigation-prev,
+    ::v-deep .VueCarousel-navigation-next {
+      display: none;
+    }
+  }
+}

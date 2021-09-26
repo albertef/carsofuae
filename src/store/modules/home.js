@@ -13,6 +13,7 @@ const state = {
   selectedRentalCategory: "",
   postView: false,
   rentalData: [],
+  SelectedRental: null,
 };
 
 const actions = {
@@ -58,6 +59,13 @@ const getters = {
     return function (id) {
       return state.garageList.find((garage) => {
         return garage.id === Number(id);
+      });
+    };
+  },
+  getSingleRentalData(state) {
+    return function (id) {
+      return state.rentalData.find((rental) => {
+        return rental.id === Number(id);
       });
     };
   },
@@ -113,6 +121,9 @@ const mutations = {
   },
   updateRentalList(state, dataset) {
     state.rentalData = dataset;
+  },
+  updateSelectedRental(state, value) {
+    state.SelectedRental = value;
   },
 };
 

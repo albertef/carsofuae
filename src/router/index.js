@@ -4,7 +4,9 @@ import Home from "@/views/home/home.vue";
 import PostDetails from "@/views/post-details/post-details.vue";
 import Garages from "@/views/garages/garages.vue";
 import Classifieds from "@/views/classifieds/classifieds.vue";
+import Rental from "@/views/rental/rental.vue";
 import ComingSoon from "@/views/coming-soon/coming-soon.vue";
+import RentalDetails from "@/views/rental-details/rental-details.vue";
 
 Vue.use(Router);
 
@@ -36,8 +38,15 @@ const router = new Router({
     {
       path: "/rental",
       name: "Rental",
-      component: ComingSoon,
+      component: Rental,
       meta: { title: "Rental" },
+    },
+    {
+      path: "/rental-details/",
+      name: "RentalDetails",
+      component: RentalDetails,
+      params: true,
+      meta: { title: "Rental Details" },
     },
     {
       path: "/lease-a-car",

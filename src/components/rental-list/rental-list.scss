@@ -108,24 +108,49 @@
         display: flex;
         justify-content: space-between;
         background-color: $purple-10;
-        border-radius: 5px;
+        border-radius: 0 0 5px 5px;
         border-bottom: 3px solid $purple-60;
-        margin: 10px 0 20px;
+        margin: 0 0 10px;
         > div {
           padding: 10px;
           display: inline-flex;
           flex-direction: column;
-          align-items: center;
-          width: 100%;
+          align-items: flex-start;
           border-radius: 4px;
-          &.active,
-          &:hover {
-            background-color: $purple-60;
-          }
+
           span {
             text-transform: uppercase;
             font-size: 0.65rem;
-            font-weight: 700;
+            font-weight: 500;
+            &:first-child {
+              font-size: 0.8rem;
+              font-weight: 700;
+              color: $green;
+            }
+          }
+        }
+      }
+
+      .tags {
+        margin: 15px 0;
+        display: flex;
+        .tag {
+          font-size: 0.65rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          padding: 2px 5px;
+          background: rgba($red, 0.9);
+          border-radius: 2px;
+          color: $white;
+          margin-right: 5px;
+          display: inline-flex;
+          align-items: center;
+          img {
+            max-height: 10px;
+            margin-right: 5px;
+          }
+          svg {
+            margin-right: 5px;
           }
         }
       }
@@ -153,10 +178,6 @@
           width: 100%;
           line-height: 120%;
         }
-        em {
-          border-top: 20px solid rgba($white, 0.9);
-          border-right: 20px solid transparent;
-        }
       }
       p {
         display: flex;
@@ -165,64 +186,9 @@
         height: 100%;
         margin: 0;
         font-size: 0.875rem;
-        &.distance {
-          left: 0;
-          span {
-            padding: 2px 0 2px 5px;
-            height: 100%;
-            font-size: 0.65rem;
-          }
-          em {
-            border-bottom: 20px solid rgba($white, 0.9);
-            border-right: 20px solid transparent;
-            border-left: none;
-            border-top: none;
-          }
-        }
-        &.desc {
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          width: 100%;
-          display: block;
-        }
-        span {
-          font-size: 0.75rem;
-          font-weight: 700;
-          padding: 2px 5px 2px 0;
-          line-height: 140%;
-          color: $purple;
-          font-weight: 700;
-          background-color: rgba($white, 0.9);
-          display: inline-flex;
-          align-items: center;
-        }
-        em {
-          border-top: 20px solid rgba($white, 0.9);
-          border-left: 20px solid transparent;
-        }
       }
       label {
         font-size: 0.875rem;
-      }
-      .distance-price {
-        display: inline-flex;
-        justify-content: space-between;
-        margin: 10px 0;
-        .distance,
-        .price {
-          span {
-            padding: 0 !important;
-            font-size: 0.875rem;
-          }
-          img {
-            max-height: 12px;
-            margin-right: 10px;
-          }
-        }
-        .price {
-          display: none;
-        }
       }
     }
 
@@ -272,7 +238,6 @@
     .card {
       max-height: none;
       flex-direction: column;
-      margin: 0 15px;
       border-radius: 5px;
       box-shadow: $shadow-small;
       border-color: rgba($black, 0.4);
@@ -285,7 +250,7 @@
         }
       }
       .post-details {
-        padding: 10px !important;
+        padding: 0 10px 10px !important;
         h5 {
           font-size: 0.875rem;
           top: 5px;
@@ -380,7 +345,6 @@
         .sort-wrapper {
           display: inline-flex;
           align-items: center;
-          margin-left: 15px;
           svg {
             cursor: pointer;
             color: rgba($black, 0.8);

@@ -3,8 +3,8 @@
     <div class="col-12">
       <div class="container">
           <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 p-lg-0 my-3 heading-wrapper mt-lg-5 mb-lg-4">
-              <h5 class="heading">Latest <span> rental cars</span></h5>
+            <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
+              <h5 class="heading">Latest <span> Rental Cars</span></h5>
               <div class="right-column">
                 <div class="sort-wrapper" title="Sort Options">
                   <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
@@ -17,29 +17,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 py-3 px-0" v-for="post in postData">
+            <div class="col-12 col-lg-6 py-3" v-for="post in postData">
               <div
                 class="card"
                 :class="post.featured && 'featured'"
               >
               <div class="thumb-wrapper">
-                <Carousel
-                  id="post-list-carousel"
-                  :autoplay="true"
-                  :per-page="1"
-                  :navigationEnabled="true"
-                  easing="ease-out"
-                  class="post-list-carousel"
-                >
-                  <Slide
-                    v-for="(image, index) in post.gallery"
-                    v-bind:key="index"
-                  >
-                    <span class="gallery-counter">{{index+1}}/{{post.gallery.length}}</span>
-                    <img :src="image" class="img-fluid" />
-                  </Slide>
-                </Carousel>
-                <img :src="post.thumb" class="img-fluid post-list-image" @click="viewPostDetails(post)" />
+                
+                    <img :src="post.gallery[0]" class="img-fluid" @click="viewPostDetails(post)" />
+                  
               </div>
                 
                 
@@ -52,9 +38,7 @@
                           <span>{{ val.km }} kms</span>
                         </div>
                       </div>
-                    <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span>
                     <h5
-                      class="my-2"
                       :title="`${post.make} ${post.company} ${post.model}`"
                     >
                       <span
@@ -62,14 +46,24 @@
                       >
                       <em></em>
                     </h5>
-                    <p class="grid-hide desc">{{post.desc}}</p>
-                    <div class="distance-price">
-                      <p class="distance">
-                        <span><img src="../../assets/distance.png" /> {{ formatDistance(post.distance, 3) }} kms</span
-                        ><em></em>
-                      </p>
-                      <p class="price"><em></em> <span>{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span></p>
+                    <div class="tags">
+                      <span class="tag">
+                        {{post.type}}
+                      </span>
+                      <span class="tag">
+                        <img src="../../assets/car-door.png" />
+                        {{post.doors}}
+                      </span>
+                      <span class="tag">
+                        <img src="../../assets/car-seat.png" />
+                        {{post.seats}}
+                      </span>
+                      <span class="tag">
+                        <font-awesome-icon :icon="['fas', 'suitcase']" />
+                        {{post.luggage}}
+                      </span>
                     </div>
+                    
                   </div>
                   <div class="phone px-lg-0 mt-2 grid-hide">
                     <!-- prettier-ignore -->
