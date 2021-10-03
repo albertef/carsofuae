@@ -14,6 +14,24 @@
         font-size: 1.1rem;
       }
     }
+    ::v-deep .VueCarousel-pagination {
+      position: absolute;
+      bottom: 5px;
+      z-index: 9;
+      > div {
+        margin-top: 0 !important;
+      }
+      button {
+        width: 6px !important;
+        height: 6px !important;
+        margin-top: 0 !important;
+        padding: 3px !important;
+        background-color: $white !important;
+        &.VueCarousel-dot--active {
+          background-color: $purple !important;
+        }
+      }
+    }
   }
 
   .shadow-container {
@@ -30,6 +48,7 @@
     .phone {
       display: flex;
       justify-content: space-between;
+      background-color: $white;
       button {
         width: 100%;
       }
@@ -52,6 +71,48 @@
           color: rgba($black, 0.5);
           font-weight: 400;
           font-size: 0.875rem;
+        }
+      }
+    }
+    .list-view-price {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid rgba($black, 0.3);
+      background-color: rgba($black, 0.9);
+      border-radius: 5px;
+      > div {
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 4px;
+        border-right: 1px solid rgba($white, 0.2);
+        width: 100%;
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:last-child {
+          border: none;
+        }
+        span {
+          text-transform: uppercase;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: $white;
+          transition: 0.3s ease;
+          &:nth-child(2) {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $light-green;
+          }
+        }
+        &:hover {
+          background-color: rgba($light-green, 0.4);
+          span {
+            color: $white;
+            &:nth-child(2) {
+              color: rgba($black, 0.9);
+            }
+          }
         }
       }
     }
@@ -85,6 +146,24 @@
         color: $red;
       }
     }
+
+    .desc-details {
+      display: flex;
+      flex-wrap: wrap;
+      > div {
+        width: 100%;
+        h6 {
+          font-weight: 600;
+          font-size: 0.875rem;
+          margin: 20px 0 20px;
+        }
+        p {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+
     .social-rating {
       display: flex;
       justify-content: space-between;
@@ -141,24 +220,7 @@
     ::v-deep .VueCarousel-navigation-next {
       right: 5px;
     }
-    ::v-deep .VueCarousel-pagination {
-      position: absolute;
-      bottom: 5px;
-      z-index: 9;
-      > div {
-        margin-top: 0 !important;
-      }
-      button {
-        width: 7px !important;
-        height: 7px !important;
-        margin-top: 0 !important;
-        padding: 5px !important;
-        background-color: $white !important;
-        &.VueCarousel-dot--active {
-          background-color: $purple !important;
-        }
-      }
-    }
+
     .services {
       display: flex;
       flex-wrap: wrap;
@@ -257,11 +319,72 @@
       }
     }
   }
+  .shareIcon {
+    position: fixed;
+    right: 0;
+    top: 250px;
+    background-color: $white;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: $shadow-small;
+    z-index: 9;
+    &:hover {
+      box-shadow: $shadow-purple;
+    }
+    svg {
+      font-size: 1.2rem;
+      color: $purple;
+    }
+  }
+  .share-modal {
+    ::v-deep .popup-header {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        svg {
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
+      }
+    }
+    ::v-deep .popup-body {
+      .icon-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        img {
+          max-width: 80px;
+          cursor: pointer;
+        }
+      }
+    }
+    ::v-deep .popup-footer {
+      display: none;
+    }
+  }
   @media screen and (max-width: 991px) {
+    .share-modal {
+      ::v-deep .popup-container {
+        width: 90% !important;
+      }
+    }
     > .row {
       .back-btn {
         top: -10px;
         right: 5px;
+      }
+    }
+    .shadow-container {
+      &.right {
+        margin-bottom: 70px !important;
       }
     }
     .header {
@@ -279,28 +402,55 @@
         justify-content: center !important;
       }
 
-      .phone {
-        width: 100%;
-        > button {
-          &:first-child {
-            margin-right: 5px;
-          }
-          &:last-child {
-            margin-left: 5px;
-          }
-        }
-      }
       button {
         width: 100% !important;
         margin-left: 0 !important;
       }
     }
+    .list-view-price {
+      > div {
+        align-items: center;
+        border-right: 1px solid rgba($white, 0.2);
+        width: 100%;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+    .phone {
+      width: calc(100% - 30px);
+      position: fixed;
+      bottom: 29px;
+      padding: 10px 0;
+      left: 15px;
+      right: 15px;
+      z-index: 9;
+      > button {
+        &:first-child {
+          margin-right: 5px;
+        }
+        &:last-child {
+          margin-left: 5px;
+        }
+      }
+    }
     .featured {
       justify-content: center !important;
       margin-top: 10px;
-    }
-    .price-table {
-      margin-top: 1rem !important;
+      position: fixed;
+      top: 70px;
+      right: 10px;
+      z-index: 9;
+      span {
+        background-color: $white !important;
+        padding: 2px !important;
+        color: $red !important;
+        font-size: 0.65rem !important;
+        border-color: $red !important;
+        svg {
+          font-size: 0.65rem !important;
+        }
+      }
     }
     .deals {
       img {
@@ -311,9 +461,15 @@
       justify-content: center !important;
     }
     .slider {
+      margin-top: 0 !important;
       img {
-        height: 200px !important;
+        object-fit: cover;
+        width: 100% !important;
+        height: 300px !important;
       }
+    }
+    .faq {
+      margin-bottom: 40px;
     }
     ::v-deep .VueCarousel-navigation-prev,
     ::v-deep .VueCarousel-navigation-next {

@@ -23,29 +23,39 @@
                 :class="post.featured && 'featured'"
               >
               <div class="thumb-wrapper">
-                
-                    <img :src="post.gallery[0]" class="img-fluid" @click="viewPostDetails(post)" />
-                  
+                <Carousel
+                  id="post-list-carousel"
+                  :per-page="1"
+                  :navigationEnabled="true"
+                  easing="ease-out"
+                  class="post-list-carousel"
+                  @transition-start="transitionStart"
+                  @transition-end="transitionEnd"
+                >
+                  <Slide
+                    v-for="(image, index) in post.gallery"
+                    v-bind:key="index"
+                  >
+                    <span class="gallery-counter">{{index+1}}/{{post.gallery.length}}</span>
+                    <img :src="image" class="img-fluid" />
+                  </Slide>
+                </Carousel>
               </div>
-                
-                
-                
-                <div class="post-details">
-                  <div @click="viewPostDetails(post)">
-                    <div class="list-view-price">
+
+                <div class="post-details" @click="viewPostDetails(post)">
+                  <div>
+                    <h5 :title="`${post.make} ${post.company} ${post.model}`">
+                      <span>{{ post.make }} {{ post.company }} {{ post.model }}</span>
+                      <em></em>
+                    </h5>
+                    <div class="list-view-price mt-3">
                         <div v-for="val in post.price">
-                          <span>AED {{ val.price }}/{{ val.per }}</span>
+                          <span>{{ val.per }}</span>
+                          <span>AED {{ val.price }}</span>
                           <span>{{ val.km }} kms</span>
                         </div>
                       </div>
-                    <h5
-                      :title="`${post.make} ${post.company} ${post.model}`"
-                    >
-                      <span
-                        >{{ post.make }} {{ post.company }} {{ post.model }}</span
-                      >
-                      <em></em>
-                    </h5>
+                    
                     <div class="tags">
                       <span class="tag">
                         {{post.type}}
@@ -63,26 +73,14 @@
                         {{post.luggage}}
                       </span>
                     </div>
-                    
+                    <div class="dealer">
+                      <img :src="post.dealerLogo" />
+                      <ul>
+                        <li v-for="list in post.listBullets">{{list}}</li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="phone px-lg-0 mt-2 grid-hide">
-                    <!-- prettier-ignore -->
-                    <Button
-                      type="green"
-                      text="Call"
-                      class="flex-fill mr-1"
-                      :icon="['fas', 'phone']"
-                      @click="openPhone(post.phone)"
-                    />
-                    <!-- prettier-ignore -->
-                    <Button
-                      type="green"
-                      text="Whatsapp"
-                      class="flex-fill ml-1"
-                      :icon="['fab', 'whatsapp']"
-                      @click="openWhatsapp(post.phone)"
-                    />
-                  </div>
+                
                 </div>
                 <span
                   class="featured-icon"

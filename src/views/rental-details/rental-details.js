@@ -144,8 +144,12 @@ export default {
     openTimingContainer() {
       this.timing = !this.timing;
     },
-    getMonthlyPrice(price) {
-      return price.filter((el) => el.per === "month")[0].price;
+    getPrice(price) {
+      const day = price.filter((el) => el.per === "day")[0];
+      const week = price.filter((el) => el.per === "week")[0];
+      const month = price.filter((el) => el.per === "month")[0];
+
+      return Number(day.price) ? day : Number(week.price) ? week : month;
     },
     socialOpen(link) {
       window.open(link);

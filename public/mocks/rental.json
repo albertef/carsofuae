@@ -124,7 +124,29 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
-    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg"
+    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
+    "listBullets": [
+      "1 day rental available",
+      "Deposit: AED 5000",
+      "Free Delivery",
+      "Insurance included"
+    ],
+    "descDetails": {
+      "includes": {
+        "mileageLimit": "250",
+        "addCharge": ".50",
+        "insurance": "Basic comprehensive"
+      },
+      "requirements": {
+        "age": "22",
+        "deposit": "1000",
+        "paymentMethods": "Credit Card, Debit Card, Cash"
+      },
+      "extras": {
+        "addDriverInsurance": "100",
+        "tollCharge": "5"
+      }
+    }
   },
   {
     "id": 2,
@@ -240,7 +262,29 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
-    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg"
+    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
+    "listBullets": [
+      "1 day rental available",
+      "Deposit: AED 5000",
+      "Free Delivery",
+      "Insurance included"
+    ],
+    "descDetails": {
+      "includes": {
+        "mileageLimit": "250",
+        "addCharge": ".50",
+        "insurance": "Basic comprehensive"
+      },
+      "requirements": {
+        "age": "22",
+        "deposit": "1000",
+        "paymentMethods": "Credit Card, Debit Card, Cash"
+      },
+      "extras": {
+        "addDriverInsurance": "100",
+        "tollCharge": "5"
+      }
+    }
   },
   {
     "id": 3,
@@ -361,6 +405,28 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
-    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg"
+    "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
+    "listBullets": [
+      "1 day rental available",
+      "Deposit: AED 5000",
+      "Free Delivery",
+      "Insurance included"
+    ],
+    "descDetails": {
+      "includes": {
+        "mileageLimit": "250",
+        "addCharge": ".50",
+        "insurance": "Basic comprehensive"
+      },
+      "requirements": {
+        "age": "22",
+        "deposit": "1000",
+        "paymentMethods": "Credit Card, Debit Card, Cash"
+      },
+      "extras": {
+        "addDriverInsurance": "100",
+        "tollCharge": "5"
+      }
+    }
   }
 ]

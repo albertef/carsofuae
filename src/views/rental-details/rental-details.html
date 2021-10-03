@@ -1,11 +1,49 @@
 <div class="rental-details-wrapper container" v-if="rentalData">
+  <div class="row d-block d-lg-none">
+    <div class="col-12 p-0">
+      <div class="slider mt-3">
+        <Carousel
+          id="garage-carousel"
+          :per-page="1"
+          :loop="true"
+          :autoplay="true"
+          :navigationEnabled="true"
+        >
+          <Slide v-for="image, index in rentalData.gallery" v-bind:key="index">
+            <img :src="image" class="img-fluid" />
+          </Slide>
+        </Carousel>
+      </div>
+    </div>
+  </div>
+  <span @click="sharePage" class="shareIcon">
+    <font-awesome-icon :icon="['fas', 'share-alt']" />
+  </span>
+  <Modal class="small share-modal" @escape="hideModal" v-if="modalDisplay">
+    <template v-slot:header>
+      <div>
+        <h5>Share to</h5>
+        <font-awesome-icon :icon="['fas', 'times']" @click="hideModal" />
+      </div>
+    </template>
+    <template v-slot:body>
+      <div class="icon-wrapper">
+        <img src="../../assets/facebook.png" class="icon facebook" />
+        <img src="../../assets/twitter.png" class="icon twitter" />
+        <img src="../../assets/whatsapp.png" class="icon whatsapp" />
+        <img src="../../assets/email.png" class="icon email" />
+      </div>
+    </template>
+  </Modal>
   <div class="row mt-4 mb-5 pb-3">
     <div class="col-12 col-lg-8">
       <div class="shadow-container p-3 mb-3">
         <div class="header">
           <h4>{{rentalData.name}}</h4>
           <div class="rental-price">
-            AED {{getMonthlyPrice(rentalData.price)}}<span>/month</span>
+            AED {{getPrice(rentalData.price).price}}<span
+              >/{{getPrice(rentalData.price).per}}</span
+            >
           </div>
         </div>
         <div class="featured">
@@ -17,7 +55,7 @@
           >
         </div>
 
-        <div class="slider mt-3">
+        <div class="slider mt-3 d-lg-block d-none">
           <Carousel
             id="garage-carousel"
             :per-page="1"
@@ -33,6 +71,7 @@
             </Slide>
           </Carousel>
         </div>
+
         <div class="price-table mt-5 table-responsive">
           <table
             class="table table-striped table-bordered table-hover table-sm"
@@ -54,6 +93,54 @@
           </table>
         </div>
 
+        <div class="desc-details">
+          <div>
+            <h6>Rental Includes</h6>
+            <p>
+              <span>Mileage Limit</span>
+              <span>{{rentalData.descDetails.includes.mileageLimit}} km</span>
+            </p>
+            <p>
+              <span>Additional Mileage Charges</span>
+              <span>AED {{rentalData.descDetails.includes.addCharge}}/km</span>
+            </p>
+            <p>
+              <span>Insurance</span>
+              <span>{{rentalData.descDetails.includes.insurance}}</span>
+            </p>
+          </div>
+          <div>
+            <h6>Requirements</h6>
+            <p>
+              <span>Minimum Age</span>
+              <span>{{rentalData.descDetails.requirements.age}} years old</span>
+            </p>
+            <p>
+              <span>Security Deposit</span>
+              <span>AED {{rentalData.descDetails.requirements.deposit}}</span>
+            </p>
+            <p>
+              <span>Accepted In</span>
+              <span
+                >{{rentalData.descDetails.requirements.paymentMethods}}</span
+              >
+            </p>
+          </div>
+          <div>
+            <h6>Extras</h6>
+            <p>
+              <span>Additional Driver Insurance</span>
+              <span
+                >AED {{rentalData.descDetails.extras.addDriverInsurance}}</span
+              >
+            </p>
+            <p>
+              <span>Salik/Toll Charges</span>
+              <span>AED {{rentalData.descDetails.extras.tollCharge}}</span>
+            </p>
+          </div>
+        </div>
+
         <div class="note my-3">
           <span>Supplier Note: </span>{{rentalData.note}}
         </div>
@@ -73,9 +160,8 @@
             <p>{{feature.title}}</p>
           </div>
         </div>
+
         <div class="desc">
-          <h5 class="mt-4 mb-3">Description</h5>
-          <p>{{rentalData.desc}}</p>
           <h5 class="mt-4 mb-3">
             Why Choose {{rentalData.company}} {{rentalData.model}}
           </h5>
@@ -86,7 +172,7 @@
       </div>
     </div>
     <div class="col-12 col-lg-4">
-      <div class="shadow-container p-3 mb-3">
+      <div class="shadow-container right p-3 mb-3">
         <div class="dealer-logo mb-4 mt-2">
           <img :src="rentalData.dealerLogo" />
         </div>
