@@ -1,0 +1,17 @@
+<div class="rental-wrapper container p-0 mb-5 pb-1">
+  <LeaseCategorySelect class="mt-3" v-if="!getSelectedLeaseCategory" />
+  <div class="row p-3" v-if="!getSelectedLeaseCategory">
+    <div class="col-12">
+      <section>
+        <h5>Browse By <span>Brands</span></h5>
+        <div class="brands">
+          <span v-for="index of 20">
+            <img src="../../assets/brand.png" />
+          </span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <LeaseList :data="getLeaseData" />
+</div>

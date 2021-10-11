@@ -64,6 +64,7 @@ import {
   faClock,
   faChevronCircleDown,
   faChevronCircleUp,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -153,3 +154,4 @@ library.add(faClock);
 library.add(faChevronCircleDown);
 library.add(faChevronCircleUp);
 library.add(faUserCheck);
+library.add(faEnvelope);

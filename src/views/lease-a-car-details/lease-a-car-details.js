@@ -14,7 +14,7 @@ import Accordion from "@/components/common/accordion/accordion.vue";
 import AccordionItem from "@/components/common/accordion/accordion-item.vue";
 
 export default {
-  name: "post-details",
+  name: "lease-details",
   components: {
     CoolLightBox,
     PostDetailTable,
@@ -35,16 +35,16 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await this.$store.dispatch("getRentalList");
-    this.$store.commit("updateSelectedRental", this.$route.query.id);
+    await this.$store.dispatch("getLeaseList");
+    this.$store.commit("updateSelectedLease", this.$route.query.id);
     router
       .push({
-        name: "RentalDetails",
+        name: "LeaseACarDetails",
         query: {
-          id: this.getRentalId,
-          title: `${UTILS.formatTitle(
-            this.rentalData.name
-          )}-${UTILS.formatTitle(this.rentalData.desc)}`,
+          id: this.getLeaseId,
+          title: `${UTILS.formatTitle(this.leaseData.name)}-${UTILS.formatTitle(
+            this.leaseData.desc
+          )}`,
         },
       })
       .catch(() => {});
@@ -53,24 +53,24 @@ export default {
   unmounted() {
     debugger;
     router.push({
-      name: "Rental",
+      name: "LeaseACar",
     });
   },
   computed: {
-    getRentalId() {
-      return this.$store.state.home.selectedRental;
+    getLeaseId() {
+      return this.$store.state.home.selectedLease;
     },
-    rentalData() {
-      return this.$store.getters.getSingleRentalData(this.getRentalId);
+    leaseData() {
+      return this.$store.getters.getSingleLeaseData(this.getLeaseId);
     },
-    getRentalSpecs() {
-      return META.rentalCarSpecs;
+    getLeaseSpecs() {
+      return META.leaseCarSpecs;
     },
-    getRentalFeatures() {
-      return META.rentalCarFeatures;
+    getLeaseFeatures() {
+      return META.leaseCarFeatures;
     },
-    getRentalFAQ() {
-      return META.faq;
+    getLeaseFAQ() {
+      return META.leaseFaq;
     },
   },
   methods: {
@@ -149,11 +149,11 @@ export default {
       this.timing = !this.timing;
     },
     getPrice(price) {
-      const day = price.filter((el) => el.per === "day")[0];
-      const week = price.filter((el) => el.per === "week")[0];
-      const month = price.filter((el) => el.per === "month")[0];
+      const one = price.filter((el) => el.per === "1")[0];
+      const two = price.filter((el) => el.per === "2")[0];
+      const three = price.filter((el) => el.per === "3")[0];
 
-      return Number(day.price) ? day : Number(week.price) ? week : month;
+      return Number(one.price) ? one : Number(two.price) ? two : three;
     },
     socialOpen(link) {
       window.open(link);

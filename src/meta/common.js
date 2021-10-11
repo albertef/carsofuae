@@ -216,4 +216,168 @@ export const META = {
       a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
   ],
+  leaseCarTypes: [
+    {
+      name: "Luxury Cars",
+      image: "luxury.png",
+    },
+    {
+      name: "SUV",
+      image: "suv.png",
+    },
+    {
+      name: "Economy",
+      image: "economy.png",
+    },
+    {
+      name: "Sedan",
+      image: "sedan.png",
+    },
+    {
+      name: "Super Car",
+      image: "supercar.png",
+    },
+    {
+      name: "Sports Car",
+      image: "sportscar.png",
+    },
+    {
+      name: "Convertable",
+      image: "convertable.png",
+    },
+    {
+      name: "Crossover",
+      image: "crossover.png",
+    },
+    {
+      name: "Coupe",
+      image: "coupe.png",
+    },
+    {
+      name: "Compact",
+      image: "compact.png",
+    },
+    {
+      name: "Muscle",
+      image: "muscle.png",
+    },
+    {
+      name: "Special Edition",
+      image: "specialedition.png",
+    },
+    {
+      name: "Electric",
+      image: "electric.png",
+    },
+    {
+      name: "Van",
+      image: "van.png",
+    },
+    {
+      name: "Mini Van",
+      image: "minivan.png",
+    },
+  ],
+  leaseCarSpecs: [
+    {
+      id: 1,
+      title: "Auto Transmission",
+    },
+    {
+      id: 2,
+      title: "Car Type: Sedan",
+    },
+    {
+      id: 3,
+      title: "4 Doors",
+    },
+    {
+      id: 4,
+      title: "Fits 5 Passengers",
+    },
+    {
+      id: 5,
+      title: "Fits 2 Bag(s)",
+    },
+    {
+      id: 6,
+      title: "GCC Specs: Yes",
+    },
+    {
+      id: 7,
+      title: "1.6L Engine Capacity",
+    },
+  ],
+  leaseCarFeatures: [
+    {
+      id: 1,
+      title: "Cruise Control: Yes",
+    },
+    {
+      id: 2,
+      title: "Sedan",
+    },
+    {
+      id: 3,
+      title: "Rear AC",
+    },
+    {
+      id: 4,
+      title: "Tinted Windows",
+    },
+    {
+      id: 5,
+      title: "Parking Sensors",
+    },
+    {
+      id: 6,
+      title: "Fog Lights",
+    },
+    {
+      id: 7,
+      title: "Bluetooth",
+    },
+    {
+      id: 8,
+      title: "Power Seats",
+    },
+    {
+      id: 9,
+      title: "ABS",
+    },
+    {
+      id: 10,
+      title: "FM Radio",
+    },
+    {
+      id: 11,
+      title: "Stereo MP3 / CD",
+    },
+    {
+      id: 12,
+      title: "Power Windows",
+    },
+    {
+      id: 13,
+      title: "Power Door Locks",
+    },
+    {
+      id: 14,
+      title: "Power Mirrors",
+    },
+  ],
+  leaseFaq: [
+    {
+      q: "Question1",
+      a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+    {
+      q: "Question2",
+      a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+    {
+      q: "Question3",
+      a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+  ],
 };

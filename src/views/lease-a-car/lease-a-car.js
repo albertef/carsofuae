@@ -2,46 +2,46 @@ import router from "@/router";
 import store from "@/store";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
-import RentalCategorySelect from "@/components/rental-category-select/rental-category-select.vue";
+import LeaseCategorySelect from "@/components/lease-category-select/lease-category-select.vue";
 import Modal from "@/components/common/modal/modal.vue";
-import RentalList from "@/components/rental-list/rental-list.vue";
+import LeaseList from "@/components/lease-list/lease-list.vue";
 
 export default {
-  name: "rental",
+  name: "lease",
   components: {
-    RentalCategorySelect,
-    RentalList,
+    LeaseCategorySelect,
+    LeaseList,
     Modal,
   },
   data() {
     return {};
   },
   async mounted() {
-    await this.$store.dispatch("getRentalList");
+    await this.$store.dispatch("getLeaseList");
     !this.queryParams
       ? router
           .push({
-            name: "Rental",
+            name: "LeaseACar",
           })
           .catch(() => {})
       : store.commit(
-          "updateSelectedRentalCategory",
+          "updateSelectedLeaseCategory",
           this.queryParams.category || ""
         );
   },
   computed: {
-    getRentalData() {
-      return this.$store.state.home.rentalData;
+    getLeaseData() {
+      return this.$store.state.home.leaseData;
     },
-    getRentalCarTypes() {
-      return META.rentalCarTypes;
+    getLeaseCarTypes() {
+      return META.leaseCarTypes;
     },
-    getSelectedRentalCategory() {
-      return this.$store.state.home.selectedRentalCategory;
+    getSelectedLeaseCategory() {
+      return this.$store.state.home.selectedLeaseCategory;
     },
     queryParams() {
       if (!this.$route.query.category) {
-        store.commit("updateSelectedRentalCategory", "");
+        store.commit("updateSelectedLeaseCategory", "");
       }
       return this.$route.query;
     },

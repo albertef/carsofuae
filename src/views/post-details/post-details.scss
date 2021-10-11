@@ -226,5 +226,22 @@
     .video-wrapper {
       margin: 0 15px;
     }
+    .phone {
+      width: 100%;
+      position: fixed;
+      bottom: 29px;
+      padding: 10px 0;
+      z-index: 9;
+      background-color: $white;
+      flex-wrap: nowrap !important;
+      > button {
+        flex: 1 1 auto !important;
+        margin: 0 5px !important;
+        font-size: 0.75rem !important;
+        &:last-child {
+          margin-top: 0 !important;
+        }
+      }
+    }
   }
 }

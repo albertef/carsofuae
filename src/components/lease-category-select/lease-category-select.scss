@@ -1,0 +1,48 @@
+.classifieds-category-select-wrapper {
+  .category-cont {
+    margin: 30px 0 0 !important;
+    display: flex;
+    .category-list {
+      box-shadow: $shadow-small;
+      min-height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      word-break: break-word;
+      text-align: center;
+      color: rgba($black, 0.8);
+      padding: 20px 0;
+      font-size: 1rem;
+      width: 100%;
+      &:hover {
+        color: $purple;
+        box-shadow: $shadow-purple;
+      }
+      img {
+        max-height: 30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    padding-right: 35px;
+
+    .category-cont {
+      padding-right: 0;
+      margin: 20px 0 0 !important;
+      .category-list {
+        padding: 15px;
+        font-size: 0.8rem;
+        img {
+          max-height: 20px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

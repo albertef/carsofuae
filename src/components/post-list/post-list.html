@@ -38,8 +38,6 @@
                   :navigationEnabled="true"
                   easing="ease-out"
                   class="post-list-carousel"
-                  @transition-start="transitionStart"
-                  @transition-end="transitionEnd"
                 >
                   <Slide
                     v-for="(image, index) in post.gallery"

@@ -7,6 +7,8 @@ import Classifieds from "@/views/classifieds/classifieds.vue";
 import Rental from "@/views/rental/rental.vue";
 import ComingSoon from "@/views/coming-soon/coming-soon.vue";
 import RentalDetails from "@/views/rental-details/rental-details.vue";
+import LeaseACar from "@/views/lease-a-car/lease-a-car.vue";
+import LeaseACarDetails from "@/views/lease-a-car-details/lease-a-car-details.vue";
 
 Vue.use(Router);
 
@@ -51,7 +53,13 @@ const router = new Router({
     {
       path: "/lease-a-car",
       name: "LeaseACar",
-      component: ComingSoon,
+      component: LeaseACar,
+      meta: { title: "Lease A Car" },
+    },
+    {
+      path: "/lease-a-car-details",
+      name: "LeaseACarDetails",
+      component: LeaseACarDetails,
       meta: { title: "Lease A Car" },
     },
     {

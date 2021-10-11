@@ -13,7 +13,10 @@ const state = {
   selectedRentalCategory: "",
   postView: false,
   rentalData: [],
-  SelectedRental: null,
+  selectedRental: null,
+  selectedLeaseCategory: "",
+  leaseData: [],
+  selectedLease: null,
 };
 
 const actions = {
@@ -45,6 +48,13 @@ const actions = {
     commit("updateRentalList", dataset);
     return dataset;
   },
+  async getLeaseList({ commit }) {
+    let dataset = {},
+      url = "/mocks/lease.json";
+    dataset = await axiosInstance.get(url);
+    commit("updateLeaseList", dataset);
+    return dataset;
+  },
 };
 
 const getters = {
@@ -65,6 +75,13 @@ const getters = {
   getSingleRentalData(state) {
     return function (id) {
       return state.rentalData.find((rental) => {
+        return rental.id === Number(id);
+      });
+    };
+  },
+  getSingleLeaseData(state) {
+    return function (id) {
+      return state.leaseData.find((rental) => {
         return rental.id === Number(id);
       });
     };
@@ -123,7 +140,16 @@ const mutations = {
     state.rentalData = dataset;
   },
   updateSelectedRental(state, value) {
-    state.SelectedRental = value;
+    state.selectedRental = value;
+  },
+  updateSelectedLeaseCategory(state, value) {
+    state.selectedLeaseCategory = value;
+  },
+  updateLeaseList(state, dataset) {
+    state.leaseData = dataset;
+  },
+  updateSelectedLease(state, value) {
+    state.selectedLease = value;
   },
 };
 

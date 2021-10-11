@@ -54,6 +54,9 @@ export default {
         )}`
       );
     },
+    openEmail(email) {
+      window.location.href = `mailto:${email}`;
+    },
     async sharePage() {
       const shareData = {
         title: "Cars Of UAE",

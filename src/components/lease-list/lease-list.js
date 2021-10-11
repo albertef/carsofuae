@@ -8,7 +8,7 @@ import Sort from "@/components/sort/sort.vue";
 const LOAD_COUNT = 9;
 
 export default {
-  name: "PostList",
+  name: "RentalList",
   components: {
     Button,
     Carousel,
@@ -36,11 +36,16 @@ export default {
     postData() {
       return this.fullPostData?.slice(0, this.postCount);
     },
-    fullPostData() {
-      return this.data;
+    getSelectedLeaseCategory() {
+      return this.$store.state.home.selectedLeaseCategory;
     },
-    listView() {
-      return this.$store.state.home.postView;
+    fullPostData() {
+      if (this.getSelectedLeaseCategory) {
+        return this.data.filter(
+          (item) => item.type === this.getSelectedLeaseCategory.toLowerCase()
+        );
+      }
+      return this.data;
     },
   },
   methods: {
@@ -54,13 +59,14 @@ export default {
       return UTILS.formatDistance(num, digits);
     },
     viewPostDetails(data) {
+      this.$store.commit("updateSelectedLease", data.id);
       router.push({
-        name: "PostDetails",
+        name: "LeaseACarDetails",
         query: {
           id: data.id,
-          title: `${UTILS.formatTitle(data.make)}-${UTILS.formatTitle(
-            data.company
-          )}-${UTILS.formatTitle(data.model)}-${UTILS.formatTitle(data.desc)}`,
+          title: `${UTILS.formatTitle(data.name)}-${UTILS.formatTitle(
+            data.desc
+          )}`,
         },
       });
     },

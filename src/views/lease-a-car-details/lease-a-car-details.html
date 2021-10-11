@@ -1,4 +1,4 @@
-<div class="rental-details-wrapper container" v-if="rentalData">
+<div class="lease-details-wrapper container" v-if="leaseData">
   <div class="row d-block d-lg-none">
     <div class="col-12 p-0">
       <div class="slider mt-3">
@@ -9,7 +9,7 @@
           :autoplay="true"
           :navigationEnabled="true"
         >
-          <Slide v-for="image, index in rentalData.gallery" v-bind:key="index">
+          <Slide v-for="image, index in leaseData.gallery" v-bind:key="index">
             <img :src="image" class="img-fluid" />
           </Slide>
         </Carousel>
@@ -39,18 +39,18 @@
     <div class="col-12 col-lg-8">
       <div class="shadow-container p-3 mb-3">
         <div class="header">
-          <h4>{{rentalData.name}}</h4>
+          <h4>{{leaseData.name}}</h4>
           <div class="rental-price">
-            AED {{getPrice(rentalData.price).price}}<span
-              >/{{getPrice(rentalData.price).per}}</span
+            AED {{getPrice(leaseData.price).price}}<span
+              >/{{getPrice(leaseData.price).per}} year</span
             >
           </div>
         </div>
         <div class="featured">
-          <span v-if="rentalData.featured"
+          <span v-if="leaseData.featured"
             ><font-awesome-icon :icon="['fas','star']" /> Featured</span
           >
-          <span v-if="rentalData.verified" class="ml-3"
+          <span v-if="leaseData.verified" class="ml-3"
             ><font-awesome-icon :icon="['fas','user-check']" /> Verified</span
           >
         </div>
@@ -63,10 +63,7 @@
             :autoplay="true"
             :navigationEnabled="true"
           >
-            <Slide
-              v-for="image, index in rentalData.gallery"
-              v-bind:key="index"
-            >
+            <Slide v-for="image, index in leaseData.gallery" v-bind:key="index">
               <img :src="image" class="img-fluid" />
             </Slide>
           </Carousel>
@@ -78,16 +75,18 @@
           >
             <thead class="thead-dark">
               <tr>
-                <th>Rental Period</th>
-                <th>Rental Cost</th>
+                <th>Lease Period</th>
+                <th>Lease Cost</th>
                 <th>Mileage Limit</th>
+                <th>Down Payment</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="price in rentalData.price">
-                <td>{{price.per}}</td>
+              <tr v-for="price in leaseData.price">
+                <td>{{price.per}} year</td>
                 <td>AED {{price.price}}</td>
                 <td>{{price.km}} Kms</td>
+                <td>AED {{price.down}}</td>
               </tr>
             </tbody>
           </table>
@@ -95,35 +94,33 @@
 
         <div class="desc-details">
           <div>
-            <h6>Rental Includes</h6>
+            <h6>Lease Includes</h6>
             <p>
               <span>Mileage Limit</span>
-              <span>{{rentalData.descDetails.includes.mileageLimit}} km</span>
+              <span>{{leaseData.descDetails.includes.mileageLimit}} km</span>
             </p>
             <p>
               <span>Additional Mileage Charges</span>
-              <span>AED {{rentalData.descDetails.includes.addCharge}}/km</span>
+              <span>AED {{leaseData.descDetails.includes.addCharge}}/km</span>
             </p>
             <p>
               <span>Insurance</span>
-              <span>{{rentalData.descDetails.includes.insurance}}</span>
+              <span>{{leaseData.descDetails.includes.insurance}}</span>
             </p>
           </div>
           <div>
             <h6>Requirements</h6>
             <p>
               <span>Minimum Age</span>
-              <span>{{rentalData.descDetails.requirements.age}} years old</span>
+              <span>{{leaseData.descDetails.requirements.age}} years old</span>
             </p>
             <p>
               <span>Security Deposit</span>
-              <span>AED {{rentalData.descDetails.requirements.deposit}}</span>
+              <span>AED {{leaseData.descDetails.requirements.deposit}}</span>
             </p>
             <p>
               <span>Accepted In</span>
-              <span
-                >{{rentalData.descDetails.requirements.paymentMethods}}</span
-              >
+              <span>{{leaseData.descDetails.requirements.paymentMethods}}</span>
             </p>
           </div>
           <div>
@@ -131,22 +128,22 @@
             <p>
               <span>Additional Driver Insurance</span>
               <span
-                >AED {{rentalData.descDetails.extras.addDriverInsurance}}</span
+                >AED {{leaseData.descDetails.extras.addDriverInsurance}}</span
               >
             </p>
             <p>
               <span>Salik/Toll Charges</span>
-              <span>AED {{rentalData.descDetails.extras.tollCharge}}</span>
+              <span>AED {{leaseData.descDetails.extras.tollCharge}}</span>
             </p>
           </div>
         </div>
 
         <div class="note my-3">
-          <span>Supplier Note: </span>{{rentalData.note}}
+          <span>Supplier Note: </span>{{leaseData.note}}
         </div>
         <div class="services mt-4">
           <h5 class="mb-3">Car Specifications</h5>
-          <div v-for="specs in getRentalSpecs">
+          <div v-for="specs in getLeaseSpecs">
             <span
               ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
             /></span>
@@ -155,7 +152,7 @@
         </div>
         <div class="services mt-4">
           <h5 class="mb-3">Car Features</h5>
-          <div v-for="feature in getRentalFeatures">
+          <div v-for="feature in getLeaseFeatures">
             <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
             <p>{{feature.title}}</p>
           </div>
@@ -163,29 +160,29 @@
 
         <div class="desc">
           <h5 class="mt-4 mb-3">
-            Why Choose {{rentalData.company}} {{rentalData.model}}
+            Why Choose {{leaseData.company}} {{leaseData.model}}
           </h5>
-          <p>{{rentalData.whyChoose}}</p>
+          <p>{{leaseData.whyChoose}}</p>
           <h5 class="mt-4 mb-3">Can I get this car delivered ?</h5>
-          <p>{{rentalData.canDeliver}}</p>
+          <p>{{leaseData.canDeliver}}</p>
         </div>
       </div>
     </div>
     <div class="col-12 col-lg-4">
       <div class="shadow-container right p-3 mb-3">
         <div class="dealer-logo mb-4 mt-2">
-          <img :src="rentalData.dealerLogo" />
+          <img :src="leaseData.dealerLogo" />
         </div>
 
         <div class="open-times mb-4">
           <p
             class="open-or-closed mb-2"
-            :class="checkOpenTime(rentalData.openTimes).title === 'Open Now' && 'open'"
+            :class="checkOpenTime(leaseData.openTimes).title === 'Open Now' && 'open'"
             @click="openTimingContainer"
           >
             <span>
               <font-awesome-icon :icon="['fas','clock']" />
-              {{checkOpenTime(rentalData.openTimes).title}}
+              {{checkOpenTime(leaseData.openTimes).title}}
             </span>
             <span>
               {{timing ? 'Close' : 'View' }} Timings
@@ -195,11 +192,11 @@
             </span>
           </p>
           <p>
-            {{checkOpenTime(rentalData.openTimes).data[0].day}}
-            {{checkOpenTime(rentalData.openTimes).data[0].time}}
+            {{checkOpenTime(leaseData.openTimes).data[0].day}}
+            {{checkOpenTime(leaseData.openTimes).data[0].time}}
           </p>
           <div class="openDetail" :class="timing && 'active'">
-            <div v-for="item in rentalData.openTimes" class="py-1 px-2">
+            <div v-for="item in leaseData.openTimes" class="py-1 px-2">
               <p>{{item.day}}</p>
               <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
                 {{item.time}}
@@ -213,7 +210,7 @@
             type="green"
             text="Call"
             :icon="['fas', 'phone']"
-            @click="openPhone(rentalData.phone)"
+            @click="openPhone(leaseData.phone)"
             width= "100%"
           />
           <!-- prettier-ignore -->
@@ -221,7 +218,7 @@
             type="green"
             text="Whatsapp"
             :icon="['fab', 'whatsapp']"
-            @click="openWhatsapp(rentalData.phone)"
+            @click="openWhatsapp(leaseData.phone)"
             width= "100%"
           />
           <!-- prettier-ignore -->
@@ -230,7 +227,7 @@
             text="Email"
             class=""
             :icon="['fas', 'envelope']"
-            @click="openEmail(rentalData.email)"
+            @click="openEmail(leaseData.email)"
             width= "100%"
           />
         </div>
@@ -246,36 +243,36 @@
           ></iframe>
         </div>
         <div class="social-rating mt-4">
-          <Star :value="calculateStarValue(rentalData.reviews)" />
+          <Star :value="calculateStarValue(leaseData.reviews)" />
           <div class="social">
             <img
               src="../../assets/facebook.png"
               class="icon facebook"
-              v-if="rentalData.social.facebook"
-              @click="socialOpen(rentalData.social.facebook)"
+              v-if="leaseData.social.facebook"
+              @click="socialOpen(leaseData.social.facebook)"
             />
             <img
               src="../../assets/linkedin.png"
               class="icon linkedin"
-              v-if="rentalData.social.linkedin"
-              @click="socialOpen(rentalData.social.linkedin)"
+              v-if="leaseData.social.linkedin"
+              @click="socialOpen(leaseData.social.linkedin)"
             />
             <img
               src="../../assets/instagram.png"
               class="icon instagram"
-              v-if="rentalData.social.instagram"
-              @click="socialOpen(rentalData.social.instagram)"
+              v-if="leaseData.social.instagram"
+              @click="socialOpen(leaseData.social.instagram)"
             />
           </div>
         </div>
         <div class="desc mt-5 mb-4">
           <h5 class="mt-4 mb-3">Why book through Cars of UAE?</h5>
-          <p>{{rentalData.whyUs}}</p>
+          <p>{{leaseData.whyUs}}</p>
         </div>
         <div class="mt-4">
           <h5 class="my-3">Frequently Asked Questions</h5>
           <accordion>
-            <accordion-item v-for="faq, index in getRentalFAQ" :key="index">
+            <accordion-item v-for="faq, index in getLeaseFAQ" :key="index">
               <template slot="accordion-trigger">
                 <p>{{faq.q}}</p>
                 <font-awesome-icon :icon="['fas','chevron-circle-down']" />
