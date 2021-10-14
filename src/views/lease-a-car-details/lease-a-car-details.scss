@@ -173,6 +173,7 @@
     .desc-details {
       display: flex;
       flex-wrap: wrap;
+      flex-direction: column;
       width: 100%;
       border-bottom: 1px solid rgba($black, 0.1);
       margin-bottom: 30px;
