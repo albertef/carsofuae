@@ -91,9 +91,17 @@
                     <Button
                       type="green"
                       text="Whatsapp"
-                      class="flex-fill ml-1"
+                      class="flex-fill mr-1"
                       :icon="['fab', 'whatsapp']"
                       @click="openWhatsapp(post.phone)"
+                    />
+                    <!-- prettier-ignore -->
+                    <Button
+                      type="green"
+                      text="Email"
+                      class="flex-fill"
+                      :icon="['fas', 'envelope']"
+                      @click="openEmail(post.email)"
                     />
                   </div>
                 </div>

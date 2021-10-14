@@ -29,7 +29,7 @@
 
     .header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       .garage-dp {
         width: 60px;
@@ -41,6 +41,14 @@
       .phone {
         display: flex;
         justify-content: space-between;
+        button {
+          font-size: 0.75rem;
+          padding: 10px 15px !important;
+          margin: 0 5px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
     }
     .social-rating {
@@ -163,6 +171,7 @@
     }
     .header {
       flex-direction: column;
+      align-items: center !important;
       h4 {
         margin: 20px 0;
         width: 100%;
@@ -172,13 +181,21 @@
         margin-right: 0 !important;
       }
       .phone {
-        width: 100%;
+        width: calc(100% - 30px);
+        background-color: $white;
+        position: fixed;
+        bottom: 55px;
+        padding: 10px 0;
+        left: 15px;
+        right: 15px;
+        z-index: 9;
+        flex-wrap: nowrap !important;
         > button {
-          &:first-child {
-            margin-right: 5px;
-          }
+          flex: 1 1 auto !important;
+          margin: 0 5px !important;
+          font-size: 0.75rem !important;
           &:last-child {
-            margin-left: 5px;
+            margin-top: 0 !important;
           }
         }
       }

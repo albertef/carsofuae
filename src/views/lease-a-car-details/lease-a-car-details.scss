@@ -129,7 +129,7 @@
       }
     }
     .featured {
-      color: $green;
+      color: $purple;
       font-size: 0.75rem;
       text-transform: uppercase;
       font-weight: 700;
@@ -137,9 +137,9 @@
       justify-content: flex-end;
       span {
         padding: 3px 5px;
-        background-color: rgba($green, 0.1);
+        background-color: rgba($purple, 0.1);
         border-radius: 3px;
-        border: 1px solid rgba($green, 0.5);
+        border: 1px solid rgba($purple, 0.5);
       }
       svg {
         font-size: 0.875rem;
@@ -173,17 +173,18 @@
     .desc-details {
       display: flex;
       flex-wrap: wrap;
-      > div {
-        width: 100%;
-        h6 {
-          font-weight: 600;
-          font-size: 0.875rem;
-          margin: 20px 0 20px;
+      width: 100%;
+      border-bottom: 1px solid rgba($black, 0.1);
+      margin-bottom: 30px;
+      ::v-deep li {
+        margin: 5px 0;
+        font-size: 0.875rem;
+        &::marker {
+          color: $purple;
         }
-        p {
-          display: flex;
-          justify-content: space-between;
-        }
+      }
+      ::v-deep p {
+        margin: 20px 0;
       }
     }
 
@@ -440,6 +441,18 @@
         }
       }
     }
+    .price-table {
+      tr {
+        td,
+        th {
+          font-size: 0.75rem;
+          min-width: min-content;
+        }
+        td {
+          white-space: nowrap;
+        }
+      }
+    }
     .phone {
       width: calc(100% - 30px);
       position: fixed;
@@ -468,9 +481,9 @@
       span {
         background-color: $white !important;
         padding: 2px !important;
-        color: $red !important;
+        color: $purple !important;
         font-size: 0.65rem !important;
-        border-color: $red !important;
+        border-color: $purple !important;
         svg {
           font-size: 0.65rem !important;
         }

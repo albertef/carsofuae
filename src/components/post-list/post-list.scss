@@ -261,6 +261,10 @@
         .phone {
           display: inline-flex;
           flex-direction: row;
+          button {
+            font-size: 0.65rem;
+            padding: 10px 15px;
+          }
         }
         h5,
         p {

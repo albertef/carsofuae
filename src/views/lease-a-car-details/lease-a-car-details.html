@@ -93,195 +93,155 @@
         </div>
 
         <div class="desc-details">
-          <div>
-            <h6>Lease Includes</h6>
-            <p>
-              <span>Mileage Limit</span>
-              <span>{{leaseData.descDetails.includes.mileageLimit}} km</span>
-            </p>
-            <p>
-              <span>Additional Mileage Charges</span>
-              <span>AED {{leaseData.descDetails.includes.addCharge}}/km</span>
-            </p>
-            <p>
-              <span>Insurance</span>
-              <span>{{leaseData.descDetails.includes.insurance}}</span>
-            </p>
+          
+            <h5 class="my-3">Offer Details</h5>
+            <div v-html="leaseData.descDetails"></div>
           </div>
-          <div>
-            <h6>Requirements</h6>
-            <p>
-              <span>Minimum Age</span>
-              <span>{{leaseData.descDetails.requirements.age}} years old</span>
-            </p>
-            <p>
-              <span>Security Deposit</span>
-              <span>AED {{leaseData.descDetails.requirements.deposit}}</span>
-            </p>
-            <p>
-              <span>Accepted In</span>
-              <span>{{leaseData.descDetails.requirements.paymentMethods}}</span>
-            </p>
+
+          <div class="note my-3">
+            <span>Supplier Note: </span>{{leaseData.note}}
           </div>
-          <div>
-            <h6>Extras</h6>
-            <p>
-              <span>Additional Driver Insurance</span>
+          <div class="services mt-4">
+            <h5 class="mb-3">Car Specifications</h5>
+            <div v-for="specs in getLeaseSpecs">
               <span
-                >AED {{leaseData.descDetails.extras.addDriverInsurance}}</span
-              >
-            </p>
-            <p>
-              <span>Salik/Toll Charges</span>
-              <span>AED {{leaseData.descDetails.extras.tollCharge}}</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="note my-3">
-          <span>Supplier Note: </span>{{leaseData.note}}
-        </div>
-        <div class="services mt-4">
-          <h5 class="mb-3">Car Specifications</h5>
-          <div v-for="specs in getLeaseSpecs">
-            <span
-              ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
-            /></span>
-            <p>{{specs.title}}</p>
-          </div>
-        </div>
-        <div class="services mt-4">
-          <h5 class="mb-3">Car Features</h5>
-          <div v-for="feature in getLeaseFeatures">
-            <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
-            <p>{{feature.title}}</p>
-          </div>
-        </div>
-
-        <div class="desc">
-          <h5 class="mt-4 mb-3">
-            Why Choose {{leaseData.company}} {{leaseData.model}}
-          </h5>
-          <p>{{leaseData.whyChoose}}</p>
-          <h5 class="mt-4 mb-3">Can I get this car delivered ?</h5>
-          <p>{{leaseData.canDeliver}}</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-lg-4">
-      <div class="shadow-container right p-3 mb-3">
-        <div class="dealer-logo mb-4 mt-2">
-          <img :src="leaseData.dealerLogo" />
-        </div>
-
-        <div class="open-times mb-4">
-          <p
-            class="open-or-closed mb-2"
-            :class="checkOpenTime(leaseData.openTimes).title === 'Open Now' && 'open'"
-            @click="openTimingContainer"
-          >
-            <span>
-              <font-awesome-icon :icon="['fas','clock']" />
-              {{checkOpenTime(leaseData.openTimes).title}}
-            </span>
-            <span>
-              {{timing ? 'Close' : 'View' }} Timings
-              <font-awesome-icon
-                :icon="['fas', timing ? 'chevron-circle-up' : 'chevron-circle-down']"
-              />
-            </span>
-          </p>
-          <p>
-            {{checkOpenTime(leaseData.openTimes).data[0].day}}
-            {{checkOpenTime(leaseData.openTimes).data[0].time}}
-          </p>
-          <div class="openDetail" :class="timing && 'active'">
-            <div v-for="item in leaseData.openTimes" class="py-1 px-2">
-              <p>{{item.day}}</p>
-              <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
-                {{item.time}}
-              </p>
+                ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
+              /></span>
+              <p>{{specs.title}}</p>
             </div>
           </div>
+          <div class="services mt-4">
+            <h5 class="mb-3">Car Features</h5>
+            <div v-for="feature in getLeaseFeatures">
+              <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
+              <p>{{feature.title}}</p>
+            </div>
+          </div>
+
+          <div class="desc">
+            <h5 class="mt-4 mb-3">
+              Why Choose {{leaseData.company}} {{leaseData.model}}
+            </h5>
+            <p>{{leaseData.whyChoose}}</p>
+            <h5 class="mt-4 mb-3">Can I get this car delivered ?</h5>
+            <p>{{leaseData.canDeliver}}</p>
+          </div>
         </div>
-        <div class="phone mb-4">
-          <!-- prettier-ignore -->
-          <Button
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="shadow-container right p-3 mb-3">
+          <div class="dealer-logo mb-4 mt-2">
+            <img :src="leaseData.dealerLogo" />
+          </div>
+
+          <div class="open-times mb-4">
+            <p
+              class="open-or-closed mb-2"
+              :class="checkOpenTime(leaseData.openTimes).title === 'Open Now' && 'open'"
+              @click="openTimingContainer"
+            >
+              <span>
+                <font-awesome-icon :icon="['fas','clock']" />
+                {{checkOpenTime(leaseData.openTimes).title}}
+              </span>
+              <span>
+                {{timing ? 'Close' : 'View' }} Timings
+                <font-awesome-icon
+                  :icon="['fas', timing ? 'chevron-circle-up' : 'chevron-circle-down']"
+                />
+              </span>
+            </p>
+            <p>
+              {{checkOpenTime(leaseData.openTimes).data[0].day}}
+              {{checkOpenTime(leaseData.openTimes).data[0].time}}
+            </p>
+            <div class="openDetail" :class="timing && 'active'">
+              <div v-for="item in leaseData.openTimes" class="py-1 px-2">
+                <p>{{item.day}}</p>
+                <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
+                  {{item.time}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="phone mb-4">
+            <!-- prettier-ignore -->
+            <Button
             type="green"
             text="Call"
             :icon="['fas', 'phone']"
             @click="openPhone(leaseData.phone)"
             width= "100%"
           />
-          <!-- prettier-ignore -->
-          <Button
+            <!-- prettier-ignore -->
+            <Button
             type="green"
             text="Whatsapp"
             :icon="['fab', 'whatsapp']"
             @click="openWhatsapp(leaseData.phone)"
             width= "100%"
           />
-          <!-- prettier-ignore -->
-          <Button
+            <!-- prettier-ignore -->
+            <Button
             type="green"
             text="Email"
             class=""
             :icon="['fas', 'envelope']"
             @click="openEmail(leaseData.email)"
-            width= "100%"
           />
-        </div>
-
-        <div class="map mt-4">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541313772!2d55.27437637712276!3d25.19719697699969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1626510499995!5m2!1sen!2sin"
-            width="100%"
-            height="350"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div class="social-rating mt-4">
-          <Star :value="calculateStarValue(leaseData.reviews)" />
-          <div class="social">
-            <img
-              src="../../assets/facebook.png"
-              class="icon facebook"
-              v-if="leaseData.social.facebook"
-              @click="socialOpen(leaseData.social.facebook)"
-            />
-            <img
-              src="../../assets/linkedin.png"
-              class="icon linkedin"
-              v-if="leaseData.social.linkedin"
-              @click="socialOpen(leaseData.social.linkedin)"
-            />
-            <img
-              src="../../assets/instagram.png"
-              class="icon instagram"
-              v-if="leaseData.social.instagram"
-              @click="socialOpen(leaseData.social.instagram)"
-            />
           </div>
-        </div>
-        <div class="desc mt-5 mb-4">
-          <h5 class="mt-4 mb-3">Why book through Cars of UAE?</h5>
-          <p>{{leaseData.whyUs}}</p>
-        </div>
-        <div class="mt-4">
-          <h5 class="my-3">Frequently Asked Questions</h5>
-          <accordion>
-            <accordion-item v-for="faq, index in getLeaseFAQ" :key="index">
-              <template slot="accordion-trigger">
-                <p>{{faq.q}}</p>
-                <font-awesome-icon :icon="['fas','chevron-circle-down']" />
-              </template>
-              <template slot="accordion-content">
-                <span>{{faq.a}}</span>
-              </template>
-            </accordion-item>
-          </accordion>
+
+          <div class="map mt-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541313772!2d55.27437637712276!3d25.19719697699969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1626510499995!5m2!1sen!2sin"
+              width="100%"
+              height="350"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="social-rating mt-4">
+            <Star :value="calculateStarValue(leaseData.reviews)" />
+            <div class="social">
+              <img
+                src="../../assets/facebook.png"
+                class="icon facebook"
+                v-if="leaseData.social.facebook"
+                @click="socialOpen(leaseData.social.facebook)"
+              />
+              <img
+                src="../../assets/linkedin.png"
+                class="icon linkedin"
+                v-if="leaseData.social.linkedin"
+                @click="socialOpen(leaseData.social.linkedin)"
+              />
+              <img
+                src="../../assets/instagram.png"
+                class="icon instagram"
+                v-if="leaseData.social.instagram"
+                @click="socialOpen(leaseData.social.instagram)"
+              />
+            </div>
+          </div>
+          <div class="desc mt-5 mb-4">
+            <h5 class="mt-4 mb-3">Why book through Cars of UAE?</h5>
+            <p>{{leaseData.whyUs}}</p>
+          </div>
+          <div class="mt-4">
+            <h5 class="my-3">Frequently Asked Questions</h5>
+            <accordion>
+              <accordion-item v-for="faq, index in getLeaseFAQ" :key="index">
+                <template slot="accordion-trigger">
+                  <p>{{faq.q}}</p>
+                  <font-awesome-icon :icon="['fas','chevron-circle-down']" />
+                </template>
+                <template slot="accordion-content">
+                  <span>{{faq.a}}</span>
+                </template>
+              </accordion-item>
+            </accordion>
+          </div>
         </div>
       </div>
     </div>

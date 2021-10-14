@@ -134,22 +134,7 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": {
-      "includes": {
-        "mileageLimit": "250",
-        "addCharge": ".50",
-        "insurance": "Basic comprehensive"
-      },
-      "requirements": {
-        "age": "22",
-        "deposit": "1000",
-        "paymentMethods": "Credit Card, Debit Card, Cash"
-      },
-      "extras": {
-        "addDriverInsurance": "100",
-        "tollCharge": "5"
-      }
-    }
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
   },
   {
     "id": 2,
@@ -275,22 +260,7 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": {
-      "includes": {
-        "mileageLimit": "250",
-        "addCharge": ".50",
-        "insurance": "Basic comprehensive"
-      },
-      "requirements": {
-        "age": "22",
-        "deposit": "1000",
-        "paymentMethods": "Credit Card, Debit Card, Cash"
-      },
-      "extras": {
-        "addDriverInsurance": "100",
-        "tollCharge": "5"
-      }
-    }
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
   },
   {
     "id": 3,
@@ -421,21 +391,6 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": {
-      "includes": {
-        "mileageLimit": "250",
-        "addCharge": ".50",
-        "insurance": "Basic comprehensive"
-      },
-      "requirements": {
-        "age": "22",
-        "deposit": "1000",
-        "paymentMethods": "Credit Card, Debit Card, Cash"
-      },
-      "extras": {
-        "addDriverInsurance": "100",
-        "tollCharge": "5"
-      }
-    }
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
   }
 ]

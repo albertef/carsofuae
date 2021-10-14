@@ -23,7 +23,6 @@
             <Button
               type="green"
               text="Call"
-              class="ml-3"
               :icon="['fas', 'phone']"
               @click="openPhone(getSingleGarageDetails.phone)"
             />
@@ -31,9 +30,15 @@
             <Button
               type="green"
               text="Whatsapp"
-              class="ml-3"
               :icon="['fab', 'whatsapp']"
               @click="openWhatsapp(getSingleGarageDetails.phone)"
+            />
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Email"
+              :icon="['fas', 'envelope']"
+              @click="openEmail(getSingleGarageDetails.email)"
             />
           </div>
         </div>

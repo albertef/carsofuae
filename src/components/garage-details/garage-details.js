@@ -64,6 +64,9 @@ export default {
     openWhatsapp(num) {
       window.open(`https://wa.me/${num.replace(/[^\d\+]/g, "")}`);
     },
+    openEmail(email) {
+      window.location.href = `mailto:${email}`;
+    },
     calculateStarValue(value) {
       return UTILS.calculateStarValue(value);
     },
