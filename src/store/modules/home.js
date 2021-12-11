@@ -17,6 +17,11 @@ const state = {
   selectedLeaseCategory: "",
   leaseData: [],
   selectedLease: null,
+  spareList: [],
+  selectedSpareType: "",
+  selectedSpareCategory: "",
+  selectedSpareSubCategory: "",
+  selectedSpareItem: "",
 };
 
 const actions = {
@@ -55,6 +60,13 @@ const actions = {
     commit("updateLeaseList", dataset);
     return dataset;
   },
+  async getSpareList({ commit }) {
+    let dataset = {},
+      url = "/mocks/spare-parts.json";
+    dataset = await axiosInstance.get(url);
+    commit("updateSpareList", dataset);
+    return dataset;
+  },
 };
 
 const getters = {
@@ -87,7 +99,7 @@ const getters = {
     };
   },
   getAllCarMakes(state) {
-    return [...new Set(state.carData.map((make) => make.make))].sort();
+    return [...new Set(state.carData?.map((make) => make.make))].sort();
   },
   getAllCarModels(state) {
     return function (make) {
@@ -99,6 +111,24 @@ const getters = {
         ),
       ].sort();
     };
+  },
+  getSpareCategories(state) {
+    return [...new Set(rawSpareCategoryList(state)?.map((cat) => cat.category))]
+      .sort()
+      .filter(Boolean);
+  },
+  getSpareSubCategories(state) {
+    const sub = rawSpareCategoryList(state)
+      ?.filter((item) => item.category === state.selectedSpareCategory)
+      ?.map((el) => el.sub);
+    return [...new Set(sub)].sort().filter(Boolean);
+  },
+  getSpareItemList(state) {
+    const item = rawSpareCategoryList(state)
+      ?.filter((item) => item.category === state.selectedSpareCategory)
+      ?.filter((elem) => elem.sub === state.selectedSpareSubCategory)
+      ?.map((el) => el.item);
+    return [...new Set(item)].sort().filter(Boolean);
   },
 };
 
@@ -151,6 +181,25 @@ const mutations = {
   updateSelectedLease(state, value) {
     state.selectedLease = value;
   },
+  updateSpareList(state, dataset) {
+    state.spareList = dataset;
+  },
+  updateSelectedSpareType(state, value) {
+    state.selectedSpareType = value;
+  },
+  updateSelectedSpareCategory(state, value) {
+    state.selectedSpareCategory = value;
+  },
+  updateSelectedSpareSubCategory(state, value) {
+    state.selectedSpareSubCategory = value;
+  },
+  updateSelectedSpareItem(state, value) {
+    state.selectedSpareItem = value;
+  },
+};
+
+const rawSpareCategoryList = (state) => {
+  return state.spareList?.map((item) => item[state.selectedSpareType])[0];
 };
 
 export default {

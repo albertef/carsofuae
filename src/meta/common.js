@@ -380,4 +380,32 @@ export const META = {
       a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, qui nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
   ],
+
+  spareCategoryFormat: [
+    {
+      id: "cars",
+      title: "Cars",
+      image: "car.png",
+    },
+    {
+      id: "bikes",
+      title: "Bikes",
+      image: "bike.png",
+    },
+    {
+      id: "apparel",
+      title: "Apparels",
+      image: "apparel.png",
+    },
+    {
+      id: "hobbyist",
+      title: "Hobbyist",
+      image: "hobbyist.png",
+    },
+    {
+      id: "heavy",
+      title: "Heavy Vehicles",
+      image: "truck.png",
+    },
+  ],
 };

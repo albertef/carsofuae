@@ -17,7 +17,7 @@ export default {
     await this.$store.dispatch("getCarList");
     store.commit("updateSelectedCarMake", this.queryParams.make || "");
     store.commit("updateSelectedCarModel", this.queryParams.model || "");
-    document.getElementById(this.filterInputId).focus();
+    document.getElementById(this.filterInputId)?.focus();
   },
   computed: {
     queryParams() {

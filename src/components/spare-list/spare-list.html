@@ -1,0 +1,60 @@
+<div class="car-list-wrapper container mb-5">
+  <div class="row">
+    <div class="col-12 mt-4 mb-1" v-if="showSearch">
+      <h5 class="heading">
+        Select
+        <span>{{getHeading}}</span>
+      </h5>
+    </div>
+    <div class="col-12 my-3 search-wrapper" v-if="showSearch">
+      <InputText
+        :id="filterInputId"
+        class="inputText"
+        :placeholder="`Search${getHeading}`"
+        @value="filterSpareData($event)"
+      />
+      <div class="d-flex justify-content-center mt-2 text-uppercase">
+        {{getCountText}}
+      </div>
+    </div>
+    <template
+      v-if="getSelectedSpareType && !getSelectedSpareCategory && !!getSpareCategories.length"
+    >
+      <div
+        class="col-4 col-lg-2 my-3 car-list-cont"
+        v-for="category in getSpareCategories"
+      >
+        <div @click="getSpareSub(category)" class="car-list">
+          {{category}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+    <template
+      v-else-if="!getSelectedSpareSubCategory && getSpareSubCategories.length"
+    >
+      <div
+        class="col-4 col-lg-2 my-3 car-list-cont"
+        v-for="sub in getSpareSubCategories"
+      >
+        <div @click="getSpareItems(sub)" class="car-list">
+          {{sub}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+    <template
+      v-else-if="getSelectedSpareSubCategory && getSpareItemList.length"
+    >
+      <div
+        class="col-4 col-lg-2 my-3 car-list-cont"
+        v-for="item in getSpareItemList"
+      >
+        <div @click="getSparePostList(item)" class="car-list">
+          {{item}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+  </div>
+</div>

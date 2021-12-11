@@ -1,0 +1,21 @@
+<div class="classifieds-category-select-wrapper container mb-5">
+  <div class="row">
+    <div class="col-12 mt-4 mb-2">
+      <h5 class="heading">Select <span>Type</span></h5>
+    </div>
+    <template>
+      <div
+        class="col-6 col-lg-4 category-cont"
+        v-for="category in getCategories"
+      >
+        <div @click="getCategoryOptions(category)" class="category-list">
+          <img
+            :src="require(`../../assets/${formatCategory(category).image}`)"
+            class="img-fluid"
+          />
+          {{formatCategory(category).title}}
+        </div>
+      </div>
+    </template>
+  </div>
+</div>

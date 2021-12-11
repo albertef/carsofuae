@@ -1,0 +1,45 @@
+.car-list-wrapper {
+  .car-list-cont {
+    display: flex;
+    .car-list {
+      box-shadow: $shadow-small;
+      font-weight: 700;
+      min-height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      padding: 10px 15px;
+      word-break: break-word;
+      text-align: center;
+      color: rgba($black, 0.8);
+      width: 100%;
+      &:hover {
+        color: $purple;
+        box-shadow: $shadow-purple;
+      }
+      svg {
+        display: none;
+      }
+    }
+  }
+  .search-wrapper {
+    padding-top: 10px;
+    position: sticky;
+    top: 0px;
+    background: white;
+    z-index: 98;
+    .text-uppercase {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    padding: 0 15px 0 !important;
+    .car-list-cont {
+    }
+  }
+}
