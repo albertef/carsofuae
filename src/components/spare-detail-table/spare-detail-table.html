@@ -1,0 +1,48 @@
+<div class="post-detail-table-wrapper">
+  <ul class="overview-table mt-3 mb-4">
+    <li>
+      <p>Brand</p>
+      <p>{{data.brand}}</p>
+    </li>
+    <li>
+      <p>Model</p>
+      <p>{{data.model}}</p>
+    </li>
+    <li>
+      <p>Name</p>
+      <p>{{data.name}}</p>
+    </li>
+    <li>
+      <p>Part No</p>
+      <p>{{data.partNo}}</p>
+    </li>
+    <li>
+      <p>Year</p>
+      <p>{{data.year}}</p>
+    </li>
+    <li>
+      <p>Category</p>
+      <p>{{data.category}}</p>
+    </li>
+    <li>
+      <p>Sub Category</p>
+      <p>{{data.subcategory}}</p>
+    </li>
+    <li v-if="data.item">
+      <p>Item</p>
+      <p>{{data.item}}</p>
+    </li>
+    <li>
+      <p>Warranty</p>
+      <p>{{data.warranty}}</p>
+    </li>
+    <li>
+      <p>Price</p>
+      <p>{{data.price}}</p>
+    </li>
+    <li>
+      <p>Description</p>
+      <p>{{data.desc}}</p>
+    </li>
+  </ul>
+</div>

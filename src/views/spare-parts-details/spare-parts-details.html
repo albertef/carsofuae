@@ -1,0 +1,139 @@
+<div class="container post-details-wrapper my-4">
+  <div class="row" v-if="!postData">
+    <div class="col-12 mb-5 p-0">
+      <h3 class="d-flex justify-content-center align-items-center">
+        Loading...
+      </h3>
+    </div>
+  </div>
+  <div class="row" v-else>
+    <div class="col-12 mb-5 p-0">
+      <div class="image-title-wrapper mb-4">
+        <h3 class="mb-1">
+          {{postData.brand}} {{postData.model}} <span>{{postData.name}}</span>
+        </h3>
+        <p class="date-place">
+          <span class="float-right" title="Posted On">
+            <font-awesome-icon :icon="['far', 'calendar-alt']" class="icon" />
+            {{postData.date}}
+          </span>
+        </p>
+        <div class="image-scroll-wrapper" ref="scroller">
+          <div class="left-arrow arrows" @click="leftArrowClick">
+            <font-awesome-icon
+              :icon="['fas', 'arrow-alt-circle-left']"
+              class="icon"
+            />
+          </div>
+          <div class="right-arrow arrows" @click="rightArrowClick">
+            <font-awesome-icon
+              :icon="['fas', 'arrow-alt-circle-right']"
+              class="icon"
+            />
+          </div>
+          <CoolLightBox
+            :items="postData.gallery"
+            :index="index"
+            @close="index = null"
+          >
+          </CoolLightBox>
+          <div class="image-wrapper" v-if="postData.gallery">
+            <div
+              v-for="(image, imageIndex) in postData.gallery"
+              :data-count="postData.gallery.length"
+              :key="imageIndex"
+              @click="index = imageIndex"
+              :style="{ backgroundImage: 'url(' + image + ')' }"
+            >
+              <img :src="image" />
+            </div>
+          </div>
+          <span @click="sharePage" class="shareIcon">
+            <font-awesome-icon :icon="['fas', 'share-alt']" />
+          </span>
+          <Modal
+            class="small share-modal"
+            @escape="hideModal"
+            v-if="modalDisplay"
+          >
+            <template v-slot:header>
+              <div>
+                <h5>Share to</h5>
+                <font-awesome-icon
+                  :icon="['fas', 'times']"
+                  @click="hideModal"
+                />
+              </div>
+            </template>
+            <template v-slot:body>
+              <div class="icon-wrapper">
+                <img src="../../assets/facebook.png" class="icon facebook" />
+                <img src="../../assets/twitter.png" class="icon twitter" />
+                <img src="../../assets/whatsapp.png" class="icon whatsapp" />
+                <img src="../../assets/email.png" class="icon email" />
+              </div>
+            </template>
+          </Modal>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="phone d-flex px-3 px-lg-0 mb-4">
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Call"
+              class="flex-fill mr-1"
+              :icon="['fas', 'phone']"
+              @click="openPhone(postData.phone)"
+            />
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Whatsapp"
+              class="flex-fill ml-1"
+              :icon="['fab', 'whatsapp']"
+              @click="openWhatsapp(postData.phone)"
+            />
+            <!-- prettier-ignore -->
+            <Button
+              type="green"
+              text="Email"
+              class="flex-fill ml-1"
+              :icon="['fas', 'envelope']"
+              @click="openEmail(postData.email)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Details</h5>
+          <SpareDetailTable :data="postData" />
+          <div class="user-desc mb-4">
+            <img src="../../assets/user-profile.png" />
+            <p><span>Chris's Take</span>{{postData.desc}}</p>
+          </div>
+          <!-- <h5>Video</h5>
+          <div class="video-wrapper my-3">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/mPaUWBjxAHw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div> -->
+        </div>
+        <!-- <template>
+          <section class="comments" aria-labelledby="comment">
+            <h2 id="comment">Comments</h2>
+            <Disqus shortname="carsofuae" />
+          </section>
+        </template> -->
+      </div>
+    </div>
+  </div>
+</div>

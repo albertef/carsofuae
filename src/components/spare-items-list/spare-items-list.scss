@@ -3,7 +3,6 @@
   // background-size: contain;
   padding-left: 0;
   padding-right: 0;
-
   .card {
     border-color: rgba($black, 0.1);
     cursor: pointer;
@@ -478,7 +477,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: 8;
+            z-index: 99;
           }
         }
       }

@@ -22,6 +22,7 @@ const state = {
   selectedSpareCategory: "",
   selectedSpareSubCategory: "",
   selectedSpareItem: "",
+  spareItemList: [],
 };
 
 const actions = {
@@ -67,6 +68,13 @@ const actions = {
     commit("updateSpareList", dataset);
     return dataset;
   },
+  async getSpareItemList({ commit }) {
+    let dataset = {},
+      url = "/mocks/spare-post-items.json";
+    dataset = await axiosInstance.get(url);
+    commit("updateSpareItemList", dataset);
+    return dataset;
+  },
 };
 
 const getters = {
@@ -95,6 +103,13 @@ const getters = {
     return function (id) {
       return state.leaseData.find((rental) => {
         return rental.id === Number(id);
+      });
+    };
+  },
+  getSingleSpareData(state) {
+    return function (id) {
+      return state.spareItemList.find((post) => {
+        return post.id === Number(id);
       });
     };
   },
@@ -195,6 +210,9 @@ const mutations = {
   },
   updateSelectedSpareItem(state, value) {
     state.selectedSpareItem = value;
+  },
+  updateSpareItemList(state, dataset) {
+    state.spareItemList = dataset;
   },
 };
 

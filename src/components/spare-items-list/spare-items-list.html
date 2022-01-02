@@ -13,7 +13,7 @@
                 </div>
                 <div class="filter-wrapper" title="Filter Options">
                   <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                  <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
+                  <SpareFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
                 </div>
                 <div class="view-wrapper">
                   <span :class="!listView && 'active'" @click="viewToggle('grid')" title="Grid View">
@@ -62,18 +62,17 @@
                       <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span></p>
                     <h5
                       class="my-2"
-                      :title="`${post.make} ${post.company} ${post.model}`"
+                      :title="`${post.brand} ${post.model} ${post.name}`"
                     >
                       <span
-                        >{{ post.make }} {{ post.company }} {{ post.model }}</span
+                        >{{ post.brand }} {{ post.model }} {{ post.name }}</span
                       >
                       <em></em>
                     </h5>
                     <p class="grid-hide desc">{{post.desc}}</p>
                     <div class="distance-price">
                       <p class="distance">
-                        <span><img src="../../assets/distance.png" v-if="listView" /> {{ formatDistance(post.distance, 3) }} kms</span
-                        ><em></em>
+                        
                       </p>
                       <p class="price"><em></em> <span>{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span></p>
                     </div>

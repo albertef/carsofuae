@@ -16,9 +16,9 @@
   <SpareList
     v-if="getSelectedSpareType && (!getSelectedSpareCategory || !getSelectedSpareSubCategory || !getSelectedSpareItem)"
   />
-  <PostList
+  <SpareItemsList
     :data="getPostData"
     :featured="false"
-    v-if="getSelectedSpareType && getSelectedSpareCategory && (getSelectedSpareSubCategory || getSelectedSpareSubCategory == '') && (getSelectedSpareItem || getSelectedSpareItem == '')"
+    v-if="getSelectedSpareType"
   />
 </div>

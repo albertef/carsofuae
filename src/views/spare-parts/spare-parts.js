@@ -1,15 +1,14 @@
 import router from "@/router";
 import store from "@/store";
-import PostList from "@/components/post-list/post-list.vue";
+import SpareItemsList from "@/components/spare-items-list/spare-items-list.vue";
 import SpareList from "@/components/spare-list/spare-list.vue";
 import SpareCategorySelect from "@/components/spare-category-select/spare-category-select.vue";
 import { META } from "@/meta/common.js";
-import { UTILS } from "@/utility/utils.js";
 
 export default {
   name: "spareParts",
   components: {
-    PostList,
+    SpareItemsList,
     SpareList,
     SpareCategorySelect,
   },
@@ -18,26 +17,43 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch("getSpareList");
-    store.commit("updateSelectedSpareType", this.queryParams.category || "");
+    await this.$store.dispatch("getSpareItemList");
   },
   computed: {
-    getCategories() {
-      return this.$store.getters.getSpareCategories;
-    },
-    async getSpareList() {
-      return this.$store.state.home.spareList;
+    getSpareItemList() {
+      return this.$store.state.home.spareItemList;
     },
     getPostData() {
-      const data = this.$store.state.home.spareList;
-      return data.filter(
-        (item) =>
-          item === this.getSelectedSpareType.toLowerCase() &&
-          item.category.toLowerCase() ===
-            this.getSelectedSpareCategory.toLowerCase() &&
-          item.sub.toLowerCase() ===
-            this.getSelectedSpareSubCategory.toLowerCase() &&
-          item.item.toLowerCase() === this.getSelectedSpareItem.toLowerCase()
-      );
+      const data = this.getSpareItemList;
+      let filteredData = data;
+      if (this.getSelectedSpareType) {
+        filteredData = data?.filter(
+          (item) =>
+            item.type.toLowerCase() === this.getSelectedSpareType.toLowerCase()
+        );
+      }
+      if (this.getSelectedSpareCategory) {
+        filteredData = filteredData?.filter(
+          (item) =>
+            item.category.toLowerCase() ===
+            this.getSelectedSpareCategory.toLowerCase()
+        );
+      }
+      if (this.getSelectedSpareSubCategory) {
+        filteredData = filteredData?.filter(
+          (item) =>
+            item.subcategory.toLowerCase() ===
+            this.getSelectedSpareSubCategory.toLowerCase()
+        );
+      }
+      if (this.getSelectedSpareItem) {
+        filteredData = filteredData?.filter(
+          (item) =>
+            item.item.toLowerCase() === this.getSelectedSpareItem.toLowerCase()
+        );
+      }
+
+      return filteredData;
     },
     getSelectedSpareType() {
       return this.$store.state.home.selectedSpareType;
@@ -70,7 +86,7 @@ export default {
     getBreadCrumbImage() {
       return META.spareCategoryFormat.find(
         (item) => item.id === this.getSelectedSpareType
-      ).image;
+      )?.image;
     },
   },
   methods: {},
