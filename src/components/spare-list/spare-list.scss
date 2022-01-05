@@ -27,6 +27,10 @@
   }
   .search-wrapper {
     padding-top: 10px;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
     position: sticky;
     top: 0px;
     background: white;
