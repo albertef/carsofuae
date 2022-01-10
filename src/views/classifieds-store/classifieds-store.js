@@ -1,21 +1,14 @@
-import CoolLightBox from "vue-cool-lightbox";
-import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
-import { Disqus } from "vue-disqus";
-import PostDetailTable from "@/components/post-detail-table/post-detail-table.vue";
 import store from "@/store";
-import router from "@/router";
 import Button from "@/components/common/button/button.vue";
 import Modal from "@/components/common/modal/modal.vue";
-import { UTILS } from "@/utility/utils.js";
+import PostList from "@/components/post-list/post-list.vue";
 
 export default {
-  name: "post-details",
+  name: "classifieds-store",
   components: {
-    CoolLightBox,
-    PostDetailTable,
-    Disqus,
     Button,
     Modal,
+    PostList,
   },
   data() {
     return {
@@ -33,24 +26,16 @@ export default {
     getPostId() {
       return this.$route.query.id;
     },
-    postData() {
-      return this.$store?.getters.getSinglePostData(this.getPostId);
-    },
-    postedByName() {
+    postedByData() {
       const postedByList = this.$store?.state.home.postedByList;
-      return (
-        postedByList?.find((item) => item.id === Number(this.postData.postedBy))
-          ?.name || "Guest"
-      );
+      return postedByList?.find((item) => item.id === Number(this.getPostId));
+    },
+    filteredData() {
+      const data = this.$store?.state.home.postList;
+      return data?.filter((item) => item.postedBy === Number(this.getPostId));
     },
   },
   methods: {
-    leftArrowClick() {
-      this.$refs.scroller.scrollLeft -= 1250;
-    },
-    rightArrowClick() {
-      this.$refs.scroller.scrollLeft += 1250;
-    },
     openPhone(num) {
       document.location.href = `tel:${num}`;
     },
@@ -86,15 +71,6 @@ export default {
     },
     hideModal() {
       this.modalDisplay = false;
-    },
-    openStore(id) {
-      router.push({
-        name: "ClassifiedsStore",
-        query: {
-          id: id,
-          user: `${UTILS.formatTitle(this.postedByName)}`,
-        },
-      });
     },
   },
 };

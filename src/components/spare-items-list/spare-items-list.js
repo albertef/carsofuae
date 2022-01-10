@@ -54,13 +54,14 @@ export default {
       return UTILS.formatDistance(num, digits);
     },
     viewPostDetails(data) {
+      debugger;
       router.push({
         name: "SparePartsDetails",
         query: {
           id: data.id,
-          title: `${UTILS.formatTitle(data.make)}-${UTILS.formatTitle(
-            data.company
-          )}-${UTILS.formatTitle(data.model)}-${UTILS.formatTitle(data.desc)}`,
+          title: `${UTILS.formatTitle(data.brand)}-${UTILS.formatTitle(
+            data.model
+          )}-${UTILS.formatTitle(data.name)}-${UTILS.formatTitle(data.desc)}`,
         },
       });
     },

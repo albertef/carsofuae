@@ -23,6 +23,7 @@ const state = {
   selectedSpareSubCategory: "",
   selectedSpareItem: "",
   spareItemList: [],
+  postedByList: [],
 };
 
 const actions = {
@@ -73,6 +74,13 @@ const actions = {
       url = "/mocks/spare-post-items.json";
     dataset = await axiosInstance.get(url);
     commit("updateSpareItemList", dataset);
+    return dataset;
+  },
+  async getPostedByList({ commit }) {
+    let dataset = {},
+      url = "/mocks/posted-by.json";
+    dataset = await axiosInstance.get(url);
+    commit("updatePostedByList", dataset);
     return dataset;
   },
 };
@@ -213,6 +221,9 @@ const mutations = {
   },
   updateSpareItemList(state, dataset) {
     state.spareItemList = dataset;
+  },
+  updatePostedByList(state, dataset) {
+    state.postedByList = dataset;
   },
 };
 

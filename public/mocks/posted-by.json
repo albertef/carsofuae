@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Chris",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "phone": "+918754579004",
+    "email": "chris@gmail.com",
+    "image": "",
+    "openTimes": [
+      {
+        "day": "Monday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Tuesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Wednesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Thursday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Friday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Saturday",
+        "time": "Closed"
+      },
+      {
+        "day": "Sunday",
+        "time": "Closed"
+      }
+    ],
+    "location": {
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    }
+  },
+  {
+    "id": 2,
+    "name": "John Doe",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "phone": "+918754579004",
+    "email": "linto@gmail.com",
+    "image": "profile.png",
+    "openTimes": [
+      {
+        "day": "Monday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Tuesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Wednesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Thursday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Friday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Saturday",
+        "time": "Closed"
+      },
+      {
+        "day": "Sunday",
+        "time": "Closed"
+      }
+    ],
+    "location": {
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Albert",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "phone": "+918754579004",
+    "email": "albert@gmail.com",
+    "image": "",
+    "openTimes": [
+      {
+        "day": "Monday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Tuesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Wednesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Thursday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Friday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Saturday",
+        "time": "Closed"
+      },
+      {
+        "day": "Sunday",
+        "time": "Closed"
+      }
+    ],
+    "location": {
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    }
+  }
+]

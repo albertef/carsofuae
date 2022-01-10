@@ -112,9 +112,9 @@
         <div class="col-12">
           <h5>Overview</h5>
           <PostDetailTable :data="postData" />
-          <div class="user-desc mb-4">
+          <div class="user-desc mb-4" @click="openStore(postData.postedBy)">
             <img src="../../assets/user-profile.png" />
-            <p><span>Chris's Take</span>{{postData.desc}}</p>
+            <p><span>{{postedByName}}'s Take</span>{{postData.desc}}</p>
           </div>
           <h5>Video</h5>
           <div class="video-wrapper my-3">

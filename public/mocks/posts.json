@@ -50,7 +50,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "+918754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 2,
@@ -85,7 +86,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 3,
@@ -127,7 +129,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 3
   },
   {
     "id": 4,
@@ -174,7 +177,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 5,
@@ -217,7 +221,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 6,
@@ -265,7 +270,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 7,
@@ -306,7 +312,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 3
   },
   {
     "id": 8,
@@ -348,7 +355,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 9,
@@ -390,7 +398,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 10,
@@ -432,7 +441,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 11,
@@ -473,7 +483,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 3
   },
   {
     "id": 12,
@@ -516,7 +527,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 13,
@@ -560,7 +572,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 2
   },
   {
     "id": 14,
@@ -601,7 +614,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 3
   },
   {
     "id": 15,
@@ -643,7 +657,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 16,
@@ -688,7 +703,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 17,
@@ -732,7 +748,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 18,
@@ -774,7 +791,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 19,
@@ -815,7 +833,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 20,
@@ -856,7 +875,8 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   },
   {
     "id": 21,
@@ -899,6 +919,7 @@
     "fuelType": "Gasoline",
     "steeringSide": "Left Hand Side",
     "phone": "8754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 1
   }
 ]
