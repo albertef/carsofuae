@@ -28,6 +28,10 @@ export default {
       type: Array,
       default: [],
     },
+    title: {
+      type: String,
+      default: "Latest <span>Posts</span>",
+    },
   },
   computed: {
     isPostlength() {

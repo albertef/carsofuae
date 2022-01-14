@@ -6,6 +6,16 @@
     "phone": "+918754579004",
     "email": "chris@gmail.com",
     "image": "",
+    "gallery": [
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/2Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/3Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/1Capture.jpg"
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    },
     "openTimes": [
       {
         "day": "Monday",
@@ -48,6 +58,16 @@
     "phone": "+918754579004",
     "email": "linto@gmail.com",
     "image": "profile.png",
+    "gallery": [
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/2Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/3Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/1Capture.jpg"
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    },
     "openTimes": [
       {
         "day": "Monday",
@@ -90,6 +110,16 @@
     "phone": "+918754579004",
     "email": "albert@gmail.com",
     "image": "",
+    "gallery": [
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/2Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/3Capture.jpg",
+      "https://www.approvedgarages.co.uk/imgp/ag/19410/1Capture.jpg"
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    },
     "openTimes": [
       {
         "day": "Monday",

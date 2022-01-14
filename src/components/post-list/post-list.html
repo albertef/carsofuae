@@ -4,7 +4,7 @@
       <div class="container">
           <div class="row latest-posts" v-if="postData.length">
             <div class="col-12 px-lg-0 px-3 py-2 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
-              <h3 class="heading">Latest <span> posts</span></h3>
+              <h3 class="heading" v-html="title"></h3>
               <div class="right-column">
                 <div class="sort-wrapper" title="Sort Options">
                   <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />

@@ -2,6 +2,7 @@ import store from "@/store";
 import Button from "@/components/common/button/button.vue";
 import Modal from "@/components/common/modal/modal.vue";
 import PostList from "@/components/post-list/post-list.vue";
+import { Carousel, Slide } from "vue-carousel";
 
 export default {
   name: "classifieds-store",
@@ -9,6 +10,8 @@ export default {
     Button,
     Modal,
     PostList,
+    Carousel,
+    Slide,
   },
   data() {
     return {

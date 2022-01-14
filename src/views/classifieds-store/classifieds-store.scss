@@ -2,10 +2,48 @@
   .header {
     border-bottom: 1px solid $purple;
     padding-bottom: 30px;
-    img {
+    img.profile {
       border-radius: 50%;
       border: 1px dashed $purple;
       box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    }
+    .social {
+      .icon {
+        width: 40px;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  .slider {
+    ::v-deep .VueCarousel-slide {
+      img {
+        height: 340px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    ::v-deep .VueCarousel-pagination {
+      position: absolute;
+      bottom: 5px;
+      z-index: 9;
+      > div {
+        margin-top: 0 !important;
+      }
+      button {
+        width: 6px !important;
+        height: 6px !important;
+        margin-top: 0 !important;
+        padding: 3px !important;
+        background-color: $white !important;
+        &.VueCarousel-dot--active {
+          background-color: $purple !important;
+        }
+      }
+    }
+    ::v-deep .VueCarousel-navigation {
     }
   }
   .map-and-hours {
@@ -52,7 +90,7 @@
         bottom: 29px;
         left: 0;
         padding: 10px 0;
-        z-index: 9;
+        z-index: 999;
         background-color: $white;
         flex-wrap: nowrap !important;
         > button {
@@ -64,6 +102,16 @@
             margin-top: 0 !important;
           }
         }
+      }
+    }
+    .slider {
+      ::v-deep .VueCarousel-slide {
+        img {
+          height: 240px;
+        }
+      }
+      ::v-deep .VueCarousel-navigation {
+        display: none;
       }
     }
   }
