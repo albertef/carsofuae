@@ -124,6 +124,7 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "dealerName": "Nada Al Ward",
     "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
     "listBullets": [
       "1 day rental available",
@@ -146,7 +147,8 @@
         "addDriverInsurance": "100",
         "tollCharge": "5"
       }
-    }
+    },
+    "postedBy": 4
   },
   {
     "id": 2,
@@ -262,6 +264,7 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "dealerName": "Nada Al Ward",
     "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
     "listBullets": [
       "1 day rental available",
@@ -284,7 +287,8 @@
         "addDriverInsurance": "100",
         "tollCharge": "5"
       }
-    }
+    },
+    "postedBy": 4
   },
   {
     "id": 3,
@@ -405,6 +409,7 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "dealerName": "Nada Al Ward",
     "dealerLogo": "https://www.oneclickdrive.com/application/views/img/nad-al-ward-rent-a-car-dubai-al-nahda.svg",
     "listBullets": [
       "1 day rental available",
@@ -427,6 +432,7 @@
         "addDriverInsurance": "100",
         "tollCharge": "5"
       }
-    }
+    },
+    "postedBy": 4
   }
 ]

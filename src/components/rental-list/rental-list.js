@@ -28,6 +28,10 @@ export default {
       type: Array,
       default: [],
     },
+    title: {
+      type: String,
+      default: "Latest <span>Rental Cars</span>",
+    },
   },
   computed: {
     isPostlength() {

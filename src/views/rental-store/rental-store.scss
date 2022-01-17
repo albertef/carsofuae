@@ -1,0 +1,118 @@
+.store-wrapper {
+  .header {
+    border-bottom: 1px solid $purple;
+    padding-bottom: 30px;
+    img.profile {
+      border-radius: 50%;
+      border: 1px dashed $purple;
+      box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    }
+    .social {
+      .icon {
+        width: 40px;
+        cursor: pointer;
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  .slider {
+    ::v-deep .VueCarousel-slide {
+      img {
+        height: 340px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    ::v-deep .VueCarousel-pagination {
+      position: absolute;
+      bottom: 5px;
+      z-index: 9;
+      > div {
+        margin-top: 0 !important;
+      }
+      button {
+        width: 6px !important;
+        height: 6px !important;
+        margin-top: 0 !important;
+        padding: 3px !important;
+        background-color: $white !important;
+        &.VueCarousel-dot--active {
+          background-color: $purple !important;
+        }
+      }
+    }
+    ::v-deep .VueCarousel-navigation {
+    }
+  }
+  .map-and-hours {
+    border-bottom: 1px solid $purple;
+    padding-bottom: 10px;
+    .open-times {
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        &:nth-child(even) {
+          background-color: rgba($black, 0.05);
+        }
+        p {
+          width: 100%;
+          margin-bottom: 0;
+          padding: 5px 0;
+          font-weight: 600;
+          &:last-child {
+            text-align: right;
+            color: $green !important;
+          }
+          &.closed {
+            color: $red !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .store-wrapper {
+    margin-top: 15px !important;
+    .header {
+      text-align: center;
+      img {
+        max-width: 100px;
+      }
+      .phone {
+        width: 100%;
+        position: fixed;
+        bottom: 29px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 999;
+        background-color: $white;
+        flex-wrap: nowrap !important;
+        > button {
+          flex: 1 1 auto !important;
+          margin: 0 5px !important;
+          font-size: 0.75rem !important;
+          padding: 10px 15px !important;
+          &:last-child {
+            margin-top: 0 !important;
+          }
+        }
+      }
+    }
+    .slider {
+      ::v-deep .VueCarousel-slide {
+        img {
+          height: 240px;
+        }
+      }
+      ::v-deep .VueCarousel-navigation {
+        display: none;
+      }
+    }
+  }
+}

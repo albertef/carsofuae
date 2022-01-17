@@ -1,0 +1,132 @@
+<div class="container store-wrapper my-4">
+  <div class="row" v-if="!postedByData">
+    <div class="col-12 mb-5 p-0">
+      <h3 class="d-flex justify-content-center align-items-center">
+        Loading...
+      </h3>
+    </div>
+  </div>
+  <div class="row" v-else>
+    <div class="col-12 px-lg-0 px-3">
+      <div class="header mb-3 mt-3">
+        <div class="row">
+          <div class="col-lg-3 col-12">
+            <img
+              class="img-fluid"
+              :src="require(`../../assets/${postedByData.image}`)"
+              v-if="Boolean(postedByData.image)"
+            />
+            <img
+              class="img-fluid profile"
+              src="../../assets/user-profile.png"
+              v-else
+            />
+          </div>
+          <div class="col-lg-9 col-12">
+            <h3 class="my-3">{{postedByData.name}}</h3>
+
+            <div class="social mb-3">
+              <img
+                src="../../assets/facebook.png"
+                class="icon facebook"
+                v-if="postedByData.social.facebook"
+                @click="socialOpen(getSingleGarageDetails.social.facebook)"
+              />
+              <img
+                src="../../assets/linkedin.png"
+                class="icon linkedin"
+                v-if="postedByData.social.linkedin"
+                @click="socialOpen(getSingleGarageDetails.social.linkedin)"
+              />
+              <img
+                src="../../assets/instagram.png"
+                class="icon instagram"
+                v-if="postedByData.social.instagram"
+                @click="socialOpen(getSingleGarageDetails.social.instagram)"
+              />
+            </div>
+            <p>{{postedByData.desc}}</p>
+            <div class="phone d-flex px-3 px-lg-0 mb-lg-0 mb-4 mt-4">
+              <!-- prettier-ignore -->
+              <Button
+                type="green"
+                text="Call"
+                class="flex-fill"
+                :icon="['fas', 'phone']"
+                @click="openPhone(postedByData.phone)"
+              />
+              <!-- prettier-ignore -->
+              <Button
+                type="green"
+                text="Whatsapp"
+                class="flex-fill ml-1"
+                :icon="['fab', 'whatsapp']"
+                @click="openWhatsapp(postedByData.phone)"
+              />
+              <!-- prettier-ignore -->
+              <Button
+                type="green"
+                text="Email"
+                class="flex-fill ml-1"
+                :icon="['fas', 'envelope']"
+                @click="openEmail(postedByData.email)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-and-hours pt-2">
+        <div class="row">
+          <div class="col-lg-8 col-12">
+            <div class="slider mt-lg-0 mt-3">
+              <Carousel
+                id="classifieds-store-carousel"
+                :per-page="1"
+                :loop="true"
+                :autoplay="true"
+                :navigationEnabled="true"
+              >
+                <Slide
+                  v-for="image, index in postedByData.gallery"
+                  v-bind:key="index"
+                >
+                  <img :src="image" class="img-fluid" />
+                </Slide>
+              </Carousel>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12">
+            <div class="open-times mb-4 mt-lg-0 mt-4">
+              <h5 class="mb-3 pb-2">Opening <span>Hours</span></h5>
+              <div v-for="item in postedByData.openTimes" class="py-1 px-2">
+                <p>{{item.day}}</p>
+                <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
+                  {{item.time}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="map mt-2 mb-4">
+              <h5 class="mb-3 pb-2">Location <span>Map</span></h5>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541313772!2d55.27437637712276!3d25.19719697699969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1626510499995!5m2!1sen!2sin"
+                width="100%"
+                height="400"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <RentalList
+      :data="filteredData"
+      :title="`Ads By <span>${postedByData.name}</span>`"
+      :featured="false"
+      v-if="filteredData"
+    />
+  </div>
+</div>

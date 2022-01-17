@@ -4,7 +4,7 @@
       <div class="container">
           <div class="row latest-posts" v-if="postData.length">
             <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
-              <h5 class="heading">Latest <span> Rental Cars</span></h5>
+              <h5 class="heading" v-html="title"></h5>
               <div class="right-column">
                 <div class="sort-wrapper" title="Sort Options">
                   <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />

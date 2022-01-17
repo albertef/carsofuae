@@ -173,7 +173,10 @@
     </div>
     <div class="col-12 col-lg-4">
       <div class="shadow-container right p-3 mb-3">
-        <div class="dealer-logo mb-4 mt-2">
+        <div
+          class="dealer-logo mb-4 mt-2"
+          @click="openStore(rentalData.postedBy)"
+        >
           <img :src="rentalData.dealerLogo" />
         </div>
 

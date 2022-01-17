@@ -35,8 +35,9 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await this.$store.dispatch("getRentalList");
-    this.$store.commit("updateSelectedRental", this.$route.query.id);
+    await store.dispatch("getPostedByList");
+    await store.dispatch("getRentalList");
+    store.commit("updateSelectedRental", this.$route.query.id);
     router
       .push({
         name: "RentalDetails",
@@ -48,6 +49,7 @@ export default {
         },
       })
       .catch(() => {});
+
     store.commit("updateLoader", false);
   },
   unmounted() {
@@ -71,6 +73,14 @@ export default {
     },
     getRentalFAQ() {
       return META.faq;
+    },
+    postedByName() {
+      const postedByList = this.$store?.state.home?.postedByList;
+      return (
+        postedByList?.find(
+          (item) => item.id === Number(this.rentalData.postedBy)
+        )?.name || "Guest"
+      );
     },
   },
   methods: {
@@ -157,6 +167,15 @@ export default {
     },
     socialOpen(link) {
       window.open(link);
+    },
+    openStore(id) {
+      router.push({
+        name: "RentalStore",
+        query: {
+          id: id,
+          user: `${UTILS.formatTitle(this.postedByName)}`,
+        },
+      });
     },
   },
 };

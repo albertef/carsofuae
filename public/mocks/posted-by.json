@@ -154,5 +154,57 @@
       "lat": "25.199195216534722",
       "long": "55.27396889859601"
     }
+  },
+  {
+    "id": 4,
+    "name": "Nad Al Ward",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "phone": "+918754579004",
+    "email": "albert@gmail.com",
+    "image": "",
+    "gallery": [
+      "https://www.indiacarnews.com/wp-content/uploads/2021/07/MG-ONE-Green-Black-1000x600.jpg",
+      "https://www.indiacarnews.com/wp-content/uploads/2021/04/2021-Skoda-Kodiaq-Specs-1000x600.jpg",
+      "https://www.indiacarnews.com/wp-content/uploads/2021/04/2021-Skoda-Kodiaq-Specs-1000x600.jpg"
+    ],
+    "social": {
+      "facebook": "https://www.facebook.com",
+      "linkedin": "https://www.linkedin.com",
+      "instagram": "https://www.instagram.com"
+    },
+    "openTimes": [
+      {
+        "day": "Monday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Tuesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Wednesday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Thursday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Friday",
+        "time": "08:30 - 18:00"
+      },
+      {
+        "day": "Saturday",
+        "time": "Closed"
+      },
+      {
+        "day": "Sunday",
+        "time": "Closed"
+      }
+    ],
+    "location": {
+      "lat": "25.199195216534722",
+      "long": "55.27396889859601"
+    }
   }
 ]
