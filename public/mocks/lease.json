@@ -100,7 +100,7 @@
     "phone": "+918754579004",
     "email": "albertef@gmail.com",
     "verified": true,
-    "featured": true,
+    "featured": false,
     "mileageLimit": "250 km",
     "additionalMileageCharge": "AED 1/km",
     "insurance": "Basic",
@@ -134,7 +134,8 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>",
+    "postedBy": 4
   },
   {
     "id": 2,
@@ -260,7 +261,8 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>",
+    "postedBy": 4
   },
   {
     "id": 3,
@@ -391,6 +393,7 @@
       "Free Delivery",
       "Insurance included"
     ],
-    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>"
+    "descDetails": "<li>AED 1250/month</li><li>12 month contract</li><li>Unlimited mileage included</li><li>No down-payment required</li><li>Maintanence, repairs and tyres included</li><li>Roadside assistance included</li><li>Insurance and accident management included</li><p>Offer valid for limited stock supply, Prices include5% VAT.</p>",
+    "postedBy": 4
   }
 ]

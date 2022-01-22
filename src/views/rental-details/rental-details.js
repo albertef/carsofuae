@@ -170,9 +170,10 @@ export default {
     },
     openStore(id) {
       router.push({
-        name: "RentalStore",
+        name: "StoreProfile",
         query: {
           id: id,
+          type: "rental",
           user: `${UTILS.formatTitle(this.postedByName)}`,
         },
       });

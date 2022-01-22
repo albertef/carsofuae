@@ -1,17 +1,34 @@
 import store from "@/store";
 import Button from "@/components/common/button/button.vue";
 import Modal from "@/components/common/modal/modal.vue";
+import PostList from "@/components/post-list/post-list.vue";
 import RentalList from "@/components/rental-list/rental-list.vue";
+import LeaseList from "@/components/lease-list/lease-list.vue";
 import { Carousel, Slide } from "vue-carousel";
+import Star from "@/components/star/star.vue";
+import { UTILS } from "@/utility/utils.js";
 
 export default {
-  name: "rental-store",
+  name: "classifieds-store",
   components: {
     Button,
     Modal,
+    PostList,
     RentalList,
+    LeaseList,
     Carousel,
     Slide,
+    Star,
+  },
+  props: {
+    type: {
+      type: String | null,
+      default: null,
+    },
+    id: {
+      type: Number | null,
+      default: null,
+    },
   },
   data() {
     return {
@@ -21,21 +38,35 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await this.$store.dispatch("getRentalList");
+    if (this.type === "classifieds") {
+      await this.$store.dispatch("getPostList");
+    } else if (this.type === "rental") {
+      await this.$store.dispatch("getRentalList");
+    } else if (this.type === "lease") {
+      await this.$store.dispatch("getLeaseList");
+    } else if (this.type === "spare") {
+      await this.$store.dispatch("getPostList");
+    }
     await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
   },
   computed: {
-    getPostId() {
-      return this.$route.query.id;
-    },
     postedByData() {
       const postedByList = this.$store?.state.home.postedByList;
-      return postedByList?.find((item) => item.id === Number(this.getPostId));
+      return postedByList?.find((item) => item.id === Number(this.id));
     },
     filteredData() {
-      const data = this.$store?.state.home.rentalData;
-      return data?.filter((item) => item.postedBy === Number(this.getPostId));
+      let data = null;
+      if (this.type === "classifieds") {
+        data = this.$store?.state.home.postList;
+      } else if (this.type === "rental") {
+        data = this.$store?.state.home.rentalData;
+      } else if (this.type === "lease") {
+        data = this.$store?.state.home.leaseData;
+      } else if (this.type === "spare") {
+        data = this.$store?.state.home.postList;
+      }
+      return data?.filter((item) => item.postedBy === Number(this.id));
     },
   },
   methods: {
@@ -74,6 +105,9 @@ export default {
     },
     hideModal() {
       this.modalDisplay = false;
+    },
+    calculateStarValue(value) {
+      return UTILS.calculateStarValue(value);
     },
   },
 };

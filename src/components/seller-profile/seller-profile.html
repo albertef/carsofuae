@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-3 col-12">
             <img
-              class="img-fluid"
+              class="img-fluid profile"
               :src="require(`../../assets/${postedByData.image}`)"
               v-if="Boolean(postedByData.image)"
             />
@@ -25,25 +25,30 @@
           <div class="col-lg-9 col-12">
             <h3 class="my-3">{{postedByData.name}}</h3>
 
-            <div class="social mb-3">
-              <img
-                src="../../assets/facebook.png"
-                class="icon facebook"
-                v-if="postedByData.social.facebook"
-                @click="socialOpen(getSingleGarageDetails.social.facebook)"
-              />
-              <img
-                src="../../assets/linkedin.png"
-                class="icon linkedin"
-                v-if="postedByData.social.linkedin"
-                @click="socialOpen(getSingleGarageDetails.social.linkedin)"
-              />
-              <img
-                src="../../assets/instagram.png"
-                class="icon instagram"
-                v-if="postedByData.social.instagram"
-                @click="socialOpen(getSingleGarageDetails.social.instagram)"
-              />
+            <div class="social-wrapper mb-3">
+              <div class="social">
+                <img
+                  src="../../assets/facebook.png"
+                  class="icon facebook"
+                  v-if="postedByData.social.facebook"
+                  @click="socialOpen(postedByData.social.facebook)"
+                />
+                <img
+                  src="../../assets/linkedin.png"
+                  class="icon linkedin"
+                  v-if="postedByData.social.linkedin"
+                  @click="socialOpen(postedByData.social.linkedin)"
+                />
+                <img
+                  src="../../assets/instagram.png"
+                  class="icon instagram"
+                  v-if="postedByData.social.instagram"
+                  @click="socialOpen(postedByData.social.instagram)"
+                />
+              </div>
+              <div class="social-rating">
+                <Star :value="calculateStarValue(postedByData.reviews)" />
+              </div>
             </div>
             <p>{{postedByData.desc}}</p>
             <div class="phone d-flex px-3 px-lg-0 mb-lg-0 mb-4 mt-4">
@@ -80,7 +85,7 @@
           <div class="col-lg-8 col-12">
             <div class="slider mt-lg-0 mt-3">
               <Carousel
-                id="classifieds-store-carousel"
+                id="store-carousel"
                 :per-page="1"
                 :loop="true"
                 :autoplay="true"
@@ -122,11 +127,23 @@
         </div>
       </div>
     </div>
+    <PostList
+      :data="filteredData"
+      :title="`Ads By <span>${postedByData.name}</span>`"
+      :featured="false"
+      v-if="type ==='classifieds' && filteredData"
+    />
     <RentalList
       :data="filteredData"
       :title="`Ads By <span>${postedByData.name}</span>`"
       :featured="false"
-      v-if="filteredData"
+      v-if="type ==='rental' && filteredData"
+    />
+    <LeaseList
+      :data="filteredData"
+      :title="`Ads By <span>${postedByData.name}</span>`"
+      :featured="false"
+      v-if="type ==='lease' && filteredData"
     />
   </div>
 </div>

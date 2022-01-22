@@ -158,5 +158,15 @@ export default {
     socialOpen(link) {
       window.open(link);
     },
+    openStore(id) {
+      router.push({
+        name: "StoreProfile",
+        query: {
+          id: id,
+          type: "lease",
+          user: `${UTILS.formatTitle(this.postedByName)}`,
+        },
+      });
+    },
   },
 };

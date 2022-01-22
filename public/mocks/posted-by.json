@@ -16,6 +16,23 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "reviews": [
+      {
+        "date": "12-12-2021",
+        "star": 5,
+        "review": "Great service from booking service, mot or repairs to driving away when completed"
+      },
+      {
+        "date": "2-10-2021",
+        "star": 4,
+        "review": "Friendly staff. Quick service. Will use them again when service is due."
+      },
+      {
+        "date": "5-8-2021",
+        "star": 5,
+        "review": "I can always rely on cross motor engineering for excellent service at a good price."
+      }
+    ],
     "openTimes": [
       {
         "day": "Monday",
@@ -68,6 +85,23 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "reviews": [
+      {
+        "date": "12-12-2021",
+        "star": 3,
+        "review": "Great service from booking service, mot or repairs to driving away when completed"
+      },
+      {
+        "date": "2-10-2021",
+        "star": 4,
+        "review": "Friendly staff. Quick service. Will use them again when service is due."
+      },
+      {
+        "date": "5-8-2021",
+        "star": 4,
+        "review": "I can always rely on cross motor engineering for excellent service at a good price."
+      }
+    ],
     "openTimes": [
       {
         "day": "Monday",
@@ -120,6 +154,23 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "reviews": [
+      {
+        "date": "12-12-2021",
+        "star": 2,
+        "review": "Great service from booking service, mot or repairs to driving away when completed"
+      },
+      {
+        "date": "2-10-2021",
+        "star": 2,
+        "review": "Friendly staff. Quick service. Will use them again when service is due."
+      },
+      {
+        "date": "5-8-2021",
+        "star": 1,
+        "review": "I can always rely on cross motor engineering for excellent service at a good price."
+      }
+    ],
     "openTimes": [
       {
         "day": "Monday",
@@ -172,6 +223,23 @@
       "linkedin": "https://www.linkedin.com",
       "instagram": "https://www.instagram.com"
     },
+    "reviews": [
+      {
+        "date": "12-12-2021",
+        "star": 4,
+        "review": "Great service from booking service, mot or repairs to driving away when completed"
+      },
+      {
+        "date": "2-10-2021",
+        "star": 3,
+        "review": "Friendly staff. Quick service. Will use them again when service is due."
+      },
+      {
+        "date": "5-8-2021",
+        "star": 1,
+        "review": "I can always rely on cross motor engineering for excellent service at a good price."
+      }
+    ],
     "openTimes": [
       {
         "day": "Monday",

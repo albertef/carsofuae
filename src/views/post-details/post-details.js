@@ -89,9 +89,10 @@ export default {
     },
     openStore(id) {
       router.push({
-        name: "ClassifiedsStore",
+        name: "StoreProfile",
         query: {
           id: id,
+          type: "classifieds",
           user: `${UTILS.formatTitle(this.postedByName)}`,
         },
       });
