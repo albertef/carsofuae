@@ -3,8 +3,10 @@ import "vue-cool-lightbox/dist/vue-cool-lightbox.min.css";
 import { Disqus } from "vue-disqus";
 import SpareDetailTable from "@/components/spare-detail-table/spare-detail-table.vue";
 import store from "@/store";
+import router from "@/router";
 import Button from "@/components/common/button/button.vue";
 import Modal from "@/components/common/modal/modal.vue";
+import { UTILS } from "@/utility/utils.js";
 
 export default {
   name: "post-details",
@@ -24,6 +26,7 @@ export default {
   async mounted() {
     store.commit("updateLoader", true);
     await this.$store.dispatch("getSpareItemList");
+    await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
   },
   computed: {
@@ -32,6 +35,13 @@ export default {
     },
     postData() {
       return this.$store?.getters.getSingleSpareData(this.getPostId);
+    },
+    postedByName() {
+      const postedByList = this.$store?.state.home.postedByList;
+      return (
+        postedByList?.find((item) => item.id === Number(this.postData.postedBy))
+          ?.name || "Guest"
+      );
     },
   },
   methods: {
@@ -76,6 +86,16 @@ export default {
     },
     hideModal() {
       this.modalDisplay = false;
+    },
+    openStore(id) {
+      router.push({
+        name: "StoreProfile",
+        query: {
+          id: id,
+          type: "spare",
+          user: `${UTILS.formatTitle(this.postedByName)}`,
+        },
+      });
     },
   },
 };

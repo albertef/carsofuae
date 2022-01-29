@@ -54,7 +54,6 @@ export default {
       return UTILS.formatDistance(num, digits);
     },
     viewPostDetails(data) {
-      debugger;
       router.push({
         name: "SparePartsDetails",
         query: {

@@ -110,9 +110,9 @@
         <div class="col-12">
           <h5>Details</h5>
           <SpareDetailTable :data="postData" />
-          <div class="user-desc mb-4">
+          <div class="user-desc mb-4" @click="openStore(postData.postedBy)">
             <img src="../../assets/user-profile.png" />
-            <p><span>Sold by Chris</span></p>
+            <p><span>{{postedByName}}'s Take</span></p>
           </div>
           <!-- <h5>Video</h5>
           <div class="video-wrapper my-3">

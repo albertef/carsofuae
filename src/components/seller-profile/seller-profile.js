@@ -4,6 +4,7 @@ import Modal from "@/components/common/modal/modal.vue";
 import PostList from "@/components/post-list/post-list.vue";
 import RentalList from "@/components/rental-list/rental-list.vue";
 import LeaseList from "@/components/lease-list/lease-list.vue";
+import SpareItemsList from "@/components/spare-items-list/spare-items-list.vue";
 import { Carousel, Slide } from "vue-carousel";
 import Star from "@/components/star/star.vue";
 import { UTILS } from "@/utility/utils.js";
@@ -16,6 +17,7 @@ export default {
     PostList,
     RentalList,
     LeaseList,
+    SpareItemsList,
     Carousel,
     Slide,
     Star,
@@ -45,7 +47,7 @@ export default {
     } else if (this.type === "lease") {
       await this.$store.dispatch("getLeaseList");
     } else if (this.type === "spare") {
-      await this.$store.dispatch("getPostList");
+      await this.$store.dispatch("getSpareItemList");
     }
     await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
@@ -64,7 +66,7 @@ export default {
       } else if (this.type === "lease") {
         data = this.$store?.state.home.leaseData;
       } else if (this.type === "spare") {
-        data = this.$store?.state.home.postList;
+        data = this.$store?.state.home.spareItemList;
       }
       return data?.filter((item) => item.postedBy === Number(this.id));
     },

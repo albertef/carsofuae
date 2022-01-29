@@ -27,7 +27,8 @@
     ],
     "warranty": "Yes",
     "phone": "+918754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 4
   },
   {
     "id": 2,
@@ -55,6 +56,7 @@
     ],
     "warranty": "Yes",
     "phone": "+918754579004",
-    "email": "albertef@gmail.com"
+    "email": "albertef@gmail.com",
+    "postedBy": 4
   }
 ]

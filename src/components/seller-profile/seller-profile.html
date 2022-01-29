@@ -145,5 +145,11 @@
       :featured="false"
       v-if="type ==='lease' && filteredData"
     />
+    <SpareItemsList
+      :data="filteredData"
+      :title="`Ads By <span>${postedByData.name}</span>`"
+      :featured="false"
+      v-if="type ==='spare' && filteredData"
+    />
   </div>
 </div>

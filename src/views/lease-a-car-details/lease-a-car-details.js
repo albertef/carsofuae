@@ -51,7 +51,6 @@ export default {
     store.commit("updateLoader", false);
   },
   unmounted() {
-    debugger;
     router.push({
       name: "LeaseACar",
     });
