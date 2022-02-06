@@ -1,0 +1,27 @@
+<Modal class="small">
+  <template v-slot:header>
+    Add Review
+    <span @click="closeAddReview"
+      ><font-awesome-icon :icon="['fas', 'times']" /></span
+  ></template>
+  <template v-slot:body>
+    <label>Select Rating</label>
+    <!-- prettier-ignore -->
+    <Select :options="ratingOptions" default="Select Rating" @selectValue="getSelectInput" />
+    <label>Review</label>
+    <!-- prettier-ignore -->
+    <TextArea
+      class="inputText"
+      placeholder="Your review comments here..."
+      @value="filterCarData($event)"
+    />
+  </template>
+  <template v-slot:footer>
+    <div class="col-12 p-0 mt-4 d-flex">
+      <!-- prettier-ignore -->
+      <Button type="hollow" width="100%" text="Cancel" @click="closeAddReview" class="mr-2" />
+      <!-- prettier-ignore -->
+      <Button type="primary" width="100%" text="Submit Review" @click="addReview" class="ml-2" />
+    </div>
+  </template>
+</Modal>

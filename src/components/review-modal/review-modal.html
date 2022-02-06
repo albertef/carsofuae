@@ -1,0 +1,22 @@
+<Modal class="small">
+  <template v-slot:header>
+    Reviews
+    <span @click="closeModal"
+      ><font-awesome-icon :icon="['fas', 'times']" /></span
+  ></template>
+  <template v-slot:body>
+    <div v-for="review in data">
+      <h6>{{review.date}}</h6>
+      <h5>Rating: {{review.star}}</h5>
+      <p>{{review.review}}</p>
+    </div>
+  </template>
+  <template v-slot:footer>
+    <div class="col-12 p-0 mt-4 d-flex">
+      <!-- prettier-ignore -->
+      <Button type="hollow" width="100%" text="Cancel" @click="closeModal" class="mr-2" />
+      <!-- prettier-ignore -->
+      <Button type="primary" width="100%" text="Add Review" @click="addReview" class="ml-2" />
+    </div>
+  </template>
+</Modal>

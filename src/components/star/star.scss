@@ -1,4 +1,8 @@
 .star-wrapper {
+  section {
+    cursor: pointer;
+  }
+
   span {
     svg {
       &.selected {

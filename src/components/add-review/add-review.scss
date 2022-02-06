@@ -1,0 +1,48 @@
+::v-deep .popup-header {
+  display: flex;
+  justify-content: space-between;
+  span {
+    font-size: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover {
+      color: $purple;
+      transform: rotate(360deg);
+    }
+  }
+}
+::v-deep .popup-body {
+  label {
+    font-weight: 500;
+    margin-top: 15px;
+  }
+  > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    h5 {
+      font-weight: 600;
+      font-size: 0.75rem;
+      flex: 1 0 50%;
+      justify-content: flex-end;
+      display: inline-flex;
+    }
+    h6 {
+      font-weight: 600;
+      font-size: 0.75rem;
+      flex: 1 0 50%;
+      color: $purple;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 0.875rem !important;
+      flex: 1 0 100%;
+    }
+    textarea {
+      margin-bottom: 20px;
+    }
+  }
+}

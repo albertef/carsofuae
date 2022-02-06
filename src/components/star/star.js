@@ -1,33 +1,61 @@
+import { UTILS } from "@/utility/utils.js";
+import ReviewModal from "@/components/review-modal/review-modal.vue";
+import AddReview from "@/components/add-review/add-review.vue";
+
 const MAX = 5;
 export default {
   name: "Star",
   props: {
-    value: {
-      type: Number,
-      default: 0,
+    data: {
+      type: Array,
+      default: () => [],
     },
+  },
+  components: {
+    ReviewModal,
+    AddReview,
   },
   data() {
     return {
       halfStar: false,
       actualValue: 0,
+      showReviewModal: false,
+      addModal: false,
     };
   },
   computed: {
+    starValue() {
+      return UTILS.calculateStarValue(this.data);
+    },
     roundedValue() {
       this.halfStar = false;
-      if (Number.isInteger(this.value)) {
-        this.actualValue = this.value;
-        return this.value;
+      if (Number.isInteger(this.starValue)) {
+        this.actualValue = this.starValue;
+        return this.starValue;
       }
       this.halfStar = true;
-      this.actualValue = this.value.toFixed(2);
-      return Math.floor(this.value);
+      this.actualValue = this.starValue.toFixed(2);
+      return Math.floor(this.starValue);
     },
     remainingStarValue() {
       return this.halfStar
         ? MAX - (this.roundedValue + 1)
         : MAX - this.roundedValue;
+    },
+  },
+  methods: {
+    showReviews() {
+      this.showReviewModal = true;
+    },
+    closeReviewModal() {
+      this.showReviewModal = false;
+    },
+    showAddModal() {
+      this.addModal = true;
+      this.showReviewModal = false;
+    },
+    closeAddModal() {
+      this.addModal = false;
     },
   },
 };

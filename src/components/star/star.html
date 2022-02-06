@@ -1,12 +1,27 @@
 <div class="star-wrapper">
-  <span v-for="i in roundedValue">
-    <font-awesome-icon :icon="['fas', 'star']" class="selected" />
-  </span>
-  <span v-if="halfStar">
-    <font-awesome-icon :icon="['fas', 'star-half-alt']" class="selected" />
-  </span>
-  <span v-for="i in remainingStarValue">
-    <font-awesome-icon :icon="['fas', 'star']" />
-  </span>
-  <span class="ml-2 rating-value">{{actualValue}}</span>
+  <section @click="showReviews">
+    <span v-for="i in roundedValue">
+      <font-awesome-icon :icon="['fas', 'star']" class="selected" />
+    </span>
+    <span v-if="halfStar">
+      <font-awesome-icon :icon="['fas', 'star-half-alt']" class="selected" />
+    </span>
+    <span v-for="i in remainingStarValue">
+      <font-awesome-icon :icon="['fas', 'star']" />
+    </span>
+    <span class="ml-2 rating-value">{{actualValue}}</span>
+  </section>
+  <ReviewModal
+    class="small"
+    v-if="showReviewModal"
+    :data="data"
+    @close="closeReviewModal"
+    @addReview="showAddModal"
+  />
+  <AddReview
+    class="small"
+    v-if="addModal"
+    :data="data"
+    @close="closeAddModal"
+  />
 </div>

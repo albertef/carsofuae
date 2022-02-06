@@ -1,0 +1,20 @@
+<transition name="popup">
+  <div
+    class="popup-mask"
+    @keyup.esc="$emit('escape')"
+    :class="[size, whiteBg ? 'bg-white-overlay' : '' ]"
+    v-bind="$attrs"
+  >
+    <div class="popup-wrapper">
+      <div class="popup-container">
+        <div v-if="hasHeader" class="popup-header">
+          <slot name="header"></slot>
+        </div>
+        <div v-if="hasBody" class="popup-body"><slot name="body"></slot></div>
+        <div v-if="hasFooter" class="popup-footer">
+          <slot name="footer"> </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>

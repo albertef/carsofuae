@@ -67,9 +67,7 @@ export default {
     openEmail(email) {
       window.location.href = `mailto:${email}`;
     },
-    calculateStarValue(value) {
-      return UTILS.calculateStarValue(value);
-    },
+
     getServiceList(value) {
       return garageServiceList.filter((item) => value.includes(item.id));
     },
