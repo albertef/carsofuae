@@ -155,6 +155,9 @@
       margin-top: 0 !important;
     }
   }
+  ::v-deep .VueCarousel-slide {
+    min-width: 33.33%;
+  }
   @media screen and (max-width: 991px) {
     .card {
       max-height: 150px;
