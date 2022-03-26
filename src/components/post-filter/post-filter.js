@@ -25,6 +25,9 @@ export default {
     },
   },
   computed: {
+    getCategory() {
+      return this.$route.query.category;
+    },
     fullPostData() {
       return this.data;
     },
