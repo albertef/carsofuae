@@ -15,28 +15,19 @@
         <Select :options="getCarMakes" default="Select Brand" @selectValue="updateSelectedCarMake" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Brand</label>
         <!-- prettier-ignore -->
         <Select :options="getCarMakes" default="Select Brand" @selectValue="updateSelectedCarMake" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Model</label>
         <!-- prettier-ignore -->
         <Select :options="getAllCarModels" default="Select Model" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Year</label>
         <!-- prettier-ignore -->
         <InputText class="inputText" placeholder="min" @value="" />
@@ -45,17 +36,14 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Trim</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Trim" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Kilometers</label>
         <!-- prettier-ignore -->
         <InputText class="inputText" placeholder="min" @value="" />
@@ -89,10 +77,7 @@
         <Select :options="[]" default="Select Engine Size" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Regional Specs</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Regional Specs" @selectValue="getSelectInput" />
@@ -100,17 +85,14 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Body Type</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Body Type" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Price</label>
         <!-- prettier-ignore -->
         <InputText class="inputText" placeholder="min" @value="" />
@@ -119,7 +101,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Warranty</label>
         <!-- prettier-ignore -->
@@ -128,7 +110,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>No.of Cylinders</label>
         <!-- prettier-ignore -->
@@ -137,7 +119,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Transmission Type</label>
         <!-- prettier-ignore -->
@@ -146,7 +128,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Horse Power</label>
         <!-- prettier-ignore -->
@@ -155,7 +137,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Fuel Type</label>
         <!-- prettier-ignore -->
@@ -164,17 +146,14 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Steering Side</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Steering Side" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Exterior Color</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Exterior Color" @selectValue="getSelectInput" />
@@ -182,7 +161,7 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Interior Color</label>
         <!-- prettier-ignore -->
@@ -191,35 +170,26 @@
 
       <div
         class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='used-cars'"
+        v-if="getCategory!=='motorcycles'"
       >
         <label>Doors</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Doors" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Body Condition</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Body Condition" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Mechanical Condition</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Mechanical Condition" @selectValue="getSelectInput" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles' || getCategory==='used-cars'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Seller Type</label>
         <!-- prettier-ignore -->
         <Select :options="[]" default="Select Seller Type" @selectValue="getSelectInput" />
