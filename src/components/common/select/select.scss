@@ -10,11 +10,12 @@
     background-color: $white;
     border-radius: 3px;
     color: rgba($black, 0.4);
-    padding: 0.5em;
+    padding: 0.625em;
     cursor: pointer;
     user-select: none;
     box-shadow: $shadow-small;
     width: 100%;
+    position: relative;
     &:after {
       position: absolute;
       content: "";
@@ -54,8 +55,30 @@
         background-color: $purple-10;
       }
     }
+    &.no-data {
+      div {
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
   }
   .selectHide {
     display: none;
+  }
+  span.error-text {
+    color: rgba($red, 0.8);
+    font-size: 0.85rem;
+  }
+  &.error {
+    .selected {
+      border: 1px solid rgba($red, 0.8) !important;
+      background-color: rgba($red, 0.05) !important;
+      box-shadow: $shadow-error;
+    }
   }
 }

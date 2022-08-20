@@ -43,7 +43,11 @@
           </div>
         </div>
         <div class="social-rating">
-          <Star :data="getSingleGarageDetails.reviews" />
+          <Star
+            :data="getSingleGarageDetails.reviews"
+            pageType="garage"
+            :pageId="Number(selectedGarage)"
+          />
           <div class="social">
             <img
               src="../../assets/facebook.png"
@@ -137,6 +141,8 @@
             </p>
           </div>
         </div>
+        <!-- prettier-ignore -->
+        <Button type="hollow" text="Add Your Garage" width="100%" class="mr-3 mb-4" @click="addGarage()" />
         <div class="about">
           <h5>About Us</h5>
           <div v-html="getSingleGarageDetails.desc" class="my-3"></div>

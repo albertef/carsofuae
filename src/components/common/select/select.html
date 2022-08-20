@@ -1,8 +1,17 @@
-<div class="select-wrapper" @blur="open = false">
+<div
+  class="select-wrapper"
+  @blur="open = false"
+  :class="error && 'error'"
+  ref="selectRef"
+>
   <div class="selected" :class="{ open: open }" @click="open = !open">
     {{ selected }}
   </div>
-  <div class="items" :class="{ selectHide: !open }">
+  <div
+    class="items"
+    :class="{ selectHide: !open }"
+    v-if="options && options.length"
+  >
     <div
       v-for="(option, i) of options"
       :key="i"
@@ -15,4 +24,8 @@
       {{ option }}
     </div>
   </div>
+  <div class="items no-data" :class="{ selectHide: !open }" v-else>
+    <div>No Data Available!</div>
+  </div>
+  <span v-if="error" class="error-text">{{errorText}}</span>
 </div>

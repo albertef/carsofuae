@@ -1,8 +1,10 @@
-<div class="input-text-wrapper">
+<div class="input-text-wrapper" :class="error && 'error'">
   <textarea
     :id="id"
     :placeholder="placeholder"
     :value="value"
     @input="e => updateValue(e)"
+    v-bind="$attrs"
   />
+  <span v-if="error">{{errorText}}</span>
 </div>

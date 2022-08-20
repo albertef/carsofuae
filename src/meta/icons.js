@@ -65,6 +65,7 @@ import {
   faChevronCircleDown,
   faChevronCircleUp,
   faEnvelope,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -155,3 +156,5 @@ library.add(faChevronCircleDown);
 library.add(faChevronCircleUp);
 library.add(faUserCheck);
 library.add(faEnvelope);
+library.add(faTrash);
+library.add(faCheckSquare);

@@ -13,6 +13,18 @@ export default {
       type: String,
       default: "",
     },
+    type: {
+      type: String,
+      default: "text",
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorText: {
+      type: String,
+      default: "",
+    },
   },
   methods: {
     updateValue(e) {

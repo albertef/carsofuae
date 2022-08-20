@@ -9,6 +9,8 @@
     top: 0;
     z-index: 9;
     .filter-wrapper {
+      align-items: center;
+      display: flex;
       svg {
         cursor: pointer;
         color: rgba($black, 0.8);

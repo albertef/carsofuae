@@ -1,0 +1,283 @@
+<div class="register-form-wrapper container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h5 class="mt-5 mb-4">Fill in below details to register.</h5>
+          </div>
+          <div class="col-12 mb-3 d-flex">
+            <Radio :value="userTypes.individual.title" name="loginType" class="mr-4"
+              :selected="selectedUserType === userTypes.individual.title" @change="e => selectedUserType = e.value" />
+            <Radio :value="userTypes.company.title" name="loginType"
+              :selected="selectedUserType === userTypes.company.title" @change="e => selectedUserType = e.value" />
+          </div>
+          <div class="col-12 p-0" v-if="selectedUserType === userTypes.individual.title">
+            <div class="col-12 mb-3">
+              <label>First Name <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.firstname" errorText="Enter your first name"
+                placeholder="Enter First Name" id="firstname" :value="individualUserDetails.firstname"
+                @value="updateUserDetails('firstname', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Last Name <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.lastname" errorText="Enter your last name"
+                placeholder="Enter Last Name" id="lastname" :value="individualUserDetails.lastname"
+                @value="updateUserDetails('lastname', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>DOB <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputDate class="inputText" :error="registerValidation.dob" errorText="Enter your date of birth"
+                placeholder="Enter Date Of Birth" id="dob" :value="individualUserDetails.dob"
+                @value="updateUserDetails('dob', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Gender <span>*</span></label>
+              <!-- prettier-ignore -->
+              <Select :options="genderOptions" :error="registerValidation.gender" errorText="Select your gender"
+                default="Select Gender" @selectValue="updateUserDetails('gender', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Email <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.email" errorText="Enter valid email address"
+                placeholder="Enter Email" id="email" :value="individualUserDetails.email"
+                @value="updateUserDetails('email', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Username <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your desired username"
+                placeholder="Enter Username" id="username" :value="individualUserDetails.username"
+                @value="updateUserDetails('username', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Password <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.password" errorText="Enter the password"
+                placeholder="Enter Password" id="password" type="password" :value="individualUserDetails.password"
+                @value="updateUserDetails('password', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Confirm Password <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.confirmPassword"
+                errorText="Enter password again to verify" placeholder="Confirm Password" id="confirmPassword"
+                type="password" :value="individualUserDetails.confirmPassword" autocomplete="off"
+                @value="updateUserDetails('confirmPassword', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Contact Number <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.contactNumber"
+                errorText="Enter valid contact number with country code" placeholder="Enter Contact Number"
+                id="contactNumber" :value="individualUserDetails.contactNumber"
+                @value="updateUserDetails('contactNumber', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Whatsapp Number <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.whatsappNumber"
+                errorText="Enter valid contact number with country code" placeholder="Enter Whatsapp Number"
+                id="whatsappNumber" :value="individualUserDetails.whatsappNumber"
+                @value="updateUserDetails('whatsappNumber', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Location</label>
+              <!-- prettier-ignore -->
+              <Select :options="locationOptions" :error="registerValidation.location" errorText="Select your location"
+                default="Select Location" @selectValue="updateUserDetails('location', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Display Picture</label>
+              <!-- prettier-ignore -->
+              <InputFile class="inputText" :error="registerValidation.displayPicture"
+                errorText="Choose a display picture" type="file" accept="image/*" placeholder="Enter Username"
+                name="displayPicture" id="displayPicture" :value="individualUserDetails.displayPicture"
+                @value="updateUserDetails('displayPicture', $event)" />
+            </div>
+            <div class="col-12 mt-4 mb-3">
+              <Checkbox :value="individualUserDetails.tc" label="I agree with terms and conditions"
+                @change="updateUserDetails('tc', $event.value)" :error="registerValidation.tc"
+                errorText="Please select T&C to continue" required /></label>
+            </div>
+            <div class="col-12 mb-4">
+              <Checkbox :value="individualUserDetails.nl" label="I want to receive the newsletter"
+                @change="updateUserDetails('nl', Number($event.value))" />
+            </div>
+            <div class="
+                col-12
+                mt-2
+                mb-5
+                d-flex
+                justify-content-between
+                align-items-center
+                button-wrapper
+              ">
+              <!-- prettier-ignore -->
+              <Button type="hollow" text="Cancel" class="mr-3" @click="cancelLogin()" />
+              <!-- prettier-ignore -->
+              <Button type="primary" text="Register" @click="submitLogin()" />
+            </div>
+          </div>
+
+          <!-- COMPANY USER FORM -->
+
+          <div class="col-12 p-0" v-if="selectedUserType === userTypes.company.title">
+            <div class="col-12 mb-3">
+              <label>First Name <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.firstname" errorText="Enter your first name"
+                placeholder="Enter First Name" id="firstname" :value="companyUserDetails.firstname"
+                @value="updateUserDetails('firstname', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Last Name <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.lastname" errorText="Enter your last name"
+                placeholder="Enter Last Name" id="lastname" :value="companyUserDetails.lastname"
+                @value="updateUserDetails('lastname', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Business Name <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.businessName" errorText="Enter your business name"
+                placeholder="Enter Business Name" id="businessName" :value="companyUserDetails.businessName"
+                @value="updateUserDetails('businessName', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Contact Number <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.contactNumber"
+                errorText="Enter valid contact number with country code" placeholder="Enter Contact Number"
+                id="contactNumber" :value="companyUserDetails.contactNumber"
+                @value="updateUserDetails('contactNumber', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Whatsapp Number <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.whatsappNumber"
+                errorText="Enter valid contact number with country code" placeholder="Enter Whatsapp Number"
+                id="whatsappNumber" :value="companyUserDetails.whatsappNumber"
+                @value="updateUserDetails('whatsappNumber', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Email <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.email" errorText="Enter valid email"
+                placeholder="Enter Email" id="email" :value="companyUserDetails.email"
+                @value="updateUserDetails('email', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Username <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your username"
+                placeholder="Enter Username" id="username" :value="companyUserDetails.username"
+                @value="updateUserDetails('username', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Password <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.password" errorText="Enter your password"
+                placeholder="Enter Password" id="password" type="password" :value="companyUserDetails.password"
+                @value="updateUserDetails('password', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Confirm Password <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.confirmPassword"
+                errorText="Enter password again to verify" placeholder="Confirm Password" id="confirmPassword"
+                type="password" :value="companyUserDetails.confirmPassword" autocomplete="off"
+                @value="updateUserDetails('confirmPassword', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Address <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" :error="registerValidation.address" errorText="Enter your address"
+                placeholder="Enter Address *" id="address" :value="companyUserDetails.address"
+                @value="updateUserDetails('address', $event)" />
+              <InputText class="inputText" :error="registerValidation.streetAddress"
+                errorText="Enter your street address" placeholder="Enter Street Address *" id="streetAddress"
+                :value="companyUserDetails.streetAddress" @value="updateUserDetails('streetAddress', $event)" />
+              <InputText class="inputText" placeholder="Enter Address Line 2" id="addressLine2"
+                :value="companyUserDetails.addressLine2" @value="updateUserDetails('addressLine2', $event)" />
+              <InputText class="inputText" :error="registerValidation.emirate" errorText="Enter your emirate"
+                placeholder="Enter Emirate *" id="emirate" :value="companyUserDetails.emirate"
+                @value="updateUserDetails('emirate', $event)" />
+              <InputText class="inputText" :error="registerValidation.postalCode" errorText="Enter your postal code"
+                placeholder="Enter Postal/Zip Code" id="postalCode" :value="companyUserDetails.postalCode"
+                @value="updateUserDetails('postalCode', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Type of business <span>*</span></label>
+              <!-- prettier-ignore -->
+              <Select :options="businessTypeOptions" :error="registerValidation.businessType"
+                errorText="Select the business type" default="Select Type of business"
+                @selectValue="updateUserDetails('businessType', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Trade License <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputFile class="inputText" :error="registerValidation.tradeLicense"
+                errorText="Choose your trade license image" type="file" accept="image/*" name="tradeLicense"
+                id="tradeLicense" :value="companyUserDetails.tradeLicense"
+                @value="updateUserDetails('tradeLicense', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Company Logo <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputFile class="inputText" :error="registerValidation.logo" errorText="Choose your company logo image"
+                accept="image/*" type="file" name="logo" id="logo" :value="companyUserDetails.logo"
+                @value="updateUserDetails('logo', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Social media links (if any)</label>
+              <!-- prettier-ignore -->
+              <InputText class="inputText" placeholder="Enter Facebook url" id="facebook"
+                :value="companyUserDetails.facebook" @value="updateUserDetails('facebook', $event)" />
+              <InputText class="inputText" placeholder="Enter Instagram url" id="instagram"
+                :value="companyUserDetails.instagram" @value="updateUserDetails('instagram', $event)" />
+              <InputText class="inputText" placeholder="Enter LinkedIn url" id="linkedin"
+                :value="companyUserDetails.linkedin" @value="updateUserDetails('linkedin', $event)" />
+            </div>
+            <div class="col-12 mb-3">
+              <label>Upload 3 slider images (Minimum of 1 image)
+                <span>*</span></label>
+              <!-- prettier-ignore -->
+              <InputFile class="inputText" :error="registerValidation.sliderImages"
+                errorText="Choose  slider images (minimum 1)" type="file" accept="image/*" multiple
+                name="sliderImages[]" id="sliderImages" :value="companyUserDetails.sliderImages"
+                @value="updateUserDetails('sliderImages', $event)" />
+            </div>
+            <div class="col-12 mt-4 mb-3">
+              <Checkbox :value="companyUserDetails.tc" :error="registerValidation.tc"
+                errorText="Please accept T&C to continue" label="I agree with terms and conditions"
+                @change="updateUserDetails('tc', $event.value)" required />
+            </div>
+            <div class="col-12 mb-4">
+              <Checkbox :value="companyUserDetails.nl" label="I want to receive the newsletter"
+                @change="updateUserDetails('nl', Number($event.value))" />
+            </div>
+            <div class="
+                col-12
+                mt-2
+                mb-5
+                d-flex
+                justify-content-between
+                align-items-center
+                button-wrapper
+              ">
+              <!-- prettier-ignore -->
+              <Button type="hollow" text="Cancel" class="mr-3" @click="cancelLogin()" />
+              <!-- prettier-ignore -->
+              <Button type="primary" text="Register" @click="submitLogin()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

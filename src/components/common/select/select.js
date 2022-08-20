@@ -9,6 +9,14 @@ export default {
       required: false,
       default: "Select",
     },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorText: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
@@ -18,9 +26,20 @@ export default {
         ? this.options[0]
         : null,
       open: false,
+      selectRef: null,
     };
   },
   mounted() {
+    document.addEventListener("click", this.detectClick);
     this.$emit("input", this.selected);
+  },
+  methods: {
+    detectClick(e) {
+      let el = this.$refs["selectRef"];
+      let target = e.target;
+      if (el && el !== target && !el.contains(target)) {
+        this.open = false;
+      }
+    },
   },
 };

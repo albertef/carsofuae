@@ -53,21 +53,11 @@ export default {
     getSingleGarageDetails() {
       return this.$store.getters.getSingleGarageData(this.selectedGarage);
     },
+    loginInfo() {
+      return this.$store.state.home.loginInfo;
+    },
   },
   methods: {
-    openPhone(num) {
-      document.location.href = `tel:${num}`;
-    },
-    socialOpen(link) {
-      window.open(link);
-    },
-    openWhatsapp(num) {
-      window.open(`https://wa.me/${num.replace(/[^\d\+]/g, "")}`);
-    },
-    openEmail(email) {
-      window.location.href = `mailto:${email}`;
-    },
-
     getServiceList(value) {
       return garageServiceList.filter((item) => value.includes(item.id));
     },
@@ -80,6 +70,17 @@ export default {
           category: this.garageCategory ? this.garageCategory : "browse",
         },
       });
+    },
+    addGarage() {
+      if (this.loginInfo.isLoggedIn) {
+        router.push({
+          name: "AddNewGarage",
+        });
+      } else {
+        router.push({
+          name: "Login",
+        });
+      }
     },
   },
 };

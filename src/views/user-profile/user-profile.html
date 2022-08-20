@@ -1,0 +1,157 @@
+<div class="container profile-wrapper my-4">
+  <div class="row" v-if="!userInfo">
+    <div class="col-12 mb-5 p-0">
+      <h5 class="d-flex justify-content-center align-items-center">
+        No User Details Found!!!
+      </h5>
+    </div>
+  </div>
+  <div class="row" v-else>
+    <div class="col-12 px-lg-0 px-3">
+      <div class="profile-content mb-3 mt-3">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-12 text-center profile-wrapper"
+            v-if="selectedUserType === userTypes.individual.title">
+            <img class="img-fluid profile" :src="`${baseURL}/upload/${userInfo.imageFolder}/${userInfo.displayPicture}`"
+              v-if="Boolean(userInfo.displayPicture)" />
+            <img class="img-fluid profile" src="../../assets/user-profile.png" v-else />
+            <h3 class="my-3">
+              {{ `${userInfo.firstName} ${userInfo.lastName}` }}
+            </h3>
+
+            <div class="profile-details">
+              <div>
+                <label>Email</label>
+                <p>{{userInfo.email}}</p>
+              </div>
+
+              <div>
+                <label>Contact Number</label>
+                <p>{{userInfo.contactNumber}}</p>
+              </div>
+
+              <div>
+                <label>Whatsapp Number</label>
+                <p>{{userInfo.whatsappNumber}}</p>
+              </div>
+
+              <div>
+                <label>D.O.B</label>
+                <p>{{formatDate(userInfo.dob)}}</p>
+              </div>
+
+              <div>
+                <label>Profile Created On</label>
+                <p>{{formatDate(userInfo.created)}}</p>
+              </div>
+
+              <div>
+                <label>Location</label>
+                <p>{{userInfo.location}}</p>
+              </div>
+
+              <div>
+                <label>Newsletter</label>
+                <p>{{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not Subscribed'}}</p>
+              </div>
+
+              <div>
+                <!-- prettier-ignore -->
+                <Button type="red" width="100%" text="Logout" @click="logout" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12 text-center profile-wrapper" v-if="selectedUserType === userTypes.company.title">
+            <img class="img-fluid profile"
+              :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${userInfo.logo}`"
+              v-if="Boolean(userInfo.logo)" />
+            <img class="img-fluid profile" src="../../assets/user-profile.png" v-else />
+            <h3 class="my-3">
+              {{ `${userInfo.firstName} ${userInfo.lastName}` }}
+            </h3>
+
+            <div class="profile-details">
+              <div>
+                <label>Business Name</label>
+                <p>{{userInfo.businessName}}</p>
+              </div>
+
+              <div>
+                <label>Business Type</label>
+                <p>{{userInfo.businessType}}</p>
+              </div>
+
+              <div>
+                <label>Email</label>
+                <p>{{userInfo.email}}</p>
+              </div>
+
+              <div>
+                <label>Contact Number</label>
+                <p>{{userInfo.contactNumber}}</p>
+              </div>
+
+              <div>
+                <label>Whatsapp Number</label>
+                <p>{{userInfo.whatsappNumber}}</p>
+              </div>
+
+              <div>
+                <label>Address</label>
+                <p>{{userInfo.address}}</p>
+                <p>{{userInfo.streetAddress}}</p>
+                <p>{{userInfo.addressLine2}}</p>
+                <p>{{userInfo.emirate}}</p>
+                <p>{{userInfo.postalCode}}</p>
+              </div>
+
+              <div v-if="userInfo.facebook">
+                <label>Facebook</label>
+                <p><a :href="userInfo.facebook" target="_blank">{{userInfo.facebook}}</a></p>
+              </div>
+
+              <div v-if="userInfo.linkedin">
+                <label>LinkedIn</label>
+                <p><a :href="userInfo.linkedin" target="_blank">{{userInfo.linkedin}}</a></p>
+              </div>
+
+              <div v-if="userInfo.instagram">
+                <label>Instagram</label>
+                <p><a :href="userInfo.instagram" target="_blank">{{userInfo.instagram}}</a></p>
+              </div>
+
+              <div>
+                <label>Profile Created On</label>
+                <p>{{formatDate(userInfo.created)}}</p>
+              </div>
+
+              <div v-if="Boolean(userInfo.tradeLicense)">
+                <label>Trade License</label>
+                <p><img class="img-fluid"
+                    :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${userInfo.tradeLicense}`" />
+                </p>
+              </div>
+              <div v-if="Boolean(userInfo.sliderImages)">
+                <label>Slider Images</label>
+                <p class="d-flex">
+                  <span class="mr-2" v-for="image in getSliderImages(userInfo.sliderImages)"><img class="img-fluid"
+                      :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${image}`" /></span>
+                </p>
+              </div>
+
+              <div>
+                <label>Newsletter</label>
+                <p>{{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not Subscribed'}}</p>
+              </div>
+
+              <div>
+                <!-- prettier-ignore -->
+                <Button type="red" width="100%" text="Logout" @click="logout" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

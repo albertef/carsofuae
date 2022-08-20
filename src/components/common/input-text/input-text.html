@@ -1,10 +1,12 @@
-<div class="input-text-wrapper">
+<div class="input-text-wrapper" :class="error && 'error'">
   <input
-    type="text"
+    :type="type"
     :id="id"
     :placeholder="placeholder"
     :value="value"
     @input="e => updateValue(e)"
     autocomplete="off"
+    v-bind="$attrs"
   />
+  <span v-if="error">{{errorText}}</span>
 </div>

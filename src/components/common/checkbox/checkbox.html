@@ -1,4 +1,4 @@
-<div class="checkbox-wrapper">
+<div class="checkbox-wrapper" :class="error && 'error'">
   <div
     class="icon"
     :class="[
@@ -10,6 +10,7 @@
     <font-awesome-icon :icon="getCheckStatusIcon" />
   </div>
   <span class="label">
-    <slot> {{ label }} </slot>
+    <slot> {{ label }} <span v-if="required">*</span> </slot>
   </span>
+  <div class="error-text" v-if="error">{{errorText}}</div>
 </div>

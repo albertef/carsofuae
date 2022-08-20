@@ -12,9 +12,12 @@ nav {
       }
     }
     .navbar-nav {
+      align-items: center;
       .nav-item {
         display: inline-flex;
         align-items: center;
+        position: relative;
+
         .nav-link {
           font-family: $secondary-font;
           text-transform: uppercase;
@@ -26,6 +29,49 @@ nav {
           &.router-link-active,
           &.router-link-active.router-link-exact-active {
             color: $purple;
+          }
+        }
+        &.login {
+          > .nav-link {
+            padding: 20px;
+            color: $purple;
+            svg {
+              display: block;
+            }
+          }
+          > ul {
+            display: none;
+            position: absolute;
+            top: 54px;
+            background: $white;
+            box-shadow: $shadow-small;
+            width: max-content;
+            padding: 0;
+            > li {
+              list-style: none;
+              span {
+                text-transform: capitalize;
+                font-weight: 600;
+                color: $green;
+              }
+              .nav-link,
+              &.no-link {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+                border-bottom: 1px solid rgba($black, 0.1);
+              }
+              .nav-link {
+                &:hover {
+                  background: rgba($black, 0.025);
+                }
+              }
+            }
+          }
+        }
+
+        &:hover {
+          > ul {
+            display: block;
           }
         }
       }
@@ -41,6 +87,9 @@ nav {
         img {
           max-height: 50px;
         }
+      }
+      .navbar-nav {
+        align-items: initial;
       }
     }
   }
@@ -122,7 +171,7 @@ nav {
 
       @for $index from 1 through length($purpleArray) {
         li:nth-child(#{length($purpleArray)}n + #{$index}) a {
-          background: unquote(nth($purpleArray, $index));
+          background: (nth($purpleArray, $index));
         }
       }
       li {
@@ -139,6 +188,9 @@ nav {
         }
         button {
           margin: 15px;
+        }
+        &.login {
+          display: none !important;
         }
         a {
           text-align: left !important;

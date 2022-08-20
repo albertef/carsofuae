@@ -1,0 +1,47 @@
+<div class="login-form-wrapper container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h5 class="mb-4">Login</h5>
+          </div>
+          <div class="col-12 mb-3 d-flex">
+            <Radio :value="userTypes.individual.title" name="loginType" class="mr-4"
+              :selected="selectedUserType === userTypes.individual.title" @change="e => selectedUserType = e.value" />
+            <Radio :value="userTypes.company.title" name="loginType"
+              :selected="selectedUserType === userTypes.company.title" @change="e => selectedUserType = e.value" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Username</label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" placeholder="Enter Username" id="username" :value="username"
+              @value="updateUsername($event)" />
+          </div>
+          <div class="col-12 mb-4">
+            <label>Password</label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" placeholder="Enter Password" id="password" type="password" :value="password"
+              @value="updatePassword($event)" />
+          </div>
+          <div class="
+              col-12
+              mt-2
+              d-flex
+              justify-content-between
+              align-items-center
+              button-wrapper
+            ">
+            <span class="d-inline-flex" @click="newUserRegister">New User? Create Account!</span>
+            <div class="d-inline-flex">
+              <!-- prettier-ignore -->
+              <Button type="hollow" text="Cancel" class="mr-3" @click="cancelLogin()" />
+              <!-- prettier-ignore -->
+              <Button type="primary" text="Login" @click="submitLogin()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

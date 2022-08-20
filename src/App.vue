@@ -6,6 +6,7 @@
     </div>
     <Footer />
     <Loader :show="showLoader" />
+    <Alert :show="alert.show" :type="alert.type" :message="alert.message" />
   </div>
 </template>
 

@@ -2,7 +2,7 @@ export default {
   name: "Checkbox",
   props: {
     value: {
-      type: Boolean,
+      type: Boolean | Number,
       default: false,
     },
     disabled: {
@@ -16,6 +16,18 @@ export default {
     label: {
       type: String,
       default: "",
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    errorText: {
+      type: String,
+      default: "",
+    },
+    required: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

@@ -47,7 +47,11 @@
                 />
               </div>
               <div class="social-rating">
-                <Star :data="postedByData.reviews" />
+                <Star
+                  :data="postedByData.reviews"
+                  :pageType="type + '-profile'"
+                  :pageId="Number(id)"
+                />
               </div>
             </div>
             <p>{{postedByData.desc}}</p>

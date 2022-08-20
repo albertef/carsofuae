@@ -1,0 +1,40 @@
+.register-form-wrapper {
+  .container {
+    height: calc(100vh - 156px);
+    width: 600px;
+    max-width: 90%;
+
+    label {
+      span {
+        color: $red;
+      }
+    }
+
+    .checkbox-wrapper {
+      + label {
+        margin-bottom: 0;
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .button-wrapper {
+      span {
+        color: $purple;
+        border-bottom: 1px dashed $purple;
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+          color: rgba($purple, 0.6);
+          border-bottom: 1px dashed rgba($purple, 0.6);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .container {
+      justify-content: center;
+    }
+  }
+}

@@ -22,10 +22,17 @@
                   ></router-link
                 >
               </li>
-              <li>
+              <li v-if="loginInfo.isLoggedIn">
                 <router-link class="nav-link" to="/profile"
                   ><font-awesome-icon :icon="['fas','user-alt']" /><span
                     >Profile</span
+                  ></router-link
+                >
+              </li>
+              <li v-else>
+                <router-link class="nav-link" to="/login">
+                  <font-awesome-icon :icon="['fas','user-alt']" /><span
+                    >Login</span
                   ></router-link
                 >
               </li>

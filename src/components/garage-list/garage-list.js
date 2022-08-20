@@ -1,9 +1,11 @@
-import router from "@/router";
 import Star from "@/components/star/star.vue";
 import garageServiceList from "@/meta/services.json";
 import dayjs from "dayjs";
 import { UTILS } from "@/utility/utils.js";
 import GarageFilter from "@/components/garage-filter/garage-filter.vue";
+import store from "@/store";
+import router from "@/router";
+import Button from "@/components/common/button/button.vue";
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
@@ -18,6 +20,7 @@ export default {
   components: {
     Star,
     GarageFilter,
+    Button,
   },
   data() {
     return {
@@ -48,6 +51,9 @@ export default {
       });
       return dealsArray.sort((a, b) => dayjs(b.date) - dayjs(a.date));
     },
+    loginInfo() {
+      return this.$store.state.home.loginInfo;
+    },
   },
   methods: {
     updateGarageCategory(value) {
@@ -74,6 +80,17 @@ export default {
     },
     filterToggle() {
       this.filterEnabled = !this.filterEnabled;
+    },
+    addGarage() {
+      if (this.loginInfo.isLoggedIn) {
+        router.push({
+          name: "AddNewGarage",
+        });
+      } else {
+        router.push({
+          name: "Login",
+        });
+      }
     },
   },
 };

@@ -408,4 +408,35 @@ export const META = {
       image: "truck.png",
     },
   ],
+  loginUserType: [
+    {
+      individual: {
+        title: "I'm an Individual",
+        value: "individual",
+      },
+      company: {
+        title: "We're a Company",
+        value: "company",
+      },
+    },
+  ],
+  genderOptions: ["Male", "Female", "other"],
+  locationOptions: [
+    "Abu Dhabi",
+    "Dubai",
+    "Sharjah",
+    "Ajman",
+    "Umm Al-Quwain",
+    "Fujairah",
+    "RAK",
+    "Al Ain",
+  ],
+  businessTypeOptions: [
+    "Automotive Showroom",
+    "Spare Parts Showroom",
+    "Rental",
+    "Lease",
+    "Garage",
+  ],
+  commonErrorMessage: "Something went wrong! Please try again.",
 };

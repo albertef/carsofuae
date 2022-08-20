@@ -28,7 +28,7 @@
               data-toggle="collapse"
               data-target="#navbarNav"
             ></div>
-            <ul class="navbar-nav my-5">
+            <ul class="navbar-nav my-3">
               <li class="nav-item">
                 <router-link
                   class="nav-link"
@@ -51,13 +51,58 @@
                   {{service.name}}</router-link
                 >
               </li>
-              <li class="nav-item d-none d-lg-block">
-                <!-- prettier-ignore -->
-                <Button type="secondary" text="buy a car" @click="clicked" class="ml-3" />
+              <li class="nav-item login" v-if="loginInfo.isLoggedIn">
+                <a class="nav-link" href="#"
+                  ><font-awesome-icon :icon="['fas','user-alt']" class="mr-2"
+                /></a>
+
+                <ul>
+                  <li class="no-link">
+                    Welcome <span>{{loginInfo.username}}</span>! 😊
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
+                      to="/profile"
+                      data-toggle="collapse"
+                      data-target="#navbarNav"
+                      >My Profile</router-link
+                    >
+                  </li>
+                  <!-- <li>
+                    <router-link
+                      class="nav-link"
+                      to="/login"
+                      data-toggle="collapse"
+                      data-target="#navbarNav"
+                      >Settings</router-link
+                    >
+                  </li> -->
+                  <li>
+                    <a href="#" class="nav-link" @click="logout">Logout</a>
+                  </li>
+                </ul>
               </li>
+              <li class="nav-item login" v-else>
+                <router-link
+                  class="nav-link"
+                  to="/login"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                >
+                  Login</router-link
+                >
+              </li>
+              <!-- HIDING FOR NOW. MIGHT ENABLE LATER 
+                <li class="nav-item d-none d-lg-block">
+                
+                  <Button type="secondary" text="buy a car" @click="clicked" class="ml-3" />
+                </li>
+              -->
+
               <li class="nav-item d-none d-lg-block">
                 <!-- prettier-ignore -->
-                <Button type="primary" text="sell your car" @click="clicked" class="ml-3" />
+                <Button type="primary" text="sell your car" @click="newPost()" class="ml-2" />
               </li>
             </ul>
           </div>

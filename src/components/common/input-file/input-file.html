@@ -1,0 +1,14 @@
+<div class="input-file-wrapper" :class="error && 'error'">
+  <input
+    type="file"
+    :id="id"
+    :placeholder="placeholder"
+    :name="value"
+    @input="e => updateValue(e)"
+    autocomplete="off"
+    v-bind="$attrs"
+    multiple
+  />
+  <span v-if="error">{{errorText}}</span>
+  <div v-for="file in fileList" class="image-list">{{file.name}}</div>
+</div>

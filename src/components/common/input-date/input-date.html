@@ -1,0 +1,17 @@
+<div class="input-text-wrapper" :class="error && 'error'">
+  <v-date-picker
+    v-model="date"
+    :popover="{ visibility: 'click' }"
+    @input="updateValue(date)"
+  >
+    <template v-slot="{ inputValue, inputEvents }">
+      <input
+        class="bg-white border px-2 py-1 rounded"
+        :value="inputValue"
+        :placeholder="placeholder"
+        v-on="inputEvents"
+      />
+    </template>
+  </v-date-picker>
+  <span v-if="error" class="error-text">{{errorText}}</span>
+</div>

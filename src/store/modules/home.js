@@ -1,4 +1,5 @@
 import { axiosInstance } from "@/utility/axios.js";
+import { setLogin, clearLogin } from "@/utility/helper";
 
 const state = {
   postList: [],
@@ -24,9 +25,80 @@ const state = {
   selectedSpareItem: "",
   spareItemList: [],
   postedByList: [],
+  loginInfo: {
+    isLoggedIn: false,
+    username: "",
+    message: "",
+    jwtToken: "",
+    id: null,
+    userType: "",
+  },
+  registerInfo: {},
+  imageUploadInfo: {},
+  userDetails: {},
+  selectedUserType: "",
+  newPostInfo: {},
+  newGarageInfo: {},
+  newReviewInfo: {},
 };
 
 const actions = {
+  async userLogin({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/login.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateLoginInfo", dataset);
+    return dataset;
+  },
+  async individualUserRegister({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/individual_register.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateRegisterInfo", dataset);
+    return dataset;
+  },
+  async companyUserRegister({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/company_register.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateRegisterInfo", dataset);
+    return dataset;
+  },
+  async imageUpload({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/file-upload/image-upload.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateImageUploadInfo", dataset);
+    return dataset;
+  },
+  async userDetails({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/user_details.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateUserDetails", dataset);
+    return dataset;
+  },
+  async newClassifiedPost({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_classified_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewPostInfo", dataset);
+    return dataset;
+  },
+  async addNewGarage({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_garage.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewGarageInfo", dataset);
+    return dataset;
+  },
+  async addNewReview({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_review.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewReviewInfo", dataset);
+    return dataset;
+  },
   async getPostList({ commit }) {
     let dataset = {},
       url = "/mocks/posts.json";
@@ -135,6 +207,18 @@ const getters = {
       ].sort();
     };
   },
+  getTrimList(state) {
+    return function (make, model) {
+      return [
+        ...new Set(
+          state.carData
+            ?.filter((item) => item.make === make && item.model === model)
+            ?.map((el) => el.trim)
+            ?.filter(Boolean)
+        ),
+      ].sort();
+    };
+  },
   getSpareCategories(state) {
     return [...new Set(rawSpareCategoryList(state)?.map((cat) => cat.category))]
       .sort()
@@ -156,6 +240,47 @@ const getters = {
 };
 
 const mutations = {
+  updateLoginInfo(state, dataset) {
+    if (dataset) {
+      state.loginInfo = {
+        isLoggedIn: dataset.status,
+        username: dataset.username || "",
+        message: dataset.message || "",
+        jwtToken: dataset.jwt || "",
+        id: dataset.id || null,
+        userType: dataset.userType || "",
+      };
+      setLogin(JSON.stringify(state.loginInfo));
+    } else {
+      state.loginInfo = {
+        isLoggedIn: false,
+        username: "",
+        message: "",
+        jwtToken: "",
+        id: null,
+        userType: "",
+      };
+      clearLogin();
+    }
+  },
+  updateImageUploadInfo(state, dataset) {
+    state.imageUploadInfo = dataset;
+  },
+  updateRegisterInfo(state, dataset) {
+    state.registerInfo = dataset;
+  },
+  updateUserDetails(state, dataset) {
+    state.userDetails = dataset;
+  },
+  updateNewPostInfo(state, dataset) {
+    state.newPostInfo = dataset;
+  },
+  updateNewGarageInfo(state, dataset) {
+    state.newGarageInfo = dataset;
+  },
+  updateNewReviewInfo(state, dataset) {
+    state.newReviewInfo = dataset;
+  },
   updatePostList(state, dataset) {
     state.postList = dataset;
   },
@@ -224,6 +349,9 @@ const mutations = {
   },
   updatePostedByList(state, dataset) {
     state.postedByList = dataset;
+  },
+  updateSelectedUserType(state, value) {
+    state.selectedUserType = value;
   },
 };
 

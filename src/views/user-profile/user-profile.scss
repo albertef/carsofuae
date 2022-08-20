@@ -1,0 +1,53 @@
+.profile-wrapper {
+  .profile-content {
+    padding-bottom: 30px;
+    .profile-wrapper {
+      padding: 30px;
+      border: 1px dashed $purple;
+      position: relative;
+      margin-top: 100px;
+    }
+    img.profile {
+      border-radius: 50%;
+      width: 150px;
+      border: 1px dashed $purple;
+      box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.1);
+      left: calc(50% - 75px);
+      top: calc(0% - 75px);
+      position: absolute;
+      height: 150px;
+      object-fit: cover;
+    }
+    h3 {
+      margin-top: 75px !important;
+    }
+    .profile-details {
+      text-align: left;
+      > div {
+        margin: 20px 0;
+        button {
+          margin-top: 50px;
+        }
+        label {
+          //background-color: rgba($black, 0.1);
+          font-weight: 800;
+          font-style: italic;
+          width: 100%;
+          padding: 5px 0;
+          color: $purple;
+        }
+        p {
+        }
+      }
+      > div:not(:last-child) {
+        border-bottom: 1px dashed rgba($purple, 0.2);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .profile-wrapper {
+    margin-top: 40px !important;
+  }
+}

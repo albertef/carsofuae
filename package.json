@@ -33,7 +33,8 @@
     "@fortawesome/free-regular-svg-icons": "5.15.3",
     "@fortawesome/free-brands-svg-icons": "5.15.3",
     "@fortawesome/vue-fontawesome": "0.1.6",
-    "dayjs": "1.10.6"
+    "dayjs": "1.10.6",
+    "v-calendar": "2.4.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/home/home.vue";
+import Login from "@/views/login/login.vue";
+import Register from "@/views/register/register.vue";
 import PostDetails from "@/views/post-details/post-details.vue";
 import Garages from "@/views/garages/garages.vue";
 import Classifieds from "@/views/classifieds/classifieds.vue";
@@ -12,6 +14,9 @@ import LeaseACarDetails from "@/views/lease-a-car-details/lease-a-car-details.vu
 import SpareParts from "@/views/spare-parts/spare-parts.vue";
 import SparePartsDetails from "@/views/spare-parts-details/spare-parts-details.vue";
 import StoreProfile from "@/views/store-profile/store-profile.vue";
+import UserProfile from "@/views/user-profile/user-profile.vue";
+import NewPost from "@/views/new-post/new-post.vue";
+import AddNewGarage from "@/views/new-garage/new-garage.vue";
 
 Vue.use(Router);
 
@@ -28,6 +33,18 @@ const router = new Router({
       redirect: "/home",
     },
     {
+      path: "/login",
+      name: "Login",
+      component: Login,
+      meta: { title: "Login" },
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: Register,
+      meta: { title: "Register" },
+    },
+    {
       path: "/post-details/",
       name: "PostDetails",
       component: PostDetails,
@@ -39,6 +56,12 @@ const router = new Router({
       name: "Classifieds",
       component: Classifieds,
       meta: { title: "Classifieds" },
+    },
+    {
+      path: "/add-new-post",
+      name: "AddNewPost",
+      component: NewPost,
+      meta: { title: "AddNewPost" },
     },
     {
       path: "/rental",
@@ -79,6 +102,12 @@ const router = new Router({
       meta: { title: "Garages" },
     },
     {
+      path: "/add-new-garage",
+      name: "AddNewGarage",
+      component: AddNewGarage,
+      meta: { title: "AddNewGarage" },
+    },
+    {
       path: "/spare-parts",
       name: "SpareParts",
       component: SpareParts,
@@ -99,9 +128,9 @@ const router = new Router({
     },
     {
       path: "/profile",
-      name: "Profile",
-      component: ComingSoon,
-      meta: { title: "Profile" },
+      name: "UserProfile",
+      component: UserProfile,
+      meta: { title: "UserProfile" },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

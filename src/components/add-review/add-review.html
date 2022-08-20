@@ -7,13 +7,18 @@
   <template v-slot:body>
     <label>Select Rating</label>
     <!-- prettier-ignore -->
-    <Select :options="ratingOptions" default="Select Rating" @selectValue="getSelectInput" />
+    <Select :options="ratingOptions" default="Select Rating" @selectValue="updateReviewData('rating', $event)" :error="newReviewValidation.rating" errorText="Select Rating" />
+
     <label>Review</label>
     <!-- prettier-ignore -->
     <TextArea
       class="inputText"
       placeholder="Your review comments here..."
-      @value="filterCarData($event)"
+      @value="updateReviewData('reviewDesc', $event)"
+      :error="newReviewValidation.reviewDesc"
+      errorText="Enter Review Description"
+      id="reviewDesc"
+      :value="newReview.reviewDesc"
     />
   </template>
   <template v-slot:footer>

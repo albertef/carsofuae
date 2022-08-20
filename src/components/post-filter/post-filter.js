@@ -3,6 +3,7 @@ import Checkbox from "@/components/common/checkbox/checkbox.vue";
 import Radio from "@/components/common/radio/radio.vue";
 import Select from "@/components/common/select/select.vue";
 import InputText from "@/components/common/input-text/input-text.vue";
+import { UTILS } from "@/utility/utils.js";
 
 export default {
   name: "PostFilter",
@@ -37,15 +38,8 @@ export default {
     getAllCarModels() {
       return this.$store.getters.getAllCarModels(this.carMake);
     },
-    yeardropdownValues() {
-      const max = new Date().getFullYear(),
-        min = max - 20,
-        arr = [];
-
-      for (var i = min; i <= max; i++) {
-        arr.push(i);
-      }
-      return arr;
+    yearDropdownValues() {
+      return UTILS.yearDropdownValues;
     },
   },
   methods: {

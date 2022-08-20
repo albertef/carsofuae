@@ -10,6 +10,7 @@
         :id="filterInputId"
         class="inputText"
         :placeholder="getSelectedCarMake ? 'Search Model' : 'Search Car'"
+        :value="value"
         @value="filterCarData($event)"
       />
       <div class="d-flex justify-content-center mt-2 text-uppercase">

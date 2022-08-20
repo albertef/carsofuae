@@ -1,0 +1,52 @@
+<div class="open-times-wrapper" :class="error && 'error'">
+  <div>
+    <span>Monday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('monday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('monday','end', $event)" />
+  </div>
+  <div>
+    <span>Tuesday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('tuesday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('tuesday','end', $event)" />
+  </div>
+  <div>
+    <span>Wednesday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('wednesday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('wednesday','end', $event)" />
+  </div>
+  <div>
+    <span>Thursday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('thursday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('thursday','end', $event)" />
+  </div>
+  <div>
+    <span>Friday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('friday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('friday','end', $event)" />
+  </div>
+  <div>
+    <span>Saturday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('saturday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('saturday','end', $event)" />
+  </div>
+  <div>
+    <span>Sunday</span>
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('sunday','start', $event)" />
+    <!-- prettier-ignore -->
+    <Select :options="times" @selectValue="updateTimes('sunday','end', $event)" />
+  </div>
+  <span v-if="error">Select the timings for all days</span>
+</div>

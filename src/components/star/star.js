@@ -10,6 +10,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    pageType: {
+      type: String,
+      default: "",
+    },
+    pageId: {
+      type: Number,
+      default: "",
+    },
   },
   components: {
     ReviewModal,

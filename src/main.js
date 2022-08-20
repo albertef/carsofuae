@@ -9,11 +9,15 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import dayjs from "dayjs";
 import "@/meta/icons.js";
 import Loader from "@/components/common/loader/loader.vue";
+import Alert from "@/components/common/alert/alert.vue";
+import VCalendar from "v-calendar";
 
 Vue.use(VueCarousel);
 Vue.use(dayjs);
+Vue.use(VCalendar);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component("Loader", Loader);
+Vue.component("Alert", Alert);
 
 Vue.config.productionTip = false;
 

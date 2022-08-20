@@ -19,6 +19,8 @@
         </div>
       </div>
       <div class="filter-wrapper mt-3 d-flex justify-content-end">
+        <!-- prettier-ignore -->
+        <Button type="hollow" text="Add Your Garage" class="mr-3" @click="addGarage()" />
         <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
         <GarageFilter
           :data="garageList"
@@ -46,7 +48,7 @@
                 v-if="garages.isDeals"
               />
             </h5>
-            <Star :data="garages.reviews" />
+            <Star :data="garages.reviews" pageType="garage" :pageId="0" />
             <p class="my-1">
               <font-awesome-icon :icon="['fas','map-marker-alt']" />
               {{garages.place}}
