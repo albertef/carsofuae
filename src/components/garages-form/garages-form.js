@@ -72,7 +72,7 @@ export default {
 
     updateGarageServiceList(id) {
       this.selectedServices = [...this.selectedServices, id];
-      this.updateGarageData("services", this.selectedServices.join());
+      this.updateGarageData("services", this.selectedServices);
     },
 
     isSelected(id) {

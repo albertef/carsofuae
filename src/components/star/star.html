@@ -14,14 +14,15 @@
   <ReviewModal
     class="small"
     v-if="showReviewModal"
-    :data="data"
+    :data="reviewData"
     @close="closeReviewModal"
     @addReview="showAddModal"
+    :pageType="pageType"
+    :pageId="pageId"
   />
   <AddReview
     class="small"
     v-if="addModal"
-    :data="data"
     @close="closeAddModal"
     :pageType="pageType"
     :pageId="pageId"

@@ -1,14 +1,26 @@
 <Modal class="small">
   <template v-slot:header>
-    Reviews
+    <h3>
+      {{data.reviews?.length || 0}} Reviews
+      <em>({{getStarValue()}} out of 5)</em>
+    </h3>
+
     <span @click="closeModal"
       ><font-awesome-icon :icon="['fas', 'times']" /></span
   ></template>
-  <template v-slot:body>
-    <div v-for="review in data">
-      <h6>{{review.date}}</h6>
-      <h5>Rating: {{review.star}}</h5>
-      <p>{{review.review}}</p>
+
+  <template v-slot:body v-if="data.reviews?.length">
+    <div v-for="review in data.reviews">
+      <h6>
+        By {{review.userName}} <span>[{{formatDate(review.created)}}]</span>
+      </h6>
+      <h5>Rating: {{review.rating}}</h5>
+      <p>{{review.reviewDesc}}</p>
+    </div>
+  </template>
+  <template v-slot:body v-else>
+    <div>
+      <p>{{data.message}}</p>
     </div>
   </template>
   <template v-slot:footer>

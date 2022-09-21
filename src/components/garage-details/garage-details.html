@@ -14,7 +14,7 @@
         <div class="header">
           <img
             v-if="getSingleGarageDetails.profilePicture"
-            :src="getSingleGarageDetails.profilePicture"
+            :src="getProfilePic(getSingleGarageDetails)"
             class="garage-dp img-fluid"
           />
           <h4>{{getSingleGarageDetails.name}}</h4>
@@ -43,28 +43,24 @@
           </div>
         </div>
         <div class="social-rating">
-          <Star
-            :data="getSingleGarageDetails.reviews"
-            pageType="garage"
-            :pageId="Number(selectedGarage)"
-          />
+          <Star pageType="garage" :pageId="Number(selectedGarage)" />
           <div class="social">
             <img
               src="../../assets/facebook.png"
               class="icon facebook"
-              v-if="getSingleGarageDetails.social.facebook"
+              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.facebook"
               @click="socialOpen(getSingleGarageDetails.social.facebook)"
             />
             <img
               src="../../assets/linkedin.png"
               class="icon linkedin"
-              v-if="getSingleGarageDetails.social.linkedin"
+              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.linkedin"
               @click="socialOpen(getSingleGarageDetails.social.linkedin)"
             />
             <img
               src="../../assets/instagram.png"
               class="icon instagram"
-              v-if="getSingleGarageDetails.social.instagram"
+              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.instagram"
               @click="socialOpen(getSingleGarageDetails.social.instagram)"
             />
           </div>
@@ -79,10 +75,13 @@
             :navigationEnabled="true"
           >
             <Slide
-              v-for="image, index in getSingleGarageDetails.gallery"
+              v-for="image, index in getGalleryArray(getSingleGarageDetails.galleryImages)"
               v-bind:key="index"
             >
-              <img :src="image" class="img-fluid" />
+              <img
+                :src="getGalleryImagePath(image,getSingleGarageDetails.imageFolder) "
+                class="img-fluid"
+              />
             </Slide>
           </Carousel>
         </div>
@@ -136,7 +135,9 @@
             class="py-1 px-2"
           >
             <p>{{item.day}}</p>
-            <p :class="(item.time).toLowerCase() === 'closed' && 'closed'">
+            <p
+              :class="item.time && (item.time).toLowerCase() === 'closed' && 'closed'"
+            >
               {{item.time}}
             </p>
           </div>
@@ -145,7 +146,7 @@
         <Button type="hollow" text="Add Your Garage" width="100%" class="mr-3 mb-4" @click="addGarage()" />
         <div class="about">
           <h5>About Us</h5>
-          <div v-html="getSingleGarageDetails.desc" class="my-3"></div>
+          <div v-html="getSingleGarageDetails.description" class="my-3"></div>
         </div>
       </div>
     </div>

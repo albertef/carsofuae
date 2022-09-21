@@ -1,6 +1,15 @@
 ::v-deep .popup-header {
   display: flex;
   justify-content: space-between;
+  h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    em {
+      font-size: 0.75rem;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
   span {
     font-size: 1rem;
     padding: 5px 10px;
@@ -14,6 +23,9 @@
 }
 ::v-deep .popup-body {
   text-align: left;
+  max-height: 400px;
+  overflow: auto;
+  padding-right: 20px;
   > div {
     display: flex;
     align-items: center;
@@ -34,6 +46,12 @@
       font-size: 0.75rem;
       flex: 1 0 50%;
       color: $purple;
+      text-transform: capitalize;
+      span {
+        color: $black;
+        font-weight: 400;
+        font-size: 0.65rem;
+      }
     }
     p {
       margin-top: 10px;

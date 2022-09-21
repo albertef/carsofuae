@@ -71,6 +71,19 @@ export default {
         },
       });
     },
+    getProfilePic(garage) {
+      const folder = garage.imageFolder.split(",")[0];
+      return `${this.$baseURL}upload/${folder}/${garage.profilePicture}`;
+    },
+    getGalleryArray(galleryImages) {
+      return galleryImages.length > 1
+        ? galleryImages.split(",")
+        : galleryImages[0];
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
     addGarage() {
       if (this.loginInfo.isLoggedIn) {
         router.push({

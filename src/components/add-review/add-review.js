@@ -9,10 +9,6 @@ import { META } from "@/meta/common.js";
 export default {
   name: "ReviewModal",
   props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
     pageType: {
       type: String,
       default: "",

@@ -11,6 +11,7 @@ import "@/meta/icons.js";
 import Loader from "@/components/common/loader/loader.vue";
 import Alert from "@/components/common/alert/alert.vue";
 import VCalendar from "v-calendar";
+import { CONSTANTS } from "@/utility/constants.js";
 
 Vue.use(VueCarousel);
 Vue.use(dayjs);
@@ -20,6 +21,7 @@ Vue.component("Loader", Loader);
 Vue.component("Alert", Alert);
 
 Vue.config.productionTip = false;
+Vue.prototype.$baseURL = CONSTANTS.APP_BASE_URL;
 
 new Vue({
   store: Store,

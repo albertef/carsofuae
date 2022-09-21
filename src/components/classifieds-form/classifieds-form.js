@@ -135,7 +135,6 @@ export default {
           params.galleryImages
         );
         let response = null;
-        debugger;
         if (galleryImageUploadResponse.length > 1) {
           response = galleryImageUploadResponse.find(
             (item) => item.status === false

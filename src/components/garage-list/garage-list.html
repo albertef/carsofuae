@@ -1,4 +1,4 @@
-<div class="garage-list-wrapper" v-if="garageList">
+<div class="garage-list-wrapper">
   <div class="row sticky-head">
     <div class="col-12 mt-3 mb-2">
       <div class="top-tabs">
@@ -30,65 +30,73 @@
       </div>
     </div>
   </div>
-  <div
-    class="row mb-5 pb-2 pt-3 garage-list-container"
-    v-if="garageCategory === 'browse'"
-  >
+  <div v-if="garageList">
     <div
-      class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
-      v-for="garages in garageList"
+      class="row mb-5 pb-2 pt-3 garage-list-container"
+      v-if="garageCategory === 'browse'"
     >
-      <div class="garage-list p-3" @click="garageDetails(garages.id)">
-        <div class="garage-list-head">
-          <div>
-            <h5 class="mb-1">
-              {{garages.name}}
-              <font-awesome-icon
-                :icon="['fas','bolt']"
-                v-if="garages.isDeals"
-              />
-            </h5>
-            <Star :data="garages.reviews" pageType="garage" :pageId="0" />
-            <p class="my-1">
-              <font-awesome-icon :icon="['fas','map-marker-alt']" />
-              {{garages.place}}
-            </p>
+      <div
+        class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
+        v-for="garages in garageList"
+      >
+        <div class="garage-list p-3" @click="garageDetails(garages.id)">
+          <div class="garage-list-head">
+            <div>
+              <h5 class="mb-1">
+                {{garages.name}}
+                <font-awesome-icon
+                  :icon="['fas','bolt']"
+                  v-if="garages.isDeals"
+                />
+              </h5>
+              <!--Star pageType="garage" :pageId="Number(garages.id)" /-->
+              <p class="mb-1 mt-4">
+                <font-awesome-icon :icon="['fas','map-marker-alt']" />
+                {{garages.place}}
+              </p>
+            </div>
+            <img
+              v-if="garages.profilePicture"
+              :src="getProfilePic(garages)"
+              class="garage-dp img-fluid"
+            />
           </div>
-          <img
-            v-if="garages.profilePicture"
-            :src="garages.profilePicture"
-            class="garage-dp img-fluid"
-          />
-        </div>
 
-        <div class="garage-service-wrapper mt-3">
-          <div v-for="service in getServiceList(garages.services)">
-            <span><font-awesome-icon :icon="service.icon" /></span>
-            <p>{{service.title}}</p>
+          <div class="garage-service-wrapper mt-3">
+            <div v-for="service in getServiceList(garages.services)">
+              <span><font-awesome-icon :icon="service.icon" /></span>
+              <p>{{service.title}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row mb-5 pb-2 pt-3 garage-list-container deals-container"
+      v-else
+    >
+      <div
+        class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
+        v-for="deal,index in dealsList"
+      >
+        <div class="garage-list p-3" @click="garageDetails(deal.id)">
+          <h5 class="mb-1">
+            <em>{{deal.title}}</em>
+            <span
+              ><font-awesome-icon
+                :icon="['far', 'calendar-alt']"
+                class="mr-1"
+              />{{formatDate(deal.date)}}</span
+            >
+          </h5>
+          <div class="deal-poster mt-2">
+            <img :src="deal.poster" class="img-fluid" />
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="row mb-5 pb-2 pt-3 garage-list-container deals-container" v-else>
-    <div
-      class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
-      v-for="deal,index in dealsList"
-    >
-      <div class="garage-list p-3" @click="garageDetails(deal.id)">
-        <h5 class="mb-1">
-          <em>{{deal.title}}</em>
-          <span
-            ><font-awesome-icon
-              :icon="['far', 'calendar-alt']"
-              class="mr-1"
-            />{{formatDate(deal.date)}}</span
-          >
-        </h5>
-        <div class="deal-poster mt-2">
-          <img :src="deal.poster" class="img-fluid" />
-        </div>
-      </div>
-    </div>
+  <div v-else class="d-flex justify-content-center my-5">
+    No Garages/Deals Found!!
   </div>
 </div>

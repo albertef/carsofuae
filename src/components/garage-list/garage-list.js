@@ -36,11 +36,11 @@ export default {
       return this.$store.state.home.garageCategory;
     },
     garageList() {
-      return this.$store.state.home.garageList;
+      return this.$store.state.home.garageList.garages;
     },
     dealsList() {
       let dealsArray = [];
-      this.$store.state.home.garageList.filter((item) => {
+      this.garageList.filter((item) => {
         if (item.isDeals && item.deals.length) {
           const deals = item.deals.map((deal) => {
             let id = { id: item.id };
@@ -77,6 +77,10 @@ export default {
     garageDetails(id) {
       this.$store.commit("updateSelectedGarage", id);
       this.$store.commit("updateGarageDetailsEnabled", true);
+    },
+    getProfilePic(garages) {
+      const folder = garages.imageFolder.split(",")[0];
+      return `${this.$baseURL}upload/${folder}/${garages.profilePicture}`;
     },
     filterToggle() {
       this.filterEnabled = !this.filterEnabled;

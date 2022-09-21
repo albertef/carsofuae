@@ -249,11 +249,7 @@
           ></iframe>
         </div>
         <div class="social-rating mt-4">
-          <Star
-            :data="rentalData.reviews"
-            pageType="rental"
-            :pageId="Number(getRentalId)"
-          />
+          <Star pageType="rental" :pageId="Number(getRentalId)" />
           <div class="social">
             <img
               src="../../assets/facebook.png"

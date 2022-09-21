@@ -31,12 +31,12 @@ export const UTILS = {
     return dayjs(date).format("DD-MMM-YYYY");
   },
 
-  calculateStarValue(value) {
+  calculateStarValue(value = []) {
     let starValue = 0;
     for (const index of value) {
-      starValue += index.star;
+      starValue += Number(index.rating);
     }
-    return starValue / value.length;
+    return value.length ? starValue / value.length : 0;
   },
 
   isValidEmail(email) {

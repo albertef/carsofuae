@@ -40,6 +40,7 @@ const state = {
   newPostInfo: {},
   newGarageInfo: {},
   newReviewInfo: {},
+  reviewList: [],
 };
 
 const actions = {
@@ -99,6 +100,13 @@ const actions = {
     commit("updateNewReviewInfo", dataset);
     return dataset;
   },
+  async getReviewList({ commit }, params) {
+    let dataset = {},
+      url = `/carsofuae-server/data/get_reviews.php?pageType=${params.pageType}&pageId=${params.pageId}`;
+    dataset = await axiosInstance.get(url);
+    commit("updateReviewsList", dataset);
+    return dataset;
+  },
   async getPostList({ commit }) {
     let dataset = {},
       url = "/mocks/posts.json";
@@ -108,7 +116,7 @@ const actions = {
   },
   async getGarageList({ commit }) {
     let dataset = {},
-      url = "/mocks/garages.json";
+      url = `/carsofuae-server/data/get_garages.php`;
     dataset = await axiosInstance.get(url);
     commit("updateGarageList", dataset);
     return dataset;
@@ -167,9 +175,9 @@ const getters = {
   },
   getSingleGarageData(state) {
     return function (id) {
-      return state.garageList.find((garage) => {
-        return garage.id === Number(id);
-      });
+      return state.garageList?.garages?.find(
+        (garage) => Number(garage.id) === Number(id)
+      );
     };
   },
   getSingleRentalData(state) {
@@ -286,6 +294,9 @@ const mutations = {
   },
   updateGarageList(state, dataset) {
     state.garageList = dataset;
+  },
+  updateReviewsList(state, dataset) {
+    state.reviewList = dataset;
   },
   updateCarList(state, dataset) {
     state.carData = dataset;

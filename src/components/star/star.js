@@ -1,15 +1,12 @@
 import { UTILS } from "@/utility/utils.js";
 import ReviewModal from "@/components/review-modal/review-modal.vue";
 import AddReview from "@/components/add-review/add-review.vue";
+import store from "@/store";
 
 const MAX = 5;
 export default {
   name: "Star",
   props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
     pageType: {
       type: String,
       default: "",
@@ -31,9 +28,21 @@ export default {
       addModal: false,
     };
   },
+  async created() {
+    store.commit("updateLoader", true);
+    const params = {
+      pageType: this.pageType,
+      pageId: this.pageId,
+    };
+    await this.$store.dispatch("getReviewList", params);
+    store.commit("updateLoader", false);
+  },
   computed: {
     starValue() {
-      return UTILS.calculateStarValue(this.data);
+      return UTILS.calculateStarValue(this.reviewData.reviews);
+    },
+    reviewData() {
+      return store.state.home.reviewList;
     },
     roundedValue() {
       this.halfStar = false;
