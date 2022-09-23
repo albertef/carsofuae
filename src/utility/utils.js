@@ -121,4 +121,7 @@ export const UTILS = {
   steeringSideOptions() {
     return ["Left", "Right"];
   },
+  insuranceList() {
+    return ["Basic", "Advanced"];
+  },
 };

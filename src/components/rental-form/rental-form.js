@@ -1,0 +1,227 @@
+import Radio from "@/components/common/radio/radio.vue";
+import InputText from "@/components/common/input-text/input-text.vue";
+import InputFile from "@/components/common/input-file/input-file.vue";
+import Button from "@/components/common/button/button.vue";
+import Select from "@/components/common/select/select.vue";
+import OpenTimes from "@/components/common/open-times/open-times.vue";
+import TextArea from "@/components/common/text-area/text-area.vue";
+import store from "@/store";
+import router from "@/router";
+import { META } from "@/meta/common.js";
+import { UTILS } from "@/utility/utils.js";
+
+export default {
+  name: "RentalForm",
+  components: {
+    Radio,
+    InputText,
+    Button,
+    Select,
+    InputFile,
+    OpenTimes,
+    TextArea
+  },
+
+  data() {
+    return {
+      newRental: {
+        name: "",
+        description: "",
+        brand: "",
+        model: "",
+        make: "",
+        place: "",
+        price: "",
+        galleryImages: "",
+        openTimes: "",
+        phone: "",
+        email: "",
+        mileageLimit: "",
+        additionalMileageCharge: "",
+        insurance: "",
+        minAge: "",
+        securityDeposit: "",
+        acceptedIn: "",
+        additionalDriverInsurance: "",
+        excessClaim: "",
+        tollCharges: "",
+        features: "",
+        type: "",
+        doors: "",
+        seats: "",
+        luggage: "",
+        whyChoose: "",
+        whyUs: "",
+        canDeliver: "",
+        note: "",
+        facebook: "",
+        instagram: "",
+        linkedin: "",
+        dealerName: "",
+        dealerLogo: "",
+        listBullets: "",
+        postedBy: "",
+      },
+      newRentalValidation: {},
+    };
+  },
+  async mounted() {
+    await store.dispatch("getCarList");
+  },
+  computed: {
+    loginInfo() {
+      return store.state.home.loginInfo;
+    },
+    newRentalInfo() {
+      return store.state.home.newRentalInfo;
+    },
+    brandsList() {
+      return store.getters.getAllCarMakes;
+    },
+    modelsList() {
+      return store.getters.getAllCarModels(this.newRental.brand);
+    },
+    trimList() {
+      return store.getters.getTrimList(this.newPost.brand, this.newRental.model);
+    },
+    utils() {
+      return UTILS;
+    },
+  },
+  methods: {
+    updateRentalData(key, e) {
+      this.newRental = {
+        ...this.newRental,
+        [key]: e,
+      };
+      this.validateNewRentalForm();
+    },
+
+    resetValidation() {
+      this.newRentalValidation = {};
+    },
+
+    validateNewRentalForm() {
+      this.newRentalValidation = {
+        ...this.newRentalValidation,
+        name: !this.newRental.name,
+        description: !this.newRental.description,
+        brand: !this.newRental.brand,
+        model: !this.newRental.model,
+        make: !this.newRental.make,
+        place: !this.newRental.place,
+        price: !this.newRental.price,
+        galleryImages: !this.newRental.galleryImages,
+        openTimes: !this.newRental.openTimes,
+        phone: !this.newRental.phone || !UTILS.isValidPhone(this.newRental.phone),
+        email: !this.newRental.email || !UTILS.isValidEmail(this.newRental.email),
+        mileageLimit: !this.newRental.mileageLimit,
+        additionalMileageCharge: !this.newRental.additionalMileageCharge,
+        insurance: !this.newRental.insurance,
+        minAge: !this.newRental.minAge,
+        securityDeposit: !this.newRental.securityDeposit,
+        acceptedIn: !this.newRental.acceptedIn,
+        additionalDriverInsurance: !this.newRental.additionalDriverInsurance,
+        excessClaim: !this.newRental.excessClaim,
+        tollCharges: !this.newRental.tollCharges,
+        features: !this.newRental.features,
+        type: !this.newRental.type,
+        doors: !this.newRental.doors,
+        seats: !this.newRental.seats,
+        luggage: !this.newRental.luggage,
+        whyChoose: !this.newRental.whyChoose,
+        whyUs: !this.newRental.whyUs,
+        canDeliver: !this.newRental.canDeliver,
+        note: !this.newRental.note,
+        dealerName: !this.newRental.dealerName,
+        dealerLogo: !this.newRental.dealerLogo,
+        listBullets: !this.newRental.listBullets,
+      };
+
+      return Object.values(this.newRentalValidation).every((el) => el === false)
+        ? true
+        : false;
+    },
+    cancelRental() {
+      this.$router.go(-1);
+    },
+    async submitRental() {
+      if (this.validateNewRentalForm()) {
+        let params = { ...this.newRental, postedBy: this.loginInfo?.id };
+        store.commit("updateLoader", true);
+
+        const galleryImageUploadResponse = await this.$store.dispatch(
+          "imageUpload",
+          params.galleryImages
+        );
+        let response = null;
+        if (galleryImageUploadResponse.length > 1) {
+          response = galleryImageUploadResponse.find(
+            (item) => item.status === false
+          )
+            ? false
+            : true;
+          params = {
+            ...params,
+            galleryImages: galleryImageUploadResponse
+              .map((item) => item.fileName)
+              .join(","),
+            imageFolder: galleryImageUploadResponse
+              .map((item) => item.folderName)
+              .join(","),
+          };
+        } else {
+          params = {
+            ...params,
+            galleryImages: galleryImageUploadResponse.fileName,
+            imageFolder: galleryImageUploadResponse.folderName,
+          };
+        }
+        const dealerLogoUploadResponse = await this.$store.dispatch(
+          "imageUpload",
+          params.dealerLogo
+        );
+
+        if (
+          (response || galleryImageUploadResponse.status) &&
+          dealerLogoUploadResponse.status
+        ) {
+          params = {
+            ...params,
+            dealerLogo: dealerLogoUploadResponse.fileName,
+          };
+          await this.$store.dispatch("newRentalPost", params);
+        } else {
+          const alert = {
+            show: true,
+            type: "error",
+            message:
+              this.newRentalInfo.message ||
+              galleryImageUploadResponse ||
+              META.commonErrorMessage,
+          };
+          store.commit("updateAlert", alert);
+        }
+
+        store.commit("updateLoader", false);
+        if (this.newRentalInfo.status) {
+          const alert = {
+            show: true,
+            type: "success",
+            message: this.newRentalInfo.message || META.commonErrorMessage,
+          };
+          store.commit("updateAlert", alert);
+          router.go(-1);
+        } else {
+          const alert = {
+            show: true,
+            type: "error",
+            message: this.newRentalInfo.message || META.commonErrorMessage,
+          };
+          store.commit("updateAlert", alert);
+        }
+        store.commit("updateNewRentalInfo", {});
+      }
+    },
+  },
+};

@@ -1,0 +1,293 @@
+<div class="new-post-form-wrapper container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h5 class="mt-5 mb-4">Post a new Rental</h5>
+          </div>
+          <div class="col-12 mb-3">
+            <label>Name <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.name" errorText="Enter Name"
+              placeholder="Enter Name" id="name" :value="newRental.name"
+              @value="updateRentalData('name', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Description <span>*</span></label>
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Description"
+              :error="newRentalValidation.description"
+              errorText="Enter Description"
+              @value="updateRentalData('description', $event)"
+              id="description"
+              :value="newRental.description"
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Brand <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="brandsList" :error="newRentalValidation.brand" errorText="Select Brand"
+              default="Select Brand" @selectValue="updateRentalData('brand', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Model <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="modelsList" :error="newRentalValidation.model" errorText="Select Model"
+              default="Select Model" @selectValue="updateRentalData('model', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Make <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="utils.yearDropdownValues()" :error="newRentalValidation.make" errorText="Select Make"
+              default="Select Make" @selectValue="updateRentalData('make', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Place <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.place" errorText="Enter Place"
+              placeholder="Enter Place" id="place" :value="newRental.place"
+              @value="updateRentalData('place', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Price <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Price"
+              placeholder="Enter Price" id="price" :value="newRental.price"
+              @value="updateRentalData('price', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label
+              >Upload 10 gallery images (Minimum of 1 image)
+              <span>*</span></label
+            >
+            <!-- prettier-ignore -->
+            <InputFile class="inputText" :error="newRentalValidation.galleryImages"
+              errorText="Choose gallery images (minimum 1)" type="file" accept="image/*" multiple
+              name="galleryImages[]" id="galleryImages" :value="newRental.galleryImages"
+              @value="updateRentalData('galleryImages', $event)" />
+          </div>
+          <div class="col-12 mb-3 mt-3">
+            <label>Open Times <span>*</span></label>
+            <!-- prettier-ignore -->
+            <OpenTimes :error="newRentalValidation.openTimes"
+            errorText="Choose timings for all days" @value="updateRentalData('openTimes', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Phone <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.phone" errorText="Enter Phone Number"
+              placeholder="Enter Phone Number" id="phone" :value="newRental.phone"
+              @value="updateRentalData('phone', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Email <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.email" errorText="Enter Email Address"
+              placeholder="Enter Email Address" id="email" :value="newRental.email"
+              @value="updateRentalData('email', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Mileage Limit <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.mileageLimit" errorText="Enter Mileage Limit"
+              placeholder="Enter Mileage Limit" id="mileageLimit" :value="newRental.mileageLimit"
+              @value="updateRentalData('mileageLimit', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Additional Mileage Charge <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.additionalMileageCharge" errorText="Enter Additional Mileage Charge"
+              placeholder="Enter Additional Mileage Charge" id="additionalMileageCharge" :value="newRental.additionalMileageCharge"
+              @value="updateRentalData('additionalMileageCharge', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Insurance <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="utils.insuranceList()" :error="newRentalValidation.insurance" errorText="Select Insurance"
+              default="Select Insurance" @selectValue="updateRentalData('insurance', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Minimum Age <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.minAge" errorText="Enter Minimum Age"
+              placeholder="Enter Minimum Age" id="minAge" :value="newRental.minAge"
+              @value="updateRentalData('minAge', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Security Deposit <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.securityDeposit" errorText="Enter Security Deposit"
+              placeholder="Enter Security Deposit" id="securityDeposit" :value="newRental.securityDeposit"
+              @value="updateRentalData('securityDeposit', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Accepted In <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.acceptedIn" errorText="Enter Accepted In"
+              placeholder="Enter Accepted In" id="acceptedIn" :value="newRental.acceptedIn"
+              @value="updateRentalData('acceptedIn', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Additional Driver Insurance <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.additionalDriverInsurance" errorText="Enter Additional Driver Insurance"
+              placeholder="Enter Additional Driver Insurance" id="additionalDriverInsurance" :value="newRental.additionalDriverInsurance"
+              @value="updateRentalData('additionalDriverInsurance', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Excess Claim <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.excessClaim" errorText="Enter Excess Claim"
+              placeholder="Enter Excess Claim" id="excessClaim" :value="newRental.excessClaim"
+              @value="updateRentalData('excessClaim', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Toll Charges <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.tollCharges" errorText="Enter Toll Charges"
+              placeholder="Enter Toll Charges" id="tollCharges" :value="newRental.tollCharges"
+              @value="updateRentalData('tollCharges', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Features <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.features" errorText="Enter Features"
+              placeholder="Enter Features" id="features" :value="newRental.features"
+              @value="updateRentalData('features', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Type <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.type" errorText="Enter Type"
+              placeholder="Enter Type" id="type" :value="newRental.type"
+              @value="updateRentalData('type', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select No.of Doors <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="utils.numberUpto10DropdownValues()" :error="newRentalValidation.doors" errorText="Select No.of Doors"
+              default="Select No.of Doors" @selectValue="updateRentalData('doors', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select No.of Seats <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="utils.numberUpto10DropdownValues()" :error="newRentalValidation.seats" errorText="Select No.of Seats"
+              default="Select No.of Seats" @selectValue="updateRentalData('seats', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Luggage <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.luggage" errorText="Enter Luggage"
+              placeholder="Enter Luggage" id="luggage" :value="newRental.luggage"
+              @value="updateRentalData('luggage', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Why Choose This Car <span>*</span></label>
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Why Choose This Car"
+              :error="newRentalValidation.whyChoose"
+              errorText="Enter Why Choose This Car"
+              @value="updateRentalData('whyChoose', $event)"
+              id="whyChoose"
+              :value="newRental.whyChoose"
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Why Choose Us <span>*</span></label>
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Why Choose Us"
+              :error="newRentalValidation.whyUs"
+              errorText="Enter Why Choose Us"
+              @value="updateRentalData('whyUs', $event)"
+              id="whyUs"
+              :value="newRental.whyUs"
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Delivery Instructions <span>*</span></label>
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Delivery Instructions"
+              :error="newRentalValidation.canDeliver"
+              errorText="Enter Delivery Instructions"
+              @value="updateRentalData('canDeliver', $event)"
+              id="canDeliver"
+              :value="newRental.canDeliver"
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Note <span>*</span></label>
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Note"
+              :error="newRentalValidation.note"
+              errorText="Enter Note"
+              @value="updateRentalData('note', $event)"
+              id="note"
+              :value="newRental.note"
+            />
+          </div>
+          <div class="col-12 mb-3 mt-3">
+            <label>Social media links (if any)</label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" placeholder="Enter Facebook url" id="facebook"
+              :value="newRental.facebook" @value="updateRentalData('facebook', $event)" />
+            <InputText
+              class="inputText"
+              placeholder="Enter Instagram url"
+              id="instagram"
+              :value="newRental.instagram"
+              @value="updateRentalData('instagram', $event)"
+            />
+            <InputText
+              class="inputText"
+              placeholder="Enter LinkedIn url"
+              id="linkedin"
+              :value="newRental.linkedin"
+              @value="updateRentalData('linkedin', $event)"
+            />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Dealer Name <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.dealerName" errorText="Enter Dealer Name"
+              placeholder="Enter Dealer Name" id="dealerName" :value="newRental.dealerName"
+              @value="updateRentalData('dealerName', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Dealer Logo</label>
+            <!-- prettier-ignore -->
+            <InputFile class="inputText" :error="newRentalValidation.dealerLogo"
+              errorText="Choose a Dealer Logo" type="file" accept="image/*" placeholder="Select a Dealer Logo"
+              name="dealerLogo" id="dealerLogo" :value="newRental.dealerLogo"
+              @value="updateRentalData('dealerLogo', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Specifications <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newRentalValidation.listBullets" errorText="Enter Specifications "
+              placeholder="Enter Specifications " id="listBullets" :value="newRental.listBullets"
+              @value="updateRentalData('listBullets', $event)" />
+          </div>
+          <div
+            class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+          >
+            <!-- prettier-ignore -->
+            <Button type="hollow" text="Cancel" class="mr-3" @click="cancelRental()" />
+            <!-- prettier-ignore -->
+            <Button type="primary" text="Submit Post" @click="submitRental()" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

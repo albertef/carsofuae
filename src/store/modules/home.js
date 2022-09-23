@@ -41,6 +41,7 @@ const state = {
   newGarageInfo: {},
   newReviewInfo: {},
   reviewList: [],
+  newRentalInfo: {}
 };
 
 const actions = {
@@ -84,6 +85,13 @@ const actions = {
       url = "/carsofuae-server/data/new_classified_post.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateNewPostInfo", dataset);
+    return dataset;
+  },
+  async newClassifiedPost({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_rental_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewRentalInfo", dataset);
     return dataset;
   },
   async addNewGarage({ commit }, params) {
@@ -282,6 +290,9 @@ const mutations = {
   },
   updateNewPostInfo(state, dataset) {
     state.newPostInfo = dataset;
+  },
+  updateNewRentalInfo(state, dataset) {
+    state.newRentalInfo = dataset;
   },
   updateNewGarageInfo(state, dataset) {
     state.newGarageInfo = dataset;

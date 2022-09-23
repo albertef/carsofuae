@@ -17,6 +17,7 @@ import StoreProfile from "@/views/store-profile/store-profile.vue";
 import UserProfile from "@/views/user-profile/user-profile.vue";
 import NewPost from "@/views/new-post/new-post.vue";
 import AddNewGarage from "@/views/new-garage/new-garage.vue";
+import AddNewRental from "@/views/new-rental/new-rental.vue";
 
 Vue.use(Router);
 
@@ -106,6 +107,12 @@ const router = new Router({
       name: "AddNewGarage",
       component: AddNewGarage,
       meta: { title: "AddNewGarage" },
+    },
+    {
+      path: "/add-new-rental",
+      name: "AddNewRental",
+      component: AddNewRental,
+      meta: { title: "AddNewRental" },
     },
     {
       path: "/spare-parts",
