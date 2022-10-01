@@ -85,6 +85,5 @@ export default {
         store.commit("updateLoader", false);
       }
     }
-    console.log(store.state.home.userDetails);
   },
 };

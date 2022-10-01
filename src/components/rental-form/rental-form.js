@@ -22,7 +22,7 @@ export default {
     InputFile,
     OpenTimes,
     TextArea,
-    RentalPrice
+    RentalPrice,
   },
 
   data() {
@@ -86,7 +86,10 @@ export default {
       return store.getters.getAllCarModels(this.newRental.brand);
     },
     trimList() {
-      return store.getters.getTrimList(this.newPost.brand, this.newRental.model);
+      return store.getters.getTrimList(
+        this.newPost.brand,
+        this.newRental.model
+      );
     },
     utils() {
       return UTILS;
@@ -117,17 +120,25 @@ export default {
         price: !this.newRental.price,
         galleryImages: !this.newRental.galleryImages,
         openTimes: !this.newRental.openTimes,
-        phone: !this.newRental.phone || !UTILS.isValidPhone(this.newRental.phone),
-        email: !this.newRental.email || !UTILS.isValidEmail(this.newRental.email),
-        mileageLimit: !this.newRental.mileageLimit || isNaN(this.newRental.mileageLimit),
-        additionalMileageCharge: !this.newRental.additionalMileageCharge || isNaN(this.newRental.additionalMileageCharge),
+        phone:
+          !this.newRental.phone || !UTILS.isValidPhone(this.newRental.phone),
+        email:
+          !this.newRental.email || !UTILS.isValidEmail(this.newRental.email),
+        mileageLimit:
+          !this.newRental.mileageLimit || isNaN(this.newRental.mileageLimit),
+        additionalMileageCharge:
+          !this.newRental.additionalMileageCharge ||
+          isNaN(this.newRental.additionalMileageCharge),
         insurance: !this.newRental.insurance,
         minAge: !this.newRental.minAge || isNaN(this.newRental.minAge),
-        securityDeposit: !this.newRental.securityDeposit || isNaN(this.newRental.securityDeposit),
+        securityDeposit:
+          !this.newRental.securityDeposit ||
+          isNaN(this.newRental.securityDeposit),
         acceptedIn: !this.newRental.acceptedIn,
         additionalDriverInsurance: !this.newRental.additionalDriverInsurance,
         excessClaim: !this.newRental.excessClaim,
-        tollCharges: !this.newRental.tollCharges || isNaN(this.newRental.tollCharges),
+        tollCharges:
+          !this.newRental.tollCharges || isNaN(this.newRental.tollCharges),
         features: !this.newRental.features,
         type: !this.newRental.type,
         doors: !this.newRental.doors,
@@ -194,7 +205,6 @@ export default {
             ...params,
             dealerLogo: dealerLogoUploadResponse.fileName,
           };
-          debugger;
           await this.$store.dispatch("addNewRental", params);
         } else {
           const alert = {

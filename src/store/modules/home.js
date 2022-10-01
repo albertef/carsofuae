@@ -41,7 +41,7 @@ const state = {
   newGarageInfo: {},
   newReviewInfo: {},
   reviewList: [],
-  newRentalInfo: {}
+  newRentalInfo: {},
 };
 
 const actions = {
@@ -125,6 +125,7 @@ const actions = {
   async getGarageList({ commit }) {
     let dataset = {},
       url = `/carsofuae-server/data/get_garages.php`;
+    //url = `/mocks/garages.json`;
     dataset = await axiosInstance.get(url);
     commit("updateGarageList", dataset);
     return dataset;
@@ -138,8 +139,8 @@ const actions = {
   },
   async getRentalList({ commit }) {
     let dataset = {},
-    url = `/carsofuae-server/data/get_rental.php`;
-   // url = `/mocks/rental.json`;
+      url = `/carsofuae-server/data/get_rental.php`;
+    // url = `/mocks/rental.json`;
     dataset = await axiosInstance.get(url);
     commit("updateRentalList", dataset);
     return dataset;
@@ -191,9 +192,7 @@ const getters = {
   },
   getSingleRentalData(state) {
     return function (id) {
-      console.log(id);
       return state.rentalData?.rental.find((rental) => {
-        console.log(typeof rental.id )
         return rental.id == Number(id);
       });
     };

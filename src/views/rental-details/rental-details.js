@@ -38,7 +38,6 @@ export default {
     await store.dispatch("getPostedByList");
     await store.dispatch("getRentalList");
     store.commit("updateSelectedRental", this.$route.query.id);
-    console.log(this.rentalData);
     router
       .push({
         name: "RentalDetails",

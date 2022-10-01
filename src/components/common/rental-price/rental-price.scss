@@ -1,4 +1,4 @@
-.open-times-wrapper {
+.rental-price-wrapper {
   > div {
     display: flex;
     justify-content: space-between;
@@ -9,6 +9,10 @@
     }
     > div {
       margin: 0 10px;
+      width: 100%;
+    }
+    > label {
+      width: 50%;
     }
   }
   &.error {

@@ -81,7 +81,6 @@ export default {
         : galleryImages[0];
     },
     getGalleryImagePath(image, folder) {
-      debugger;
       const folderPath = folder.split(",")[0];
       return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
@@ -95,6 +94,29 @@ export default {
           name: "Login",
         });
       }
+    },
+    openPhone(num) {
+      document.location.href = `tel:${num}`;
+    },
+    openWhatsapp(num) {
+      window.open(
+        `https://wa.me/${num.replace(
+          /[^\d\+]/g,
+          ""
+        )}?text=Hey! I am Interested in your ad. ${encodeURIComponent(
+          window.location.href
+        )}`
+      );
+    },
+    openEmail(email) {
+      window.location.href = `mailto:${email}`;
+    },
+    socialOpen(link) {
+      let formattedLink = "";
+      if (!link.includes("http")) {
+        formattedLink = `https://${link}`;
+      }
+      window.open(formattedLink);
     },
   },
 };

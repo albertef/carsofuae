@@ -48,20 +48,20 @@
             <img
               src="../../assets/facebook.png"
               class="icon facebook"
-              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.facebook"
-              @click="socialOpen(getSingleGarageDetails.social.facebook)"
+              v-if="getSingleGarageDetails && getSingleGarageDetails.facebook"
+              @click="socialOpen(getSingleGarageDetails.facebook)"
             />
             <img
               src="../../assets/linkedin.png"
               class="icon linkedin"
-              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.linkedin"
-              @click="socialOpen(getSingleGarageDetails.social.linkedin)"
+              v-if="getSingleGarageDetails && getSingleGarageDetails.linkedin"
+              @click="socialOpen(getSingleGarageDetails.linkedin)"
             />
             <img
               src="../../assets/instagram.png"
               class="icon instagram"
-              v-if="getSingleGarageDetails.social && getSingleGarageDetails.social.instagram"
-              @click="socialOpen(getSingleGarageDetails.social.instagram)"
+              v-if="getSingleGarageDetails && getSingleGarageDetails.instagram"
+              @click="socialOpen(getSingleGarageDetails.instagram)"
             />
           </div>
         </div>

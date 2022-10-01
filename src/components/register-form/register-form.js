@@ -233,7 +233,6 @@ export default {
               imageFolder: sliderImageUploadResponse.folderName,
             };
           }
-          console.log(params);
           const logoImageUploadResponse = await this.$store.dispatch(
             "imageUpload",
             params.logo

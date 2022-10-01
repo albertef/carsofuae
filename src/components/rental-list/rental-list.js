@@ -26,7 +26,7 @@ export default {
   props: {
     data: {
       type: Array,
-      default:()=> [],
+      default: () => [],
     },
     title: {
       type: String,
@@ -64,7 +64,6 @@ export default {
     },
     getGalleryImagePath(image, folder) {
       const folderPath = folder.split(",")[0];
-      console.log(`${this.$baseURL}upload/${folderPath}/${image}`);
       return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     viewPostDetails(data) {

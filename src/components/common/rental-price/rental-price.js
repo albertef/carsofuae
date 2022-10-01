@@ -16,7 +16,6 @@ export default {
   },
   data() {
     return {
-     
       selected: [],
     };
   },
@@ -28,7 +27,7 @@ export default {
         price: (type === "price" && value) || null,
         kilometer: (type === "kilometer" && value) || null,
       };
-     
+
       const isExist = this.selected?.filter((item) => item.time === time);
       if (isExist.length) {
         isExist[0] =
@@ -46,11 +45,9 @@ export default {
         return {
           per: el.time,
           price: el.price,
-          km: el.kilometer
-
+          km: el.kilometer,
         };
       });
-      console.log(formatted)
       this.$emit("value", formatted);
     },
   },

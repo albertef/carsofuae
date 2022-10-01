@@ -4,6 +4,12 @@
     width: 600px;
     max-width: 90%;
 
+    div[class*="col-12"] {
+      > label {
+        font-weight: 800;
+      }
+    }
+
     .button-wrapper {
       span {
         color: $purple;
