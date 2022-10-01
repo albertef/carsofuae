@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     getRentalData() {
-      return this.$store.state.home.rentalData;
+      return this.$store.state.home.rentalData.rental;
     },
     getRentalCarTypes() {
       return META.rentalCarTypes;

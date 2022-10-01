@@ -1,0 +1,21 @@
+<div class="rental-price-wrapper" :class="error && 'error'">
+  <div class="col-12 mb-3">
+    <label>Day <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" id="price" @value="updateRentalPrice('day','price', $event)" />
+    <InputText class="inputText" id="kilometer"  @value="updateRentalPrice('day','kilometer', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Week <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" id="price" @value="updateRentalPrice('week','price', $event)" />
+    <InputText class="inputText" id="kilometer" @value="updateRentalPrice('week','kilometer', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Month <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" id="price"  @value="updateRentalPrice('month','price', $event)" />
+    <InputText class="inputText" id="kilometer"  @value="updateRentalPrice('month','kilometer', $event)" />
+  </div>
+  <span v-if="error">Select price and Kilometers for Day,Week and Month</span>
+</div>

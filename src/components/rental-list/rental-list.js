@@ -26,7 +26,7 @@ export default {
   props: {
     data: {
       type: Array,
-      default: [],
+      default:()=> [],
     },
     title: {
       type: String,
@@ -61,6 +61,11 @@ export default {
     },
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder.split(",")[0];
+      console.log(`${this.$baseURL}upload/${folderPath}/${image}`);
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     viewPostDetails(data) {
       this.$store.commit("updateSelectedRental", data.id);

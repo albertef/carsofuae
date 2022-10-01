@@ -51,12 +51,18 @@
               placeholder="Enter Place" id="place" :value="newRental.place"
               @value="updateRentalData('place', $event)" />
           </div>
-          <div class="col-12 mb-3">
-            <label>Price <span>*</span></label>
+          <!-- <div class="col-12 mb-3">
+            <label>Price <span>*</span></label> -->
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Price"
+            <!-- <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Valid Price"
               placeholder="Enter Price" id="price" :value="newRental.price"
               @value="updateRentalData('price', $event)" />
+          </div> -->
+          <div class="col-12 mb-3 mt-3">
+            <label>Price <span>*</span></label>
+            <!-- prettier-ignore -->
+            <RentalPrice :error="newRentalValidation.price"
+            errorText="Choose Rental Price and Kilometers" @value="updateRentalData('price', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label
@@ -92,14 +98,14 @@
           <div class="col-12 mb-3">
             <label>Select Mileage Limit <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.mileageLimit" errorText="Enter Mileage Limit"
+            <InputText class="inputText" :error="newRentalValidation.mileageLimit" errorText="Enter Valid Mileage Limit"
               placeholder="Enter Mileage Limit" id="mileageLimit" :value="newRental.mileageLimit"
               @value="updateRentalData('mileageLimit', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Additional Mileage Charge <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.additionalMileageCharge" errorText="Enter Additional Mileage Charge"
+            <InputText class="inputText" :error="newRentalValidation.additionalMileageCharge" errorText="Enter Valid Additional Mileage Charge"
               placeholder="Enter Additional Mileage Charge" id="additionalMileageCharge" :value="newRental.additionalMileageCharge"
               @value="updateRentalData('additionalMileageCharge', $event)" />
           </div>
@@ -112,14 +118,14 @@
           <div class="col-12 mb-3">
             <label>Minimum Age <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.minAge" errorText="Enter Minimum Age"
+            <InputText class="inputText" :error="newRentalValidation.minAge" errorText="Enter Valid Minimum Age"
               placeholder="Enter Minimum Age" id="minAge" :value="newRental.minAge"
               @value="updateRentalData('minAge', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Security Deposit <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.securityDeposit" errorText="Enter Security Deposit"
+            <InputText class="inputText" :error="newRentalValidation.securityDeposit" errorText="Enter Valid Security Deposit"
               placeholder="Enter Security Deposit" id="securityDeposit" :value="newRental.securityDeposit"
               @value="updateRentalData('securityDeposit', $event)" />
           </div>
@@ -131,11 +137,10 @@
               @value="updateRentalData('acceptedIn', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Additional Driver Insurance <span>*</span></label>
+            <label>Select Additional Driver Insurance <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.additionalDriverInsurance" errorText="Enter Additional Driver Insurance"
-              placeholder="Enter Additional Driver Insurance" id="additionalDriverInsurance" :value="newRental.additionalDriverInsurance"
-              @value="updateRentalData('additionalDriverInsurance', $event)" />
+            <Select :options="utils.additionalDriverInsuranceOptions()" :error="newRentalValidation.additionalDriverInsurance" errorText="Select Additional Driver Insurance"
+              default="Select Additional Driver Insurance" @selectValue="updateRentalData('additionalDriverInsurance', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Excess Claim <span>*</span></label>
@@ -147,7 +152,7 @@
           <div class="col-12 mb-3">
             <label>Toll Charges <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.tollCharges" errorText="Enter Toll Charges"
+            <InputText class="inputText" :error="newRentalValidation.tollCharges" errorText="Enter Valid Toll Charges"
               placeholder="Enter Toll Charges" id="tollCharges" :value="newRental.tollCharges"
               @value="updateRentalData('tollCharges', $event)" />
           </div>

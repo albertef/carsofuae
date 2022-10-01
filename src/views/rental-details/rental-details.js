@@ -38,14 +38,15 @@ export default {
     await store.dispatch("getPostedByList");
     await store.dispatch("getRentalList");
     store.commit("updateSelectedRental", this.$route.query.id);
+    console.log(this.rentalData);
     router
       .push({
         name: "RentalDetails",
         query: {
           id: this.getRentalId,
           title: `${UTILS.formatTitle(
-            this.rentalData.name
-          )}-${UTILS.formatTitle(this.rentalData.desc)}`,
+            this.rentalData?.name
+          )}-${UTILS.formatTitle(this.rentalData?.desc)}`,
         },
       })
       .catch(() => {});

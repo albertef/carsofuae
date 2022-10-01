@@ -31,11 +31,11 @@
                   class="post-list-carousel"
                 >
                   <Slide
-                    v-for="(image, index) in post.gallery"
+                    v-for="(image, index) in post.galleryImages.split(',')"
                     v-bind:key="index"
                   >
-                    <span class="gallery-counter">{{index+1}}/{{post.gallery.length}}</span>
-                    <img :src="image" class="img-fluid" />
+                    <span class="gallery-counter">{{index+1}}/{{post.galleryImages.length}}</span>
+                    <img :src="getGalleryImagePath(image,post.imageFolder) " class="img-fluid" />
                   </Slide>
                 </Carousel>
               </div>

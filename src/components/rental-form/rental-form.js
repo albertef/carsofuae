@@ -5,6 +5,8 @@ import Button from "@/components/common/button/button.vue";
 import Select from "@/components/common/select/select.vue";
 import OpenTimes from "@/components/common/open-times/open-times.vue";
 import TextArea from "@/components/common/text-area/text-area.vue";
+import RentalPrice from "@/components/common/rental-price/rental-price.vue";
+
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -19,7 +21,8 @@ export default {
     Select,
     InputFile,
     OpenTimes,
-    TextArea
+    TextArea,
+    RentalPrice
   },
 
   data() {
@@ -33,6 +36,7 @@ export default {
         place: "",
         price: "",
         galleryImages: "",
+        imageFolder: "",
         openTimes: "",
         phone: "",
         email: "",
@@ -115,15 +119,15 @@ export default {
         openTimes: !this.newRental.openTimes,
         phone: !this.newRental.phone || !UTILS.isValidPhone(this.newRental.phone),
         email: !this.newRental.email || !UTILS.isValidEmail(this.newRental.email),
-        mileageLimit: !this.newRental.mileageLimit,
-        additionalMileageCharge: !this.newRental.additionalMileageCharge,
+        mileageLimit: !this.newRental.mileageLimit || isNaN(this.newRental.mileageLimit),
+        additionalMileageCharge: !this.newRental.additionalMileageCharge || isNaN(this.newRental.additionalMileageCharge),
         insurance: !this.newRental.insurance,
-        minAge: !this.newRental.minAge,
-        securityDeposit: !this.newRental.securityDeposit,
+        minAge: !this.newRental.minAge || isNaN(this.newRental.minAge),
+        securityDeposit: !this.newRental.securityDeposit || isNaN(this.newRental.securityDeposit),
         acceptedIn: !this.newRental.acceptedIn,
         additionalDriverInsurance: !this.newRental.additionalDriverInsurance,
         excessClaim: !this.newRental.excessClaim,
-        tollCharges: !this.newRental.tollCharges,
+        tollCharges: !this.newRental.tollCharges || isNaN(this.newRental.tollCharges),
         features: !this.newRental.features,
         type: !this.newRental.type,
         doors: !this.newRental.doors,
@@ -190,7 +194,8 @@ export default {
             ...params,
             dealerLogo: dealerLogoUploadResponse.fileName,
           };
-          await this.$store.dispatch("newRentalPost", params);
+          debugger;
+          await this.$store.dispatch("addNewRental", params);
         } else {
           const alert = {
             show: true,

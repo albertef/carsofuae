@@ -124,4 +124,7 @@ export const UTILS = {
   insuranceList() {
     return ["Basic", "Advanced"];
   },
+  additionalDriverInsuranceOptions() {
+    return ["Yes", "No"];
+  },
 };

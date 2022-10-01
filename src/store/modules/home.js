@@ -87,9 +87,9 @@ const actions = {
     commit("updateNewPostInfo", dataset);
     return dataset;
   },
-  async newClassifiedPost({ commit }, params) {
+  async addNewRental({ commit }, params) {
     let dataset = {},
-      url = "/carsofuae-server/data/new_rental_post.php";
+      url = "/carsofuae-server/data/new_rental.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateNewRentalInfo", dataset);
     return dataset;
@@ -138,7 +138,8 @@ const actions = {
   },
   async getRentalList({ commit }) {
     let dataset = {},
-      url = "/mocks/rental.json";
+    url = `/carsofuae-server/data/get_rental.php`;
+   // url = `/mocks/rental.json`;
     dataset = await axiosInstance.get(url);
     commit("updateRentalList", dataset);
     return dataset;
@@ -190,8 +191,10 @@ const getters = {
   },
   getSingleRentalData(state) {
     return function (id) {
-      return state.rentalData.find((rental) => {
-        return rental.id === Number(id);
+      console.log(id);
+      return state.rentalData?.rental.find((rental) => {
+        console.log(typeof rental.id )
+        return rental.id == Number(id);
       });
     };
   },

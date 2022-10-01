@@ -76,6 +76,7 @@ export default {
               : `${el.start} - ${el.end}`,
         };
       });
+      console.log(formatted)
       this.$emit("value", formatted);
     },
   },

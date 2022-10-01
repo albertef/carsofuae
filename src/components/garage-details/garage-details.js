@@ -81,6 +81,7 @@ export default {
         : galleryImages[0];
     },
     getGalleryImagePath(image, folder) {
+      debugger;
       const folderPath = folder.split(",")[0];
       return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
