@@ -9,8 +9,14 @@
           :autoplay="true"
           :navigationEnabled="true"
         >
-          <Slide v-for="image, index in rentalData.gallery" v-bind:key="index">
-            <img :src="image" class="img-fluid" />
+          <Slide
+            v-for="image, index in rentalData.galleryImages.split(',')"
+            v-bind:key="index"
+          >
+            <img
+              :src="getGalleryImagePath(image, rentalData.imageFolder)"
+              class="img-fluid"
+            />
           </Slide>
         </Carousel>
       </div>
@@ -54,7 +60,6 @@
             ><font-awesome-icon :icon="['fas','user-check']" /> Verified</span
           >
         </div>
-
         <div class="slider mt-3 d-lg-block d-none">
           <Carousel
             id="garage-carousel"
@@ -64,10 +69,13 @@
             :navigationEnabled="true"
           >
             <Slide
-              v-for="image, index in rentalData.gallery"
+              v-for="image, index in rentalData.galleryImages.split(',')"
               v-bind:key="index"
             >
-              <img :src="image" class="img-fluid" />
+              <img
+                :src="getGalleryImagePath(image,rentalData.imageFolder)"
+                class="img-fluid"
+              />
             </Slide>
           </Carousel>
         </div>
@@ -98,45 +106,41 @@
             <h6>Rental Includes</h6>
             <p>
               <span>Mileage Limit</span>
-              <span>{{rentalData.descDetails.includes.mileageLimit}} km</span>
+              <span>{{rentalData.mileageLimit}} km</span>
             </p>
             <p>
               <span>Additional Mileage Charges</span>
-              <span>AED {{rentalData.descDetails.includes.addCharge}}/km</span>
+              <span>AED {{rentalData.additionalMileageCharge}}/km</span>
             </p>
             <p>
               <span>Insurance</span>
-              <span>{{rentalData.descDetails.includes.insurance}}</span>
+              <span>{{rentalData.insurance}}</span>
             </p>
           </div>
           <div>
             <h6>Requirements</h6>
             <p>
               <span>Minimum Age</span>
-              <span>{{rentalData.descDetails.requirements.age}} years old</span>
+              <span>{{rentalData.minAge}} years old</span>
             </p>
             <p>
               <span>Security Deposit</span>
-              <span>AED {{rentalData.descDetails.requirements.deposit}}</span>
+              <span>AED {{rentalData.deposit}}</span>
             </p>
             <p>
               <span>Accepted In</span>
-              <span
-                >{{rentalData.descDetails.requirements.paymentMethods}}</span
-              >
+              <span>{{rentalData.paymentMethods}}</span>
             </p>
           </div>
           <div>
             <h6>Extras</h6>
             <p>
               <span>Additional Driver Insurance</span>
-              <span
-                >AED {{rentalData.descDetails.extras.addDriverInsurance}}</span
-              >
+              <span>AED {{rentalData.addDriverInsurance}}</span>
             </p>
             <p>
               <span>Salik/Toll Charges</span>
-              <span>AED {{rentalData.descDetails.extras.tollCharge}}</span>
+              <span>AED {{rentalData.tollCharges}}</span>
             </p>
           </div>
         </div>
@@ -163,7 +167,7 @@
 
         <div class="desc">
           <h5 class="mt-4 mb-3">
-            Why Choose {{rentalData.company}} {{rentalData.model}}
+            Why Choose {{rentalData.brand}} {{rentalData.model}}
           </h5>
           <p>{{rentalData.whyChoose}}</p>
           <h5 class="mt-4 mb-3">Can I get this car delivered ?</h5>
@@ -177,7 +181,9 @@
           class="dealer-logo mb-4 mt-2"
           @click="openStore(rentalData.postedBy)"
         >
-          <img :src="rentalData.dealerLogo" />
+          <img
+            :src="getDealerLogo(rentalData.dealerLogo, rentalData.imageFolder)"
+          />
         </div>
 
         <div class="open-times mb-4">
@@ -254,20 +260,20 @@
             <img
               src="../../assets/facebook.png"
               class="icon facebook"
-              v-if="rentalData.social.facebook"
-              @click="socialOpen(rentalData.social.facebook)"
+              v-if="rentalData.facebook"
+              @click="socialOpen(rentalData.facebook)"
             />
             <img
               src="../../assets/linkedin.png"
               class="icon linkedin"
-              v-if="rentalData.social.linkedin"
-              @click="socialOpen(rentalData.social.linkedin)"
+              v-if="rentalData.linkedin"
+              @click="socialOpen(rentalData.linkedin)"
             />
             <img
               src="../../assets/instagram.png"
               class="icon instagram"
-              v-if="rentalData.social.instagram"
-              @click="socialOpen(rentalData.social.instagram)"
+              v-if="rentalData.instagram"
+              @click="socialOpen(rentalData.instagram)"
             />
           </div>
         </div>

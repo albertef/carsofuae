@@ -192,7 +192,7 @@ const getters = {
   },
   getSingleRentalData(state) {
     return function (id) {
-      return state.rentalData?.rental.find((rental) => {
+      return state.rentalData?.rental?.find((rental) => {
         return rental.id == Number(id);
       });
     };

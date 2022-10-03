@@ -284,8 +284,10 @@
             margin-bottom: 0;
             padding: 5px 0;
             font-weight: 600;
+            text-transform: capitalize;
             &:last-child {
               text-align: right;
+              min-width: 160px;
               color: $green !important;
             }
             &.closed {
@@ -321,6 +323,9 @@
               margin-left: 5px;
             }
           }
+        }
+        + p {
+          text-transform: capitalize;
         }
       }
     }

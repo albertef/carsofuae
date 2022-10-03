@@ -62,8 +62,12 @@ export default {
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);
     },
+    getDealerLogo(image, folder) {
+      const folderName = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderName}/${image}`;
+    },
     getGalleryImagePath(image, folder) {
-      const folderPath = folder.split(",")[0];
+      const folderPath = folder?.split(",")[0];
       return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     viewPostDetails(data) {

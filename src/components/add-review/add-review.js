@@ -77,6 +77,11 @@ export default {
         };
         store.commit("updateLoader", true);
         await this.$store.dispatch("addNewReview", params);
+        const getReviewParams = {
+          pageType: params.pageType,
+          pageId: params.pageId,
+        };
+        await this.$store.dispatch("getReviewList", getReviewParams);
 
         store.commit("updateLoader", false);
         if (this.newReviewInfo.status) {

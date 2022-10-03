@@ -62,7 +62,7 @@ export default {
       if (this.type === "classifieds") {
         data = this.$store?.state.home.postList;
       } else if (this.type === "rental") {
-        data = this.$store?.state.home.rentalData;
+        data = this.$store?.state.home.rentalData.rental;
       } else if (this.type === "lease") {
         data = this.$store?.state.home.leaseData;
       } else if (this.type === "spare") {

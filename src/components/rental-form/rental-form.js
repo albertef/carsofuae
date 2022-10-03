@@ -94,6 +94,9 @@ export default {
     utils() {
       return UTILS;
     },
+    getRentalTypes() {
+      return META.rentalCarTypes.map((item) => item.name);
+    },
   },
   methods: {
     updateRentalData(key, e) {
@@ -101,6 +104,7 @@ export default {
         ...this.newRental,
         [key]: e,
       };
+      debugger;
       this.validateNewRentalForm();
     },
 

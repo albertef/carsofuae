@@ -2,26 +2,37 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
-              <h5 class="heading" v-html="title"></h5>
-              <div class="right-column">
-                <div class="sort-wrapper" title="Sort Options">
-                  <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
-                  <Sort :data="postData"  @close="sortToggle"  v-if="sortEnabled" />
-                  <div class="overlay" @click="sortToggle" v-if="sortEnabled"></div>
-                </div>
-                <div class="filter-wrapper" title="Filter Options">
-                  <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                  <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
-                </div>
+        <div class="row latest-posts" v-if="postData.length">
+          <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
+            <h5 class="heading" v-html="title"></h5>
+            <div class="right-column">
+              <div class="sort-wrapper" title="Sort Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sort']"
+                  @click="sortToggle"
+                />
+                <Sort :data="postData" @close="sortToggle" v-if="sortEnabled" />
+                <div
+                  class="overlay"
+                  @click="sortToggle"
+                  v-if="sortEnabled"
+                ></div>
+              </div>
+              <div class="filter-wrapper" title="Filter Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sliders-h']"
+                  @click="filterToggle"
+                />
+                <PostFilter
+                  :data="postData"
+                  @close="filterToggle"
+                  v-if="filterEnabled"
+                />
               </div>
             </div>
-            <div class="col-12 col-lg-6 py-3" v-for="post in postData">
-              <div
-                class="card"
-                :class="post.featured && 'featured'"
-              >
+          </div>
+          <div class="col-12 col-lg-6 py-3" v-for="post in postData">
+            <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <Carousel
                   id="post-list-carousel"
@@ -34,71 +45,79 @@
                     v-for="(image, index) in post.galleryImages.split(',')"
                     v-bind:key="index"
                   >
-                    <span class="gallery-counter">{{index+1}}/{{post.galleryImages.length}}</span>
-                    <img :src="getGalleryImagePath(image,post.imageFolder) " class="img-fluid" />
+                    <span class="gallery-counter"
+                      >{{index+1}}/{{post.galleryImages.split(',').length}}</span
+                    >
+                    <img
+                      :src="getGalleryImagePath(image,post.imageFolder) "
+                      class="img-fluid"
+                    />
                   </Slide>
                 </Carousel>
               </div>
 
-                <div class="post-details" @click="viewPostDetails(post)">
-                  <div>
-                    <h5 :title="`${post.make} ${post.company} ${post.model}`">
-                      <span>{{ post.make }} {{ post.company }} {{ post.model }}</span>
-                      <em></em>
-                    </h5>
-                    <div class="list-view-price mt-3">
-                        <div v-for="val in post.price">
-                          <span>{{ val.per }}</span>
-                          <span>AED {{ val.price }}</span>
-                          <span>{{ val.km }} kms</span>
-                        </div>
-                      </div>
-                    
-                    <div class="tags">
-                      <span class="tag">
-                        {{post.type}}
-                      </span>
-                      <span class="tag">
-                        <img src="../../assets/car-door.png" />
-                        {{post.doors}}
-                      </span>
-                      <span class="tag">
-                        <img src="../../assets/car-seat.png" />
-                        {{post.seats}}
-                      </span>
-                      <span class="tag">
-                        <font-awesome-icon :icon="['fas', 'suitcase']" />
-                        {{post.luggage}}
-                      </span>
-                    </div>
-                    <div class="dealer">
-                      <img :src="post.dealerLogo" />
-                      <ul>
-                        <li v-for="list in post.listBullets">{{list}}</li>
-                      </ul>
+              <div class="post-details" @click="viewPostDetails(post)">
+                <div>
+                  <h5 :title="`${post.brand} ${post.model} ${post.make} `">
+                    <span
+                      >{{ post.brand }} {{ post.model }} {{ post.make }}
+                    </span>
+                    <em></em>
+                  </h5>
+                  <div class="list-view-price mt-3">
+                    <div v-for="val in post.price">
+                      <span>{{ val.per }}</span>
+                      <span>AED {{ val.price }}</span>
+                      <span>{{ val.km }} kms</span>
                     </div>
                   </div>
-                
+
+                  <div class="tags">
+                    <span class="tag"> {{post.type}} </span>
+                    <span class="tag">
+                      <img src="../../assets/car-door.png" />
+                      {{post.doors}}
+                    </span>
+                    <span class="tag">
+                      <img src="../../assets/car-seat.png" />
+                      {{post.seats}}
+                    </span>
+                    <span class="tag">
+                      <font-awesome-icon :icon="['fas', 'suitcase']" />
+                      {{post.luggage}}
+                    </span>
+                  </div>
+                  <div class="dealer">
+                    <img
+                      :src="getDealerLogo(post.dealerLogo, post.imageFolder)"
+                    />
+                    <ul>
+                      <li v-for="list in post.listBullets">{{list}}</li>
+                    </ul>
+                  </div>
                 </div>
-                <span
-                  class="featured-icon"
-                  title="Featured Post"
-                  v-if="post.featured"
-                >
-                  <img src="../../assets/featured.png" class="img-fluid" />
-                </span>
               </div>
-            </div>
-            <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
-              <!-- prettier-ignore -->
-              <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
+              <span
+                class="featured-icon"
+                title="Featured Post"
+                v-if="post.featured"
+              >
+                <img src="../../assets/featured.png" class="img-fluid" />
+              </span>
             </div>
           </div>
-          <div v-else class="d-flex flex-column justify-content-center align-items-center no-result">
-            <img src="../../assets/no-results.png" class="img-fluid" />
-            <h6>No Results Found</h6>
-            <p class="my-2">try changing the filters or search term</p>
+          <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
+            <!-- prettier-ignore -->
+            <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
           </div>
+        </div>
+        <div
+          v-else
+          class="d-flex flex-column justify-content-center align-items-center no-result"
+        >
+          <img src="../../assets/no-results.png" class="img-fluid" />
+          <h6>No Results Found</h6>
+          <p class="my-2">try changing the filters or search term</p>
         </div>
       </div>
     </div>

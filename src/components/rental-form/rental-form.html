@@ -53,8 +53,8 @@
           </div>
           <!-- <div class="col-12 mb-3">
             <label>Price <span>*</span></label> -->
-            <!-- prettier-ignore -->
-            <!-- <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Valid Price"
+          <!-- prettier-ignore -->
+          <!-- <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Valid Price"
               placeholder="Enter Price" id="price" :value="newRental.price"
               @value="updateRentalData('price', $event)" />
           </div> -->
@@ -166,9 +166,8 @@
           <div class="col-12 mb-3">
             <label>Type <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.type" errorText="Enter Type"
-              placeholder="Enter Type" id="type" :value="newRental.type"
-              @value="updateRentalData('type', $event)" />
+            <Select :options="getRentalTypes" :error="newRentalValidation.type" errorText="Select Type"
+              default="Select Type" @selectValue="updateRentalData('type', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Select No.of Doors <span>*</span></label>

@@ -45,7 +45,7 @@ export default {
           id: this.getRentalId,
           title: `${UTILS.formatTitle(
             this.rentalData?.name
-          )}-${UTILS.formatTitle(this.rentalData?.desc)}`,
+          )}-${UTILS.formatTitle(this.rentalData?.description)}`,
         },
       })
       .catch(() => {});
@@ -128,9 +128,19 @@ export default {
     calculateStarValue(value) {
       return UTILS.calculateStarValue(value);
     },
+    getDealerLogo(image, folder) {
+      const folderName = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderName}/${image}`;
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
     checkOpenTime(data) {
       const today = dayjs().format("dddd");
-      const newData = data.filter((item) => item.day === today);
+      const newData = data.filter(
+        (item) => item.day.toLowerCase() === today.toLowerCase()
+      );
       const times = newData[0].time.split(" - ");
       if (times[0] === "Closed") {
         return {
@@ -138,8 +148,8 @@ export default {
           data: newData,
         };
       } else {
-        const openTime = dayjs().hour(times[0].split(":")[0]).format("H");
-        const closeTime = dayjs().hour(times[1].split(":")[0]).format("H");
+        const openTime = dayjs().hour(times[0].split(".")[0]).format("H");
+        const closeTime = dayjs().hour(times[1].split(".")[0]).format("H");
         const currentTime = dayjs().hour();
         if (currentTime < Number(openTime) && currentTime > Number(closeTime)) {
           return {
