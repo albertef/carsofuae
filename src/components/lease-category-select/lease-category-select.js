@@ -2,9 +2,15 @@ import router from "@/router";
 import store from "@/store";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
+import Button from "@/components/common/button/button.vue";
+
 
 export default {
   name: "LeaseCategorySelect",
+  components: {
+    Button,
+  },
+
 
   data() {
     return {
@@ -19,6 +25,9 @@ export default {
     );
   },
   computed: {
+    loginInfo() {
+      return store.state.home.loginInfo;
+    },
     getSelectedLeaseCategory() {
       return this.$store.state.home.selectedLeaseCategory;
     },
@@ -29,6 +38,7 @@ export default {
       return this.$route.query;
     },
   },
+
   methods: {
     getCategoryOptions(category) {
       store.commit("updateSelectedLeaseCategory", category);
@@ -38,6 +48,17 @@ export default {
           category: UTILS.formatTitle(this.getSelectedLeaseCategory),
         },
       });
+    },
+    newPost() {
+      if (this.loginInfo.isLoggedIn) {
+        router.push({
+          name: "AddNewLease",
+        });
+      } else {
+        router.push({
+          name: "Login",
+        });
+      }
     },
   },
 };

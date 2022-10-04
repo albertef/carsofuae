@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     getLeaseData() {
-      return this.$store.state.home.leaseData;
+      return this.$store.state.home.leaseData?.lease;
     },
     getLeaseCarTypes() {
       return META.leaseCarTypes;

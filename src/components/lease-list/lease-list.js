@@ -8,7 +8,7 @@ import Sort from "@/components/sort/sort.vue";
 const LOAD_COUNT = 9;
 
 export default {
-  name: "RentalList",
+  name: "LeaseList",
   components: {
     Button,
     Carousel,
@@ -26,7 +26,7 @@ export default {
   props: {
     data: {
       type: Array,
-      default: [],
+      default: () => [],
     },
     title: {
       type: String,
@@ -46,7 +46,7 @@ export default {
     fullPostData() {
       if (this.getSelectedLeaseCategory) {
         return this.data.filter(
-          (item) => item.type === this.getSelectedLeaseCategory.toLowerCase()
+          (item) => item.type?.toLowerCase() === this.getSelectedLeaseCategory.toLowerCase()
         );
       }
       return this.data;

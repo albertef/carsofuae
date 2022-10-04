@@ -18,6 +18,8 @@ import UserProfile from "@/views/user-profile/user-profile.vue";
 import NewPost from "@/views/new-post/new-post.vue";
 import AddNewGarage from "@/views/new-garage/new-garage.vue";
 import AddNewRental from "@/views/new-rental/new-rental.vue";
+import AddNewLease from "@/views/new-lease/new-lease.vue";
+
 
 Vue.use(Router);
 
@@ -114,6 +116,13 @@ const router = new Router({
       component: AddNewRental,
       meta: { title: "AddNewRental" },
     },
+    {
+      path: "/add-new-lease",
+      name: "AddNewLease",
+      component: AddNewLease,
+      meta: { title: "AddNewLease" },
+    },
+
     {
       path: "/spare-parts",
       name: "SpareParts",

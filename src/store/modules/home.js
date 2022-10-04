@@ -42,6 +42,7 @@ const state = {
   newReviewInfo: {},
   reviewList: [],
   newRentalInfo: {},
+  newLeaseInfo: {},
 };
 
 const actions = {
@@ -92,6 +93,13 @@ const actions = {
       url = "/carsofuae-server/data/new_rental.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateNewRentalInfo", dataset);
+    return dataset;
+  },
+  async addNewLease({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_lease.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewLeaseInfo", dataset);
     return dataset;
   },
   async addNewGarage({ commit }, params) {
@@ -147,7 +155,8 @@ const actions = {
   },
   async getLeaseList({ commit }) {
     let dataset = {},
-      url = "/mocks/lease.json";
+    url = `/carsofuae-server/data/get_lease.php`;
+      //url = "/mocks/lease.json";
     dataset = await axiosInstance.get(url);
     commit("updateLeaseList", dataset);
     return dataset;
@@ -199,8 +208,8 @@ const getters = {
   },
   getSingleLeaseData(state) {
     return function (id) {
-      return state.leaseData.find((rental) => {
-        return rental.id === Number(id);
+      return state.leaseData?.lease?.find((lease) => {
+        return lease.id == Number(id);
       });
     };
   },
@@ -295,6 +304,9 @@ const mutations = {
   },
   updateNewRentalInfo(state, dataset) {
     state.newRentalInfo = dataset;
+  },
+  updateNewLeaseInfo(state, dataset) {
+    state.newLeaseInfo = dataset;
   },
   updateNewGarageInfo(state, dataset) {
     state.newGarageInfo = dataset;

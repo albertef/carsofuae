@@ -120,16 +120,16 @@ export default {
     },
     checkOpenTime(data) {
       const today = dayjs().format("dddd");
-      const newData = data.filter((item) => item.day === today);
-      const times = newData[0].time.split(" - ");
+      const newData = data.filter((item) => item.day.toLowerCase() === today.toLowerCase());
+      const times = newData[0]?.time?.split(" - ");
       if (times[0] === "Closed") {
         return {
           title: "Closed Now",
           data: newData,
         };
       } else {
-        const openTime = dayjs().hour(times[0].split(":")[0]).format("H");
-        const closeTime = dayjs().hour(times[1].split(":")[0]).format("H");
+        const openTime = dayjs().hour(times[0]?.split(".")[0]).format("H");
+        const closeTime = dayjs().hour(times[1]?.split(".")[0]).format("H");
         const currentTime = dayjs().hour();
         if (currentTime < Number(openTime) && currentTime > Number(closeTime)) {
           return {

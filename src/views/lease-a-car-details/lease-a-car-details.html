@@ -40,11 +40,11 @@
       <div class="shadow-container p-3 mb-3">
         <div class="header">
           <h4>{{leaseData.name}}</h4>
-          <div class="rental-price">
+          <!-- <div class="rental-price">
             AED {{getPrice(leaseData.price).price}}<span
               >/{{getPrice(leaseData.price).per}} year</span
             >
-          </div>
+          </div> -->
         </div>
         <div class="featured">
           <span v-if="leaseData.featured"
@@ -209,20 +209,20 @@
               <img
                 src="../../assets/facebook.png"
                 class="icon facebook"
-                v-if="leaseData.social.facebook"
-                @click="socialOpen(leaseData.social.facebook)"
+                v-if="leaseData.facebook"
+                @click="socialOpen(leaseData.facebook)"
               />
               <img
                 src="../../assets/linkedin.png"
                 class="icon linkedin"
-                v-if="leaseData.social.linkedin"
-                @click="socialOpen(leaseData.social.linkedin)"
+                v-if="leaseData.linkedin"
+                @click="socialOpen(leaseData.linkedin)"
               />
               <img
                 src="../../assets/instagram.png"
                 class="icon instagram"
-                v-if="leaseData.social.instagram"
-                @click="socialOpen(leaseData.social.instagram)"
+                v-if="leaseData.instagram"
+                @click="socialOpen(leaseData.instagram)"
               />
             </div>
           </div>
