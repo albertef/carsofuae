@@ -6,6 +6,10 @@ import Select from "@/components/common/select/select.vue";
 import OpenTimes from "@/components/common/open-times/open-times.vue";
 import TextArea from "@/components/common/text-area/text-area.vue";
 import RentalPrice from "@/components/common/rental-price/rental-price.vue";
+import rentalFeaturesList from "@/meta/features.json";
+import Checkbox from "@/components/common/checkbox/checkbox.vue";
+
+
 
 import store from "@/store";
 import router from "@/router";
@@ -23,6 +27,7 @@ export default {
     OpenTimes,
     TextArea,
     RentalPrice,
+    Checkbox,
   },
 
   data() {
@@ -67,6 +72,8 @@ export default {
         postedBy: "",
       },
       newRentalValidation: {},
+      selectedFeatures: [],
+
     };
   },
   async mounted() {
@@ -75,6 +82,9 @@ export default {
   computed: {
     loginInfo() {
       return store.state.home.loginInfo;
+    },
+    rentalFeaturesList() {
+      return rentalFeaturesList;
     },
     newRentalInfo() {
       return store.state.home.newRentalInfo;
@@ -104,10 +114,15 @@ export default {
         ...this.newRental,
         [key]: e,
       };
-      debugger;
       this.validateNewRentalForm();
+    }, 
+    updateRentalFeaturesList(id) {
+      this.selectedFeatures = [...this.selectedFeatures, id];
+      this.updateRentalData("features", this.selectedFeatures);
     },
-
+    isSelected(id) {
+      return this.selectedFeatures.length && this.selectedFeatures.includes(id);
+    },
     resetValidation() {
       this.newRentalValidation = {};
     },

@@ -4,6 +4,8 @@ import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
 import PostFilter from "@/components/post-filter/post-filter.vue";
 import Sort from "@/components/sort/sort.vue";
+import rentalBulletsFeaturesList from "@/meta/features.json";
+
 
 const LOAD_COUNT = 9;
 
@@ -46,7 +48,7 @@ export default {
     fullPostData() {
       if (this.getSelectedRentalCategory) {
         return this.data.filter(
-          (item) => item.type === this.getSelectedRentalCategory.toLowerCase()
+          (item) => item.type?.toLowerCase() === this.getSelectedRentalCategory.toLowerCase()
         );
       }
       return this.data;
@@ -58,6 +60,9 @@ export default {
         this.fullPostData.length > this.postCount
           ? this.postCount + LOAD_COUNT
           : this.fullPostData.length;
+    },
+    getBulletFeaturesList(value) {
+      return rentalBulletsFeaturesList.filter((item) => value.includes(item.id));
     },
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);

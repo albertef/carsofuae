@@ -12,6 +12,8 @@ import dayjs from "dayjs";
 import { META } from "@/meta/common.js";
 import Accordion from "@/components/common/accordion/accordion.vue";
 import AccordionItem from "@/components/common/accordion/accordion-item.vue";
+import leaseFeaturesList from "@/meta/features.json";
+
 
 export default {
   name: "lease-details",
@@ -62,12 +64,6 @@ export default {
     leaseData() {
       return this.$store.getters.getSingleLeaseData(this.getLeaseId);
     },
-    getLeaseSpecs() {
-      return META.leaseCarSpecs;
-    },
-    getLeaseFeatures() {
-      return META.leaseCarFeatures;
-    },
     getLeaseFAQ() {
       return META.leaseFaq;
     },
@@ -81,6 +77,9 @@ export default {
     },
     openPhone(num) {
       document.location.href = `tel:${num}`;
+    },
+    getFeaturesList(value) {
+      return leaseFeaturesList.filter((item) => value.includes(item.id));
     },
     openWhatsapp(num) {
       window.open(
@@ -115,8 +114,16 @@ export default {
     hideModal() {
       this.modalDisplay = false;
     },
+    getDealerLogo(image, folder) {
+      const folderName = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderName}/${image}`;
+    },
     calculateStarValue(value) {
       return UTILS.calculateStarValue(value);
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     checkOpenTime(data) {
       const today = dayjs().format("dddd");

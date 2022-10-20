@@ -9,8 +9,11 @@
           :autoplay="true"
           :navigationEnabled="true"
         >
-          <Slide v-for="image, index in leaseData.gallery" v-bind:key="index">
-            <img :src="image" class="img-fluid" />
+          <Slide v-for="image, index in leaseData.gallery.split(',')" v-bind:key="index">
+            <img
+            :src="getGalleryImagePath(image,leaseData.imageFolder)"
+            class="img-fluid"
+          />
           </Slide>
         </Carousel>
       </div>
@@ -63,8 +66,11 @@
             :autoplay="true"
             :navigationEnabled="true"
           >
-            <Slide v-for="image, index in leaseData.gallery" v-bind:key="index">
-              <img :src="image" class="img-fluid" />
+            <Slide v-for="image, index in leaseData.gallery.split(',')" v-bind:key="index">
+              <img
+              :src="getGalleryImagePath(image,leaseData.imageFolder)"
+              class="img-fluid"
+            />
             </Slide>
           </Carousel>
         </div>
@@ -103,21 +109,18 @@
           </div>
           <div class="services mt-4">
             <h5 class="mb-3">Car Specifications</h5>
-            <div v-for="specs in getLeaseSpecs">
-              <span
-                ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
-              /></span>
-              <p>{{specs.title}}</p>
+            <div v-for="specs in leaseData.listBullets.split(',')">
+              <span><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"/></span>
+              <p>{{specs}}</p>
             </div>
           </div>
           <div class="services mt-4">
             <h5 class="mb-3">Car Features</h5>
-            <div v-for="feature in getLeaseFeatures">
+            <div v-for="feature in getFeaturesList(leaseData.features)">
               <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
               <p>{{feature.title}}</p>
             </div>
           </div>
-
           <div class="desc">
             <h5 class="mt-4 mb-3">
               Why Choose {{leaseData.company}} {{leaseData.model}}
@@ -131,9 +134,10 @@
       <div class="col-12 col-lg-4">
         <div class="shadow-container right p-3 mb-3">
           <div class="dealer-logo mb-4 mt-2"  @click="openStore(leaseData.postedBy)">
-            <img :src="leaseData.dealerLogo" />
+            <img
+            :src="getDealerLogo(leaseData.dealerLogo, leaseData.imageFolder)"
+          />
           </div>
-
           <div class="open-times mb-4">
             <p
               class="open-or-closed mb-2"

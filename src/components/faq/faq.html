@@ -1,0 +1,38 @@
+<div class="faq-wrapper">
+  <!-- prettier-ignore -->
+  <Button type="hollow" width="100%" text="Add FAQ" @click="openAddFAQ" class="my-4" />
+  <Modal v-if="isAddFAQ" class="small">
+    <template v-slot:header>
+      Add FAQ
+      <span @click="closeAddFAQ"
+        ><font-awesome-icon :icon="['fas', 'times']" /></span
+    ></template>
+    <template v-slot:body>
+      <label>Enter Question</label>
+      <!-- prettier-ignore -->  
+      <InputText class="inputText" :error="newFAQValidation.faqQuestion" errorText="Enter FAQ Question"
+      placeholder="Enter FAQ Question" id="faqQuestion" :value="newFAQ.faqQuestion"
+      @value="updateFAQData('faqQuestion', $event)" />
+      <label>Enter Answer</label>
+      <!-- prettier-ignore -->
+      <TextArea
+        class="inputText"
+        placeholder="FAQ Answer here..."
+        @value="updateFAQData('faqAnswer', $event)"
+        :error="newFAQValidation.faqAnswer"
+        errorText="Enter FAQ Answer"
+        id="faqAnswer"
+        :value="newFAQ.faqAnswer"
+      />
+    </template>
+    <template v-slot:footer>
+      <div class="col-12 p-0 mt-4 d-flex">
+        <!-- prettier-ignore -->
+        <Button type="hollow" width="100%" text="Cancel" @click="closeAddFAQ" class="mr-2" />
+        <!-- prettier-ignore -->
+        <Button type="primary" width="100%" text="Submit FAQ" @click="addFAQ" class="ml-2" />
+      </div>
+    </template>
+  </Modal>
+  
+</div>

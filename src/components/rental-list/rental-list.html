@@ -92,7 +92,7 @@
                       :src="getDealerLogo(post.dealerLogo, post.imageFolder)"
                     />
                     <ul>
-                      <li v-for="list in post.listBullets">{{list}}</li>
+                      <li v-for="list in getBulletFeaturesList(post.features).slice(0,4)">{{list.title}}</li>
                     </ul>
                   </div>
                 </div>

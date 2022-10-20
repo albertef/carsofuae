@@ -30,13 +30,18 @@
                   easing="ease-out"
                   class="post-list-carousel"
                 >
-                  <Slide
-                    v-for="(image, index) in post.gallery"
-                    v-bind:key="index"
-                  >
-                    <span class="gallery-counter">{{index+1}}/{{post.gallery.length}}</span>
-                    <img :src="image" class="img-fluid" />
-                  </Slide>
+                <Slide
+                v-for="(image, index) in post.gallery.split(',')"
+                v-bind:key="index"
+              >
+                <span class="gallery-counter"
+                  >{{index+1}}/{{post.gallery.split(',').length}}</span
+                >
+                <img
+                  :src="getGalleryImagePath(image,post.imageFolder) "
+                  class="img-fluid"
+                />
+              </Slide>
                 </Carousel>
               </div>
 
@@ -72,9 +77,11 @@
                       </span>
                     </div>
                     <div class="dealer">
-                      <img :src="post.dealerLogo" />
+                      <img
+                      :src="getDealerLogo(post.dealerLogo, post.imageFolder)"
+                    />
                       <ul>
-                        <li v-for="list in post.listBullets">{{list}}</li>
+                        <li v-for="list in getBulletFeaturesList(post.features).slice(0,4)">{{list.title}}</li>
                       </ul>
                     </div>
                   </div>

@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "icon": ["fas", "car-crash"],
+    "title": "Accident"
+  },
+  {
+    "id": 2,
+    "icon": ["fas", "fan"],
+    "title": "Air-con"
+  },
+  {
+    "id": 3,
+    "icon": ["fas", "play-circle"],
+    "title": "Audio"
+  },
+  {
+    "id": 4,
+    "icon": ["fas", "car-battery"],
+    "title": "Battery"
+  },
+  {
+    "id": 5,
+    "icon": ["fas", "tools"],
+    "title": "Bodywork"
+  },
+  {
+    "id": 6,
+    "icon": ["fas", "pause"],
+    "title": "Brakes"
+  },
+  {
+    "id": 7,
+    "icon": ["fas", "exclamation-triangle"],
+    "title": "Breakdown"
+  },
+  {
+    "id": 8,
+    "icon": ["fas", "check-square"],
+    "title": "Check-up"
+  },
+  {
+    "id": 9,
+    "icon": ["fas", "hand-sparkles"],
+    "title": "Detailing"
+  },
+  {
+    "id": 10,
+    "icon": ["fas", "diagnoses"],
+    "title": "Diagnostics"
+  },
+  {
+    "id": 11,
+    "icon": ["fas", "charging-station"],
+    "title": "Electric Cars"
+  },
+  {
+    "id": 12,
+    "icon": ["fas", "plug"],
+    "title": "Electrical"
+  },
+  {
+    "id": 13,
+    "icon": ["fas", "power-off"],
+    "title": "Engine"
+  },
+  {
+    "id": 14,
+    "icon": ["fas", "car"],
+    "title": "European Cars"
+  },
+  {
+    "id": 15,
+    "icon": ["fas", "wind"],
+    "title": "Exhaust"
+  },
+  {
+    "id": 16,
+    "icon": ["fas", "handshake"],
+    "title": "Free Pickup"
+  },
+  {
+    "id": 17,
+    "icon": ["fas", "cog"],
+    "title": "Genuine Parts"
+  },
+  {
+    "id": 18,
+    "icon": ["fas", "car-side"],
+    "title": "Hybrid Cars"
+  },
+  {
+    "id": 19,
+    "icon": ["fas", "tachometer-alt"],
+    "title": "Interiors"
+  },
+  {
+    "id": 20,
+    "icon": ["fas", "key"],
+    "title": "Locking, Keys"
+  },
+  {
+    "id": 21,
+    "icon": ["fas", "toolbox"],
+    "title": "Maintenance"
+  },
+  {
+    "id": 22,
+    "icon": ["fas", "wrench"],
+    "title": "Mobile Works"
+  },
+  {
+    "id": 23,
+    "icon": ["fas", "map-marked-alt"],
+    "title": "Navigation"
+  },
+  {
+    "id": 24,
+    "icon": ["fas", "bullseye"],
+    "title": "Recovery"
+  },
+  {
+    "id": 25,
+    "icon": ["fas", "tools"],
+    "title": "Repais"
+  },
+  {
+    "id": 26,
+    "icon": ["fas", "wrench"],
+    "title": "Safety Parts"
+  },
+  {
+    "id": 27,
+    "icon": ["fas", "shield-alt"],
+    "title": "Security"
+  },
+  {
+    "id": 28,
+    "icon": ["fas", "tools"],
+    "title": "Servicing"
+  },
+  {
+    "id": 29,
+    "icon": ["fas", "wrench"],
+    "title": "Smart Repair"
+  },
+  {
+    "id": 30,
+    "icon": ["fas", "life-ring"],
+    "title": "Steering"
+  },
+  {
+    "id": 31,
+    "icon": ["fas", "circle-notch"],
+    "title": "Suspension"
+  },
+  {
+    "id": 32,
+    "icon": ["fas", "user-check"],
+    "title": "Testing"
+  },
+  {
+    "id": 33,
+    "icon": ["fas", "thumbtack"],
+    "title": "Tracking"
+  },
+  {
+    "id": 34,
+    "icon": ["fas", "cogs"],
+    "title": "Transmission"
+  },
+  {
+    "id": 35,
+    "icon": ["fas", "drum-steelpan"],
+    "title": "Tyres, Wheels"
+  },
+  {
+    "id": 36,
+    "icon": ["fas", "car-side"],
+    "title": "Windows"
+  }
+]

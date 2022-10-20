@@ -4,6 +4,8 @@ import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
 import PostFilter from "@/components/post-filter/post-filter.vue";
 import Sort from "@/components/sort/sort.vue";
+import leaseBulletsFeaturesList from "@/meta/features.json";
+
 
 const LOAD_COUNT = 9;
 
@@ -61,6 +63,17 @@ export default {
     },
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);
+    },
+    getBulletFeaturesList(value) {
+      return leaseBulletsFeaturesList.filter((item) => value.includes(item.id));
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
+    getDealerLogo(image, folder) {
+      const folderName = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderName}/${image}`;
     },
     viewPostDetails(data) {
       this.$store.commit("updateSelectedLease", data.id);

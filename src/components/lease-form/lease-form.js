@@ -6,10 +6,13 @@ import Select from "@/components/common/select/select.vue";
 import OpenTimes from "@/components/common/open-times/open-times.vue";
 import TextArea from "@/components/common/text-area/text-area.vue";
 import LeasePrice from "@/components/common/lease-price/lease-price.vue";
+import leaseFeaturesList from "@/meta/features.json";
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
+import Checkbox from "@/components/common/checkbox/checkbox.vue";
+
 
 export default {
   name: "LeaseForm",
@@ -22,6 +25,7 @@ export default {
     OpenTimes,
     TextArea,
     LeasePrice,
+    Checkbox,
   },
 
   data() {
@@ -68,6 +72,7 @@ export default {
       
       },
       newLeaseValidation: {},
+      selectedFeatures: [],
     };
   },
   async mounted() {
@@ -76,6 +81,9 @@ export default {
   computed: {
     loginInfo() {
       return store.state.home.loginInfo;
+    },
+    leaseFeaturesList() {
+      return leaseFeaturesList;
     },
     getLeaseTypes() {
       return META.leaseCarTypes.map((item) => item.name);
@@ -107,7 +115,13 @@ export default {
       };
       this.validateNewLeaseForm();
     },
-
+    updateLeaseFeaturesList(id) {
+      this.selectedFeatures = [...this.selectedFeatures, id];
+      this.updateLeaseData("features", this.selectedFeatures);
+    },
+    isSelected(id) {
+      return this.selectedFeatures.length && this.selectedFeatures.includes(id);
+    },
     resetValidation() {
       this.newLeaseValidation = {};
     },

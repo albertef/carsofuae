@@ -149,17 +149,18 @@
           <span>Supplier Note: </span>{{rentalData.note}}
         </div>
         <div class="services mt-4">
-          <h5 class="mb-3">Car Specifications</h5>
-          <div v-for="specs in getRentalSpecs">
+          <h5 class="mb-3">Car Specifications</h5>'
+         
+            <div v-for="specs in (rentalData.listBullets).split(',')">
             <span
               ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
             /></span>
-            <p>{{specs.title}}</p>
+            <p>{{specs}}</p>
           </div>
         </div>
         <div class="services mt-4">
           <h5 class="mb-3">Car Features</h5>
-          <div v-for="feature in getRentalFeatures">
+          <div v-for="feature in getFeaturesList(rentalData.features)">
             <span><font-awesome-icon :icon="['far', 'check-square']" /></span>
             <p>{{feature.title}}</p>
           </div>
@@ -294,6 +295,7 @@
               </template>
             </accordion-item>
           </accordion>
+          <FAQ pageType="rental" :pageId="Number(getRentalId)" />
         </div>
       </div>
     </div>

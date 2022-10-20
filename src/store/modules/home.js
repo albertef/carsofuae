@@ -40,7 +40,9 @@ const state = {
   newPostInfo: {},
   newGarageInfo: {},
   newReviewInfo: {},
+  newFAQInfo: {},
   reviewList: [],
+  faqList: [],
   newRentalInfo: {},
   newLeaseInfo: {},
 };
@@ -121,6 +123,20 @@ const actions = {
       url = `/carsofuae-server/data/get_reviews.php?pageType=${params.pageType}&pageId=${params.pageId}`;
     dataset = await axiosInstance.get(url);
     commit("updateReviewsList", dataset);
+    return dataset;
+  },
+  async addNewFAQ({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_faq.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewFAQInfo", dataset);
+    return dataset;
+  },
+  async getFAQList({ commit }, params) {
+    let dataset = {},
+      url = `/carsofuae-server/data/get_faq.php?pageType=${params.pageType}&pageId=${params.pageId}`;
+    dataset = await axiosInstance.get(url);
+    commit("updateFAQList", dataset);
     return dataset;
   },
   async getPostList({ commit }) {
@@ -314,6 +330,9 @@ const mutations = {
   updateNewReviewInfo(state, dataset) {
     state.newReviewInfo = dataset;
   },
+  updateNewFAQInfo(state, dataset) {
+    state.newFAQInfo = dataset;
+  },
   updatePostList(state, dataset) {
     state.postList = dataset;
   },
@@ -322,6 +341,9 @@ const mutations = {
   },
   updateReviewsList(state, dataset) {
     state.reviewList = dataset;
+  },
+  updateFAQList(state, dataset) {
+    state.faqList = dataset;
   },
   updateCarList(state, dataset) {
     state.carData = dataset;

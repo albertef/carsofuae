@@ -21,6 +21,21 @@
         }
       }
     }
+    .features-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      span {
+        width: 33%;
+        display: inline-flex;
+        margin: 5px 0;
+      }
+      .error-text {
+        margin-top: 15px;
+        color: rgba($red, 0.8);
+        font-size: 0.85rem;
+      }
+    }
   }
   @media screen and (max-width: 991px) {
     .container {

@@ -150,11 +150,14 @@
               @value="updateLeaseData('tollCharges', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Features <span>*</span></label>
+            <label>Select Features <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newLeaseValidation.features" errorText="Enter Features"
-              placeholder="Enter Features" id="features" :value="newLease.features"
-              @value="updateLeaseData('features', $event)" />
+            <div class="features-wrapper">
+              <span v-for="features in leaseFeaturesList" class="features-list">
+                <Checkbox :value="isSelected(features.id)" :label="features.title" @change="updateLeaseFeaturesList(features.id)" />
+              </span>
+              <div class="error-text" v-if="newLeaseValidation.features">Select atleast one features you provide</div>
+            </div>
           </div>
           <div class="col-12 mb-3">
             <label>Type <span>*</span></label>
@@ -269,12 +272,19 @@
               @value="updateLeaseData('dealerLogo', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Specifications <span>*</span></label>
+            <label>Enter specifications separated using comma<span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newLeaseValidation.listBullets" errorText="Enter Specifications "
-              placeholder="Enter Specifications " id="listBullets" :value="newLease.listBullets"
-              @value="updateLeaseData('listBullets', $event)" />
+            <TextArea
+              class="inputText"
+              placeholder="Enter Specifications separated by comma"
+              :error="newLeaseValidation.listBullets"
+              errorText="Enter Specifications"
+              @value="updateLeaseData('listBullets', $event)"
+              id="listBullets"
+              :value="newLease.listBullets"
+            />
           </div>
+
           <div class="col-12 mb-3">
             <label>Description Details <span>*</span></label>
             <!-- prettier-ignore -->

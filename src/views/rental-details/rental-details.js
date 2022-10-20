@@ -7,11 +7,14 @@ import Modal from "@/components/common/modal/modal.vue";
 import { UTILS } from "@/utility/utils.js";
 import { Carousel, Slide } from "vue-carousel";
 import Star from "@/components/star/star.vue";
+import FAQ from "@/components/faq/faq.vue";
 import router from "@/router";
 import dayjs from "dayjs";
 import { META } from "@/meta/common.js";
 import Accordion from "@/components/common/accordion/accordion.vue";
 import AccordionItem from "@/components/common/accordion/accordion-item.vue";
+import rentalFeaturesList from "@/meta/features.json";
+
 
 export default {
   name: "post-details",
@@ -25,6 +28,7 @@ export default {
     Star,
     Accordion,
     AccordionItem,
+    FAQ,
   },
   data() {
     return {
@@ -61,14 +65,11 @@ export default {
     getRentalId() {
       return this.$store.state.home.selectedRental;
     },
+    getSingleGarageDetails() {
+      return this.$store.getters.getSingleGarageData(this.selectedGarage);
+    },
     rentalData() {
       return this.$store.getters.getSingleRentalData(this.getRentalId);
-    },
-    getRentalSpecs() {
-      return META.rentalCarSpecs;
-    },
-    getRentalFeatures() {
-      return META.rentalCarFeatures;
     },
     getRentalFAQ() {
       return META.faq;
@@ -91,6 +92,9 @@ export default {
     },
     openPhone(num) {
       document.location.href = `tel:${num}`;
+    },
+    getFeaturesList(value) {
+      return rentalFeaturesList.filter((item) => value.includes(item.id));
     },
     openWhatsapp(num) {
       window.open(

@@ -51,13 +51,6 @@
               placeholder="Enter Place" id="place" :value="newRental.place"
               @value="updateRentalData('place', $event)" />
           </div>
-          <!-- <div class="col-12 mb-3">
-            <label>Price <span>*</span></label> -->
-          <!-- prettier-ignore -->
-          <!-- <InputText class="inputText" :error="newRentalValidation.price" errorText="Enter Valid Price"
-              placeholder="Enter Price" id="price" :value="newRental.price"
-              @value="updateRentalData('price', $event)" />
-          </div> -->
           <div class="col-12 mb-3 mt-3">
             <label>Price <span>*</span></label>
             <!-- prettier-ignore -->
@@ -157,11 +150,14 @@
               @value="updateRentalData('tollCharges', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Features <span>*</span></label>
+            <label>Select Features <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.features" errorText="Enter Features"
-              placeholder="Enter Features" id="features" :value="newRental.features"
-              @value="updateRentalData('features', $event)" />
+            <div class="features-wrapper">
+              <span v-for="features in rentalFeaturesList" class="features-list">
+                <Checkbox :value="isSelected(features.id)" :label="features.title" @change="updateRentalFeaturesList(features.id)" />
+              </span>
+              <div class="error-text" v-if="newRentalValidation.features">Select atleast one features you provide</div>
+            </div>
           </div>
           <div class="col-12 mb-3">
             <label>Type <span>*</span></label>
@@ -276,11 +272,17 @@
               @value="updateRentalData('dealerLogo', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Specifications <span>*</span></label>
+            <label>Enter Specifications separated with comma <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.listBullets" errorText="Enter Specifications "
-              placeholder="Enter Specifications " id="listBullets" :value="newRental.listBullets"
-              @value="updateRentalData('listBullets', $event)" />
+            <TextArea
+              class="inputText"
+              placeholder="Enter Specifications separated by comma"
+              :error="newRentalValidation.listBullets"
+              errorText="Enter Specifications"
+              @value="updateRentalData('listBullets', $event)"
+              id="listBullets"
+              :value="newRental.listBullets"
+            />
           </div>
           <div
             class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
