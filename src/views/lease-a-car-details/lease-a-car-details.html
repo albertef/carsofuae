@@ -237,16 +237,17 @@
           <div class="mt-4">
             <h5 class="my-3">Frequently Asked Questions</h5>
             <accordion>
-              <accordion-item v-for="faq, index in getLeaseFAQ" :key="index">
+              <accordion-item v-for="faq, index in getLeaseFAQ.faq" :key="index">
                 <template slot="accordion-trigger">
-                  <p>{{faq.q}}</p>
+                  <p>{{faq.faqQuestion}}</p>
                   <font-awesome-icon :icon="['fas','chevron-circle-down']" />
                 </template>
                 <template slot="accordion-content">
-                  <span>{{faq.a}}</span>
+                  <span>{{faq.faqAnswer}}</span>
                 </template>
               </accordion-item>
             </accordion>
+            <FAQ pageType="lease" :pageId="Number(getLeaseId)" />
           </div>
         </div>
       </div>

@@ -72,7 +72,7 @@ export default {
       return this.$store.getters.getSingleRentalData(this.getRentalId);
     },
     getRentalFAQ() {
-      return META.faq;
+      return this.$store?.state.home?.faqList;
     },
     postedByName() {
       const postedByList = this.$store?.state.home?.postedByList;

@@ -13,7 +13,7 @@ import { META } from "@/meta/common.js";
 import Accordion from "@/components/common/accordion/accordion.vue";
 import AccordionItem from "@/components/common/accordion/accordion-item.vue";
 import leaseFeaturesList from "@/meta/features.json";
-
+import FAQ from "@/components/faq/faq.vue";
 
 export default {
   name: "lease-details",
@@ -27,6 +27,7 @@ export default {
     Star,
     Accordion,
     AccordionItem,
+    FAQ,
   },
   data() {
     return {
@@ -65,7 +66,7 @@ export default {
       return this.$store.getters.getSingleLeaseData(this.getLeaseId);
     },
     getLeaseFAQ() {
-      return META.leaseFaq;
+      return this.$store?.state.home?.faqList;
     },
   },
   methods: {

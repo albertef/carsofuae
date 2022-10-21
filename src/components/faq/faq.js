@@ -38,6 +38,15 @@ export default {
       isAddFAQ: false,
     };
   },
+  async created() {
+    store.commit("updateLoader", true);
+    const params = {
+      pageType: this.pageType,
+      pageId: this.pageId,
+    };
+    await this.$store.dispatch("getFAQList", params);
+    store.commit("updateLoader", false);
+  },
   computed: {
     loginInfo() {
       return store.state.home.loginInfo;
@@ -51,7 +60,14 @@ export default {
       this.isAddFAQ=false;
     },
     openAddFAQ() {
-      this.isAddFAQ=true;
+     
+      if (this.loginInfo.isLoggedIn) {
+        this.isAddFAQ=true;
+      } else {
+        router.push({
+          name: "Login",
+        });
+      }
     },
     updateFAQData(key, e) {
       this.newFAQ = {
