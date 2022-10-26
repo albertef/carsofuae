@@ -1,6 +1,7 @@
 <div class="faq-wrapper">
+  <span v-if="isFaqEmpty">No FAQ Found!!</span>
   <!-- prettier-ignore -->
-  <Button type="hollow" width="100%" text="Add FAQ" @click="openAddFAQ" class="my-4" />
+  <Button type="hollow" v-if="isCurrentUser" width="100%" text="Add FAQ" @click="openAddFAQ" class="my-4" />
   <Modal v-if="isAddFAQ" class="small">
     <template v-slot:header>
       Add FAQ

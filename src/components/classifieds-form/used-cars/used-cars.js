@@ -3,7 +3,6 @@ import InputText from "@/components/common/input-text/input-text.vue";
 import InputFile from "@/components/common/input-file/input-file.vue";
 import Button from "@/components/common/button/button.vue";
 import Select from "@/components/common/select/select.vue";
-import UsedCars from "@/components/classifieds-form/used-cars/used-cars.vue";
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -17,7 +16,6 @@ export default {
     Button,
     Select,
     InputFile,
-    UsedCars,
   },
 
   data() {
@@ -77,17 +75,8 @@ export default {
     utils() {
       return UTILS;
     },
-    categoryList() {
-      return META.classifiedsCategories.map(item=>item.name);
-    },
-    selectedCategory() {
-      return store.state.home.selectedClassifiedCategory;
-    }
   },
   methods: {
-    getCategoryOptions(category) {
-      store.commit("updateSelectedClassifiedCategory", category);
-    },
     updatePostData(key, e) {
       this.newPost = {
         ...this.newPost,

@@ -295,7 +295,8 @@
               </template>
             </accordion-item>
           </accordion>
-          <FAQ pageType="rental" :pageId="Number(getRentalId)" />
+          <!-- prettier-ignore -->
+          <FAQ pageType="rental" :pageId="Number(getRentalId)" :userId="rentalData.postedBy" />
         </div>
       </div>
     </div>

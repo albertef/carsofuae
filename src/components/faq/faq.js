@@ -7,7 +7,7 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 
 export default {
-  name: "ReviewModal",
+  name: "FAQ",
   props: {
     pageType: {
       type: String,
@@ -15,6 +15,10 @@ export default {
     },
     pageId: {
       type: Number,
+      default: "",
+    },
+    userId: {
+      type: String,
       default: "",
     },
   },
@@ -54,13 +58,22 @@ export default {
     newFAQInfo() {
       return store.state.home.newFAQInfo;
     },
+    faqList() {
+      return store.state.home.faqList?.faq;
+    },
+    isFaqEmpty() {
+      return !this.faqList?.length;
+    },
+    isCurrentUser() {
+      const currentUserId = this.loginInfo?.id;
+      return this.userId === currentUserId;
+    },
   },
   methods: {
     closeAddFAQ() {
       this.isAddFAQ=false;
     },
     openAddFAQ() {
-     
       if (this.loginInfo.isLoggedIn) {
         this.isAddFAQ=true;
       } else {
