@@ -63,14 +63,25 @@ export const UTILS = {
 
   colorDropDownValues() {
     return [
-      "Red",
-      "Green",
-      "Blue",
-      "White",
+      "Beige",
       "Black",
-      "Purple",
-      "Off White",
+      "Blue",
+      "Brown",
+      "Burgundy",
+      "Chrome",
+      "Gold",
+      "Green",
+      "Grey",
       "Orange",
+      "Pink",
+      "Purple",
+      "Red",
+      "Silver",
+      "Tan",
+      "Teal",
+      "White",
+      "Yellow",
+      "Other"
     ].sort();
   },
 
@@ -81,10 +92,17 @@ export const UTILS = {
   numberUpto10DropdownValues() {
     return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   },
-
+  numberOfDoorDropdownValues() {
+    return [1, 2, 3, 4, 5];
+  },
   numberUpto20DropdownValues() {
     return [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    ];
+  },
+  numberOfCylinderDropdownValues() {
+    return [
+      3, 4, 5, 6, 8, 10, 12, 16,
     ];
   },
 
@@ -93,21 +111,21 @@ export const UTILS = {
   },
 
   fuelTypes() {
-    return ["Electric", "Diesel", "Petrol", "Gasoline"].sort();
+    return ["Gasoline", "Diesel", "Hybrid", "Electric"].sort();
   },
 
   sellerTypes() {
-    return ["Dealer", "Individual"].sort();
+    return ["Owner", "Dealer"].sort();
   },
 
   bodyType() {
-    return ["Coupe", "SUV", "Sedan", "Hatchback"].sort();
-  },
+    return ["Coupe", "Crossover", "Hard Top Convertible", "Hatchback", "Pick Up Truck", "Sedan", "Soft Top Convertible", "Sports Car", "SUV", "Utility Truck", "Van", "Wagon", "Other"].sort();
+   },
 
   horsePowerOptions() {
-    return [
-      "100 - 200 HP",
-      "200 - 300 HP",
+    return [  
+      "Less Than 150 HP",
+      "150 - 200 HP",
       "300 - 400 HP",
       "400 - 500 HP",
       "500 - 600 HP",
@@ -115,11 +133,12 @@ export const UTILS = {
       "700 - 800 HP",
       "800 - 900 HP",
       "900 - 1000 HP",
+      "1000 + HP"
     ];
   },
 
   steeringSideOptions() {
-    return ["Left", "Right"];
+    return ["Left Hand Drive", "Right Hand Drive"];
   },
   insuranceList() {
     return ["Basic", "Advanced"];
@@ -127,4 +146,13 @@ export const UTILS = {
   additionalDriverInsuranceOptions() {
     return ["Yes", "No"];
   },
+   bodyConditionDropDownValues() {
+    return ["Perfect Inside and Out", "No Accidents, very few faults", "A bit of wear & tear, all repaired", "Normal wear & tear, a few issues", "Lots of wear & tear to the body", "Totalled"];
+   },
+   mechanicalConditionDropDownValues() {
+    return ["Perfect Inside and Out", "Minor faults, all fixed", "Major faults, all fixed", "Major faults fixed, small remain", "Ongoing minor & major faults"];
+   },
+   regionalspecsDropDownValues() {
+    return ["GCC", "North American Spec", "European Spec", "Japanese Spec", "Other"];
+   },
 };
