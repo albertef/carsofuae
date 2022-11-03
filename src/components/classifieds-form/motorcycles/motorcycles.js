@@ -9,7 +9,7 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
 export default {
-  name: "ClassifiedsForm",
+  name: "MotorCyclesForm",
   components: {
     Radio,
     InputText,
@@ -17,37 +17,28 @@ export default {
     Select,
     InputFile,
   },
-
+ 
   data() {
     return {
       newPost: {
-        description: "",
-        place: "",
-        price: "",
-        distance: "",
+        name: "",
         phone: "",
         email: "",
-        brand: "",
-        model: "",
-        make: "",
-        trim: "",
+        place: "",
         displayPicture: "",
         galleryImages: "",
         imageFolder: "",
+        subcategory: "",
+        finalDriveSystem: "",
+        wheels: "",
+        engineSize: "",
+        subSpecification: "",
+        regionalSpec: "",
+        priceToPrice: "",
         exteriorColor: "",
-        interiorColor: "",
         bodyCondition: "",
         mechanicalCondition: "",
-        warranty: "",
-        doors: "",
         sellerType: "",
-        bodyType: "",
-        transmission: "",
-        cylinders: "",
-        regionalSpecs: "",
-        fuel: "",
-        horsePower: "",
-        steeringSide: "",
         postedBy: "",
       },
       newPostValidation: {},
@@ -60,8 +51,8 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newPostInfo() {
-      return store.state.home.newPostInfo;
+    newMotorCyclesInfo() {
+      return store.state.home.newMotorCyclesInfo;
     },
     brandsList() {
       return store.getters.getAllCarMakes;
@@ -91,31 +82,23 @@ export default {
     validateNewPostForm() {
       this.newPostValidation = {
         ...this.newPostValidation,
-        description: !this.newPost.description,
-        place: !this.newPost.place,
-        price: !this.newPost.price,
-        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
-        distance: !this.newPost.distance,
-        brand: !this.newPost.brand,
+        name: !this.newPost.name,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
-        model: !this.newPost.model,
-        make: !this.newPost.make,
+        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
+        place: !this.newPost.place,
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
+        subcategory: !this.newPost.subcategory,
+        finalDriveSystem: !this.newPost.finalDriveSystem,
+        wheels: !this.newPost.wheels,
+        engineSize: !this.newPost.engineSize,
+        subSpecification: !this.newPost.subSpecification,
+        regionalSpec: !this.newPost.regionalSpec,
+        priceToPrice: !this.newPost.priceToPrice,
         exteriorColor: !this.newPost.exteriorColor,
-        interiorColor: !this.newPost.interiorColor,
         bodyCondition: !this.newPost.bodyCondition,
         mechanicalCondition: !this.newPost.mechanicalCondition,
-        warranty: !this.newPost.warranty,
-        doors: !this.newPost.doors,
         sellerType: !this.newPost.sellerType,
-        bodyType: !this.newPost.bodyType,
-        transmission: !this.newPost.transmission,
-        cylinders: !this.newPost.cylinders,
-        regionalSpecs: !this.newPost.regionalSpecs,
-        fuel: !this.newPost.fuel,
-        horsePower: !this.newPost.horsePower,
-        steeringSide: !this.newPost.steeringSide,
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -170,13 +153,13 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
-          await this.$store.dispatch("newClassifiedPost", params);
+          await this.$store.dispatch("newMotorCyclesPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newPostInfo.message ||
+              this.newMotorCyclesInfo.message ||
               galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
@@ -184,11 +167,11 @@ export default {
         }
 
         store.commit("updateLoader", false);
-        if (this.newPostInfo.status) {
+        if (this.newMotorCyclesInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -196,11 +179,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewPostInfo", {});
+        store.commit("updateNewMotorCyclesInfo", {});
       }
     },
   },

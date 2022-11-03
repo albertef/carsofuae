@@ -1,4 +1,4 @@
-<div>
+<div class="usedcars-wrapper">
   <div class="col-12 mb-3">
     <label>
       Select Brand
@@ -173,12 +173,12 @@
   </div>
   <div class="col-12 mb-3">
     <label>
-      Select Body type
+      Select Body Type
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.bodyType()" :error="newPostValidation.bodyType" errorText="Select Body type"
-    default="Select Body type" @selectValue="updatePostData('bodyType', $event)" />
+    <Select :options="utils.bodyType()" :error="newPostValidation.bodyType" errorText="Select Body Type"
+    default="Select Body Type" @selectValue="updatePostData('bodyType', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -239,8 +239,7 @@
     @selectValue="updatePostData('steeringSide', $event)" />
   </div>
   <div
-    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
-  >
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper">
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
     <!-- prettier-ignore -->

@@ -38,6 +38,9 @@ const state = {
   userDetails: {},
   selectedUserType: "",
   newPostInfo: {},
+  newBoatInfo: {},
+  newMotorCyclesInfo: {},
+  newTruckInfo: {},
   newGarageInfo: {},
   newReviewInfo: {},
   newFAQInfo: {},
@@ -88,6 +91,30 @@ const actions = {
       url = "/carsofuae-server/data/new_classified_post.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateNewPostInfo", dataset);
+    return dataset;
+  },
+  async newMotorCyclesPost({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_motorcycles_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewMotorCyclesInfo", dataset);
+    return dataset;
+  },
+  async newTruckPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = "/carsofuae-server/data/new_truck_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewTruckInfo", dataset);
+    return dataset;
+  },
+  async newBoatsPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = "/carsofuae-server/data/new_boats_post.php";
+    dataset = await axiosInstance.post(url, params);
+    debugger;
+    commit("updateNewBoatInfo", dataset);
     return dataset;
   },
   async addNewRental({ commit }, params) {
@@ -317,6 +344,15 @@ const mutations = {
   },
   updateNewPostInfo(state, dataset) {
     state.newPostInfo = dataset;
+  },
+  updateNewMotorCyclesInfo(state, dataset) {
+    state.newMotorCyclesInfo = dataset;
+  }, 
+  updateNewTruckInfo(state, dataset) {
+    state.newTruckInfo = dataset;
+  }, 
+  updateNewBoatInfo(state, dataset) {
+    state.newBoatInfo = dataset;
   },
   updateNewRentalInfo(state, dataset) {
     state.newRentalInfo = dataset;

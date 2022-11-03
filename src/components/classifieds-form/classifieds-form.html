@@ -11,9 +11,11 @@
             <!-- prettier-ignore -->
             <Select :options="categoryList"
               default="Select Category" @selectValue="getCategoryOptions($event)" />
-              {{selectedCategory}}
           </div>
           <UsedCars v-if="selectedCategory==='Used Cars'"/>
+          <Boats v-if="selectedCategory==='Boats'"/>
+          <Motorcycles v-if="selectedCategory==='Motorcycles'"/>
+          <Truck v-if="selectedCategory==='Truck'"/>
         </div>
       </div>
     </div>

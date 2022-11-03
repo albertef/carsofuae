@@ -4,6 +4,10 @@ import InputFile from "@/components/common/input-file/input-file.vue";
 import Button from "@/components/common/button/button.vue";
 import Select from "@/components/common/select/select.vue";
 import UsedCars from "@/components/classifieds-form/used-cars/used-cars.vue";
+import Boats from "@/components/classifieds-form/boats/boats.vue";
+import Motorcycles from "@/components/classifieds-form/motorcycles/motorcycles.vue";
+import Truck from "@/components/classifieds-form/truck/truck.vue";
+
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -18,6 +22,9 @@ export default {
     Select,
     InputFile,
     UsedCars,
+    Boats,
+    Motorcycles,
+    Truck,
   },
 
   data() {

@@ -9,7 +9,7 @@ export const META = {
       image: "bike.png",
     },
     {
-      name: "Heavy Vehicles",
+      name: "Truck",
       image: "truck.png",
     },
     {

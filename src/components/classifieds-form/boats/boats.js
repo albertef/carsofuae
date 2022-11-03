@@ -9,7 +9,7 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
 export default {
-  name: "ClassifiedsForm",
+  name: "BoatsForm",
   components: {
     Radio,
     InputText,
@@ -21,33 +21,22 @@ export default {
   data() {
     return {
       newPost: {
-        description: "",
-        place: "",
-        price: "",
-        distance: "",
+        subCategory: "",
+        name: "",
+        age: "",
         phone: "",
         email: "",
-        brand: "",
-        model: "",
-        make: "",
-        trim: "",
-        displayPicture: "",
+        place: "",
         galleryImages: "",
+        displayPicture: "",
         imageFolder: "",
-        exteriorColor: "",
-        interiorColor: "",
-        bodyCondition: "",
-        mechanicalCondition: "",
+        boatCondition: "",
+        boatHistory: "",
+        length: "",
         warranty: "",
-        doors: "",
         sellerType: "",
-        bodyType: "",
-        transmission: "",
-        cylinders: "",
-        regionalSpecs: "",
-        fuel: "",
-        horsePower: "",
-        steeringSide: "",
+        price: "",
+        year: "",
         postedBy: "",
       },
       newPostValidation: {},
@@ -60,17 +49,8 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newPostInfo() {
-      return store.state.home.newPostInfo;
-    },
-    brandsList() {
-      return store.getters.getAllCarMakes;
-    },
-    modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
-    },
-    trimList() {
-      return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
+    newBoatInfo() {
+      return store.state.home.newBoatInfo;
     },
     utils() {
       return UTILS;
@@ -91,31 +71,22 @@ export default {
     validateNewPostForm() {
       this.newPostValidation = {
         ...this.newPostValidation,
-        description: !this.newPost.description,
-        place: !this.newPost.place,
-        price: !this.newPost.price,
-        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
-        distance: !this.newPost.distance,
-        brand: !this.newPost.brand,
+        subCategory: !this.newPost.subCategory,
+        name: !this.newPost.name,
+        age: !this.newPost.age,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
-        model: !this.newPost.model,
-        make: !this.newPost.make,
-        displayPicture: !this.newPost.displayPicture,
+        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
+        place: !this.newPost.place,
         galleryImages: !this.newPost.galleryImages,
-        exteriorColor: !this.newPost.exteriorColor,
-        interiorColor: !this.newPost.interiorColor,
-        bodyCondition: !this.newPost.bodyCondition,
-        mechanicalCondition: !this.newPost.mechanicalCondition,
+        displayPicture: !this.newPost.displayPicture,
+        boatCondition: !this.newPost.boatCondition,
+        boatHistory: !this.newPost.boatHistory,
+        length: !this.newPost.length,
         warranty: !this.newPost.warranty,
-        doors: !this.newPost.doors,
         sellerType: !this.newPost.sellerType,
-        bodyType: !this.newPost.bodyType,
-        transmission: !this.newPost.transmission,
-        cylinders: !this.newPost.cylinders,
-        regionalSpecs: !this.newPost.regionalSpecs,
-        fuel: !this.newPost.fuel,
-        horsePower: !this.newPost.horsePower,
-        steeringSide: !this.newPost.steeringSide,
+        price: !this.newPost.price,
+        year: !this.newPost.year,
+
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -126,7 +97,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
@@ -165,30 +136,31 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        ) {
+        ) 
+        if ( displayPictureUploadResponse.status){
           params = {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
-          };
-          await this.$store.dispatch("newClassifiedPost", params);
+          };debugger;
+          await this.$store.dispatch("newBoatsPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newPostInfo.message ||
-              galleryImageUploadResponse ||
+              this.newBoatInfo.message ||
+               galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
-        if (this.newPostInfo.status) {
+        if (this.newBoatInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: this.newBoatInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -196,11 +168,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: this.newBoatInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewPostInfo", {});
+        store.commit("updateNewBoatInfo", {});
       }
     },
   },
