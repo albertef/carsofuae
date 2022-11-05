@@ -149,9 +149,8 @@
           <span>Supplier Note: </span>{{rentalData.note}}
         </div>
         <div class="services mt-4">
-          <h5 class="mb-3">Car Specifications</h5>'
-         
-            <div v-for="specs in (rentalData.listBullets).split(',')">
+          <h5 class="mb-3">Car Specifications</h5>
+          <div v-for="specs in (rentalData.listBullets).split(',')">
             <span
               ><font-awesome-icon :icon="['fas', 'long-arrow-alt-right']"
             /></span>
