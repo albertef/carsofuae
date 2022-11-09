@@ -38,8 +38,11 @@ export default {
     },
   },
   methods: {
-    getCategoryOptions(category) {
+    async getCategoryOptions(category) {
       store.commit("updateSelectedClassifiedCategory", category);
+
+      await this.$store.dispatch("getPostList", {category: category});
+
       router.push({
         query: {
           ...this.queryParams,

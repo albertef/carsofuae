@@ -14,11 +14,17 @@
     v-if="!queryParams.category || (!getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel))"
   />
   <CarList
-    v-if="getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel)"
+    v-if="getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel) && getSelectedClassifiedCategory == 'Used Cars'"
+  />
+  <MotorCycleList
+    v-else-if="getSelectedClassifiedCategory && getSelectedClassifiedCategory == 'Motorcycles' && (!getSelectedMotorcycleSubCategory)"
+  />
+  <BoatList
+    v-else-if="getSelectedClassifiedCategory && getSelectedClassifiedCategory == 'Boats' && (!getSelectedBoatSubCategory)"
   />
   <PostList
     :data="getPostData"
     :featured="false"
-    v-if="getSelectedClassifiedCategory && getSelectedCarMake && getSelectedCarModel"
+    v-if="getSelectedClassifiedCategory && ((getSelectedCarMake && getSelectedCarModel) || getSelectedMotorcycleSubCategory || getSelectedBoatSubCategory)"
   />
 </div>

@@ -7,6 +7,8 @@ import UsedCars from "@/components/classifieds-form/used-cars/used-cars.vue";
 import Boats from "@/components/classifieds-form/boats/boats.vue";
 import Motorcycles from "@/components/classifieds-form/motorcycles/motorcycles.vue";
 import Truck from "@/components/classifieds-form/truck/truck.vue";
+import NumberPlates from "@/components/classifieds-form/number-plates/number-plates.vue";
+
 
 import store from "@/store";
 import router from "@/router";
@@ -25,6 +27,7 @@ export default {
     Boats,
     Motorcycles,
     Truck,
+    NumberPlates,
   },
 
   data() {

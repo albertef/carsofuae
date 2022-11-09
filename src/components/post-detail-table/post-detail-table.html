@@ -1,5 +1,5 @@
 <div class="post-detail-table-wrapper">
-  <ul class="overview-table mt-3 mb-4">
+  <ul v-if='selectedClassifiedCategory==="Used Cars"' class="overview-table mt-3 mb-4">
     <li>
       <p>Brand</p>
       <p>{{data.company}}</p>
@@ -75,6 +75,206 @@
     <li>
       <p>Seller Type</p>
       <p>{{data.sellerType}}</p>
+    </li>
+  </ul>
+  <ul v-else-if='selectedClassifiedCategory==="Motorcycles"' class="overview-table mt-3 mb-4">
+    <li>
+      <p>Sub Category</p>
+      <p>{{data.subcategory}}</p>
+    </li>
+    <li>
+      <p>Name</p>
+      <p>{{data.name}}</p>
+    </li>
+    <li>
+      <p>Phone</p>
+      <p>{{data.phone}}</p>
+    </li>
+    <li>
+      <p>Email</p>
+      <p>{{data.email}}</p>
+    </li>
+    <li>
+      <p>Place</p>
+      <p>{{data.place}}</p>
+    </li>
+    <li>
+      <p>Final Drive System</p>
+      <p>{{data.finalDriveSystem}}</p>
+    </li>
+    <li>
+      <p>Wheels</p>
+      <p>{{data.wheels}}</p>
+    </li>
+    <li>
+      <p>Engine Size</p>
+      <p>{{data.engineSize}}</p>
+    </li>
+    <li>
+      <p>Sub Specification</p>
+      <p>{{data.subSpecification}}</p>
+    </li>
+    <li>
+      <p>Regional Specification</p>
+      <p>{{data.regionalSpec}}</p>
+    </li>
+    <li>
+      <p>Price</p>
+      <p>{{data.priceToPrice}}</p>
+    </li>
+    <li>
+      <p>Exterior Color</p>
+      <p>{{data.exteriorColor}}</p>
+    </li>
+    <li>
+      <p>Body Condition</p>
+      <p>{{data.bodyCondition}}</p>
+    </li>
+    <li>
+      <p>Mechanical Condition</p>
+      <p>{{data.mechanicalCondition}}</p>
+    </li>
+    <li>
+      <p>Seller Type</p>
+      <p>{{data.sellerType}}</p>
+    </li>
+  </ul>
+  <ul v-else-if='selectedClassifiedCategory==="Boats"' class="overview-table mt-3 mb-4">
+    <li>
+      <p>Sub Category</p>
+      <p>{{data.subCategory}}</p>
+    </li>
+    <li>
+      <p>Name</p>
+      <p>{{data.name}}</p>
+    </li>
+    <li>
+      <p>Age</p>
+      <p>{{data.age}}</p>
+    </li>
+    <li>
+      <p>Phone</p>
+      <p>{{data.phone}}</p>
+    </li>
+    <li>
+      <p>Email</p>
+      <p>{{data.email}}</p>
+    </li>
+    <li>
+      <p>Place</p>
+      <p>{{data.place}}</p>
+    </li>
+    <li>
+      <p>Boat Condition</p>
+      <p>{{data.boatCondition}}</p>
+    </li>
+    <li>
+      <p>Boat History</p>
+      <p>{{data.boatHistory}}</p>
+    </li>
+    <li>
+      <p>Length</p>
+      <p>{{data.length}}</p>
+    </li>
+    <li>
+      <p>Warranty</p>
+      <p>{{data.warranty}}</p>
+    </li>
+    <li>
+      <p>Seller Type</p>
+      <p>{{data.sellerType}}</p>
+    </li>
+    <li>
+      <p>Price</p>
+      <p>{{data.price}}</p>
+    </li>
+    <li>
+      <p>Year</p>
+      <p>{{data.year}}</p>
+    </li>
+  </ul>
+  <ul v-else-if='selectedClassifiedCategory==="Truck"' class="overview-table mt-3 mb-4">
+    <li>
+      <p>Sub Category</p>
+      <p>{{data.subcategory}}</p>
+    </li>
+    <li>
+      <p>Name</p>
+      <p>{{data.name}}</p>
+    </li>
+    <li>
+      <p>Phone</p>
+      <p>{{data.phone}}</p>
+    </li>
+    <li>
+      <p>Email</p>
+      <p>{{data.email}}</p>
+    </li>
+    <li>
+      <p>Place</p>
+      <p>{{data.place}}</p>
+    </li>
+    <li>
+      <p>Seller Type</p>
+      <p>{{data.sellerType}}</p>
+    </li>
+    <li>
+      <p>Cylinders</p>
+      <p>{{data.cylinders}}</p>
+    </li>
+    <li>
+      <p>Horse Power</p>
+      <p>{{data.horsePower}}</p>
+    </li>
+    <li>
+      <p>Fuel</p>
+      <p>{{data.fuel}}</p>
+    </li>
+    <li>
+      <p>Warranty</p>
+      <p>{{data.warranty}}</p>
+    </li>   
+    <li>
+      <p>Price</p>
+      <p>{{data.price}}</p>
+    </li>
+    <li>
+      <p>Year</p>
+      <p>{{data.year}}</p>
+    </li>
+    <li>
+      <p>Kilometers</p>
+      <p>{{data.kilometers}}</p>
+    </li>    
+  </ul>
+  <ul v-else-if='selectedClassifiedCategory==="Number Plates"' class="overview-table mt-3 mb-4">
+    <li>
+      <p>Sub Category</p>
+      <p>{{data.subcategory}}</p>
+    </li>
+    <li>
+      <p>Name</p>
+      <p>{{data.name}}</p>
+    </li>
+    <li>
+      <p>Phone</p>
+      <p>{{data.phone}}</p>
+    </li>
+    <li>
+      <p>Email</p>
+      <p>{{data.email}}</p>
+    </li>
+    <li>
+      <p>Place</p>
+      <p>{{data.place}}</p>
+    </li>
+    <li>
+      <p>Emirate</p>
+      <p>{{data.emirate}}</p>
+    </li>
+    <li>
+      <p>Digits</p>
+      <p>{{data.digits}}</p>
     </li>
   </ul>
 </div>

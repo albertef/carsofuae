@@ -1,0 +1,32 @@
+<div class="boat-list-wrapper container mb-5">
+  <div class="row">
+    <div class="col-12 mt-4 mb-1">
+      <h5 class="heading">
+        Select SubCategories
+      </h5>
+    </div>
+    <div class="col-12 my-3 search-wrapper">
+      <InputText
+        :id="filterInputId"
+        class="inputText"
+        placeholder="Search Subcategories"
+        :value="value"
+        @value="filterBoatData($event)"
+      />
+      <div class="d-flex justify-content-center mt-2 text-uppercase">
+        {{`${getSubCategoryCount} SubCategories Found`}}
+      </div>
+    </div>
+    <template>
+      <div
+        class="col-xs-12 col-lg-2 my-3 boat-list-cont"
+        v-for="item in getSubCategory"
+      >
+        <div @click="getposts(item)" class="boat-list">
+          {{item}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+  </div>
+</div>

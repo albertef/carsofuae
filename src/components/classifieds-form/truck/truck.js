@@ -107,9 +107,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-      debugger;
        if (this.validateNewPostForm()) {
-        debugger;
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
@@ -185,7 +183,6 @@ export default {
         }
         store.commit("updateNewTruckInfo", {});
       }
-      debugger;
     },
   },
 };

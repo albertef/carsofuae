@@ -34,20 +34,20 @@
             />
           </div>
           <CoolLightBox
-            :items="postData.gallery"
+            :items="createLightBoxImage(postData.gallery, postData.imageFolder)"
             :index="index"
             @close="index = null"
           >
           </CoolLightBox>
           <div class="image-wrapper" v-if="postData.gallery">
             <div
-              v-for="(image, imageIndex) in postData.gallery"
-              :data-count="postData.gallery.length"
+              v-for="(image, imageIndex) in postData.gallery.split(',')"
+              :data-count="postData.gallery.split(',').length"
               :key="imageIndex"
               @click="index = imageIndex"
-              :style="{ backgroundImage: 'url(' + image + ')' }"
+              :style="{ backgroundImage: 'url(' + getImagePath(image,postData.imageFolder) + ')' }"
             >
-              <img :src="image" />
+              <img :src="getImagePath(image,postData.imageFolder)" />
             </div>
           </div>
           <span @click="sharePage" class="shareIcon">

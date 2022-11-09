@@ -1,6 +1,15 @@
 <div class="motorcycles-wrapper">
   <div class="col-12 mb-3">
     <label>
+      Select SubCategory
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.motorcycleSubcateList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
       Enter Name
       <span>*</span>
     </label>
@@ -51,15 +60,6 @@
     <InputFile class="inputText" :error="newPostValidation.galleryImages" errorText="Choose gallery images (minimum 1)"
     type="file" accept="image/*" multiple name="galleryImages[]" id="galleryImages" :value="newPost.galleryImages"
     @value="updatePostData('galleryImages', $event)" />
-  </div>
-  <div class="col-12 mb-3">
-    <label>
-      Select SubCategory
-      <span>*</span>
-    </label>
-    <!-- prettier-ignore -->
-    <Select :options="utils.motorcycleSubcateList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
-    @selectValue="updatePostData('subcategory', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>

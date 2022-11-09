@@ -14,9 +14,15 @@ export default {
     FixedHomeButtons,
   },
   async mounted() {
-    await this.$store.dispatch("getPostList");
+    const params = { 
+      category: this.getSelectedClassifiedCategory,
+    };
+    await this.$store.dispatch("getPostList", params);
   },
   computed: {
+    getSelectedClassifiedCategory() {
+      return this.$store.state.home.selectedClassifiedCategory;
+    },
     fullPostData() {
       return this.$store.state.home.postList;
     },

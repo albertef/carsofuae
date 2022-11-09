@@ -9,7 +9,7 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
 export default {
-  name: "BoatsForm",
+  name: "NumberPlatesForm",
   components: {
     Radio,
     InputText,
@@ -17,27 +17,22 @@ export default {
     Select,
     InputFile,
   },
-
+ 
   data() {
     return {
       newPost: {
-        subCategory: "",
         name: "",
-        age: "",
         phone: "",
         email: "",
         place: "",
-        galleryImages: "",
         displayPicture: "",
+        galleryImages: "",
         imageFolder: "",
-        boatCondition: "",
-        boatHistory: "",
-        length: "",
-        warranty: "",
-        sellerType: "",
-        price: "",
-        year: "",
+        subcategory: "",
+        emirate: "",
+        digits: "",  
         postedBy: "",
+              
       },
       newPostValidation: {},
     };
@@ -49,8 +44,17 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newBoatInfo() {
-      return store.state.home.newBoatInfo;
+    newNumberPlatesInfo() {
+      return store.state.home.newNumberPlatesInfo;
+    },
+    brandsList() {
+      return store.getters.getAllCarMakes;
+    },
+    modelsList() {
+      return store.getters.getAllCarModels(this.newPost.brand);
+    },
+    trimList() {
+      return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
     },
     utils() {
       return UTILS;
@@ -69,24 +73,19 @@ export default {
     },
 
     validateNewPostForm() {
+      
       this.newPostValidation = {
         ...this.newPostValidation,
-        subCategory: !this.newPost.subCategory,
         name: !this.newPost.name,
-        age: !this.newPost.age,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         place: !this.newPost.place,
-        galleryImages: !this.newPost.galleryImages,
         displayPicture: !this.newPost.displayPicture,
-        boatCondition: !this.newPost.boatCondition,
-        boatHistory: !this.newPost.boatHistory,
-        length: !this.newPost.length,
-        warranty: !this.newPost.warranty,
-        sellerType: !this.newPost.sellerType,
-        price: !this.newPost.price,
-        year: !this.newPost.year,
-
+        galleryImages: !this.newPost.galleryImages,      
+        subcategory: !this.newPost.subcategory,
+        emirate: !this.newPost.emirate,
+        digits: !this.newPost.digits,  
+      
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -97,7 +96,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-      if (this.validateNewPostForm()) {
+       if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
@@ -136,31 +135,30 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        ) 
-        if ( displayPictureUploadResponse.status){
+        ) {
           params = {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
-          await this.$store.dispatch("newBoatsPost", params);
+          await this.$store.dispatch("newNumberPlatesPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newBoatInfo.message ||
-               galleryImageUploadResponse ||
+              this.newNumberPlatesInfo.message ||
+              galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
-        if (this.newBoatInfo.status) {
+        if (this.newNumberPlatesInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newBoatInfo.message || META.commonErrorMessage,
+            message: this.newNumberPlatesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -168,11 +166,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newBoatInfo.message || META.commonErrorMessage,
+            message: this.newNumberPlatesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewBoatInfo", {});
+        store.commit("updateNewNumberPlatesInfo", {});
       }
     },
   },

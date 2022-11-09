@@ -296,4 +296,14 @@ export const UTILS = {
   truckKmList() {
     return ['Min', 'Max']
   },
+  numPlatesEmirateList() {
+    return ['Abu Dhabi', 'Ajman', 'Dubai', 'Fujairah', 'Ras Al Khaimah', 'Sharjah', 'Umm Al Quwain']
+  },
+  numPlatesSubCatList() {
+    return ['Private', 'Classic', 'Motorcycle']
+  },
+  numPlatesDigitsList() {
+    return ['1', '2', '3', '4', '5']
+  },
+  
  }

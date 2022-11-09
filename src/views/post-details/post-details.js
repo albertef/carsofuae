@@ -25,19 +25,27 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await this.$store.dispatch("getPostList");
+    const params = { 
+      category: this.getSelectedClassifiedCategory,
+    };
+    await this.$store.dispatch("getPostList", params);
     await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
   },
   computed: {
+    getSelectedClassifiedCategory() {
+      return this.$store.state.home.selectedClassifiedCategory;
+    },
     getPostId() {
       return this.$route.query.id;
     },
     postData() {
-      return this.$store?.getters.getSinglePostData(this.getPostId);
+      debugger;
+      return this.$store.getters.getSinglePostData(this.getPostId);
     },
     postedByName() {
       const postedByList = this.$store?.state.home.postedByList;
+      debugger;
       return (
         postedByList?.find((item) => item.id === Number(this.postData.postedBy))
           ?.name || "Guest"
@@ -53,6 +61,15 @@ export default {
     },
     openPhone(num) {
       document.location.href = `tel:${num}`;
+    },
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },   
+    createLightBoxImage(image, folder) {
+      const images = image.split(",");
+      const imageArr = images.map(item => this.getImagePath(item, folder));
+      return imageArr;
     },
     openWhatsapp(num) {
       window.open(

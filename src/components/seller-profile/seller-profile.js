@@ -41,7 +41,10 @@ export default {
   async mounted() {
     store.commit("updateLoader", true);
     if (this.type === "classifieds") {
-      await this.$store.dispatch("getPostList");
+      const params = { 
+        category: this.getSelectedClassifiedCategory,
+      };
+      await this.$store.dispatch("getPostList", params);
     } else if (this.type === "rental") {
       await this.$store.dispatch("getRentalList");
     } else if (this.type === "lease") {
@@ -53,6 +56,10 @@ export default {
     store.commit("updateLoader", false);
   },
   computed: {
+
+    getSelectedClassifiedCategory() {
+      return this.$store.state.home.selectedClassifiedCategory;
+    },
     postedByData() {
       const postedByList = this.$store?.state.home.postedByList;
       return postedByList?.find((item) => item.id === Number(this.id));

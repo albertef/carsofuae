@@ -26,7 +26,7 @@ export default {
   props: {
     data: {
       type: Array,
-      default: [],
+      default:() => [],
     },
     title: {
       type: String,
@@ -79,6 +79,10 @@ export default {
     },
     openPhone(num) {
       document.location.href = `tel:${num}`;
+    },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     openWhatsapp(num) {
       window.open(
