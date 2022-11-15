@@ -1,8 +1,6 @@
 import router from "@/router";
 import store from "@/store";
 import InputText from "@/components/common/input-text/input-text.vue";
-import { UTILS } from "@/utility/utils.js";
-
 
 export default {
   name: "MotorCycleList",
@@ -12,44 +10,71 @@ export default {
   data() {
     return {
       value: "",
-      filterInputId: "motorcycleFilter",
+      filterInputId: "carFilter",
     };
   },
   async mounted() {
-    store.commit("updateSelectedMotorCycleSubcategory", this.queryParams.subcategory || "");
+    await this.$store.dispatch("getMotorCycleList");
+    store.commit("updateSelectedCarMake", this.queryParams.make || "");
+    store.commit("updateSelectedCarModel", this.queryParams.model || "");
     document.getElementById(this.filterInputId)?.focus();
   },
   computed: {
     queryParams() {
       return this.$route.query;
     },
-    getSubCategory() {
-      const filteredData = UTILS.motorcycleSubcateList();
-      return filteredData.filter((item) =>
-        String(item).toLowerCase().includes(this.value.toLowerCase())
+    getCarMakes() {
+      const filteredData = this.$store.getters.getAllCarMakes;
+      return filteredData.filter((make) =>
+        String(make).toLowerCase().includes(this.value.toLowerCase())
       );
     },
-    getSubCategoryCount() {
-      return this.getSubCategory.length;
+    getCarMakeCount() {
+      return this.getCarMakes.length;
+    },
+    getCarModelCount() {
+      return this.getAllCarModels.length;
+    },
+    getAllCarModels() {
+      const filteredData = this.$store.getters.getAllCarModels(
+        this.getSelectedCarMake
+      );
+      return filteredData.filter((model) =>
+        String(model).toLowerCase().includes(this.value.toLowerCase())
+      );
+    },
+    getSelectedCarMake() {
+      return this.$store.state.home.selectedCarMake;
+    },
+    getSelectedCarModel() {
+      return this.$store.state.home.selectedCarModel;
     },
     getBreadCrumb() {
       return Object.values(this.queryParams);
     },
-    getSelectedMotorCycleSubcategory() {
-      return this.$store.state.home.selectedMotorCycleSubcategory;
-    },
   },
   methods: {
-    getposts(subcategory) {
-      store.commit("updateSelectedMotorCycleSubcategory", subcategory);
+    getCarModels(make) {
+      store.commit("updateSelectedCarMake", make);
+      this.value = "";
+      document.getElementById(this.filterInputId).focus();
       router.push({
         query: {
           ...this.queryParams,
-          subcategory: this.getSelectedMotorCycleSubcategory,
+          make: this.getSelectedCarMake,
         },
       });
     },
-    filterMotorCycleData(e) {
+    getposts(model) {
+      store.commit("updateSelectedCarModel", model);
+      router.push({
+        query: {
+          ...this.queryParams,
+          model: this.getSelectedCarModel,
+        },
+      });
+    },
+    filterCarData(e) {
       this.value = e;
     },
   },

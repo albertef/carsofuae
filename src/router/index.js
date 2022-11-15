@@ -16,6 +16,7 @@ import SparePartsDetails from "@/views/spare-parts-details/spare-parts-details.v
 import StoreProfile from "@/views/store-profile/store-profile.vue";
 import UserProfile from "@/views/user-profile/user-profile.vue";
 import NewPost from "@/views/new-post/new-post.vue";
+import AddNewSparePartsPost from "@/views/new-spare-parts-post/new-spare-parts-post.vue";
 import AddNewGarage from "@/views/new-garage/new-garage.vue";
 import AddNewRental from "@/views/new-rental/new-rental.vue";
 import AddNewLease from "@/views/new-lease/new-lease.vue";
@@ -64,6 +65,12 @@ const router = new Router({
       path: "/add-new-post",
       name: "AddNewPost",
       component: NewPost,
+      meta: { title: "AddNewPost" },
+    },
+    {
+      path: "/new-spare-parts-post",
+      name: "AddNewSparePartsPost",
+      component: AddNewSparePartsPost,
       meta: { title: "AddNewPost" },
     },
     {

@@ -2,28 +2,40 @@
   <div class="row">
     <div class="col-12 mt-4 mb-1">
       <h5 class="heading">
-        Select SubCategories
+        Select Motorcycle <span>{{getSelectedCarMake ? 'Model' : 'Brand'}}</span>
       </h5>
     </div>
     <div class="col-12 my-3 search-wrapper">
       <InputText
         :id="filterInputId"
         class="inputText"
-        placeholder="Search Subcategories"
+        :placeholder="getSelectedCarMake ? 'Search Model' : 'Search Car'"
         :value="value"
-        @value="filterMotorCycleData($event)"
+        @value="filterCarData($event)"
       />
       <div class="d-flex justify-content-center mt-2 text-uppercase">
-        {{`${getSubCategoryCount} SubCategories Found`}}
+        {{getSelectedCarMake ? `${getCarModelCount} Models Found` :
+        `${getCarMakeCount} Cars Found`}}
       </div>
     </div>
-    <template>
+    <template v-if="!getSelectedCarMake">
       <div
         class="col-xs-12 col-lg-2 my-3 motorcycle-list-cont"
-        v-for="item in getSubCategory"
+        v-for="make in getCarMakes"
       >
-        <div @click="getposts(item)" class="motorcycle-list">
-          {{item}}
+        <div @click="getCarModels(make)" class="motorcycle-list">
+          {{make}}
+          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+        </div>
+      </div>
+    </template>
+    <template v-else>
+      <div
+        class="col-xs-12 col-lg-2 my-3 motorcycle-list-cont"
+        v-for="model in getAllCarModels"
+      >
+        <div @click="getposts(model)" class="motorcycle-list">
+          {{model}}
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
         </div>
       </div>

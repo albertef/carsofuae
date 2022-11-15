@@ -1,0 +1,24 @@
+<div class="new-post-form-wrapper container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <h5 class="mt-5 mb-4">Post a new Ad</h5>
+          </div>
+          <div class="col-12 mb-3">
+            <label>Select Category <span>*</span></label>
+            <!-- prettier-ignore -->
+            <Select :options="categoryList"
+              default="Select Category" @selectValue="getCategoryOptions($event)" />
+          </div>
+          <UsedCars v-if="selectedCategory==='Used Cars'"/>
+          <Boats v-if="selectedCategory==='Boats'"/>
+          <Motorcycles v-if="selectedCategory==='Motorcycles'"/>
+          <Truck v-if="selectedCategory==='Truck'"/>
+          <NumberPlates v-if="selectedCategory==='Number Plates'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

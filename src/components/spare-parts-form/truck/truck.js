@@ -8,9 +8,8 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
-
 export default {
-  name: "MotorCyclesForm",
+  name: "TruckForm",
   components: {
     Radio,
     InputText,
@@ -22,8 +21,6 @@ export default {
   data() {
     return {
       newPost: {
-        brand: "",
-        model: "",
         name: "",
         phone: "",
         email: "",
@@ -32,17 +29,16 @@ export default {
         galleryImages: "",
         imageFolder: "",
         subcategory: "",
-        finalDriveSystem: "",
-        wheels: "",
-        engineSize: "",
-        subSpecification: "",
-        regionalSpec: "",
-        priceToPrice: "",
-        exteriorColor: "",
-        bodyCondition: "",
-        mechanicalCondition: "",
         sellerType: "",
+        cylinders: "",
+        horsePower: "",
+        fuel: "",
+        warranty: "",
+        price: "",
+        year: "",
+        kilometers: "",
         postedBy: "",
+
       },
       newPostValidation: {},
     };
@@ -54,8 +50,8 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newMotorCyclesInfo() {
-      return store.state.home.newMotorCyclesInfo;
+    newTruckInfo() {
+      return store.state.home.newTruckInfo;
     },
     brandsList() {
       return store.getters.getAllCarMakes;
@@ -85,8 +81,6 @@ export default {
     validateNewPostForm() {
       this.newPostValidation = {
         ...this.newPostValidation,
-        brand: !this.newPost.brand,
-        model: !this.newPost.model,
         name: !this.newPost.name,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
@@ -94,16 +88,15 @@ export default {
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
         subcategory: !this.newPost.subcategory,
-        finalDriveSystem: !this.newPost.finalDriveSystem,
-        wheels: !this.newPost.wheels,
-        engineSize: !this.newPost.engineSize,
-        subSpecification: !this.newPost.subSpecification,
-        regionalSpec: !this.newPost.regionalSpec,
-        priceToPrice: !this.newPost.priceToPrice,
-        exteriorColor: !this.newPost.exteriorColor,
-        bodyCondition: !this.newPost.bodyCondition,
-        mechanicalCondition: !this.newPost.mechanicalCondition,
         sellerType: !this.newPost.sellerType,
+        cylinders: !this.newPost.cylinders,
+        horsePower: !this.newPost.horsePower,
+        fuel: !this.newPost.fuel,
+        warranty: !this.newPost.warranty,
+        price: !this.newPost.price,
+        year: !this.newPost.year,
+        kilometers: !this.newPost.kilometers,
+      
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -158,13 +151,13 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
-          await this.$store.dispatch("newMotorCyclesPost", params);
+          await this.$store.dispatch("newTruckPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newMotorCyclesInfo.message ||
+              this.newTruckInfo.message ||
               galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
@@ -172,11 +165,11 @@ export default {
         }
 
         store.commit("updateLoader", false);
-        if (this.newMotorCyclesInfo.status) {
+        if (this.newTruckInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
+            message: this.newTruckInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -184,11 +177,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
+            message: this.newTruckInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewMotorCyclesInfo", {});
+        store.commit("updateNewTruckInfo", {});
       }
     },
   },

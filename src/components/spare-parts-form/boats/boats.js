@@ -8,9 +8,8 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
-
 export default {
-  name: "MotorCyclesForm",
+  name: "BoatsForm",
   components: {
     Radio,
     InputText,
@@ -18,30 +17,26 @@ export default {
     Select,
     InputFile,
   },
- 
+
   data() {
     return {
       newPost: {
-        brand: "",
-        model: "",
+        subCategory: "",
         name: "",
+        age: "",
         phone: "",
         email: "",
         place: "",
-        displayPicture: "",
         galleryImages: "",
+        displayPicture: "",
         imageFolder: "",
-        subcategory: "",
-        finalDriveSystem: "",
-        wheels: "",
-        engineSize: "",
-        subSpecification: "",
-        regionalSpec: "",
-        priceToPrice: "",
-        exteriorColor: "",
-        bodyCondition: "",
-        mechanicalCondition: "",
+        boatCondition: "",
+        boatHistory: "",
+        length: "",
+        warranty: "",
         sellerType: "",
+        price: "",
+        year: "",
         postedBy: "",
       },
       newPostValidation: {},
@@ -54,17 +49,8 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newMotorCyclesInfo() {
-      return store.state.home.newMotorCyclesInfo;
-    },
-    brandsList() {
-      return store.getters.getAllCarMakes;
-    },
-    modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
-    },
-    trimList() {
-      return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
+    newBoatInfo() {
+      return store.state.home.newBoatInfo;
     },
     utils() {
       return UTILS;
@@ -85,25 +71,22 @@ export default {
     validateNewPostForm() {
       this.newPostValidation = {
         ...this.newPostValidation,
-        brand: !this.newPost.brand,
-        model: !this.newPost.model,
+        subCategory: !this.newPost.subCategory,
         name: !this.newPost.name,
+        age: !this.newPost.age,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         place: !this.newPost.place,
-        displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
-        subcategory: !this.newPost.subcategory,
-        finalDriveSystem: !this.newPost.finalDriveSystem,
-        wheels: !this.newPost.wheels,
-        engineSize: !this.newPost.engineSize,
-        subSpecification: !this.newPost.subSpecification,
-        regionalSpec: !this.newPost.regionalSpec,
-        priceToPrice: !this.newPost.priceToPrice,
-        exteriorColor: !this.newPost.exteriorColor,
-        bodyCondition: !this.newPost.bodyCondition,
-        mechanicalCondition: !this.newPost.mechanicalCondition,
+        displayPicture: !this.newPost.displayPicture,
+        boatCondition: !this.newPost.boatCondition,
+        boatHistory: !this.newPost.boatHistory,
+        length: !this.newPost.length,
+        warranty: !this.newPost.warranty,
         sellerType: !this.newPost.sellerType,
+        price: !this.newPost.price,
+        year: !this.newPost.year,
+
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -114,7 +97,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
@@ -153,30 +136,31 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        ) {
+        ) 
+        if ( displayPictureUploadResponse.status){
           params = {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
-          await this.$store.dispatch("newMotorCyclesPost", params);
+          await this.$store.dispatch("newBoatsPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newMotorCyclesInfo.message ||
-              galleryImageUploadResponse ||
+              this.newBoatInfo.message ||
+               galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
-        if (this.newMotorCyclesInfo.status) {
+        if (this.newBoatInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
+            message: this.newBoatInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -184,11 +168,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newMotorCyclesInfo.message || META.commonErrorMessage,
+            message: this.newBoatInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewMotorCyclesInfo", {});
+        store.commit("updateNewBoatInfo", {});
       }
     },
   },

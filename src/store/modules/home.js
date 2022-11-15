@@ -8,6 +8,7 @@ const state = {
   garageDetailsEnabled: false,
   selectedGarage: null,
   carData: [],
+  motorCycleData: [],
   selectedCarMake: '',
   selectedCarModel: '',
   selectedClassifiedCategory: '',
@@ -195,6 +196,14 @@ const actions = {
       url = '/mocks/car.json'
     dataset = await axiosInstance.get(url)
     commit('updateCarList', dataset)
+    return dataset
+  },
+  //update by jesmi
+  async getMotorCycleList({ commit }) {
+    let dataset = {},
+      url = '/mocks/motorcycle.json'
+    dataset = await axiosInstance.get(url)
+    commit('updateMotorCycleList', dataset)
     return dataset
   },
   async getRentalList({ commit }) {
@@ -396,6 +405,9 @@ const mutations = {
   },
   updateCarList(state, dataset) {
     state.carData = dataset
+  },
+  updateMotorCycleList(state, dataset) {
+    state.motorCycleData = dataset
   },
   updateSelectedCarMake(state, make) {
     state.selectedCarMake = make

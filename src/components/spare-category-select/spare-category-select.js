@@ -2,10 +2,15 @@ import router from "@/router";
 import store from "@/store";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
+import Button from "@/components/common/button/button.vue";
+
 
 export default {
   name: "SpareCategorySelect",
 
+  components: {
+    Button,
+  },
   data() {
     return {
       value: "",
@@ -24,12 +29,14 @@ export default {
         ? Object.keys(this.getSpareList[0])
         : null;
     },
-
     getSpareList() {
       return this.$store.state.home.spareList;
     },
     queryParams() {
       return this.$route.query;
+    },
+    loginInfo() {
+      return store.state.home.loginInfo;
     },
   },
   methods: {
@@ -45,6 +52,17 @@ export default {
     formatCategory(val) {
       const asd = META.spareCategoryFormat.find((item) => item.id === val);
       return asd || null;
+    },
+    newPost() {
+      if (this.loginInfo.isLoggedIn) {
+        router.push({
+          name: "AddNewPost",
+        });
+      } else {
+        router.push({
+          name: "Login",
+        });
+      }
     },
   },
 };

@@ -1,0 +1,86 @@
+<div class="numberplate-wrapper">
+  <div class="col-12 mb-3">
+    <label>
+      Enter Name
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.name" errorText="Enter Name" placeholder="Enter Name"
+    id="name" :value="newPost.name" @value="updatePostData('name', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Phone
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone Number"
+    placeholder="Enter Phone Number" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Email
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.email" errorText="Enter Email Address"
+    placeholder="Enter Email Address" id="email" :value="newPost.email" @value="updatePostData('email', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Place
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.place" errorText="Enter Place" placeholder="Enter Place"
+    id="place" :value="newPost.place" @value="updatePostData('place', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Display Picture</label>
+    <!-- prettier-ignore -->
+    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
+    type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
+    :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Upload 10 gallery images (Minimum of 1 image)
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputFile class="inputText" :error="newPostValidation.galleryImages" errorText="Choose gallery images (minimum 1)"
+    type="file" accept="image/*" multiple name="galleryImages[]" id="galleryImages" :value="newPost.galleryImages"
+    @value="updatePostData('galleryImages', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select SubCategory
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.numPlatesSubCatList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Emirate
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.numPlatesEmirateList()" :error="newPostValidation.emirate" errorText="Select Emirate"
+    default="Select Emirate" @selectValue="updatePostData('emirate', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Select No of Digits</label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.numPlatesDigitsList()" :error="newPostValidation.digits" errorText="Select No of Digits" default="Select No of Digits"
+    @selectValue="updatePostData('digits', $event)" />
+  </div>
+  <div
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper" >
+    <!-- prettier-ignore -->
+    <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
+    <!-- prettier-ignore -->
+    <Button type="primary" text="Submit Post" @click="submitPost()" />
+  </div>
+</div>
