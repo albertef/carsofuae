@@ -66,10 +66,10 @@ export default {
       return this.getSpareItemList.length;
     },
     getCarModelCount() {
-      return this.getAllCarModels.length;
+      return this.getAllModels.length;
     },
-    getAllCarModels() {
-      const filteredData = this.$store.getters.getAllCarModels(
+    getAllModels() {
+      const filteredData = this.$store.getters.getAllModels(
         this.getSelectedCarMake
       );
       return filteredData.filter((model) =>

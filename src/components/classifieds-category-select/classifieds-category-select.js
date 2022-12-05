@@ -22,6 +22,10 @@ export default {
       "updateSelectedClassifiedCategory",
       this.queryParams.category || ""
     );
+    store.commit(
+      "updateSelectedSubcategory",
+      this.queryParams.subcategory || ""
+    );
   },
   computed: {
     getSelectedClassifiedCategory() {
@@ -38,10 +42,10 @@ export default {
     },
   },
   methods: {
-    async getCategoryOptions(category) {
+    async getCategoryOptions(category = this.$route.query.category) {
       store.commit("updateSelectedClassifiedCategory", category);
 
-      await this.$store.dispatch("getPostList", {category: category});
+      await this.$store.dispatch("getPostList", { category: category });
 
       router.push({
         query: {

@@ -9,7 +9,6 @@ import Motorcycles from "@/components/classifieds-form/motorcycles/motorcycles.v
 import Truck from "@/components/classifieds-form/truck/truck.vue";
 import NumberPlates from "@/components/classifieds-form/number-plates/number-plates.vue";
 
-
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -76,10 +75,10 @@ export default {
       return store.state.home.newPostInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -88,11 +87,11 @@ export default {
       return UTILS;
     },
     categoryList() {
-      return META.classifiedsCategories.map(item=>item.name);
+      return META.classifiedsCategories.map((item) => item.name);
     },
     selectedCategory() {
       return store.state.home.selectedClassifiedCategory;
-    }
+    },
   },
   methods: {
     getCategoryOptions(category) {

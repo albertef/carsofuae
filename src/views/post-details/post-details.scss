@@ -7,6 +7,20 @@
       color: rgba($black, 0.6);
       font-size: 0.875rem;
     }
+    .arrows {
+      position: absolute;
+      top: 280px;
+      cursor: pointer;
+      svg {
+        font-size: 1.5rem;
+      }
+      &.left-arrow {
+        left: -30px;
+      }
+      &.right-arrow {
+        right: -30px;
+      }
+    }
     .image-scroll-wrapper {
       overflow-x: auto;
       scroll-behavior: smooth;
@@ -14,20 +28,7 @@
       &::-webkit-scrollbar {
         display: none;
       }
-      .arrows {
-        position: absolute;
-        top: 280px;
-        cursor: pointer;
-        svg {
-          font-size: 1.5rem;
-        }
-        &.left-arrow {
-          left: -30px;
-        }
-        &.right-arrow {
-          right: -30px;
-        }
-      }
+
       .image-wrapper {
         display: flex;
         flex-wrap: wrap;

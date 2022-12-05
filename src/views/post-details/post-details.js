@@ -23,13 +23,18 @@ export default {
       modalDisplay: false,
     };
   },
-  async mounted() {
+  async created() {
     store.commit("updateLoader", true);
-    const params = { 
-      category: this.getSelectedClassifiedCategory,
-    };
-    await this.$store.dispatch("getPostList", params);
-    await this.$store.dispatch("getPostedByList");
+    if (!this.postList.length) {
+      const params = {
+        category:
+          this.getSelectedClassifiedCategory ||
+          this.$route.query.category ||
+          "used-cars",
+      };
+      await this.$store.dispatch("getPostList", params);
+      await this.$store.dispatch("getPostedByList");
+    }
     store.commit("updateLoader", false);
   },
   computed: {
@@ -39,13 +44,17 @@ export default {
     getPostId() {
       return this.$route.query.id;
     },
+    postList() {
+      return this.$store.state?.home?.postList;
+    },
     postData() {
-      debugger;
-      return this.$store.getters.getSinglePostData(this.getPostId);
+      return (
+        this.postList?.length &&
+        this.$store.getters?.getSinglePostData(this.getPostId)
+      );
     },
     postedByName() {
       const postedByList = this.$store?.state.home.postedByList;
-      debugger;
       return (
         postedByList?.find((item) => item.id === Number(this.postData.postedBy))
           ?.name || "Guest"
@@ -65,10 +74,10 @@ export default {
     getImagePath(image, folder) {
       const folderPath = folder?.split(",")[0];
       return `${this.$baseURL}upload/${folderPath}/${image}`;
-    },   
+    },
     createLightBoxImage(image, folder) {
       const images = image.split(",");
-      const imageArr = images.map(item => this.getImagePath(item, folder));
+      const imageArr = images.map((item) => this.getImagePath(item, folder));
       return imageArr;
     },
     openWhatsapp(num) {

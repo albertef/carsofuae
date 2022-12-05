@@ -12,11 +12,11 @@
             <Select :options="categoryList"
               default="Select Category" @selectValue="getCategoryOptions($event)" />
           </div>
-          <UsedCars v-if="selectedCategory==='Used Cars'"/>
-          <Boats v-if="selectedCategory==='Boats'"/>
-          <Motorcycles v-if="selectedCategory==='Motorcycles'"/>
-          <Truck v-if="selectedCategory==='Truck'"/>
-          <NumberPlates v-if="selectedCategory==='Number Plates'"/>
+          <UsedCars v-if="selectedCategory==='used-cars'" />
+          <Boats v-if="selectedCategory==='boats'" />
+          <Motorcycles v-if="selectedCategory==='motorcycles'" />
+          <Truck v-if="selectedCategory==='truck'" />
+          <NumberPlates v-if="selectedCategory==='number-plates'" />
         </div>
       </div>
     </div>

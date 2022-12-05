@@ -41,8 +41,9 @@ export default {
   async mounted() {
     store.commit("updateLoader", true);
     if (this.type === "classifieds") {
-      const params = { 
-        category: this.getSelectedClassifiedCategory,
+      const params = {
+        category:
+          this.getSelectedClassifiedCategory || this.$route.query.category,
       };
       await this.$store.dispatch("getPostList", params);
     } else if (this.type === "rental") {
@@ -56,7 +57,6 @@ export default {
     store.commit("updateLoader", false);
   },
   computed: {
-
     getSelectedClassifiedCategory() {
       return this.$store.state.home.selectedClassifiedCategory;
     },

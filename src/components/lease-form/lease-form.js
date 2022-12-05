@@ -13,7 +13,6 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 
-
 export default {
   name: "LeaseForm",
   components: {
@@ -69,7 +68,6 @@ export default {
         listBullets: "",
         descDetails: "",
         postedBy: "",
-      
       },
       newLeaseValidation: {},
       selectedFeatures: [],
@@ -92,10 +90,10 @@ export default {
       return store.state.home.newLeaseInfo;
     },
     companyList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newLease.company);
+      return store.getters.getAllModels(this.newLease.company);
     },
     trimList() {
       return store.getters.getTrimList(
@@ -140,15 +138,21 @@ export default {
         openTimes: !this.newLease.openTimes,
         phone: !this.newLease.phone || !UTILS.isValidPhone(this.newLease.phone),
         email: !this.newLease.email || !UTILS.isValidEmail(this.newLease.email),
-        mileageLimit: !this.newLease.mileageLimit || isNaN(this.newLease.mileageLimit),
-        additionalMileageCharge: !this.newLease.additionalMileageCharge || isNaN(this.newLease.additionalMileageCharge),
+        mileageLimit:
+          !this.newLease.mileageLimit || isNaN(this.newLease.mileageLimit),
+        additionalMileageCharge:
+          !this.newLease.additionalMileageCharge ||
+          isNaN(this.newLease.additionalMileageCharge),
         insurance: !this.newLease.insurance,
         minAge: !this.newLease.minAge || isNaN(this.newLease.minAge),
-        securityDeposit: !this.newLease.securityDeposit || isNaN(this.newLease.securityDeposit),
+        securityDeposit:
+          !this.newLease.securityDeposit ||
+          isNaN(this.newLease.securityDeposit),
         acceptedIn: !this.newLease.acceptedIn,
         additionalDriverInsurance: !this.newLease.additionalDriverInsurance,
         excessClaim: !this.newLease.excessClaim,
-        tollCharges: !this.newLease.tollCharges || isNaN(this.newLease.tollCharges),
+        tollCharges:
+          !this.newLease.tollCharges || isNaN(this.newLease.tollCharges),
         features: !this.newLease.features,
         type: !this.newLease.type,
         doors: !this.newLease.doors,
@@ -162,7 +166,6 @@ export default {
         dealerLogo: !this.newLease.dealerLogo,
         listBullets: !this.newLease.listBullets,
         descDetails: !this.newLease.descDetails,
-        
       };
 
       return Object.values(this.newLeaseValidation).every((el) => el === false)

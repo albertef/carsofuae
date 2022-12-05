@@ -24,7 +24,7 @@ export default {
       return this.$route.query;
     },
     getCarMakes() {
-      const filteredData = this.$store.getters.getAllCarMakes;
+      const filteredData = this.$store.getters.getAllMakes;
       return filteredData.filter((make) =>
         String(make).toLowerCase().includes(this.value.toLowerCase())
       );
@@ -33,10 +33,10 @@ export default {
       return this.getCarMakes.length;
     },
     getCarModelCount() {
-      return this.getAllCarModels.length;
+      return this.getAllModels.length;
     },
-    getAllCarModels() {
-      const filteredData = this.$store.getters.getAllCarModels(
+    getAllModels() {
+      const filteredData = this.$store.getters.getAllModels(
         this.getSelectedCarMake
       );
       return filteredData.filter((model) =>

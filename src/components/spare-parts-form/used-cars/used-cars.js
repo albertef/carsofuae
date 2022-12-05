@@ -64,10 +64,10 @@ export default {
       return store.state.home.newPostInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -126,7 +126,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 

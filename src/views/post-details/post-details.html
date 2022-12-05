@@ -9,8 +9,20 @@
   <div class="row" v-else>
     <div class="col-12 mb-5 p-0">
       <div class="image-title-wrapper mb-4">
-        <h3 class="mb-1">
-          {{postData.company}} {{postData.model}} <span>{{postData.make}}</span>
+        <h3 class="mb-1" v-if="getSelectedClassifiedCategory==='used-cars'">
+          {{postData.brand}} {{postData.model}} <span>{{postData.make}}</span>
+        </h3>
+        <h3
+          class="mb-1"
+          v-else-if="getSelectedClassifiedCategory==='motorcycles'"
+        >
+          {{postData.brand}} {{postData.model}} <span>{{postData.trim}}</span>
+        </h3>
+        <h3
+          class="mb-1"
+          v-else-if="getSelectedClassifiedCategory==='boats' || getSelectedClassifiedCategory==='truck' || getSelectedClassifiedCategory==='number-plates'"
+        >
+          {{postData.name}}
         </h3>
         <p class="date-place">
           <font-awesome-icon :icon="['fas', 'map-marker-alt']" class="icon" />
@@ -20,7 +32,7 @@
             {{postData.date}}
           </span>
         </p>
-        <div class="image-scroll-wrapper" ref="scroller">
+        <div>
           <div class="left-arrow arrows" @click="leftArrowClick">
             <font-awesome-icon
               :icon="['fas', 'arrow-alt-circle-left']"
@@ -33,49 +45,53 @@
               class="icon"
             />
           </div>
-          <CoolLightBox
-            :items="createLightBoxImage(postData.gallery, postData.imageFolder)"
-            :index="index"
-            @close="index = null"
-          >
-          </CoolLightBox>
-          <div class="image-wrapper" v-if="postData.gallery">
-            <div
-              v-for="(image, imageIndex) in postData.gallery.split(',')"
-              :data-count="postData.gallery.split(',').length"
-              :key="imageIndex"
-              @click="index = imageIndex"
-              :style="{ backgroundImage: 'url(' + getImagePath(image,postData.imageFolder) + ')' }"
+
+          <div class="image-scroll-wrapper" ref="scroller">
+            <CoolLightBox
+              :items="createLightBoxImage(postData.gallery, postData.imageFolder)"
+              :index="index"
+              @close="index = null"
             >
-              <img :src="getImagePath(image,postData.imageFolder)" />
+            </CoolLightBox>
+            <div class="image-wrapper" v-if="postData.gallery">
+              <div
+                v-for="(image, imageIndex) in postData.gallery.split(',')"
+                :data-count="postData.gallery.split(',').length"
+                :key="imageIndex"
+                @click="index = imageIndex"
+                :style="{ backgroundImage: 'url(' + getImagePath(image,postData.imageFolder) + ')' }"
+                :class="postData.gallery.split(',').length === 1 && 'w-100'"
+              >
+                <img :src="getImagePath(image,postData.imageFolder)" />
+              </div>
             </div>
+            <span @click="sharePage" class="shareIcon">
+              <font-awesome-icon :icon="['fas', 'share-alt']" />
+            </span>
+            <Modal
+              class="small share-modal"
+              @escape="hideModal"
+              v-if="modalDisplay"
+            >
+              <template v-slot:header>
+                <div>
+                  <h5>Share to</h5>
+                  <font-awesome-icon
+                    :icon="['fas', 'times']"
+                    @click="hideModal"
+                  />
+                </div>
+              </template>
+              <template v-slot:body>
+                <div class="icon-wrapper">
+                  <img src="../../assets/facebook.png" class="icon facebook" />
+                  <img src="../../assets/twitter.png" class="icon twitter" />
+                  <img src="../../assets/whatsapp.png" class="icon whatsapp" />
+                  <img src="../../assets/email.png" class="icon email" />
+                </div>
+              </template>
+            </Modal>
           </div>
-          <span @click="sharePage" class="shareIcon">
-            <font-awesome-icon :icon="['fas', 'share-alt']" />
-          </span>
-          <Modal
-            class="small share-modal"
-            @escape="hideModal"
-            v-if="modalDisplay"
-          >
-            <template v-slot:header>
-              <div>
-                <h5>Share to</h5>
-                <font-awesome-icon
-                  :icon="['fas', 'times']"
-                  @click="hideModal"
-                />
-              </div>
-            </template>
-            <template v-slot:body>
-              <div class="icon-wrapper">
-                <img src="../../assets/facebook.png" class="icon facebook" />
-                <img src="../../assets/twitter.png" class="icon twitter" />
-                <img src="../../assets/whatsapp.png" class="icon whatsapp" />
-                <img src="../../assets/email.png" class="icon email" />
-              </div>
-            </template>
-          </Modal>
         </div>
       </div>
       <div class="row">

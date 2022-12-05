@@ -16,11 +16,11 @@
             <Slide class="col-4 col-md-4 p-0" v-for="post, index in featuredPostData" v-bind:key="index">
                 <div
                   class="card"
-                  :class="post.featured && 'featured'"
+                  :class="Boolean(Number(post.featured)) && 'featured'"
                   @click="viewPostDetails(post)"
                 >
                   <div class="thumb-wrapper">
-                    <img :src="post.thumb" class="img-fluid" />
+                    <img :src="getImagePath(post.thumb, post.imageFolder)" class="img-fluid" />
                   </div>
                   <div class="post-details">
                     <h5

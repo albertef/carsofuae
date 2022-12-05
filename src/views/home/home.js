@@ -14,8 +14,11 @@ export default {
     FixedHomeButtons,
   },
   async mounted() {
-    const params = { 
-      category: this.getSelectedClassifiedCategory,
+    const params = {
+      category:
+        this.getSelectedClassifiedCategory ||
+        this.$route.query.category ||
+        "used-cars",
     };
     await this.$store.dispatch("getPostList", params);
   },

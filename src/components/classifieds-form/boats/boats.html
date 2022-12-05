@@ -5,7 +5,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.subcategoryDropDownValues()" :error="newPostValidation.subCategory" errorText="Select Sub Category" default="Select Sub Category"
+    <Select :options="utils.subcategoryDropDownValues(getSelectedClassifiedCategory)" :error="newPostValidation.subCategory" errorText="Select Sub Category" default="Select Sub Category"
     @selectValue="updatePostData('subCategory', $event)" />
   </div>
   <div class="col-12 mb-3">
@@ -131,7 +131,8 @@
     @selectValue="updatePostData('year', $event)" />
   </div>
   <div
-    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper">
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+  >
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
     <!-- prettier-ignore -->

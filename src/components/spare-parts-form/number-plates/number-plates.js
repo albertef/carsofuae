@@ -17,7 +17,7 @@ export default {
     Select,
     InputFile,
   },
- 
+
   data() {
     return {
       newPost: {
@@ -30,9 +30,8 @@ export default {
         imageFolder: "",
         subcategory: "",
         emirate: "",
-        digits: "",  
+        digits: "",
         postedBy: "",
-              
       },
       newPostValidation: {},
     };
@@ -48,10 +47,10 @@ export default {
       return store.state.home.newNumberPlatesInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -73,7 +72,6 @@ export default {
     },
 
     validateNewPostForm() {
-      
       this.newPostValidation = {
         ...this.newPostValidation,
         name: !this.newPost.name,
@@ -81,11 +79,10 @@ export default {
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         place: !this.newPost.place,
         displayPicture: !this.newPost.displayPicture,
-        galleryImages: !this.newPost.galleryImages,      
+        galleryImages: !this.newPost.galleryImages,
         subcategory: !this.newPost.subcategory,
         emirate: !this.newPost.emirate,
-        digits: !this.newPost.digits,  
-      
+        digits: !this.newPost.digits,
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -96,7 +93,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
@@ -158,7 +155,8 @@ export default {
           const alert = {
             show: true,
             type: "success",
-            message: this.newNumberPlatesInfo.message || META.commonErrorMessage,
+            message:
+              this.newNumberPlatesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -166,7 +164,8 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newNumberPlatesInfo.message || META.commonErrorMessage,
+            message:
+              this.newNumberPlatesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }

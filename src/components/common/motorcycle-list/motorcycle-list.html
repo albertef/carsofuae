@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12 mt-4 mb-1">
       <h5 class="heading">
-        Select Motorcycle <span>{{getSelectedCarMake ? 'Model' : 'Brand'}}</span>
+        Select Motorcycle
+        <span>{{getSelectedCarMake ? 'Model' : 'Brand'}}</span>
       </h5>
     </div>
     <div class="col-12 my-3 search-wrapper">
@@ -32,7 +33,7 @@
     <template v-else>
       <div
         class="col-xs-12 col-lg-2 my-3 motorcycle-list-cont"
-        v-for="model in getAllCarModels"
+        v-for="model in getAllModels"
       >
         <div @click="getposts(model)" class="motorcycle-list">
           {{model}}

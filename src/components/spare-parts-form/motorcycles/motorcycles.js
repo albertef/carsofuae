@@ -8,7 +8,6 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
-
 export default {
   name: "MotorCyclesForm",
   components: {
@@ -18,7 +17,7 @@ export default {
     Select,
     InputFile,
   },
- 
+
   data() {
     return {
       newPost: {
@@ -58,10 +57,10 @@ export default {
       return store.state.home.newMotorCyclesInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -114,7 +113,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 

@@ -55,6 +55,12 @@ export default {
     utils() {
       return UTILS;
     },
+    getSelectedClassifiedCategory() {
+      return (
+        this.$store.state.home.selectedClassifiedCategory ||
+        this.$route.query.category
+      );
+    },
   },
   methods: {
     updatePostData(key, e) {
@@ -86,7 +92,6 @@ export default {
         sellerType: !this.newPost.sellerType,
         price: !this.newPost.price,
         year: !this.newPost.year,
-
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -136,24 +141,24 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        ) 
-        if ( displayPictureUploadResponse.status){
-          params = {
-            ...params,
-            displayPicture: displayPictureUploadResponse.fileName,
-          };
-          await this.$store.dispatch("newBoatsPost", params);
-        } else {
-          const alert = {
-            show: true,
-            type: "error",
-            message:
-              this.newBoatInfo.message ||
-               galleryImageUploadResponse ||
-              META.commonErrorMessage,
-          };
-          store.commit("updateAlert", alert);
-        }
+        )
+          if (displayPictureUploadResponse.status) {
+            params = {
+              ...params,
+              displayPicture: displayPictureUploadResponse.fileName,
+            };
+            await this.$store.dispatch("newBoatsPost", params);
+          } else {
+            const alert = {
+              show: true,
+              type: "error",
+              message:
+                this.newBoatInfo.message ||
+                galleryImageUploadResponse ||
+                META.commonErrorMessage,
+            };
+            store.commit("updateAlert", alert);
+          }
 
         store.commit("updateLoader", false);
         if (this.newBoatInfo.status) {

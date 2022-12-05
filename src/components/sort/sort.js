@@ -29,10 +29,10 @@ export default {
       return this.data;
     },
     getCarMakes() {
-      return this.$store.getters.getAllCarMakes;
+      return this.$store.getters.getAllMakes;
     },
-    getAllCarModels() {
-      return this.$store.getters.getAllCarModels(this.carMake);
+    getAllModels() {
+      return this.$store.getters.getAllModels(this.carMake);
     },
     yeardropdownValues() {
       const max = new Date().getFullYear(),

@@ -9,8 +9,6 @@ import RentalPrice from "@/components/common/rental-price/rental-price.vue";
 import rentalFeaturesList from "@/meta/features.json";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 
-
-
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -73,7 +71,6 @@ export default {
       },
       newRentalValidation: {},
       selectedFeatures: [],
-
     };
   },
   async mounted() {
@@ -90,10 +87,10 @@ export default {
       return store.state.home.newRentalInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newRental.brand);
+      return store.getters.getAllModels(this.newRental.brand);
     },
     trimList() {
       return store.getters.getTrimList(
@@ -115,7 +112,7 @@ export default {
         [key]: e,
       };
       this.validateNewRentalForm();
-    }, 
+    },
     updateRentalFeaturesList(id) {
       this.selectedFeatures = [...this.selectedFeatures, id];
       this.updateRentalData("features", this.selectedFeatures);

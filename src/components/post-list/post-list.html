@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row latest-posts" v-if="postData.length">
+          <div class="row latest-posts" v-if="postData && postData.length">
             <div class="col-12 px-lg-0 px-3 py-2 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
               <h3 class="heading" v-html="title"></h3>
               <div class="right-column">
@@ -28,7 +28,7 @@
             <div :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'" v-for="post in postData">
               <div
                 class="card"
-                :class="post.featured && 'featured'"
+                :class="Boolean(Number(post.featured)) && 'featured'"
                 @click="listView ? '' : viewPostDetails(post)"
               >
               <div class="thumb-wrapper">
@@ -59,10 +59,10 @@
                       <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span></p>
                     <h5
                       class="my-2"
-                      :title="`${post.make} ${post.company} ${post.model}`"
+                      :title="`${getTitle(post)}`"
                     >
                       <span
-                        >{{ post.make }} {{ post.company }} {{ post.model }}</span
+                        >{{getTitle(post)}}</span
                       >
                       <em></em>
                     </h5>
@@ -105,7 +105,7 @@
                 <span
                   class="featured-icon"
                   title="Featured Post"
-                  v-if="post.featured"
+                  v-if="Boolean(Number(post.featured))"
                 >
                   <img src="../../assets/featured.png" class="img-fluid" />
                 </span>

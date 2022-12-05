@@ -14,17 +14,17 @@
     v-if="!queryParams.category || (!getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel))"
   />
   <CarList
-    v-if="getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel) && getSelectedClassifiedCategory == 'Used Cars'"
+    v-if="getSelectedClassifiedCategory && (!getSelectedCarMake || !getSelectedCarModel) && getSelectedClassifiedCategory == 'used-cars'"
   />
   <MotorCycleList
-    v-else-if="getSelectedClassifiedCategory && getSelectedClassifiedCategory == 'Motorcycles' && (!getSelectedMotorcycleSubCategory)"
+    v-else-if="getSelectedClassifiedCategory  && (!getSelectedCarMake || !getSelectedCarModel) && getSelectedClassifiedCategory == 'motorcycles'"
   />
-  <BoatList
-    v-else-if="getSelectedClassifiedCategory && getSelectedClassifiedCategory == 'Boats' && (!getSelectedBoatSubCategory)"
+  <SubCategoryList
+    v-else-if="getSelectedClassifiedCategory && (getSelectedClassifiedCategory == 'boats' || getSelectedClassifiedCategory == 'truck'  || getSelectedClassifiedCategory == 'number-plates') && (!getSelectedSubCategory)"
   />
   <PostList
     :data="getPostData"
     :featured="false"
-    v-if="getSelectedClassifiedCategory && ((getSelectedCarMake && getSelectedCarModel) || getSelectedMotorcycleSubCategory || getSelectedBoatSubCategory)"
+    v-if="getSelectedClassifiedCategory && ((getSelectedCarMake && getSelectedCarModel) || getSelectedSubCategory)"
   />
 </div>

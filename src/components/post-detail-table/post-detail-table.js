@@ -2,7 +2,6 @@ import Button from "@/components/common/button/button.vue";
 import { META } from "@/meta/common.js";
 import store from "@/store";
 
-
 export default {
   name: "PostDetailTable",
   components: {
@@ -19,7 +18,11 @@ export default {
       return META.serviceList;
     },
     selectedClassifiedCategory() {
-      return this.$store.state.home.selectedClassifiedCategory;
+      return (
+        this.$store.state.home.selectedClassifiedCategory ||
+        this.$route.query.category ||
+        "used-cars"
+      );
     },
   },
 };

@@ -17,7 +17,7 @@ export default {
     Select,
     InputFile,
   },
- 
+
   data() {
     return {
       newPost: {
@@ -38,7 +38,6 @@ export default {
         year: "",
         kilometers: "",
         postedBy: "",
-
       },
       newPostValidation: {},
     };
@@ -54,10 +53,10 @@ export default {
       return store.state.home.newTruckInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -96,7 +95,6 @@ export default {
         price: !this.newPost.price,
         year: !this.newPost.year,
         kilometers: !this.newPost.kilometers,
-      
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -107,7 +105,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 

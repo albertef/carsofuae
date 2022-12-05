@@ -11,12 +11,14 @@ export default {
   props: {
     data: {
       type: Array,
-      default: () =>  [],
+      default: () => [],
     },
   },
   computed: {
     featuredPostData() {
-      return this.fullPostData.filter((item) => item.featured === true);
+      return this.fullPostData.filter(
+        (item) => Boolean(Number(item.featured)) === true
+      );
     },
     fullPostData() {
       return this.data;
@@ -25,6 +27,10 @@ export default {
   methods: {
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);
+    },
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     viewPostDetails(data) {
       router.push({
