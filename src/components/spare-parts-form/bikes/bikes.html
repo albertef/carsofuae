@@ -1,0 +1,145 @@
+<div class="bikes-wrapper">
+  <div class="col-12 mb-3">
+    <label>
+      Name
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.name" errorText="Enter Name"
+    placeholder="Enter Name" id="name" :value="newPost.name" @value="updatePostData('name', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Description <span>*</span></label>
+    <!-- prettier-ignore -->
+    <TextArea
+      class="inputText"
+      placeholder="Enter Description"
+      :error="newPostValidation.description"
+      errorText="Enter Description"
+      @value="updatePostData('description', $event)"
+      id="description"
+      :value="newPost.description"
+    />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Brand
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="brandsList" :error="newPostValidation.brand" errorText="Select Brand" default="Select Brand"
+    @selectValue="updatePostData('brand', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Model
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="modelsList" :error="newPostValidation.model" errorText="Select Model" default="Select Model"
+    @selectValue="updatePostData('model', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Year
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year" errorText="Select Year"
+    default="Select Year" @selectValue="updatePostData('year', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Category
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="categoryList" :error="newPostValidation.category" errorText="Select Category" default="Select Category"
+    @selectValue="updatePostData('category', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select SubCategory
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Select Item</label>
+    <!-- prettier-ignore -->
+    <Select :options="spareItemList" :error="newPostValidation.spareItem" errorText="Select Item" default="Select Item"
+    @selectValue="updatePostData('spareItem', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Part No
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.partNo" errorText="Enter Part No" placeholder="Enter Part No"
+    id="partNo" :value="newPost.partNo" @value="updatePostData('partNo', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Price
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.price" errorText="Enter Price" placeholder="Enter Price"
+    id="price" :value="newPost.price" @value="updatePostData('price', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>Display Picture</label>
+    <!-- prettier-ignore -->
+    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
+    type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
+    :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Upload 10 gallery images (Minimum of 1 image)
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputFile class="inputText" :error="newPostValidation.galleryImages" errorText="Choose gallery images (minimum 1)"
+    type="file" accept="image/*" multiple name="galleryImages[]" id="galleryImages" :value="newPost.galleryImages"
+    @value="updatePostData('galleryImages', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Select Warranty
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty"
+    default="Select Warranty" @selectValue="updatePostData('warranty', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Phone
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone Number"
+    placeholder="Enter Phone Number" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
+      Email
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.email" errorText="Enter Email Address"
+    placeholder="Enter Email Address" id="email" :value="newPost.email" @value="updatePostData('email', $event)" />
+  </div>
+  <div
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+  >
+    <!-- prettier-ignore -->
+    <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
+    <!-- prettier-ignore -->
+    <Button type="primary" text="Submit Post" @click="submitPost()" />
+  </div>
+</div>

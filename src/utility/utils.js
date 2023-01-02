@@ -322,4 +322,4 @@ export const UTILS = {
   numPlatesDigitsList() {
     return ["1", "2", "3", "4", "5"];
   },
-};
+ }

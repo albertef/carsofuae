@@ -1,22 +1,22 @@
-<div class="new-post-form-wrapper container-fluid p-0">
+<div class="new-spare-parts-form-wrapper container-fluid p-0">
   <div class="row">
     <div class="col-12">
       <div class="container">
         <div class="row">
           <div class="col-12 mb-3">
-            <h5 class="mt-5 mb-4">Post a new Ad</h5>
+            <h5 class="mt-5 mb-4">Post a new Spare Ad</h5>
           </div>
           <div class="col-12 mb-3">
-            <label>Select Category <span>*</span></label>
+            <label>Select Spare Type <span>*</span></label>
             <!-- prettier-ignore -->
-            <Select :options="categoryList"
-              default="Select Category" @selectValue="getCategoryOptions($event)" />
+            <Select :options="sparePartsCategoryList"
+              default="Select Type" @selectValue="getCategoryOptions($event)" />
           </div>
-          <UsedCars v-if="selectedCategory==='Used Cars'"/>
-          <Boats v-if="selectedCategory==='Boats'"/>
-          <Motorcycles v-if="selectedCategory==='Motorcycles'"/>
-          <Truck v-if="selectedCategory==='Truck'"/>
-          <NumberPlates v-if="selectedCategory==='Number Plates'"/>
+          <Cars v-if="selectedSpareType==='Cars'"/>
+          <Bikes v-if="selectedSpareType==='Bikes'"/>
+          <Apparels v-if="selectedSpareType==='Apparel'"/>
+          <Hobbyist v-if="selectedSpareType==='Hobbyist'"/>
+          <HeavyVehicles v-if="selectedSpareType==='Heavy'"/> 
         </div>
       </div>
     </div>

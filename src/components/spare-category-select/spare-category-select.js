@@ -56,7 +56,7 @@ export default {
     newPost() {
       if (this.loginInfo.isLoggedIn) {
         router.push({
-          name: "AddNewPost",
+          name: "AddNewSparePartsPost",
         });
       } else {
         router.push({

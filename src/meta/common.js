@@ -394,7 +394,7 @@ export const META = {
     },
     {
       id: "apparel",
-      title: "Apparels",
+      title: "Apparel",
       image: "apparel.png",
     },
     {
@@ -404,7 +404,7 @@ export const META = {
     },
     {
       id: "heavy",
-      title: "Heavy Vehicles",
+      title: "Heavy",
       image: "truck.png",
     },
   ],

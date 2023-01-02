@@ -40,6 +40,11 @@ const state = {
   userDetails: {},
   selectedUserType: "",
   newPostInfo: {},
+  newSpareCarInfo: {},
+  newSpareBikesInfo: {},
+  newSpareApparelInfo: {},
+  newSpareHobbyistInfo: {},
+  newSpareHeavyInfo: {},
   newBoatInfo: {},
   newMotorCyclesInfo: {},
   newNumberPlatesInfo: {},
@@ -243,6 +248,46 @@ const actions = {
     commit("updateSpareItemList", dataset);
     return dataset;
   },
+  async newSpareCarPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = '/carsofuae-server/data/new_spare_car_post.php'
+    dataset = await axiosInstance.post(url, params)
+    commit('updateNewSpareCarInfo', dataset)
+    return dataset
+  }, 
+  async newSpareBikesPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = '/carsofuae-server/data/new_spare_bikes_post.php'
+    dataset = await axiosInstance.post(url, params)
+    commit('updateNewSpareBikesInfo', dataset)
+    return dataset
+  },
+  async newSpareApparelPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = '/carsofuae-server/data/new_spare_apparel_post.php'
+    dataset = await axiosInstance.post(url, params)
+    commit('updateNewSpareApparelInfo', dataset)
+    return dataset
+  },
+  async newSpareHobbyistPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = '/carsofuae-server/data/new_spare_hobbyist_post.php'
+    dataset = await axiosInstance.post(url, params)
+    commit('updateNewSpareHobbyistInfo', dataset)
+    return dataset
+  },
+  async newSpareHeavyPost({ commit }, params) {
+    debugger;
+    let dataset = {},
+      url = '/carsofuae-server/data/new_spare_heavy_post.php'
+    dataset = await axiosInstance.post(url, params)
+    commit('updateNewSpareHeavyInfo', dataset)
+    return dataset
+  },
   async getPostedByList({ commit }) {
     let dataset = {},
       url = "/mocks/posted-by.json";
@@ -331,17 +376,21 @@ const getters = {
     };
   },
   getSpareCategories(state) {
+    debugger;
+    console.log(state.selectedSpareType)
     return [...new Set(rawSpareCategoryList(state)?.map((cat) => cat.category))]
       .sort()
       .filter(Boolean);
   },
   getSpareSubCategories(state) {
+    debugger;
     const sub = rawSpareCategoryList(state)
       ?.filter((item) => item.category === state.selectedSpareCategory)
       ?.map((el) => el.sub);
     return [...new Set(sub)].sort().filter(Boolean);
   },
   getSpareItemList(state) {
+    debugger;
     const item = rawSpareCategoryList(state)
       ?.filter((item) => item.category === state.selectedSpareCategory)
       ?.filter((elem) => elem.sub === state.selectedSpareSubCategory)
@@ -385,6 +434,21 @@ const mutations = {
   },
   updateNewPostInfo(state, dataset) {
     state.newPostInfo = dataset;
+  },
+  updateNewSpareCarInfo(state, dataset) {
+    state.newSpareCarInfo = dataset
+  },
+  updateNewSpareBikesInfo(state, dataset) {
+    state.newSpareBikesInfo = dataset
+  },
+  updateNewSpareApparelInfo(state, dataset) {
+    state.newSpareApparelInfo = dataset
+  },
+  updateNewSpareHobbyistInfo(state, dataset) {
+    state.newSpareHobbyistInfo = dataset
+  },
+  updateNewSpareHeavyInfo(state, dataset) {
+    state.newSpareHeavyInfo = dataset
   },
   updateNewMotorCyclesInfo(state, dataset) {
     state.newMotorCyclesInfo = dataset;
@@ -500,11 +564,11 @@ const mutations = {
   updateSelectedSubcategory(state, value) {
     state.selectedSubcategory = value;
   },
-};
+ }
 
 const rawSpareCategoryList = (state) => {
-  return state.spareList?.map((item) => item[state.selectedSpareType])[0];
-};
+  return state.spareList?.map((item) => item[state.selectedSpareType.toLowerCase()])[0]
+}
 
 export default {
   state,

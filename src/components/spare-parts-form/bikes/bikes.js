@@ -1,4 +1,3 @@
-import Radio from "@/components/common/radio/radio.vue";
 import InputText from "@/components/common/input-text/input-text.vue";
 import InputFile from "@/components/common/input-file/input-file.vue";
 import Button from "@/components/common/button/button.vue";
@@ -8,44 +7,40 @@ import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
-import garageServiceList from "@/meta/services.json";
-import Checkbox from "@/components/common/checkbox/checkbox.vue";
-import OpenTimes from "@/components/common/open-times/open-times.vue";
+
 
 export default {
-  name: "ClassifiedsForm",
+  name: "SpareBikesForm",
   components: {
-    Radio,
     InputText,
     Button,
     Select,
     InputFile,
     TextArea,
-    Checkbox,
-    OpenTimes,
   },
 
   data() {
     return {
-      newGarage: {
+      newPost: {
         name: "",
         description: "",
-        place: "",
+        // type: "",
+        brand: "",
+        model: "",
+        year: "",
+        category: "",
+        subcategory: "",
+        spareItem: "",
+        partNo: "",
+        price: "",
+        displayPicture: "",
+        galleryImages: "",
+        warranty: "",
         phone: "",
         email: "",
-        profilePicture: "",
-        galleryImages: "",
-        imageFolder: "",
         postedBy: "",
-        services: "",
-        openTimes: "",
-        postedBy: "",
-        facebook: "",
-        instagram: "",
-        linkedin: "",
       },
-      newGarageValidation: {},
-      selectedServices: [],
+      newPostValidation: {},
     };
   },
   async mounted() {
@@ -55,55 +50,78 @@ export default {
     loginInfo() {
       return store.state.home.loginInfo;
     },
-    newGarageInfo() {
-      return store.state.home.newGarageInfo;
+    newSpareBikesInfo() {
+      return store.state.home.newSpareBikesInfo;
+    },
+    brandsList() {
+      return store.getters.getAllCarMakes;
+    },
+    modelsList() {
+      return store.getters.getAllCarModels(this.newPost.brand);
+    },
+    trimList() {
+      return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
     },
     utils() {
       return UTILS;
     },
-    garageServiceList() {
-      return garageServiceList;
+    sparePartsCategoryList() {
+      return META.spareCategoryFormat.map(item=>item.title);
     },
+    categoryList() {
+      return store.getters.getSpareCategories;
+    },
+    subCategoryList() {
+      return store.getters.getSpareSubCategories;
+    }, 
+    spareItemList() {
+      return store.getters.getSpareItemList;
+    }, 
+    
   },
   methods: {
-    updateGarageData(key, e) {
-      this.newGarage = {
-        ...this.newGarage,
+    // getCategoryOptions(type) {
+    //   store.commit("updateSelectedSpareType", type);
+    // },
+    updatePostData(key, e) {
+      if(key === "category"){
+        store.commit("updateSelectedSpareCategory", e);
+      } else if(key === "subcategory") {
+        store.commit("updateSelectedSpareSubCategory", e);
+      } else if(key === "spareItem") {
+        store.commit("updateSelectedSpareItem", e);
+      }
+      this.newPost = {
+        ...this.newPost,
         [key]: e,
       };
     },
-
-    updateGarageServiceList(id) {
-      this.selectedServices = [...this.selectedServices, id];
-      this.updateGarageData("services", this.selectedServices);
-    },
-
-    isSelected(id) {
-      return this.selectedServices.length && this.selectedServices.includes(id);
-    },
-
     resetValidation() {
-      this.newGarageValidation = {};
+      this.newPostValidation = {};
     },
-
-    validateNewGarageForm() {
-      this.newGarageValidation = {
-        ...this.newGarageValidation,
-        description: !this.newGarage.description,
-        place: !this.newGarage.place,
-        services: !this.newGarage.services,
-        email:
-          !this.newGarage.email || !UTILS.isValidEmail(this.newGarage.email),
-        name: !this.newGarage.name,
-        openTimes:
-          !this.newGarage.openTimes || this.newGarage.openTimes.length < 7,
-        phone:
-          !this.newGarage.phone || !UTILS.isValidPhone(this.newGarage.phone),
-        profilePicture: !this.newGarage.profilePicture,
-        galleryImages: !this.newGarage.galleryImages,
+    validateNewPostForm() {
+      debugger;
+      this.newPostValidation = {
+        ...this.newPostValidation,
+        name: !this.newPost.name,
+        description: !this.newPost.description,
+        // type: !this.newPost.type,
+        brand: !this.newPost.brand,
+        model: !this.newPost.model,
+        year: !this.newPost.year,
+        category: !this.newPost.category,
+        subcategory: !this.newPost.subcategory,
+        spareItem: !this.newPost.spareItem,
+        partNo: !this.newPost.partNo,
+        price: !this.newPost.price,
+        displayPicture: !this.newPost.displayPicture,
+        galleryImages: !this.newPost.galleryImages,
+        warranty: !this.newPost.warranty,
+        phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),      
       };
 
-      return Object.values(this.newGarageValidation).every((el) => el === false)
+      return Object.values(this.newPostValidation).every((el) => el === false)
         ? true
         : false;
     },
@@ -111,8 +129,8 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-      if (this.validateNewGarageForm()) {
-        let params = { ...this.newGarage, postedBy: this.loginInfo?.id };
+       if (this.validateNewPostForm()) {
+        let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(
@@ -144,7 +162,7 @@ export default {
         }
         const displayPictureUploadResponse = await this.$store.dispatch(
           "imageUpload",
-          params.profilePicture
+          params.displayPicture
         );
 
         if (
@@ -153,15 +171,15 @@ export default {
         ) {
           params = {
             ...params,
-            profilePicture: displayPictureUploadResponse.fileName,
+            displayPicture: displayPictureUploadResponse.fileName,
           };
-          await this.$store.dispatch("addNewGarage", params);
+          await this.$store.dispatch("newSpareBikesPost", params);
         } else {
           const alert = {
             show: true,
             type: "error",
             message:
-              this.newGarageInfo.message ||
+              this.newSpareBikesInfo.message ||
               galleryImageUploadResponse ||
               META.commonErrorMessage,
           };
@@ -169,11 +187,11 @@ export default {
         }
 
         store.commit("updateLoader", false);
-        if (this.newGarageInfo.status) {
+        if (this.newSpareBikesInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newGarageInfo.message || META.commonErrorMessage,
+            message: this.newSpareBikesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
@@ -181,11 +199,11 @@ export default {
           const alert = {
             show: true,
             type: "error",
-            message: this.newGarageInfo.message || META.commonErrorMessage,
+            message: this.newSpareBikesInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
         }
-        store.commit("updateNewGarageInfo", {});
+        store.commit("updateNewSpareBikesInfo", {});
       }
     },
   },
