@@ -93,7 +93,7 @@
   <div class="col-12 mb-3">
     <label>Display Picture</label>
     <!-- prettier-ignore -->
-    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
+    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
     :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
   </div>

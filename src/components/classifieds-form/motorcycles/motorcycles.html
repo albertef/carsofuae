@@ -5,7 +5,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="brandsList" :error="newPostValidation.brand" errorText="Select Brand" default="Select Brand"
+    <Select :options="brandsList" :error="newPostValidation.brand" id="brand" errorText="Select Brand" default="Select Brand"
     @selectValue="updatePostData('brand', $event)" />
   </div>
   <div class="col-12 mb-3">
@@ -14,13 +14,13 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="modelsList" :error="newPostValidation.model" errorText="Select Model" default="Select Model"
+    <Select :options="modelsList" :error="newPostValidation.model" id="model" errorText="Select Model" default="Select Model"
     @selectValue="updatePostData('model', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Trim</label>
     <!-- prettier-ignore -->
-    <Select :options="trimList" :error="newPostValidation.trim" errorText="Select Trim" default="Select Trim"
+    <Select :options="trimList" :error="newPostValidation.trim" id="trim" errorText="Select Trim" default="Select Trim"
     @selectValue="updatePostData('trim', $event)" />
   </div>
   <div class="col-12 mb-3">
@@ -29,7 +29,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.motorcycleSubcateList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
+    <Select :options="utils.motorcycleSubcateList()" :error="newPostValidation.subcategory" id="subcategory" errorText="Select SubCategory" default="Select SubCategory"
     @selectValue="updatePostData('subcategory', $event)" />
   </div>
   <div class="col-12 mb-3">
@@ -71,7 +71,7 @@
   <div class="col-12 mb-3">
     <label>Display Picture</label>
     <!-- prettier-ignore -->
-    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
+    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
     :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
   </div>
@@ -92,37 +92,37 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.motorCyclefDSystemList()" :error="newPostValidation.finalDriveSystem" errorText="Select Final Drive System"
-    default="Select Final Drive System" @selectValue="updatePostData('finalDriveSystem', $event)" />
+    default="Select Final Drive System" @selectValue="updatePostData('finalDriveSystem', $event)" id="finalDriveSystem" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Wheels</label>
     <!-- prettier-ignore -->
     <Select :options="utils.wheelsDropdownValues()" :error="newPostValidation.wheels" errorText="Select Wheels" default="Select Wheels"
-    @selectValue="updatePostData('wheels', $event)" />
+    @selectValue="updatePostData('wheels', $event)" id="wheels" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Engine Size </label>
     <!-- prettier-ignore -->
     <Select :options="utils.motorCycleEngineSizeList()" :error="newPostValidation.engineSize" errorText="Select Engine Size " default="Select Engine Size "
-    @selectValue="updatePostData('engineSize', $event)" />
+    @selectValue="updatePostData('engineSize', $event)" id="engineSize" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Sub Specification </label>
     <!-- prettier-ignore -->
     <Select :options="utils.motorCycleSubSpecList()" :error="newPostValidation.subSpecification" errorText="Select Sub Specification " default="Select Sub Specification "
-    @selectValue="updatePostData('subSpecification', $event)" />
+    @selectValue="updatePostData('subSpecification', $event)" id="subSpecification" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Regional spec </label>
     <!-- prettier-ignore -->
     <Select :options="utils.motorCycleRegionalSpecList()" :error="newPostValidation.regionalSpec" errorText="Select Regional spec " default="Select Regional spec "
-    @selectValue="updatePostData('regionalSpec', $event)" />
+    @selectValue="updatePostData('regionalSpec', $event)" id="regionalSpec" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Price to price Value</label>
     <!-- prettier-ignore -->
     <Select :options="utils.PriceToPriceList()" :error="newPostValidation.priceToPrice" errorText="Select Price To Price Value" default="Select Price To Price Value "
-    @selectValue="updatePostData('priceToPrice', $event)" />
+    @selectValue="updatePostData('priceToPrice', $event)" id="priceToPrice" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -132,7 +132,7 @@
     <!-- prettier-ignore -->
     <Select :options="utils.colorDropDownValues()" :error="newPostValidation.exteriorColor"
     errorText="Select Exterior Color" default="Select Exterior Color"
-    @selectValue="updatePostData('exteriorColor', $event)" />
+    @selectValue="updatePostData('exteriorColor', $event)" id="exteriorColor" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -142,7 +142,7 @@
     <!-- prettier-ignore -->
     <Select :options="utils.bodyConditionDropDownValues()" :error="newPostValidation.bodyCondition"
     errorText="Select Body Condition" default="Select Body Condition"
-    @selectValue="updatePostData('bodyCondition', $event)" />
+    @selectValue="updatePostData('bodyCondition', $event)" id="bodyCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -152,7 +152,7 @@
     <!-- prettier-ignore -->
     <Select :options="utils.mechanicalConditionDropDownValues()" :error="newPostValidation.mechanicalCondition"
     errorText="Select Mechanical Condition" default="Select Mechanical Condition"
-    @selectValue="updatePostData('mechanicalCondition', $event)" />
+    @selectValue="updatePostData('mechanicalCondition', $event)" id="mechanicalCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -161,7 +161,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.sellerTypes()" :error="newPostValidation.sellerType" errorText="Select Seller Type"
-    default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" />
+    default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" id="sellerType" />
   </div>
   <div
     class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"

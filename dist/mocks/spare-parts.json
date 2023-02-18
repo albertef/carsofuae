@@ -1,0 +1,2299 @@
+[
+  {
+    "cars": [
+      {
+        "category": "Filters",
+        "sub": "AC Filter",
+        "item": ""
+      },
+      {
+        "category": "Filters",
+        "sub": "Air Filter",
+        "item": ""
+      },
+      {
+        "category": "Filters",
+        "sub": "Fuel Filter",
+        "item": ""
+      },
+      {
+        "category": "Filters",
+        "sub": "Oil filter",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Engine oil",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Oil Service",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Transmission Oil",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Brake fluids",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Coolants",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Spray and Cleaners",
+        "item": ""
+      },
+      {
+        "category": "Oil and Lubricants",
+        "sub": "Fuel Injector Fluid",
+        "item": ""
+      },
+      {
+        "category": "Braking",
+        "sub": "Brake Sensors",
+        "item": ""
+      },
+      {
+        "category": "Braking",
+        "sub": "Discs",
+        "item": ""
+      },
+      {
+        "category": "Braking",
+        "sub": "Brakes",
+        "item": ""
+      },
+      {
+        "category": "Braking",
+        "sub": "Brake Callipers",
+        "item": ""
+      },
+      {
+        "category": "Ignition",
+        "sub": "Alternator",
+        "item": ""
+      },
+      {
+        "category": "Ignition",
+        "sub": "Batteries",
+        "item": ""
+      },
+      {
+        "category": "Ignition",
+        "sub": "Coils",
+        "item": ""
+      },
+      {
+        "category": "Ignition",
+        "sub": "Spark Plugs",
+        "item": ""
+      },
+      {
+        "category": "Ignition",
+        "sub": "Starter",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "AC Compressor",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "Blower motor",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "Condensor",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "Evaporator",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "Expansion Valve",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning",
+        "sub": "Reciver Drier",
+        "item": ""
+      },
+      {
+        "category": "Cooling",
+        "sub": "Radiator",
+        "item": ""
+      },
+      {
+        "category": "Cooling",
+        "sub": "Radiator Fan",
+        "item": ""
+      },
+      {
+        "category": "Cooling",
+        "sub": "Thermostat",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "Axle Boots",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "Axles",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "Bearings",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "CV Joints",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "Driveshafts",
+        "item": ""
+      },
+      {
+        "category": "Drive Train",
+        "sub": "Mounts",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Ball Joints",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Control Arm",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Shocks",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Springs",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Stablizer Link",
+        "item": ""
+      },
+      {
+        "category": "Suspension",
+        "sub": "Tierod",
+        "item": ""
+      },
+      {
+        "category": "Engine",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Drivebelt",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Gaskets",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Tensioner",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Sensors",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Pistons",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Valves",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Camshaft",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Crankshaft",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Cylinder head",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Engine block",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Pumps",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "DipStick",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Connecting Rods",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Timing Chain",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Timing Belt",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Strut Bars",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Oil pan",
+        "item": ""
+      },
+      {
+        "category": "Engine Components",
+        "sub": "Others",
+        "item": ""
+      },
+      {
+        "category": "Wipers",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Brake Lights",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Bulbs",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Bumper Lights",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Day Time Running Lights",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Driving Lights",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Fog Lights",
+        "item": ""
+      },
+      {
+        "category": "Lightings",
+        "sub": "Miscellaneous",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Carburetors",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Fuel Components",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Fuel Injectors",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Fuel Manifolds",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Fuel Pressure Regulators",
+        "item": ""
+      },
+      {
+        "category": "Fuel Delivery",
+        "sub": "Miscellaneous",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Bumpers",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Side Skirts",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Lip Kit",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Diffuser",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Spoilers",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Full Body Kit Package",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Hood",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Canards",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Fenders",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Louvers",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Bull Bars",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Rails",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Body Armour",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Antenna",
+        "item": ""
+      },
+      {
+        "category": "Body Kits",
+        "sub": "Kits",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Blow Off Valve",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Boost Contollers",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Forced Induction Components",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Fuel Components",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Inter Coolers",
+        "item": ""
+      },
+      {
+        "category": "Forced Induction",
+        "sub": "Miscellaneous",
+        "item": ""
+      },
+      {
+        "category": "Air Intake",
+        "sub": "Air Intake Components",
+        "item": ""
+      },
+      {
+        "category": "Air Intake",
+        "sub": "Cold Air Intake",
+        "item": ""
+      },
+      {
+        "category": "Air Intake",
+        "sub": "Scoops and Snorkels",
+        "item": ""
+      },
+      {
+        "category": "Programmers and Chips",
+        "sub": "Controllers",
+        "item": ""
+      },
+      {
+        "category": "Programmers and Chips",
+        "sub": "Performance Monitors",
+        "item": ""
+      },
+      {
+        "category": "Programmers and Chips",
+        "sub": "Performance Packages",
+        "item": ""
+      },
+      {
+        "category": "Programmers and Chips",
+        "sub": "Programmers and Tuners",
+        "item": ""
+      },
+      {
+        "category": "Programmers and Chips",
+        "sub": "Tuning Files",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "All Season Tyres",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "Run Flat Tyres",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "Energy Saving Tyres",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "Hi Performance Tyres",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "Off Road Tyres",
+        "item": ""
+      },
+      {
+        "category": "Tyres",
+        "sub": "Budget Tyres",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Steel",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Aluminium",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Alloy",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Chrome",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Spinners",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Bead Lock",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Carbon Fiber",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Cast and Forged",
+        "item": ""
+      },
+      {
+        "category": "Rims",
+        "sub": "Other",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Hubcentric Rings",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Lug Nuts",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Spare Tyre Carriers",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Tyre Pressure Sensors",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Spare Wheel Cover",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Wheel Cap",
+        "item": ""
+      },
+      {
+        "category": "Wheel",
+        "sub": "Other",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Axle-back",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Cat-back",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Catalytic Converter",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Exhaust Hardware",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Headers and Manifolds",
+        "item": ""
+      },
+      {
+        "category": "Exhaust",
+        "sub": "Muffler",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Cameras",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Dash Mounts",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Floor Mats",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Gauge Pods",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Gauges",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Upholestry",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Tinting",
+        "item": ""
+      },
+      {
+        "category": "Interior",
+        "sub": "Miscellaneous",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Harness Bar",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Gloves",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Fire Safety",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Helmets",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Racing Seats",
+        "item": ""
+      },
+      {
+        "category": "Racing Gear and Safety",
+        "sub": "Safety Belts",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Jacks",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Tow Hooks & Straps",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Winch accessories",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Winch Kits",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Winch Mounts",
+        "item": ""
+      },
+      {
+        "category": "Winches",
+        "sub": "Winches",
+        "item": ""
+      },
+      {
+        "category": "Audio",
+        "sub": "Speakers",
+        "item": ""
+      },
+      {
+        "category": "Audio",
+        "sub": "Sub Woofers",
+        "item": ""
+      },
+      {
+        "category": "Audio",
+        "sub": "Amplifiers",
+        "item": ""
+      },
+      {
+        "category": "Audio",
+        "sub": "Infotainment Systems",
+        "item": ""
+      },
+      {
+        "category": "Foiling",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "PPF & Ceramic Coating",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Tinting",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Plate Holders",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Badging",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Key Fobs",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Cup Holders",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Key Chains",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Pendants",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Stickers",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Sun Shade",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Refrigerator",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Interior Lighting",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Gear Knob",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Car Cover",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Booster Cable",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Car Vaccum",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Horns",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Safety Reflector",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Car Cleaning Products",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Car Refreshner",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Other",
+        "item": ""
+      }
+    ],
+    "bikes": [
+      {
+        "category": "Riding Gear",
+        "sub": "Base and Mid Layers",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "Short Boots & Shoes"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "Tall Boots"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "ADV/Touring Boots"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "Dirt Bike Boots"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "HD & Cruiser Boots"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "Track & Race Boots"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Boots",
+        "item": "Socks"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Casual Clothing",
+        "item": "Hats"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Casual Clothing",
+        "item": "Shirts"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Eyewear",
+        "item": "Sunglasses"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Eyewear",
+        "item": "Goggles"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Gloves",
+        "item": "Short Cuff"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Gloves",
+        "item": "Gauntlet"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Gloves",
+        "item": "Waterproof"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Gloves",
+        "item": "Winter"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Heated Gear",
+        "item": "Jacket Liners & Vests"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Heated Gear",
+        "item": "Gloves & Glove Liners"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Headwear",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Full Face"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Modular"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Dual Sport"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Dirt"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Snow Mobile"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Open face and 3/4"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Half Helmets"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Helmet Accessories"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Bluetooth Communications"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Helmets",
+        "item": "Visor"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "Textile"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "Leather"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "Waterproof"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "Winter"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "4 Season"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jackets & Vests",
+        "item": "Riding Shirts"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Jerseys",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Pants",
+        "item": "Riding Pants"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Pants",
+        "item": "Riding Jeans"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Pants",
+        "item": "Motocross Pants"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Protection",
+        "item": "Air Bags"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Protection",
+        "item": "Armored Shorts & Pants"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Protection",
+        "item": "Armored Tops"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Protection",
+        "item": "Back Protectors"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Protection",
+        "item": "Knee Braces & Guards"
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Rain Gear",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Race Suits",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Riding Suits",
+        "item": ""
+      },
+      {
+        "category": "Riding Gear",
+        "sub": "Youth Gear",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Air & Fuel",
+        "item": "Air Cleaners"
+      },
+      {
+        "category": "Parts",
+        "sub": "Air & Fuel",
+        "item": "Air Filters"
+      },
+      {
+        "category": "Parts",
+        "sub": "Air & Fuel",
+        "item": "Fuel Management"
+      },
+      {
+        "category": "Parts",
+        "sub": "Audio & Speakers",
+        "item": "Audio Kits"
+      },
+      {
+        "category": "Parts",
+        "sub": "Audio & Speakers",
+        "item": "Sound Bars"
+      },
+      {
+        "category": "Parts",
+        "sub": "Audio & Speakers",
+        "item": "Speaker Pods"
+      },
+      {
+        "category": "Parts",
+        "sub": "Batteries & Electrical",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Bumpers"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Sliders / Nerf Bars"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Skid Plates"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Crash Bars"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Frame Sliders"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Hand Guards"
+      },
+      {
+        "category": "Parts",
+        "sub": "Bike Protection",
+        "item": "Tank Protectors"
+      },
+      {
+        "category": "Parts",
+        "sub": "Body, Fairing & Fender",
+        "item": "Fender Eliminator Kits"
+      },
+      {
+        "category": "Parts",
+        "sub": "Body, Fairing & Fender",
+        "item": "Graphics & Decals"
+      },
+      {
+        "category": "Parts",
+        "sub": "Body, Fairing & Fender",
+        "item": "Plastics"
+      },
+      {
+        "category": "Parts",
+        "sub": "Brakes",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Dash & Gauges",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Drive & Transmission",
+        "item": "Chains"
+      },
+      {
+        "category": "Parts",
+        "sub": "Drive & Transmission",
+        "item": "Clutch"
+      },
+      {
+        "category": "Parts",
+        "sub": "Drive & Transmission",
+        "item": "Belt"
+      },
+      {
+        "category": "Parts",
+        "sub": "Drive & Transmission",
+        "item": "Sprockets"
+      },
+      {
+        "category": "Parts",
+        "sub": "Engine",
+        "item": "Camshafts"
+      },
+      {
+        "category": "Parts",
+        "sub": "Exhaust",
+        "item": "Slip-On"
+      },
+      {
+        "category": "Parts",
+        "sub": "Exhaust",
+        "item": "Full System"
+      },
+      {
+        "category": "Parts",
+        "sub": "Filters",
+        "item": "Air Filters and Accessories"
+      },
+      {
+        "category": "Parts",
+        "sub": "Filters",
+        "item": "Oil Filters"
+      },
+      {
+        "category": "Parts",
+        "sub": "Foot Controls",
+        "item": "Floorboards"
+      },
+      {
+        "category": "Parts",
+        "sub": "Foot Controls",
+        "item": "Rear Sets"
+      },
+      {
+        "category": "Parts",
+        "sub": "Gas & Oil Tanks",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Lubricants",
+        "item": "Chain Lubricant"
+      },
+      {
+        "category": "Parts",
+        "sub": "Lubricants",
+        "item": "Engine Oil"
+      },
+      {
+        "category": "Parts",
+        "sub": "Lubricants",
+        "item": "Fuel Cans & Storage"
+      },
+      {
+        "category": "Parts",
+        "sub": "Handlebars & Controls",
+        "item": "Clip-Ons"
+      },
+      {
+        "category": "Parts",
+        "sub": "Handlebars & Controls",
+        "item": "Grips"
+      },
+      {
+        "category": "Parts",
+        "sub": "Handlebars & Controls",
+        "item": "Handlebars"
+      },
+      {
+        "category": "Parts",
+        "sub": "Handlebars & Controls",
+        "item": "Levers"
+      },
+      {
+        "category": "Parts",
+        "sub": "Hitch & Towing",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Lighting",
+        "item": "Light Bars"
+      },
+      {
+        "category": "Parts",
+        "sub": "Lighting",
+        "item": "Lighting Hardware"
+      },
+      {
+        "category": "Parts",
+        "sub": "Lighting",
+        "item": "Tail and Chase lights"
+      },
+      {
+        "category": "Parts",
+        "sub": "Lighting",
+        "item": "Ambient Lighting"
+      },
+      {
+        "category": "Parts",
+        "sub": "Roofs and Doors",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Seat Harnesses",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Racks",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Plows",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Mirrors",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Seats & Sissy Bars",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Suspension & Frame",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Wheel & Axle",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Windshields & Windscreens",
+        "item": ""
+      },
+      {
+        "category": "Parts",
+        "sub": "Winches and Accessories",
+        "item": ""
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Touring"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Sport"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "V-Twin & Cruiser"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Super Moto"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Dual Sport"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Dirt Bike"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Race"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Scooter"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Vintage"
+      },
+      {
+        "category": "Tires",
+        "sub": "Motorcycles",
+        "item": "Tire Accessories"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "Head Terrain / Street"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "All Terrain"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "DOT Approved"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "Sand"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "Soft Terrain/ Mid/ Aggressive"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "2-4 Ply Tires"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "6 Ply Tires"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "8 Ply Tires"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "10 Ply Tires"
+      },
+      {
+        "category": "Tires",
+        "sub": "UTV/ATV",
+        "item": "Tire Accessories"
+      },
+      {
+        "category": "Wheels",
+        "sub": "Bead Lock Wheels",
+        "item": ""
+      },
+      {
+        "category": "Wheels",
+        "sub": "Lug Nuts",
+        "item": ""
+      },
+      {
+        "category": "Wheels",
+        "sub": "Wheel Spacers",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Battery Chargers",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Books & DVDs",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "Camping",
+        "item": "Camping Kitchen"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Sleeping Bags & Pads"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tents"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Cleaning Supplies",
+        "item": "Chain Care"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Electronics & Mounts",
+        "item": "Bluetooth Communications"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Cameras"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "GPS"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Mounts"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Power Adapters"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Gifts",
+        "item": "Keychains"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Toys & Models"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Wallets"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Luggage & Backpacks",
+        "item": "Backpacks"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Luggage Racks"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Saddlebags"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tail Bags"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tank Bags"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Security",
+        "item": "Alarms"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Locks & Chains"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Tools",
+        "item": "Hand Tools"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tire Repair"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tool Kits"
+      },
+      {
+        "category": "Accessories",
+        "sub": "Transport & Storage",
+        "item": "Covers"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Ramps"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Stands"
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": "Tie Downs"
+      }
+    ],
+    "apparel": [
+      {
+        "category": "Tops",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Bottoms",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Gloves",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Watches",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Eye Wear",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Caps",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Foot Wear",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Accessories",
+        "sub": "",
+        "item": ""
+      }
+    ],
+    "hobbyist": [
+      {
+        "category": "Die-Cast Models",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Posters",
+        "sub": "",
+        "item": ""
+      },
+      {
+        "category": "Remote Controlled",
+        "sub": "",
+        "item": ""
+      }
+    ],
+    "heavy": [
+      {
+        "category": "Air Accessories",
+        "sub": "Air Cylinders",
+        "item": "Air Cylinders"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Cylinders",
+        "item": "Components & Accessories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Horns & Accessories",
+        "item": "Air Horns"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Horns & Accessories",
+        "item": "Air Horns Valves"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Horns & Accessories",
+        "item": "Components & Accessories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Horns & Accessories",
+        "item": "Mini Air Compressor"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Tanks & Accessories",
+        "item": "Air Tanks"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Tanks & Accessories",
+        "item": "Components & Accesories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Air Tanks & Accessories",
+        "item": "Drain Valves"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Actuators"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Air Vent"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Components & Accesories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Control Valves"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Dump Valves"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Height Control Valve"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Pilot Valve"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Pneumatic Pedal Treadle"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Pressure Protection Valves"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Pressure Regulators"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Control Valves",
+        "item": "Solenoids"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Foot Valves",
+        "item": "Components & Accesories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Foot Valves",
+        "item": "Electronic Floor Pedal"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Foot Valves",
+        "item": "Pneumatic Floor Pedal"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Components & Accessories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Glandhand"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Glandhand Grip"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Glandhand Seal"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Holders"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Glandhands, Air Coils and Accesories",
+        "item": "Hoses"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Pressure Gauge",
+        "item": ""
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Suspension Air Control",
+        "item": "Air Suspension Valves & Components"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Suspension Air Control",
+        "item": "Air Valve Linkage Kit"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Suspension Air Control",
+        "item": "Control Valve Box Panel"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Suspension Air Control",
+        "item": "Hose"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Wiper Motor - Air",
+        "item": "Components & Accessories"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Wiper Motor - Air",
+        "item": "Wiper Motor - Air"
+      },
+      {
+        "category": "Air Accessories",
+        "sub": "Wiper Motor - Air",
+        "item": "Wiper Motor Valve"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "A/C Add-on Mounting Brackets"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "A/C Backwall Units"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "A/C Condensers Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "Add-on Units Components"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "Bus Systems"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "Headliner Units"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "No-Idle System Components"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "No-Idle System"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Add-on Units",
+        "item": "Roof Top Units"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Chemicals & Lubricants",
+        "item": "A/C Flush"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Chemicals & Lubricants",
+        "item": "Coil Cleaner"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Chemicals & Lubricants",
+        "item": "Ester Oil"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Chemicals & Lubricants",
+        "item": "Other Chemicals & Lubricants"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Chemicals & Lubricants",
+        "item": "Pag Oil"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "1. T/CCI-York Style A2 Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "3. T/CCI-York Style PV8 Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "9. A/C Compressor Components"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "A/C Compressor Clutches"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "Sanden Style A2 Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "Sanden Style other Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "Sanden Style PV6 Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "Sanden Style PV8 Clutch Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressor Clutches & Components",
+        "item": "Seltec Style Clutches"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Compressors",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Condensers",
+        "item": "All Condensors"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Control Switches & Control Panel Assy",
+        "item": "A/C Blower Switches"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Evaporator Cores",
+        "item": "A/C Evaporator Cores"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Expansion Valves & Orifice Tube",
+        "item": "Block Type-Flange"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Expansion Valves & Orifice Tube",
+        "item": "Orifice Tube"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Fittings",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Hoses",
+        "item": "A/C Hoses"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Hoses",
+        "item": "A/C Suction Hose Assy (Liquid)"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Knobs",
+        "item": "Knob Components & Accessories"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Louvers & Duct Hoses",
+        "item": "Components & Accessories"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C O-Rings & Seals",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Pressure Switches & Harness",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Receiver Driers & Accumulators",
+        "item": "A/C Accumulators"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Receiver Driers & Accumulators",
+        "item": "O'ring A/C Receiver Driers"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Thermostatic Switches",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Adapters"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Coupler"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Electronic Instruments"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Leak Detectors"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Recycler Filter"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Refrigerant Recovery Cylinders and Wrap-Around Heater"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Refrigerant Recovery Equipment"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Service Tools"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "A/C Thermometers"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Charging Cylinders"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Charging Scale"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Flush kit"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Gauges Accessories"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Hose"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Manifold Gauge"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Oil Injector"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Oil Injector Plunger"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Pliers & Wrench"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Psychrometer"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Vacuum Gauge"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Vacuum pump"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "A/C Tools & Equipment",
+        "item": "Valve Core Remover"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Air Filters",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Blower Motors, Fans & Blowers Assy",
+        "item": "Auxilliary Fan Assy"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Blower Motors, Fans & Blowers Assy",
+        "item": "Single Shaft Motors"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Blower Wheels & Blades",
+        "item": ""
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Add-on Heaters."
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Blower Knobs."
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Blower Switches."
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Booster Pumps."
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Defrost Fans."
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heat Actuators"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Cables"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Cores"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Fittings"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Hoses"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Motors"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Heater Wheels & Fan Blades"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Louvres & Duct Hoses"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Resistors"
+      },
+      {
+        "category": "Air Conditioning System",
+        "sub": "Cab Heating.",
+        "item": "Water Valves"
+      }
+    ]
+  }
+]

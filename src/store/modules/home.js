@@ -12,7 +12,7 @@ const state = {
   motorCycleData: [],
   selectedCarMake: "",
   selectedCarModel: "",
-  selectedClassifiedCategory: "",
+  selectedClassifiedCategory: "used-cars",
   selectedRentalCategory: "",
   postView: false,
   rentalData: [],

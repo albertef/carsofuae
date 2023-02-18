@@ -91,15 +91,15 @@ export default {
     validateNewPostForm() {
       this.newPostValidation = {
         ...this.newPostValidation,
+        brand: !this.newPost.brand,
+        model: !this.newPost.model,
+        make: !this.newPost.make,
         description: !this.newPost.description,
         place: !this.newPost.place,
         price: !this.newPost.price,
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         distance: !this.newPost.distance,
-        brand: !this.newPost.brand,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
-        model: !this.newPost.model,
-        make: !this.newPost.make,
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
         exteriorColor: !this.newPost.exteriorColor,
@@ -201,6 +201,14 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateNewPostInfo", {});
+      } else {
+        const firstError = Object.keys(this.newPostValidation).find(
+          (i) => this.newPostValidation[i] === true
+        );
+        debugger;
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
   },

@@ -252,6 +252,13 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateNewRentalInfo", {});
+      } else {
+        const firstError = Object.keys(this.newRentalValidation).find(
+          (i) => this.newRentalValidation[i] === true
+        );
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
   },

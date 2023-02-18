@@ -95,7 +95,7 @@
               <label>Display Picture</label>
               <!-- prettier-ignore -->
               <InputFile class="inputText" :error="registerValidation.displayPicture"
-                errorText="Choose a display picture" type="file" accept="image/*" placeholder="Enter Username"
+                errorText="Choose a valid display picture" type="file" accept="image/*" placeholder="Enter Username"
                 name="displayPicture" id="displayPicture" :value="individualUserDetails.displayPicture"
                 @value="updateUserDetails('displayPicture', $event)" />
             </div>

@@ -251,6 +251,13 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateNewLeaseInfo", {});
+      } else {
+        const firstError = Object.keys(this.newLeaseValidation).find(
+          (i) => this.newLeaseValidation[i] === true
+        );
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
   },
