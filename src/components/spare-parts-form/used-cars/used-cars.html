@@ -58,7 +58,7 @@
     </label>
     <!-- prettier-ignore -->
     <InputText class="inputText" :error="newPostValidation.price" errorText="Enter Price" placeholder="Enter Price"
-    id="price" :value="newPost.price" @value="updatePostData('price', $event)" />
+    id="price" :value="newPost.price" @value="updatePostData('price', $event)" type="number" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -67,7 +67,7 @@
     </label>
     <!-- prettier-ignore -->
     <InputText class="inputText" :error="newPostValidation.distance" errorText="Enter Distance"
-    placeholder="Enter Distance" id="distance" :value="newPost.distance" @value="updatePostData('distance', $event)" />
+    placeholder="Enter Distance" id="distance" :value="newPost.distance" @value="updatePostData('distance', $event)" type="number" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -90,7 +90,7 @@
   <div class="col-12 mb-3">
     <label>Display Picture</label>
     <!-- prettier-ignore -->
-    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
+    <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
     :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
   </div>
@@ -239,7 +239,8 @@
     @selectValue="updatePostData('steeringSide', $event)" />
   </div>
   <div
-    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper">
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+  >
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
     <!-- prettier-ignore -->

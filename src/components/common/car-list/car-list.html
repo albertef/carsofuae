@@ -24,7 +24,8 @@
         v-for="make in getCarMakes"
       >
         <div @click="getCarModels(make)" class="car-list">
-          {{make}}
+          <img :src="`/img/${formatTitle(make)}.png`" />
+          <p>{{make}}</p>
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
         </div>
       </div>

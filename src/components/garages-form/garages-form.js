@@ -183,6 +183,13 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateNewGarageInfo", {});
+      } else {
+        const firstError = Object.keys(this.newGarageValidation).find(
+          (i) => this.newGarageValidation[i] === true
+        );
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
   },

@@ -188,6 +188,13 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateNewMotorCyclesInfo", {});
+      } else {
+        const firstError = Object.keys(this.newPostValidation).find(
+          (i) => this.newPostValidation[i] === true
+        );
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
   },

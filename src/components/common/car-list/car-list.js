@@ -1,6 +1,7 @@
 import router from "@/router";
 import store from "@/store";
 import InputText from "@/components/common/input-text/input-text.vue";
+import { UTILS } from "@/utility/utils.js";
 
 export default {
   name: "CarList",
@@ -76,6 +77,9 @@ export default {
     },
     filterCarData(e) {
       this.value = e;
+    },
+    formatTitle(value) {
+      return UTILS.formatTitle(value);
     },
   },
 };

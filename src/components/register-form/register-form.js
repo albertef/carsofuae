@@ -272,6 +272,13 @@ export default {
           store.commit("updateAlert", alert);
         }
         store.commit("updateRegisterInfo", {});
+      } else {
+        const firstError = Object.keys(this.registerValidation).find(
+          (i) => this.registerValidation[i] === true
+        );
+        document.getElementById(firstError).scrollIntoView({
+          behavior: "smooth",
+        });
       }
     },
 
