@@ -432,13 +432,6 @@ const getters = {
       ?.map((el) => el.item);
     return [...new Set(item)].sort().filter(Boolean);
   },
-
-  // getAccessoriesCategories(state) {
-  //   console.log(state.selectedAccessoriesType)
-  //   return [...new Set(rawAccessoriesCategoryList(state)?.map((cat) => cat.category))]
-  //     .sort()
-  //     .filter(Boolean);
-  // },
 };
 
 const mutations = {
