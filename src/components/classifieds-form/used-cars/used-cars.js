@@ -205,7 +205,6 @@ export default {
         const firstError = Object.keys(this.newPostValidation).find(
           (i) => this.newPostValidation[i] === true
         );
-        debugger;
         document.getElementById(firstError).scrollIntoView({
           behavior: "smooth",
         });

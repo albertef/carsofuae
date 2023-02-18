@@ -1,15 +1,15 @@
-import Radio from '@/components/common/radio/radio.vue'
-import InputText from '@/components/common/input-text/input-text.vue'
-import InputFile from '@/components/common/input-file/input-file.vue'
-import Button from '@/components/common/button/button.vue'
-import Select from '@/components/common/select/select.vue'
-import store from '@/store'
-import router from '@/router'
-import { META } from '@/meta/common.js'
-import { UTILS } from '@/utility/utils.js'
+import Radio from "@/components/common/radio/radio.vue";
+import InputText from "@/components/common/input-text/input-text.vue";
+import InputFile from "@/components/common/input-file/input-file.vue";
+import Button from "@/components/common/button/button.vue";
+import Select from "@/components/common/select/select.vue";
+import store from "@/store";
+import router from "@/router";
+import { META } from "@/meta/common.js";
+import { UTILS } from "@/utility/utils.js";
 
 export default {
-  name: 'AccessoriesForm',
+  name: "AccessoriesForm",
   components: {
     Radio,
     InputText,
@@ -21,56 +21,54 @@ export default {
   data() {
     return {
       newPost: {
-        type: '',
-        category: '',
-        subcategory: '',
-        accessoryItem: '',
-        price: '',
-        sellerType: '',
-        accessoriesCondition: '',
-        accessoriesUsage: '',
-        warranty: '',
-        city: '',
-        name: '',
-        phone: '',
-        email: '',
-        place: '',
-        galleryImages: '',
-        imageFolder: '',
-        displayPicture: '',
-        postedBy: '',
+        type: "",
+        category: "",
+        subcategory: "",
+        accessoryItem: "",
+        price: "",
+        sellerType: "",
+        accessoriesCondition: "",
+        accessoriesUsage: "",
+        warranty: "",
+        city: "",
+        name: "",
+        phone: "",
+        email: "",
+        place: "",
+        galleryImages: "",
+        imageFolder: "",
+        displayPicture: "",
+        postedBy: "",
       },
       newPostValidation: {},
-    }
+    };
   },
   async mounted() {
-    debugger;
-    await store.dispatch('getAccessoriesList')
+    await store.dispatch("getAccessoriesList");
   },
   computed: {
     loginInfo() {
-      return store.state.home.loginInfo
+      return store.state.home.loginInfo;
     },
     newAccessoriesInfo() {
-      return store.state.home.newAccessoriesInfo
+      return store.state.home.newAccessoriesInfo;
     },
     utils() {
-      return UTILS
+      return UTILS;
     },
     getSelectedClassifiedCategory() {
       return (
         this.$store.state.home.selectedClassifiedCategory ||
         this.$route.query.category
-      )
+      );
     },
     accessoriesTypeList() {
-      return META.accessoriesCategoryFormat.map((item) => item.id)
+      return META.accessoriesCategoryFormat.map((item) => item.id);
     },
     accessoriesCategoryList() {
       return store.getters.getAccessoriesCategories;
     },
     subCategoryList() {
-      debugger
       return store.getters.getAccessoriesSubCategories;
     },
     // update by jesmi
@@ -80,30 +78,25 @@ export default {
   },
   methods: {
     updatePostData(key, e) {
-      if (key === 'type') {
-        debugger
-        store.commit('updateSelectedAccessoriesType', e)
-      } else if (key === 'category') {
-        debugger
-        store.commit('updateSelectedAccessoriesCategory', e)
-      } else if (key === 'subcategory') {
-        debugger
-        store.commit('updateSelectedAccessoriesSubCategory', e)
-      } else if (key === 'accessoryItem') {
-        debugger
-        store.commit('updateSelectedAccessoriesItem', e)
+      if (key === "type") {
+        store.commit("updateSelectedAccessoriesType", e);
+      } else if (key === "category") {
+        store.commit("updateSelectedAccessoriesCategory", e);
+      } else if (key === "subcategory") {
+        store.commit("updateSelectedAccessoriesSubCategory", e);
+      } else if (key === "accessoryItem") {
+        store.commit("updateSelectedAccessoriesItem", e);
       }
       this.newPost = {
         ...this.newPost,
         [key]: e,
-      }
+      };
     },
     resetValidation() {
-      this.newPostValidation = {}
+      this.newPostValidation = {};
     },
 
     validateNewPostForm() {
-      debugger;
       this.newPostValidation = {
         ...this.newPostValidation,
         type: !this.newPost.type,
@@ -122,53 +115,51 @@ export default {
         place: !this.newPost.place,
         galleryImages: !this.newPost.galleryImages,
         displayPicture: !this.newPost.displayPicture,
-      }
+      };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
         ? true
-        : false
+        : false;
     },
     cancelPost() {
-      this.$router.go(-1)
+      this.$router.go(-1);
     },
     async submitPost() {
-      debugger;
       if (this.validateNewPostForm()) {
-        debugger;
-        let params = { ...this.newPost, postedBy: this.loginInfo?.id }
-        store.commit('updateLoader', true)
+        let params = { ...this.newPost, postedBy: this.loginInfo?.id };
+        store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(
-          'imageUpload',
-          params.galleryImages,
-        )
-        let response = null
+          "imageUpload",
+          params.galleryImages
+        );
+        let response = null;
         if (galleryImageUploadResponse.length > 1) {
           response = galleryImageUploadResponse.find(
-            (item) => item.status === false,
+            (item) => item.status === false
           )
             ? false
-            : true
+            : true;
           params = {
             ...params,
             galleryImages: galleryImageUploadResponse
               .map((item) => item.fileName)
-              .join(','),
+              .join(","),
             imageFolder: galleryImageUploadResponse
               .map((item) => item.folderName)
-              .join(','),
-          }
+              .join(","),
+          };
         } else {
           params = {
             ...params,
             galleryImages: galleryImageUploadResponse.fileName,
             imageFolder: galleryImageUploadResponse.folderName,
-          }
+          };
         }
         const displayPictureUploadResponse = await this.$store.dispatch(
-          'imageUpload',
-          params.displayPicture,
-        )
+          "imageUpload",
+          params.displayPicture
+        );
 
         if (
           (response || galleryImageUploadResponse.status) &&
@@ -178,40 +169,39 @@ export default {
             params = {
               ...params,
               displayPicture: displayPictureUploadResponse.fileName,
-            }
-            await this.$store.dispatch('newAccessoriesPost', params)
+            };
+            await this.$store.dispatch("newAccessoriesPost", params);
           } else {
             const alert = {
               show: true,
-              type: 'error',
+              type: "error",
               message:
                 this.newAccessoriesInfo.message ||
                 galleryImageUploadResponse ||
                 META.commonErrorMessage,
-            }
-            store.commit('updateAlert', alert)
+            };
+            store.commit("updateAlert", alert);
           }
 
-        store.commit('updateLoader', false)
+        store.commit("updateLoader", false);
         if (this.newAccessoriesInfo.status) {
           const alert = {
             show: true,
-            type: 'success',
+            type: "success",
             message: this.newAccessoriesInfo.message || META.commonErrorMessage,
-          }
-          store.commit('updateAlert', alert)
-          router.go(-1)
+          };
+          store.commit("updateAlert", alert);
+          router.go(-1);
         } else {
           const alert = {
             show: true,
-            type: 'error',
+            type: "error",
             message: this.newAccessoriesInfo.message || META.commonErrorMessage,
-          }
-          store.commit('updateAlert', alert)
+          };
+          store.commit("updateAlert", alert);
         }
-        store.commit('updateNewAccessoriesInfo', {})
+        store.commit("updateNewAccessoriesInfo", {});
       }
     },
   },
-}
-git 
+};

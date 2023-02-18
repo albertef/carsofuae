@@ -8,7 +8,6 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 
-
 export default {
   name: "SpareBikesForm",
   components: {
@@ -66,29 +65,28 @@ export default {
       return UTILS;
     },
     sparePartsCategoryList() {
-      return META.spareCategoryFormat.map(item=>item.title);
+      return META.spareCategoryFormat.map((item) => item.title);
     },
     categoryList() {
       return store.getters.getSpareCategories;
     },
     subCategoryList() {
       return store.getters.getSpareSubCategories;
-    }, 
+    },
     spareItemList() {
       return store.getters.getSpareItemList;
-    }, 
-    
+    },
   },
   methods: {
     // getCategoryOptions(type) {
     //   store.commit("updateSelectedSpareType", type);
     // },
     updatePostData(key, e) {
-      if(key === "category"){
+      if (key === "category") {
         store.commit("updateSelectedSpareCategory", e);
-      } else if(key === "subcategory") {
+      } else if (key === "subcategory") {
         store.commit("updateSelectedSpareSubCategory", e);
-      } else if(key === "spareItem") {
+      } else if (key === "spareItem") {
         store.commit("updateSelectedSpareItem", e);
       }
       this.newPost = {
@@ -100,7 +98,6 @@ export default {
       this.newPostValidation = {};
     },
     validateNewPostForm() {
-      debugger;
       this.newPostValidation = {
         ...this.newPostValidation,
         name: !this.newPost.name,
@@ -118,7 +115,7 @@ export default {
         galleryImages: !this.newPost.galleryImages,
         warranty: !this.newPost.warranty,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
-        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),      
+        email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)
@@ -129,7 +126,7 @@ export default {
       this.$router.go(-1);
     },
     async submitPost() {
-       if (this.validateNewPostForm()) {
+      if (this.validateNewPostForm()) {
         let params = { ...this.newPost, postedBy: this.loginInfo?.id };
         store.commit("updateLoader", true);
 
