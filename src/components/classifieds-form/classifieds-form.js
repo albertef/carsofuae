@@ -8,6 +8,8 @@ import Boats from "@/components/classifieds-form/boats/boats.vue";
 import Motorcycles from "@/components/classifieds-form/motorcycles/motorcycles.vue";
 import Truck from "@/components/classifieds-form/truck/truck.vue";
 import NumberPlates from "@/components/classifieds-form/number-plates/number-plates.vue";
+import Accessories from "@/components/classifieds-form/accessories-and-parts/accessories-and-parts.vue";
+
 
 import store from "@/store";
 import router from "@/router";
@@ -27,6 +29,7 @@ export default {
     Motorcycles,
     Truck,
     NumberPlates,
+    Accessories,
   },
 
   data() {

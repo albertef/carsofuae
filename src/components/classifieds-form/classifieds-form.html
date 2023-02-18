@@ -7,7 +7,7 @@
             <h5 class="mt-5 mb-4">Post a new Ad</h5>
           </div>
           <div class="col-12 mb-3">
-            <label>Select Category <span>*</span></label>
+            <label>Select Main Category <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="categoryList"
               default="Select Category" @selectValue="getCategoryOptions($event)" />
@@ -17,6 +17,7 @@
           <Motorcycles v-if="selectedCategory==='motorcycles'" />
           <Truck v-if="selectedCategory==='truck'" />
           <NumberPlates v-if="selectedCategory==='number-plates'" />
+          <Accessories v-if="selectedCategory==='accessories-and-parts'" />
         </div>
       </div>
     </div>

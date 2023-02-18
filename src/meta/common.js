@@ -408,6 +408,28 @@ export const META = {
       image: "truck.png",
     },
   ],
+  accessoriesCategoryFormat: [
+    {
+      id: "cars",
+      title: "Cars",
+      image: "car.png",
+    },
+    {
+      id: "bikes",
+      title: "Bikes",
+      image: "bike.png",
+    },
+    {
+      id: "heavy",
+      title: "Heavy",
+      image: "truck.png",
+    },
+    {
+      id: "hobbyist",
+      title: "Hobbyist",
+      image: "hobbyist.png",
+    },
+  ],
   loginUserType: [
     {
       individual: {

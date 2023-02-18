@@ -322,4 +322,7 @@ export const UTILS = {
   numPlatesDigitsList() {
     return ["1", "2", "3", "4", "5"];
   },
+  accessoriesCityList() {
+    return ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Umm Al Quwain","Ras Al Khaima","Fujairah","Al Ain",];
+   },
  }
