@@ -1,0 +1,29 @@
+<div class="accessories-list-wrapper container mb-5">
+  <div class="row">
+    <div class="col-12 mt-4 mb-1">
+      <h5 class="heading">
+        Select Accessories 
+        <span>{{getSelectedAccessoriesType}}</span>
+      </h5>
+    </div>
+    <div class="col-12 my-3 search-wrapper">
+      <InputText
+        :id="filterInputId"
+        class="inputText"
+        :placeholder="'Search Accessories Type'"
+        :value="value"
+        @value="filterAccessoriesData($event)"
+      />
+      <div class="d-flex justify-content-center mt-2 text-uppercase">
+        {{getAccessoriesTypeCount}} Types Found
+      </div>
+    </div>
+    <template>
+      <div class="col-xs-12 col-lg-2 my-3 accessories-list-cont" v-for="item in getCategories">
+        <div @click="getCategoryOptions(item.title)" class="accessories-list">
+          {{item.title}}
+        </div>
+      </div>
+    </template>
+  </div>
+</div>

@@ -1,85 +1,85 @@
-import router from "@/router";
-import store from "@/store";
-import InputText from "@/components/common/input-text/input-text.vue";
-import { UTILS } from "@/utility/utils.js";
+import router from '@/router'
+import store from '@/store'
+import InputText from '@/components/common/input-text/input-text.vue'
+import { UTILS } from '@/utility/utils.js'
 
 export default {
-  name: "CarList",
+  name: 'CarList',
   components: {
     InputText,
   },
   data() {
     return {
-      value: "",
-      filterInputId: "carFilter",
-    };
+      value: '',
+      filterInputId: 'carFilter',
+    }
   },
   async mounted() {
-    await this.$store.dispatch("getCarList");
-    store.commit("updateSelectedCarMake", this.queryParams.make || "");
-    store.commit("updateSelectedCarModel", this.queryParams.model || "");
-    document.getElementById(this.filterInputId)?.focus();
+    await this.$store.dispatch('getCarList')
+    store.commit('updateSelectedCarMake', this.queryParams.make || '')
+    store.commit('updateSelectedCarModel', this.queryParams.model || '')
+    document.getElementById(this.filterInputId)?.focus()
   },
   computed: {
     queryParams() {
-      return this.$route.query;
+      return this.$route.query
     },
     getCarMakes() {
-      const filteredData = this.$store.getters.getAllMakes;
+      const filteredData = this.$store.getters.getAllMakes
       return filteredData.filter((make) =>
-        String(make).toLowerCase().includes(this.value.toLowerCase())
-      );
+        String(make).toLowerCase().includes(this.value.toLowerCase()),
+      )
     },
     getCarMakeCount() {
-      return this.getCarMakes.length;
+      return this.getCarMakes.length
     },
     getCarModelCount() {
-      return this.getAllModels.length;
+      return this.getAllModels.length
     },
     getAllModels() {
       const filteredData = this.$store.getters.getAllModels(
-        this.getSelectedCarMake
-      );
+        this.getSelectedCarMake,
+      )
       return filteredData.filter((model) =>
-        String(model).toLowerCase().includes(this.value.toLowerCase())
-      );
+        String(model).toLowerCase().includes(this.value.toLowerCase()),
+      )
     },
     getSelectedCarMake() {
-      return this.$store.state.home.selectedCarMake;
+      return this.$store.state.home.selectedCarMake
     },
     getSelectedCarModel() {
-      return this.$store.state.home.selectedCarModel;
+      return this.$store.state.home.selectedCarModel
     },
     getBreadCrumb() {
-      return Object.values(this.queryParams);
+      return Object.values(this.queryParams)
     },
   },
   methods: {
     getCarModels(make) {
-      store.commit("updateSelectedCarMake", make);
-      this.value = "";
-      document.getElementById(this.filterInputId).focus();
+      store.commit('updateSelectedCarMake', make)
+      this.value = ''
+      document.getElementById(this.filterInputId).focus()
       router.push({
         query: {
           ...this.queryParams,
           make: this.getSelectedCarMake,
         },
-      });
+      })
     },
     getposts(model) {
-      store.commit("updateSelectedCarModel", model);
+      store.commit('updateSelectedCarModel', model)
       router.push({
         query: {
           ...this.queryParams,
           model: this.getSelectedCarModel,
         },
-      });
+      })
     },
     filterCarData(e) {
-      this.value = e;
+      this.value = e
     },
     formatTitle(value) {
-      return UTILS.formatTitle(value);
+      return UTILS.formatTitle(value)
     },
   },
-};
+}
