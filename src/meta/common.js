@@ -408,7 +408,7 @@ export const META = {
       image: "truck.png",
     },
   ],
-  accessoriesCategoryFormat: [
+  accessoriesTypeFormat: [
     {
       id: "cars",
       title: "Cars",

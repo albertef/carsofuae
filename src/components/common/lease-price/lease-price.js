@@ -34,7 +34,9 @@ export default {
         isExist[0] =
           type === "price"
             ? { ...isExist[0], price: value }
-            : type === "kilometer" ? { ...isExist[0], kilometer: value } :  { ...isExist[0], downPayment: value };
+            : type === "kilometer"
+            ? { ...isExist[0], kilometer: value }
+            : { ...isExist[0], downPayment: value };
         this.selected = [
           ...this.selected.filter((item) => item.time !== time),
           isExist[0],
@@ -50,7 +52,6 @@ export default {
           down: el.downPayment,
         };
       });
-      console.log(formatted);
       this.$emit("value", formatted);
     },
   },

@@ -3,207 +3,207 @@
     "cars": [
       {
         "category": "Cars",
-        "sub": "Filters ",
+        "sub": "Filters",
         "item": "AC Filter "
       },
       {
         "category": "Cars",
-        "sub": "Filters ",
+        "sub": "Filters",
         "item": "Air Filter "
       },
       {
         "category": "Cars",
-        "sub": "Filters ",
+        "sub": "Filters",
         "item": "Fuel Filter "
       },
       {
         "category": "Cars",
-        "sub": "Filters ",
+        "sub": "Filters",
         "item": "Oil filter "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Engine oil "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Oil Service "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Transmission Oil "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Brake fluids "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Coolants "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Spray and Cleaners "
       },
       {
         "category": "Cars",
-        "sub": "Oil and Lubricants ",
+        "sub": "Oil and Lubricants",
         "item": "Fuel Injector Fluid "
       },
       {
         "category": "Cars",
-        "sub": "Braking ",
+        "sub": "Braking",
         "item": "Brake Sensors "
       },
       {
         "category": "Cars",
-        "sub": "Braking ",
+        "sub": "Braking",
         "item": "Discs "
       },
       {
         "category": "Cars",
-        "sub": "Braking ",
+        "sub": "Braking",
         "item": "Brakes "
       },
       {
         "category": "Cars",
-        "sub": "Braking ",
+        "sub": "Braking",
         "item": "Brake Callipers "
       },
       {
         "category": "Cars",
-        "sub": "Ignition ",
+        "sub": "Ignition",
         "item": "Alternator "
       },
       {
         "category": "Cars",
-        "sub": "Ignition ",
+        "sub": "Ignition",
         "item": "Batteries "
       },
       {
         "category": "Cars",
-        "sub": "Ignition ",
+        "sub": "Ignition",
         "item": "Coils "
       },
       {
         "category": "Cars",
-        "sub": "Ignition ",
+        "sub": "Ignition",
         "item": "Spark Plugs "
       },
       {
         "category": "Cars",
-        "sub": "Ignition ",
+        "sub": "Ignition",
         "item": "Starter "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "AC Compressor "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "Blower motor "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "Condensor "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "Evaporator "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "Expansion Valve "
       },
       {
         "category": "Cars",
-        "sub": "Air Conditioning ",
+        "sub": "Air Conditioning",
         "item": "Reciver Drier "
       },
       {
         "category": "Cars",
-        "sub": "Cooling ",
+        "sub": "Cooling",
         "item": "Radiator "
       },
       {
         "category": "Cars",
-        "sub": "Cooling ",
+        "sub": "Cooling",
         "item": "Radiator Fan "
       },
       {
         "category": "Cars",
-        "sub": "Cooling ",
+        "sub": "Cooling",
         "item": "Thermostat "
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "Axle Boots"
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "Axles "
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "Bearings "
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "CV Joints "
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "Driveshafts "
       },
       {
         "category": "Cars",
-        "sub": "Drive Train ",
+        "sub": "Drive Train",
         "item": "Mounts "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Ball Joints "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Control Arm "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Shocks "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Springs "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Stablizer Link "
       },
       {
         "category": "Cars",
-        "sub": "Suspension ",
+        "sub": "Suspension",
         "item": "Tierod "
       },
       {
@@ -212,92 +212,92 @@
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Drivebelt "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Gaskets "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Tensioner "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Sensors "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Pistons"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Valves "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Camshaft"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Crankshaft"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Cylinder head"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Engine block"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Pumps"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "DipStick "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Connecting Rods"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Timing Chain"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Timing Belt"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Strut Bars "
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Oil pan"
       },
       {
         "category": "Cars",
-        "sub": "Engine Components ",
+        "sub": "Engine Components",
         "item": "Others"
       },
       {
@@ -306,472 +306,472 @@
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Brake Lights "
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Bulbs "
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Bumper Lights "
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Day Time Running Lights"
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Driving Lights"
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Fog Lights "
       },
       {
         "category": "Cars",
-        "sub": "Lightings ",
+        "sub": "Lightings",
         "item": "Miscellaneous "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Carburetors "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Fuel Components "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Fuel Injectors "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Fuel Manifolds "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Fuel Pressure Regulators "
       },
       {
         "category": "Cars",
-        "sub": "Fuel Delivery ",
+        "sub": "Fuel Delivery",
         "item": "Miscellaneous "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Bumpers "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Side Skirts "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Lip Kit "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Diffuser "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Spoilers "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Full Body Kit Package "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Hood "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Canards "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Fenders "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Louvers "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Bull Bars "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Rails "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Body Armour "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Antenna "
       },
       {
         "category": "Cars",
-        "sub": "Body Kits ",
+        "sub": "Body Kits",
         "item": "Kits"
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Blow Off Valve "
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Boost Contollers "
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Forced Induction Components "
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Fuel Components "
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Inter Coolers "
       },
       {
         "category": "Cars",
-        "sub": "Forced Induction ",
+        "sub": "Forced Induction",
         "item": "Miscellaneous "
       },
       {
         "category": "Cars",
-        "sub": "Air Intake ",
+        "sub": "Air Intake",
         "item": "Air Intake Components "
       },
       {
         "category": "Cars",
-        "sub": "Air Intake ",
+        "sub": "Air Intake",
         "item": "Cold Air Intake "
       },
       {
         "category": "Cars",
-        "sub": "Air Intake ",
+        "sub": "Air Intake",
         "item": "Scoops and Snorkels "
       },
       {
         "category": "Cars",
-        "sub": "Programmers and Chips ",
+        "sub": "Programmers and Chips",
         "item": "Controllers "
       },
       {
         "category": "Cars",
-        "sub": "Programmers and Chips ",
+        "sub": "Programmers and Chips",
         "item": "Performance Monitors "
       },
       {
         "category": "Cars",
-        "sub": "Programmers and Chips ",
+        "sub": "Programmers and Chips",
         "item": "Performance Packages "
       },
       {
         "category": "Cars",
-        "sub": "Programmers and Chips ",
+        "sub": "Programmers and Chips",
         "item": "Programmers and Tuners "
       },
       {
         "category": "Cars",
-        "sub": "Programmers and Chips ",
+        "sub": "Programmers and Chips",
         "item": "Tuning Files"
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "All Season Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "Run Flat Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "Energy Saving Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "Hi Performance Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "Off Road Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Tyres ",
+        "sub": "Tyres",
         "item": "Budget Tyres "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Steel "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Aluminium "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Alloy "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Chrome "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Spinners "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Bead Lock "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Carbon Fiber "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Cast and Forged "
       },
       {
         "category": "Cars",
-        "sub": "Rims ",
+        "sub": "Rims",
         "item": "Other "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Hubcentric Rings "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Lug Nuts "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Spare Tyre Carriers "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Tyre Pressure Sensors "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Spare Wheel Cover "
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Wheel Cap"
       },
       {
         "category": "Cars",
-        "sub": "Wheel ",
+        "sub": "Wheel",
         "item": "Other "
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Axle-back "
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Cat-back"
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Catalytic Converter "
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Exhaust Hardware "
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Headers and Manifolds "
       },
       {
         "category": "Cars",
-        "sub": "Exhaust ",
+        "sub": "Exhaust",
         "item": "Muffler"
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Cameras "
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Dash Mounts"
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Floor Mats "
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Gauge Pods "
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Gauges "
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Upholestry "
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Tinting"
       },
       {
         "category": "Cars",
-        "sub": "Interior ",
+        "sub": "Interior",
         "item": "Miscellaneous "
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Harness Bar "
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Gloves "
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Fire Safety "
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Helmets"
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Racing Seats "
       },
       {
         "category": "Cars",
-        "sub": "Racing Gear and Safety ",
+        "sub": "Racing Gear and Safety",
         "item": "Safety Belts "
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Jacks "
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Tow Hooks & Straps "
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Winch accessories "
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Winch Kits"
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Winch Mounts"
       },
       {
         "category": "Cars",
-        "sub": "Winches ",
+        "sub": "Winches",
         "item": "Winches "
       },
       {
         "category": "Cars",
-        "sub": "Audio ",
+        "sub": "Audio",
         "item": "Speakers "
       },
       {
         "category": "Cars",
-        "sub": "Audio ",
+        "sub": "Audio",
         "item": "Sub Woofers"
       },
       {
         "category": "Cars",
-        "sub": "Audio ",
+        "sub": "Audio",
         "item": "Amplifiers "
       },
       {
         "category": "Cars",
-        "sub": "Audio ",
+        "sub": "Audio",
         "item": "Infotainment Systems"
       },
       {
@@ -780,327 +780,327 @@
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Badging "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Key Fobs "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Cup Holders"
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Key Chains "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Pendants "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Stickers "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Sun Shade "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Refrigerator "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Interior Lighting "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Gear Knob"
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Car Cover "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Booster Cable "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Car Vaccum "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Horns "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Safety Reflector"
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Car Cleaning Products "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Car Refreshner "
       },
       {
         "category": "Cars",
-        "sub": "Accessories ",
+        "sub": "Accessories",
         "item": "Other "
       }
     ],
     "bikes": [
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Base and Mid Layers "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "Short Boots & Shoes"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "Tall Boots"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "ADV/Touring Boots"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "Dirt Bike Boots"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "HD & Cruiser Boots"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "Track & Race Boots"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Boots",
         "item": "Socks"
       },
       {
-        "category": "Riding Gear ",
-        "sub": "Casual Clothing ",
+        "category": "Riding Gear",
+        "sub": "Casual Clothing",
         "item": "Hats "
       },
       {
-        "category": "Riding Gear ",
-        "sub": "Casual Clothing ",
+        "category": "Riding Gear",
+        "sub": "Casual Clothing",
         "item": "Shirts "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Eyewear",
         "item": "Sunglasses"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Eyewear",
         "item": "Goggles"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Gloves",
         "item": "Short Cuff"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Gloves",
         "item": "Gauntlet"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Gloves",
         "item": "Waterproof"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Gloves",
         "item": "Winter"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Heated Gear",
         "item": "Jacket Liners & Vests"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Heated Gear",
         "item": "Gloves & Glove Liners"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Headwear"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Full Face "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Modular "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Dual Sport "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Dirt "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Snow Mobile "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Open face and 3/4 "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Half Helmets "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Helmet Accessories "
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Bluetooth Communications"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Helmets",
         "item": "Visor"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "Textile"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "Leather"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "Waterproof"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "Winter"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "4 Season"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jackets & Vests",
         "item": "Riding Shirts"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Jerseys"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Pants",
         "item": "Riding Pants"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Pants",
         "item": "Riding Jeans"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Pants",
         "item": "Motocross Pants"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Protection",
         "item": "Air Bags"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Protection",
         "item": "Armored Shorts & Pants"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Protection",
         "item": "Armored Tops"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Protection",
         "item": "Back Protectors"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Protection",
         "item": "Knee Braces & Guards"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Rain Gear"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Race Suits"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Riding Suits"
       },
       {
-        "category": "Riding Gear ",
+        "category": "Riding Gear",
         "sub": "Youth Gear"
       },
       {
@@ -1256,17 +1256,17 @@
       },
       {
         "category": "Parts",
-        "sub": "Lubricants ",
+        "sub": "Lubricants",
         "item": "Chain Lubricant"
       },
       {
         "category": "Parts",
-        "sub": "Lubricants ",
+        "sub": "Lubricants",
         "item": "Engine Oil "
       },
       {
         "category": "Parts",
-        "sub": "Lubricants ",
+        "sub": "Lubricants",
         "item": "Fuel Cans & Storage"
       },
       {
@@ -1354,115 +1354,115 @@
         "sub": "Winches and Accessories"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Touring"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Sport"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "V-Twin & Cruiser"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Super Moto"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Dual Sport"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Dirt Bike"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Race"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Scooter"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Vintage"
       },
       {
-        "category": "Tires ",
-        "sub": "Motorcycles ",
+        "category": "Tires",
+        "sub": "Motorcycles",
         "item": "Tire Accessories"
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "Head Terrain / Street "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "All Terrain "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "DOT Approved "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "Sand "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "Soft Terrain/ Mid/ Aggressive "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "2-4 Ply Tires "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "6 Ply Tires "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "8 Ply Tires "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "10 Ply Tires "
       },
       {
-        "category": "Tires ",
-        "sub": "UTV/ATV ",
+        "category": "Tires",
+        "sub": "UTV/ATV",
         "item": "Tire Accessories"
       },
       {
-        "category": "Wheels ",
+        "category": "Wheels",
         "sub": "Bead Lock Wheels "
       },
       {
-        "category": "Wheels ",
+        "category": "Wheels",
         "sub": "Lug Nuts"
       },
       {
-        "category": "Wheels ",
+        "category": "Wheels",
         "sub": "Wheel Spacers "
       },
       {
@@ -2185,15 +2185,15 @@
     ],
     "hobbyist": [
       {
-        "category": "Hobbyist ",
+        "category": "Hobbyist",
         "sub": "Die-Cast Models"
       },
       {
-        "category": "Hobbyist ",
+        "category": "Hobbyist",
         "sub": "Posters "
       },
       {
-        "category": "Hobbyist ",
+        "category": "Hobbyist",
         "sub": "Remote Controlled "
       }
     ]

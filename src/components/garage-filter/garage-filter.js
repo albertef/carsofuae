@@ -53,7 +53,6 @@ export default {
     },
     fullPostData() {
       return this.garageList.filter((item) => {
-        console.log(item);
         return (
           item.place?.toLowerCase() ===
             this.filterData.location?.toLowerCase() &&

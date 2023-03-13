@@ -63,7 +63,7 @@ export default {
       );
     },
     accessoriesTypeList() {
-      return META.accessoriesCategoryFormat.map((item) => item.id);
+      return META.accessoriesTypeFormat.map((item) => item.id);
     },
     accessoriesCategoryList() {
       return store.getters.getAccessoriesCategories;

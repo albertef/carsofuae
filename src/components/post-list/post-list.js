@@ -64,6 +64,18 @@ export default {
                 item?.subCategory?.toLowerCase() ===
                 this.getSelectedSubCategory?.toLowerCase()
             )
+          : this.getSelectedClassifiedCategory === "accessories-and-parts"
+          ? data?.filter(
+              (item) =>
+                item?.type?.toLowerCase() ===
+                  this.getSelectedAccessoryType?.toLowerCase() &&
+                item?.category?.toLowerCase() ===
+                  this.getSelectedAccessoryCategory?.toLowerCase() &&
+                item?.subCategory?.toLowerCase() ===
+                  this.getSelectedAccessorySubCategory?.toLowerCase() &&
+                item?.item?.toLowerCase() ===
+                  this.getSelectedAccessoryItem?.toLowerCase()
+            )
           : null;
       this.fullPostData = filteredData;
     }
@@ -102,6 +114,28 @@ export default {
     },
     getSelectedCarModel() {
       return this.$store.state.home.selectedCarModel || this.$route.query.model;
+    },
+    getSelectedAccessoryType() {
+      return (
+        this.$store.state.home.selectedAccessoriesType || this.$route.query.type
+      );
+    },
+    getSelectedAccessoryCategory() {
+      return (
+        this.$store.state.home.selectedAccessoryCategory ||
+        this.$route.query.accCategory
+      );
+    },
+    getSelectedAccessorySubCategory() {
+      return (
+        this.$store.state.home.selectedAccessorySubCategory ||
+        this.$route.query.sub
+      );
+    },
+    getSelectedAccessoryItem() {
+      return (
+        this.$store.state.home.selectedAccessoryItem || this.$route.query.item
+      );
     },
   },
   methods: {

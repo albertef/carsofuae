@@ -15,95 +15,112 @@ export default {
     };
   },
   async mounted() {
-     await this.$store.dispatch("getAccessoriesList");
-     store.commit("updateSelectedAccessoriesType", this.queryParams.type || "");
-    store.commit("updateSelectedAccessoriesCategory", this.queryParams.category || "");
-    store.commit("updateSelectedAccessoriesSubCategory", this.queryParams.sub || "");
+    await this.$store.dispatch("getAccessoriesList");
+    store.commit("updateSelectedAccessoriesType", this.queryParams.type || "");
+    store.commit(
+      "updateSelectedAccessoriesCategory",
+      this.queryParams.accCategory || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesSubCategory",
+      this.queryParams.sub || ""
+    );
     document.getElementById(this.filterInputId)?.focus();
   },
   computed: {
     queryParams() {
       return this.$route.query;
     },
-    getCategories() {
-      return META.accessoriesCategoryFormat;
+    getAccessoryTypes() {
+      return META.accessoriesTypeFormat;
     },
-    // getCarMakes() {
-    //   const filteredData = this.$store.getters.getAllMakes;
-    //   return filteredData.filter((make) =>
-    //     String(make).toLowerCase().includes(this.value.toLowerCase())
-    //   );
-    // },
+    getAccessoryCategories() {
+      return this.$store.getters.getAccessoriesCategories;
+    },
+    getAccessorySubCategories() {
+      return this.$store.getters.getAccessoriesSubCategories;
+    },
+    getAccessoryItems() {
+      return this.$store.getters.getAccessoriesItemList;
+    },
+
     getAccessoriesTypeCount() {
-      return this.getCategories.length;
+      return this.getAccessoryTypes.length;
     },
     getCarModelCount() {
       return this.getAllModels.length;
     },
-    getAllModels() {
-      const filteredData = this.$store.getters.getAllModels(
-        this.getSelectedCarMake
-      );
-      return filteredData.filter((model) =>
-        String(model).toLowerCase().includes(this.value.toLowerCase())
-      );
+
+    getSelectedAccessoryType() {
+      return this.$store.state.home.selectedAccessoriesType;
     },
-    // getSelectedCarMake() {
-    //   return this.$store.state.home.selectedCarMake;
-    // },
+    getSelectedAccessoryCategory() {
+      return this.$store.state.home.selectedAccessoryCategory;
+    },
+    getSelectedAccessorySubCategory() {
+      return this.$store.state.home.selectedAccessorySubCategory;
+    },
+    getSelectedAccessoryItem() {
+      return this.$store.state.home.selectedAccessoryItem;
+    },
     getSelectedAccessoriesType() {
-      if(this.$store.state.home.selectedAccessoriesTyp){
+      if (this.$store.state.home.selectedAccessoriesType) {
         return "Category";
-      }else if(this.$store.state.home.selectedAccessoryCategory){
-        return "SubCategory"
-      }else{
-        return "Type"; 
-      }  
+      } else if (this.$store.state.home.selectedAccessoryCategory) {
+        return "SubCategory";
+      } else {
+        return "Type";
+      }
     },
-  
-    getSelectedCarModel() {
-      return this.$store.state.home.selectedCarModel;
-    },
+
     getBreadCrumb() {
       return Object.values(this.queryParams);
     },
   },
   methods: {
-    //changes by jesmi 1
-    async getCategoryOptions(category = this.$route.query.category) {
-      // store.commit("updateSelectedClassifiedCategory", category);
-
-      // await this.$store.dispatch("getPostList", { category: category });
-
-      // router.push({
-      //   query: {
-      //     ...this.queryParams,
-      //     category: UTILS.formatTitle(this.getSelectedClassifiedCategory),
-      //   },
-      // });
-    },
-    getCarModels(make) {
-      store.commit("updateSelectedCarMake", make);
+    showAccessoryCategories(type) {
+      store.commit("updateSelectedAccessoriesType", type);
       this.value = "";
       document.getElementById(this.filterInputId).focus();
       router.push({
         query: {
           ...this.queryParams,
-          make: this.getSelectedCarMake,
+          type: this.getSelectedAccessoryType,
         },
       });
     },
-    getposts(model) {
-      store.commit("updateSelectedCarModel", model);
+    showAccessorySubCategories(category) {
+      store.commit("updateSelectedAccessoriesCategory", category);
+      this.value = "";
+      document.getElementById(this.filterInputId).focus();
       router.push({
         query: {
           ...this.queryParams,
-          model: this.getSelectedCarModel,
+          accCategory: this.getSelectedAccessoryCategory,
+        },
+      });
+    },
+    showAccessoryItems(sub) {
+      store.commit("updateSelectedAccessoriesSubCategory", sub);
+      this.value = "";
+      document.getElementById(this.filterInputId).focus();
+      router.push({
+        query: {
+          ...this.queryParams,
+          sub: this.getSelectedAccessorySubCategory,
+        },
+      });
+    },
+    showPosts(item) {
+      store.commit("updateSelectedAccessoriesItem", item);
+      router.push({
+        query: {
+          ...this.queryParams,
+          item: this.getSelectedAccessoryItem,
         },
       });
     },
     filterAccessoriesData(e) {
-      debugger;
       this.value = e;
     },
   },
