@@ -32,20 +32,45 @@ export default {
       return this.$route.query;
     },
     getAccessoryTypes() {
-      return META.accessoriesTypeFormat;
+      const filteredData = META.accessoriesTypeFormat;
+      return filteredData.filter((type) =>
+        String(type.title).toLowerCase().includes(this.value.toLowerCase())
+      );
     },
     getAccessoryCategories() {
-      return this.$store.getters.getAccessoriesCategories;
+      const filteredData = this.$store.getters.getAccessoriesCategories;
+      return filteredData.filter((cat) =>
+        String(cat).toLowerCase().includes(this.value.toLowerCase())
+      );
     },
     getAccessorySubCategories() {
-      return this.$store.getters.getAccessoriesSubCategories;
+      const filteredData = this.$store.getters.getAccessoriesSubCategories;
+      return filteredData.filter((sub) =>
+        String(sub).toLowerCase().includes(this.value.toLowerCase())
+      );
     },
     getAccessoryItems() {
-      return this.$store.getters.getAccessoriesItemList;
+      const filteredData = this.$store.getters.getAccessoriesItemList;
+      return filteredData.filter((item) =>
+        String(item).toLowerCase().includes(this.value.toLowerCase())
+      );
     },
 
-    getAccessoriesTypeCount() {
-      return this.getAccessoryTypes.length;
+    getAccessoriesCount() {
+      let length = "";
+      if (this.getSelectedAccessoryType) {
+        length = this.getAccessoryCategories.length;
+      }
+      if (this.getSelectedAccessoryCategory) {
+        length = this.getAccessorySubCategories.length;
+      }
+      if (this.getSelectedAccessorySubCategory) {
+        length = this.getAccessoryItems.length;
+      }
+      if (!this.getSelectedAccessoryType) {
+        length = this.getAccessoryTypes.length;
+      }
+      return length;
     },
     getCarModelCount() {
       return this.getAllModels.length;
@@ -64,13 +89,21 @@ export default {
       return this.$store.state.home.selectedAccessoryItem;
     },
     getSelectedAccessoriesType() {
-      if (this.$store.state.home.selectedAccessoriesType) {
-        return "Category";
-      } else if (this.$store.state.home.selectedAccessoryCategory) {
-        return "SubCategory";
-      } else {
-        return "Type";
+      debugger;
+      let name = "";
+      if (this.getSelectedAccessoryType) {
+        name = "Categories";
       }
+      if (this.getSelectedAccessoryCategory) {
+        name = "SubCategories";
+      }
+      if (this.getSelectedAccessorySubCategory) {
+        name = "Items";
+      }
+      if (!this.getSelectedAccessoryType) {
+        name = "Types";
+      }
+      return name;
     },
 
     getBreadCrumb() {

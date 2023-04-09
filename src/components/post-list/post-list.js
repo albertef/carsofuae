@@ -38,7 +38,10 @@ export default {
     if (this.data.length) {
       this.fullPostData = this.data;
     } else {
-      const params = this.getSelectedClassifiedCategory || "used-cars";
+      const params =
+        this.getSelectedClassifiedCategory ||
+        this.$route.query.category ||
+        "used-cars";
       this.fullPostData = (
         await this.$store.dispatch("getPostList", {
           category: params,
@@ -65,7 +68,7 @@ export default {
                 this.getSelectedSubCategory?.toLowerCase()
             )
           : this.getSelectedClassifiedCategory === "accessories-and-parts"
-          ? data?.filter(
+          ? this.fullPostData?.filter(
               (item) =>
                 item?.type?.toLowerCase() ===
                   this.getSelectedAccessoryType?.toLowerCase() &&

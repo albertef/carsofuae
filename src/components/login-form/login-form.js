@@ -21,7 +21,7 @@ export default {
   },
   mounted() {
     if (this.loginInfo.isLoggedIn) {
-      this.$router.go(-1);
+      router.push({ name: "Home" });
     }
     if (!this.selectedUserType) {
       this.selectedUserType = this.userTypes?.individual?.title;
@@ -67,7 +67,7 @@ export default {
           message: this.loginInfo.message,
         };
         store.commit("updateAlert", alert);
-        this.$router.go(-1);
+        router.push({ name: "Home" });
       } else {
         const alert = {
           show: true,
@@ -83,6 +83,11 @@ export default {
     newUserRegister() {
       router.push({
         name: "Register",
+      });
+    },
+    forgotPassword() {
+      router.push({
+        name: "ForgotPassword",
       });
     },
   },

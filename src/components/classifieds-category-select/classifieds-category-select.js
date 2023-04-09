@@ -26,6 +26,16 @@ export default {
       "updateSelectedSubcategory",
       this.queryParams.subcategory || ""
     );
+    store.commit("updateSelectedAccessoriesType", this.queryParams.type || "");
+    store.commit(
+      "updateSelectedAccessoriesCategory",
+      this.queryParams.accCategory || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesSubCategory",
+      this.queryParams.sub || ""
+    );
+    store.commit("updateSelectedAccessoriesItem", this.queryParams.item || "");
   },
   computed: {
     getSelectedClassifiedCategory() {

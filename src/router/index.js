@@ -20,7 +20,8 @@ import AddNewSparePartsPost from "@/views/new-spare-parts-post/new-spare-parts-p
 import AddNewGarage from "@/views/new-garage/new-garage.vue";
 import AddNewRental from "@/views/new-rental/new-rental.vue";
 import AddNewLease from "@/views/new-lease/new-lease.vue";
-
+import ForgotPassword from "@/views/forgot-password/forgot-password.vue";
+import ResetPassword from "@/views/reset-password/reset-password.vue";
 
 Vue.use(Router);
 
@@ -47,6 +48,18 @@ const router = new Router({
       name: "Register",
       component: Register,
       meta: { title: "Register" },
+    },
+    {
+      path: "/forgot-password",
+      name: "ForgotPassword",
+      component: ForgotPassword,
+      meta: { title: "Forgot Password" },
+    },
+    {
+      path: "/reset-password",
+      name: "ResetPassword",
+      component: ResetPassword,
+      meta: { title: "Reset Password" },
     },
     {
       path: "/post-details/",

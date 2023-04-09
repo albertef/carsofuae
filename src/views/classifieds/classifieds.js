@@ -27,7 +27,26 @@ export default {
       "updateSelectedClassifiedCategory",
       this.queryParams.category || this.getSelectedClassifiedCategory || ""
     );
-    store.commit("updateSelectedSubcategory", "");
+    store.commit(
+      "updateSelectedSubcategory",
+      this.queryParams.subcategory || this.getSelectedSubCategory || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesType",
+      this.queryParams.type || this.getSelectedAccessoryType || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesCategory",
+      this.queryParams.accCategory || this.getSelectedAccessoryCategory || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesSubCategory",
+      this.queryParams.sub || this.getSelectedAccessorySubCategory || ""
+    );
+    store.commit(
+      "updateSelectedAccessoriesItem",
+      this.queryParams.item || this.getSelectedAccessoryItem || ""
+    );
   },
   computed: {
     getCategories() {
@@ -119,19 +138,26 @@ export default {
     queryParams() {
       if (!this.$route.query.make) {
         store.commit("updateSelectedCarMake", "");
-      } else if (!this.$route.query.model) {
+      }
+      if (!this.$route.query.model) {
         store.commit("updateSelectedCarModel", "");
-      } else if (!this.$route.query.category) {
+      }
+      if (!this.$route.query.category) {
         store.commit("updateSelectedClassifiedCategory", "");
-      } else if (!this.$route.query.subcategory) {
+      }
+      if (!this.$route.query.subcategory) {
         store.commit("updateSelectedSubcategory", "");
-      } else if (!this.$route.query.type) {
+      }
+      if (!this.$route.query.type) {
         store.commit("updateSelectedAccessoriesType", "");
-      } else if (!this.$route.query.accCategory) {
+      }
+      if (!this.$route.query.accCategory) {
         store.commit("updateSelectedAccessoriesCategory", "");
-      } else if (!this.$route.query.sub) {
+      }
+      if (!this.$route.query.sub) {
         store.commit("updateSelectedAccessoriesSubCategory", "");
-      } else if (!this.$route.query.item) {
+      }
+      if (!this.$route.query.item) {
         store.commit("updateSelectedAccessoriesItem", "");
       }
       return this.$route.query;

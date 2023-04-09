@@ -12,7 +12,7 @@ const state = {
   motorCycleData: [],
   selectedCarMake: "",
   selectedCarModel: "",
-  selectedClassifiedCategory: "used-cars",
+  selectedClassifiedCategory: "",
   selectedRentalCategory: "",
   postView: false,
   rentalData: [],
@@ -66,6 +66,8 @@ const state = {
   selectedMotorCycleSubcategory: "",
   selectedSubcategory: "",
   selectedTruckSubcategory: "",
+  forgotPasswordInfo: {},
+  resetPasswordInfo: {},
 };
 
 const actions = {
@@ -74,6 +76,20 @@ const actions = {
       url = "/carsofuae-server/users/login.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateLoginInfo", dataset);
+    return dataset;
+  },
+  async forgotPassword({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/forgot_password.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateForgotPasswordInfo", dataset);
+    return dataset;
+  },
+  async resetPassword({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/reset_password.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateResetPasswordInfo", dataset);
     return dataset;
   },
   async individualUserRegister({ commit }, params) {
@@ -455,6 +471,12 @@ const mutations = {
       };
       clearLogin();
     }
+  },
+  updateForgotPasswordInfo(state, dataset) {
+    state.forgotPasswordInfo = dataset;
+  },
+  updateResetPasswordInfo(state, dataset) {
+    state.resetPasswordInfo = dataset;
   },
   updateImageUploadInfo(state, dataset) {
     state.imageUploadInfo = dataset;
