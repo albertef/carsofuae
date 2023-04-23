@@ -25,6 +25,7 @@ export default {
         name: "",
         age: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         place: "",
         galleryImages: "",
@@ -81,6 +82,9 @@ export default {
         name: !this.newPost.name,
         age: !this.newPost.age,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        whatsappNumber:
+          !this.newPost.whatsappNumber ||
+          !UTILS.isValidPhone(this.newPost.whatsappNumber),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         place: !this.newPost.place,
         galleryImages: !this.newPost.galleryImages,
@@ -141,39 +145,35 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        )
-          if (displayPictureUploadResponse.status) {
-            params = {
-              ...params,
-              displayPicture: displayPictureUploadResponse.fileName,
-            };
-            await this.$store.dispatch("newBoatsPost", params);
-          } else {
-            const alert = {
-              show: true,
-              type: "error",
-              message:
-                this.newBoatInfo.message ||
-                galleryImageUploadResponse ||
-                META.commonErrorMessage,
-            };
-            store.commit("updateAlert", alert);
-          }
+        ) {
+          params = {
+            ...params,
+            displayPicture: displayPictureUploadResponse.fileName,
+          };
+          await this.$store.dispatch("newBoatsPost", params);
+        }
 
         store.commit("updateLoader", false);
         if (this.newBoatInfo.status) {
           const alert = {
             show: true,
             type: "success",
-            message: this.newBoatInfo.message || META.commonErrorMessage,
+            message: this.newBoatInfo.message,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
         } else {
+          const errorMessage = this.newBoatInfo.message
+            ? this.newBoatInfo.message
+            : !response || galleryImageUploadResponse.status
+            ? galleryImageUploadResponse.message
+            : !displayPictureUploadResponse.status
+            ? displayPictureUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.newBoatInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

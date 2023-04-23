@@ -30,9 +30,9 @@ export default {
         accessoriesCondition: "",
         accessoriesUsage: "",
         warranty: "",
-        city: "",
         name: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         place: "",
         galleryImages: "",
@@ -108,9 +108,11 @@ export default {
         accessoriesCondition: !this.newPost.accessoriesCondition,
         accessoriesUsage: !this.newPost.accessoriesUsage,
         warranty: !this.newPost.warranty,
-        city: !this.newPost.city,
         name: !this.newPost.name,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        whatsappNumber:
+          !this.newPost.whatsappNumber ||
+          !UTILS.isValidPhone(this.newPost.whatsappNumber),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         place: !this.newPost.place,
         galleryImages: !this.newPost.galleryImages,
@@ -164,24 +166,13 @@ export default {
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
-        )
-          if (displayPictureUploadResponse.status) {
-            params = {
-              ...params,
-              displayPicture: displayPictureUploadResponse.fileName,
-            };
-            await this.$store.dispatch("newAccessoriesPost", params);
-          } else {
-            const alert = {
-              show: true,
-              type: "error",
-              message:
-                this.newAccessoriesInfo.message ||
-                galleryImageUploadResponse ||
-                META.commonErrorMessage,
-            };
-            store.commit("updateAlert", alert);
-          }
+        ) {
+          params = {
+            ...params,
+            displayPicture: displayPictureUploadResponse.fileName,
+          };
+          await this.$store.dispatch("newAccessoriesPost", params);
+        }
 
         store.commit("updateLoader", false);
         if (this.newAccessoriesInfo.status) {
@@ -193,10 +184,17 @@ export default {
           store.commit("updateAlert", alert);
           router.go(-1);
         } else {
+          const errorMessage = this.newAccessoriesInfo.message
+            ? this.newAccessoriesInfo.message
+            : !response || galleryImageUploadResponse.status
+            ? galleryImageUploadResponse.message
+            : !displayPictureUploadResponse.status
+            ? displayPictureUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.newAccessoriesInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

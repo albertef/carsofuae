@@ -67,7 +67,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.numPlatesEmirateList()" :error="newPostValidation.emirate" errorText="Select Emirate"
+    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.emirate" errorText="Select Emirate"
     default="Select Emirate" @selectValue="updatePostData('emirate', $event)" />
   </div>
   <div class="col-12 mb-3">

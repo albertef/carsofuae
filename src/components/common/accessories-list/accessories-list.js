@@ -89,7 +89,6 @@ export default {
       return this.$store.state.home.selectedAccessoryItem;
     },
     getSelectedAccessoriesType() {
-      debugger;
       let name = "";
       if (this.getSelectedAccessoryType) {
         name = "Categories";

@@ -22,6 +22,7 @@ import AddNewRental from "@/views/new-rental/new-rental.vue";
 import AddNewLease from "@/views/new-lease/new-lease.vue";
 import ForgotPassword from "@/views/forgot-password/forgot-password.vue";
 import ResetPassword from "@/views/reset-password/reset-password.vue";
+import VerifyEmail from "@/views/verify-email/verify-email.vue";
 
 Vue.use(Router);
 
@@ -60,6 +61,12 @@ const router = new Router({
       name: "ResetPassword",
       component: ResetPassword,
       meta: { title: "Reset Password" },
+    },
+    {
+      path: "/verify-email",
+      name: "VerifyEmail",
+      component: VerifyEmail,
+      meta: { title: "Verify Email" },
     },
     {
       path: "/post-details/",

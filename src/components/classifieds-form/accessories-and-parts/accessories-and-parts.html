@@ -17,16 +17,16 @@
     <Select :options="accessoriesCategoryList" :error="newPostValidation.category" errorText="Select Category"
       default="Select Category" @selectValue="updatePostData('category', $event)" />
   </div>
- <div class="col-12 mb-3">
+  <div class="col-12 mb-3">
     <label>
       Select Sub Category
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-  <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select Sub Category"
+    <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select Sub Category"
       default="Select Sub Category" @selectValue="updatePostData('subcategory', $event)" />
   </div>
- <div class="col-12 mb-3">
+  <div class="col-12 mb-3">
     <label>
       Select Item
       <span>*</span>
@@ -82,12 +82,12 @@
   </div>
   <div class="col-12 mb-3">
     <label>
-      Select City
+      Place
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.accessoriesCityList()" :error="newPostValidation.city" errorText="Select City"
-      default="Select City" @selectValue="updatePostData('city', $event)" />
+    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
+      default="Select Place" @selectValue="updatePostData('place', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -109,6 +109,14 @@
       id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
   </div>
   <div class="col-12 mb-3">
+    <label>Whatsapp Number <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.whatsappNumber"
+      errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number"
+      id="whatsappNumber" :value="newPost.whatsappNumber"
+      @value="updatePostData('whatsappNumber', $event)" />
+  </div>
+  <div class="col-12 mb-3">
     <label>
       Email
       <span>*</span>
@@ -117,15 +125,7 @@
     <InputText class="inputText" :error="newPostValidation.email" errorText="Enter Email" placeholder="Enter Email"
       id="email" :value="newPost.email" @value="updatePostData('email', $event)" />
   </div>
-  <div class="col-12 mb-3">
-    <label>
-      Place
-      <span>*</span>
-    </label>
-    <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.place" errorText="Enter Place" placeholder="Enter Place"
-      id="place" :value="newPost.place" @value="updatePostData('place', $event)" />
-  </div>
+
   <div class="col-12 mb-3">
     <label>
       Upload 10 gallery images (Minimum of 1 image)
@@ -137,13 +137,15 @@
       @value="updatePostData('galleryImages', $event)" />
   </div>
   <div class="col-12 mb-3">
-    <label>Display Picture</label>
+    <label>Display Picture<span>*</span></label>
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a display picture"
       type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
       :value="newPost.displayPicture" @value="updatePostData('displayPicture', $event)" />
   </div>
-  <div class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper">
+  <div
+    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+  >
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
     <!-- prettier-ignore -->

@@ -50,7 +50,7 @@
             <div class="col-12 mb-3">
               <label>Username <span>*</span></label>
               <!-- prettier-ignore -->
-              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your desired username"
+              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your desired username without space"
                 placeholder="Enter Username" id="username" :value="individualUserDetails.username"
                 @value="updateUserDetails('username', $event)" />
             </div>
@@ -174,7 +174,7 @@
             <div class="col-12 mb-3">
               <label>Username <span>*</span></label>
               <!-- prettier-ignore -->
-              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your username"
+              <InputText class="inputText" :error="registerValidation.username" errorText="Enter your username without space"
                 placeholder="Enter Username" id="username" :value="companyUserDetails.username"
                 @value="updateUserDetails('username', $event)" />
             </div>

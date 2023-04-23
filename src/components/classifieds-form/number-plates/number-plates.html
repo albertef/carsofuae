@@ -18,6 +18,14 @@
     placeholder="Enter Phone Number" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
   </div>
   <div class="col-12 mb-3">
+    <label>Whatsapp Number <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.whatsappNumber"
+      errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number"
+      id="whatsappNumber" :value="newPost.whatsappNumber"
+      @value="updatePostData('whatsappNumber', $event)" />
+  </div>
+  <div class="col-12 mb-3">
     <label>
       Email
       <span>*</span>
@@ -32,11 +40,11 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.place" errorText="Enter Place" placeholder="Enter Place"
-    id="place" :value="newPost.place" @value="updatePostData('place', $event)" />
+    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
+      default="Select Place" @selectValue="updatePostData('place', $event)" />
   </div>
   <div class="col-12 mb-3">
-    <label>Display Picture</label>
+    <label>Display Picture<span>*</span></label>
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
@@ -67,7 +75,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.numPlatesEmirateList()" :error="newPostValidation.emirate" errorText="Select Emirate"
+    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.emirate" errorText="Select Emirate"
     default="Select Emirate" @selectValue="updatePostData('emirate', $event)" />
   </div>
   <div class="col-12 mb-3">

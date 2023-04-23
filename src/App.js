@@ -14,6 +14,19 @@ export default {
       store.state.home.loginInfo = getLogin();
     }
   },
+  // mounted() {
+  //   const element = document.getElementsByClassName("main")[0];
+  //   element.addEventListener("scroll", () => {
+  //     const lastScrollTop = 0;
+  //     const scrollTop = element.scrollTop;
+  //     if (scrollTop > lastScrollTop) {
+  //       document.documentElement.requestFullscreen();
+  //     } else if (scrollTop < lastScrollTop) {
+  //       document.exitFullscreen();
+  //     }
+  //     console.log(element.scrollTop);
+  //   });
+  // },
   computed: {
     showLoader() {
       return this.$store.state.common.loader;

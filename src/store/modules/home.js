@@ -68,6 +68,7 @@ const state = {
   selectedTruckSubcategory: "",
   forgotPasswordInfo: {},
   resetPasswordInfo: {},
+  verifyEmailInfo: {},
 };
 
 const actions = {
@@ -90,6 +91,13 @@ const actions = {
       url = "/carsofuae-server/users/reset_password.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateResetPasswordInfo", dataset);
+    return dataset;
+  },
+  async verifyEmail({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/verify_email.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateVerifyEmailInfo", dataset);
     return dataset;
   },
   async individualUserRegister({ commit }, params) {
@@ -477,6 +485,9 @@ const mutations = {
   },
   updateResetPasswordInfo(state, dataset) {
     state.resetPasswordInfo = dataset;
+  },
+  updateVerifyEmailInfo(state, dataset) {
+    state.verifyEmailInfo = dataset;
   },
   updateImageUploadInfo(state, dataset) {
     state.imageUploadInfo = dataset;

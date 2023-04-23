@@ -26,6 +26,7 @@ export default {
         price: "",
         distance: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         brand: "",
         model: "",
@@ -100,6 +101,9 @@ export default {
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
         distance: !this.newPost.distance,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        whatsappNumber:
+          !this.newPost.whatsappNumber ||
+          !UTILS.isValidPhone(this.newPost.whatsappNumber),
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
         exteriorColor: !this.newPost.exteriorColor,
@@ -161,7 +165,6 @@ export default {
           "imageUpload",
           params.displayPicture
         );
-
         if (
           (response || galleryImageUploadResponse.status) &&
           displayPictureUploadResponse.status
@@ -171,16 +174,6 @@ export default {
             displayPicture: displayPictureUploadResponse.fileName,
           };
           await this.$store.dispatch("newClassifiedPost", params);
-        } else {
-          const alert = {
-            show: true,
-            type: "error",
-            message:
-              this.newPostInfo.message ||
-              galleryImageUploadResponse ||
-              META.commonErrorMessage,
-          };
-          store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
@@ -188,15 +181,22 @@ export default {
           const alert = {
             show: true,
             type: "success",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: this.newPostInfo.message,
           };
           store.commit("updateAlert", alert);
           router.go(-1);
         } else {
+          const errorMessage = this.newPostInfo.message
+            ? this.newPostInfo.message
+            : !response || galleryImageUploadResponse.status
+            ? galleryImageUploadResponse.message
+            : !displayPictureUploadResponse.status
+            ? displayPictureUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.newPostInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

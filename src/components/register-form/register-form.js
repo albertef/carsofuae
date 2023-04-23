@@ -133,7 +133,9 @@ export default {
             !this.individualUserDetails.email ||
             !UTILS.isValidEmail(this.individualUserDetails.email),
           gender: !this.individualUserDetails.gender,
-          username: !this.individualUserDetails.username,
+          username:
+            !this.individualUserDetails.username ||
+            this.individualUserDetails.username.includes(" "),
           password: !this.individualUserDetails.password,
           confirmPassword:
             !this.individualUserDetails.confirmPassword ||
@@ -158,7 +160,9 @@ export default {
           email:
             !this.companyUserDetails.email ||
             !UTILS.isValidEmail(this.companyUserDetails.email),
-          username: !this.companyUserDetails.username,
+          username:
+            !this.companyUserDetails.username ||
+            this.companyUserDetails.username.includes(" "),
           password: !this.companyUserDetails.password,
           confirmPassword:
             !this.companyUserDetails.confirmPassword ||
