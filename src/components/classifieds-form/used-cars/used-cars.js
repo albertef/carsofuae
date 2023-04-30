@@ -50,6 +50,7 @@ export default {
         horsePower: "",
         steeringSide: "",
         postedBy: "",
+        video: "",
       },
       newPostValidation: {},
     };
@@ -120,6 +121,7 @@ export default {
         fuel: !this.newPost.fuel,
         horsePower: !this.newPost.horsePower,
         steeringSide: !this.newPost.steeringSide,
+        video: !this.newPost.video || !UTILS.isValidYTLink(this.newPost.video),
       };
 
       return Object.values(this.newPostValidation).every((el) => el === false)

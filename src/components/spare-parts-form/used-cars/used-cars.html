@@ -62,12 +62,12 @@
   </div>
   <div class="col-12 mb-3">
     <label>
-      Distance
+      Mileage
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.distance" errorText="Enter Distance"
-    placeholder="Enter Distance" id="distance" :value="newPost.distance" @value="updatePostData('distance', $event)" type="number" />
+    <InputText class="inputText" :error="newPostValidation.distance" errorText="Enter Mileage"
+    placeholder="Enter Mileage" id="distance" :value="newPost.distance" @value="updatePostData('distance', $event)" type="number" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -75,8 +75,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone Number"
-    placeholder="Enter Phone Number" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
+    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone Number with Country Code"
+    placeholder="Enter Phone Number with Country Code" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -168,7 +168,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.sellerTypes()" :error="newPostValidation.sellerType" errorText="Select Seller Type"
+    <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type"
     default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" />
   </div>
   <div class="col-12 mb-3">

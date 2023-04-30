@@ -4,7 +4,6 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import Button from "@/components/common/button/button.vue";
 
-
 export default {
   name: "SpareCategorySelect",
 
@@ -37,6 +36,12 @@ export default {
     },
     loginInfo() {
       return store.state.home.loginInfo;
+    },
+    userTypes() {
+      return META.loginUserType[0];
+    },
+    showNewPost() {
+      return this.loginInfo.userType === this.userTypes.company.title;
     },
   },
   methods: {

@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-6">
       <!-- prettier-ignore -->
-      <Button type="secondary" :icon="['fas','user-alt']" :circle="true" width="50px" />
+      <Button type="secondary" :icon="['fas','user-alt']" :circle="true" width="50px" @click="gotoProfile" />
     </div>
     <div class="col-6 d-flex justify-content-end">
       <!-- prettier-ignore -->
-      <Button type="primary" :icon="['fas','plus']" :circle="true" width="50px" />
+      <Button type="primary" :icon="['fas','plus']" :circle="true" width="50px" @click="postNewAd" />
     </div>
   </div>
 </div>

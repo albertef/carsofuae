@@ -32,14 +32,14 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone"
-    placeholder="Enter Phone" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
+    <InputText class="inputText" :error="newPostValidation.phone" errorText="Enter Phone Number with Country Code"
+    placeholder="Enter Phone Number with Country Code" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
   </div>
   <div class="col-12 mb-3">
     <label>Whatsapp Number <span>*</span></label>
     <!-- prettier-ignore -->
     <InputText class="inputText" :error="newPostValidation.whatsappNumber"
-      errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number"
+      errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number with Country Code"
       id="whatsappNumber" :value="newPost.whatsappNumber"
       @value="updatePostData('whatsappNumber', $event)" />
   </div>
@@ -54,7 +54,7 @@
   </div>
   <div class="col-12 mb-3">
     <label>
-      Place
+      Location
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
@@ -117,7 +117,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.sellerTypes()" :error="newPostValidation.sellerType" errorText="Select Seller Type" default="Select Seller Type"
+    <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type" default="Select Seller Type"
     @selectValue="updatePostData('sellerType', $event)" id="sellerType" />
   </div>
   <div class="col-12 mb-3">

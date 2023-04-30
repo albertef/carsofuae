@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import store from "../store/";
+import { META } from "../meta/common.js";
 
 export const UTILS = {
   formatDistance(num, digits) {
@@ -48,6 +50,16 @@ export const UTILS = {
   isValidPhone(value) {
     var PHONE_REGEXP = /^(\+|00)[1-9][0-9 \-\(\)\.]{7,32}$/;
     return PHONE_REGEXP.test(value);
+  },
+
+  isValidYTLink(url) {
+    var p =
+      /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    var matches = url.match(p);
+    if (matches) {
+      return matches[1];
+    }
+    return false;
   },
 
   yearDropdownValues() {
@@ -112,7 +124,10 @@ export const UTILS = {
     return ["Gasoline", "Diesel", "Hybrid", "Electric"].sort();
   },
 
-  sellerTypes() {
+  sellerTypes(type) {
+    if (type === "We're a Company") {
+      return ["Dealer"];
+    }
     return ["Owner", "Dealer"].sort();
   },
 

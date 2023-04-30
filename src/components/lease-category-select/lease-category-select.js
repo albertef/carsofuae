@@ -4,13 +4,11 @@ import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import Button from "@/components/common/button/button.vue";
 
-
 export default {
   name: "LeaseCategorySelect",
   components: {
     Button,
   },
-
 
   data() {
     return {
@@ -36,6 +34,12 @@ export default {
     },
     queryParams() {
       return this.$route.query;
+    },
+    userTypes() {
+      return META.loginUserType[0];
+    },
+    showNewPost() {
+      return this.loginInfo.userType === this.userTypes.company.title;
     },
   },
 

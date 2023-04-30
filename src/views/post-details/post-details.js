@@ -60,6 +60,12 @@ export default {
           ?.name || "Guest"
       );
     },
+    galleryImages() {
+      return [this.postData.thumb, ...this.postData.gallery.split(",")];
+    },
+    getVideoId() {
+      return UTILS.isValidYTLink(this.postData.video);
+    },
   },
   methods: {
     leftArrowClick() {
@@ -76,7 +82,7 @@ export default {
       return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     createLightBoxImage(image, folder) {
-      const images = image.split(",");
+      const images = [this.postData.thumb, ...image.split(",")];
       const imageArr = images.map((item) => this.getImagePath(item, folder));
       return imageArr;
     },

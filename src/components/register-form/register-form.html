@@ -41,6 +41,12 @@
                 default="Select Gender" @selectValue="updateUserDetails('gender', $event)" />
             </div>
             <div class="col-12 mb-3">
+              <label>Location</label>
+              <!-- prettier-ignore -->
+              <Select :options="locationOptions" :error="registerValidation.location" errorText="Select your location"
+                default="Select Location" @selectValue="updateUserDetails('location', $event)" />
+            </div>
+            <div class="col-12 mb-3">
               <label>Email <span>*</span></label>
               <!-- prettier-ignore -->
               <InputText class="inputText" :error="registerValidation.email" errorText="Enter valid email address"
@@ -85,12 +91,7 @@
                 id="whatsappNumber" :value="individualUserDetails.whatsappNumber"
                 @value="updateUserDetails('whatsappNumber', $event)" />
             </div>
-            <div class="col-12 mb-3">
-              <label>Location</label>
-              <!-- prettier-ignore -->
-              <Select :options="locationOptions" :error="registerValidation.location" errorText="Select your location"
-                default="Select Location" @selectValue="updateUserDetails('location', $event)" />
-            </div>
+            
             <div class="col-12 mb-3">
               <label>Display Picture</label>
               <!-- prettier-ignore -->

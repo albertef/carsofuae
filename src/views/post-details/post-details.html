@@ -53,14 +53,14 @@
               @close="index = null"
             >
             </CoolLightBox>
-            <div class="image-wrapper" v-if="postData.gallery">
+            <div class="image-wrapper" v-if="galleryImages">
               <div
-                v-for="(image, imageIndex) in postData.gallery.split(',')"
-                :data-count="postData.gallery.split(',').length"
+                v-for="(image, imageIndex) in galleryImages"
+                :data-count="galleryImages.length"
                 :key="imageIndex"
                 @click="index = imageIndex"
                 :style="{ backgroundImage: 'url(' + getImagePath(image,postData.imageFolder) + ')' }"
-                :class="postData.gallery.split(',').length === 1 && 'w-100'"
+                :class="galleryImages.length === 1 && 'w-100'"
               >
                 <img :src="getImagePath(image,postData.imageFolder)" />
               </div>
@@ -135,12 +135,12 @@
             <img src="../../assets/user-profile.png" />
             <p><span>{{postedByName}}'s Take</span>{{postData.desc}}</p>
           </div>
-          <h5>Video</h5>
-          <div class="video-wrapper my-3">
+          <h5 v-if="postData.video">Video</h5>
+          <div v-if="postData.video" class="video-wrapper my-3">
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/mPaUWBjxAHw"
+              :src="`https://www.youtube.com/embed/${getVideoId}`"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -20,7 +20,7 @@
       </div>
       <div class="filter-wrapper mt-3 d-flex justify-content-end">
         <!-- prettier-ignore -->
-        <Button type="hollow" text="Add Your Garage" class="mr-3" @click="addGarage()" />
+        <Button type="hollow" text="Add Your Garage" class="mr-3" @click="addGarage()" v-if="showNewPost" />
         <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
         <GarageFilter
           :data="garageList"

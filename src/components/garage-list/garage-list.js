@@ -2,6 +2,7 @@ import Star from "@/components/star/star.vue";
 import garageServiceList from "@/meta/services.json";
 import dayjs from "dayjs";
 import { UTILS } from "@/utility/utils.js";
+import { META } from "@/meta/common.js";
 import GarageFilter from "@/components/garage-filter/garage-filter.vue";
 import store from "@/store";
 import router from "@/router";
@@ -53,6 +54,12 @@ export default {
     },
     loginInfo() {
       return this.$store.state.home.loginInfo;
+    },
+    userTypes() {
+      return META.loginUserType[0];
+    },
+    showNewPost() {
+      return this.loginInfo.userType === this.userTypes.company.title;
     },
   },
   methods: {

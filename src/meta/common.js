@@ -442,7 +442,7 @@ export const META = {
       },
     },
   ],
-  genderOptions: ["Male", "Female", "other"],
+  genderOptions: ["Male", "Female"],
   locationOptions: [
     "Abu Dhabi",
     "Dubai",

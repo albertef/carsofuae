@@ -35,6 +35,12 @@ export default {
     queryParams() {
       return this.$route.query;
     },
+    userTypes() {
+      return META.loginUserType[0];
+    },
+    showNewPost() {
+      return this.loginInfo.userType === this.userTypes.company.title;
+    },
   },
   methods: {
     getCategoryOptions(category) {

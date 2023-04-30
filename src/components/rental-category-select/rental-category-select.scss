@@ -28,9 +28,22 @@
       }
     }
   }
+  .new-post-btn {
+    float: right;
+  }
 
   @media screen and (max-width: 991px) {
     padding-right: 35px;
+
+    .new-post-btn {
+      float: none;
+      width: 100% !important;
+      margin: 15px 0 0;
+    }
+
+    .main-cont {
+      padding-right: 0;
+    }
 
     .category-cont {
       padding-right: 0;
