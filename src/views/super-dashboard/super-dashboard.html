@@ -1,0 +1,111 @@
+<div class="container post-details-wrapper my-4">
+  <div class="row">
+    <div class="col-md-10 col-12 my-md-5 my-2">
+      <h3>Welcome COUAE Super Admin!!</h3>
+    </div>
+    <div class="col-md-2 col-12 my-md-5 my-2">
+      <!-- prettier-ignore -->
+      <Button type="hollow" width="100%" text="Logout" @click="logout" />
+    </div>
+    <div class="col-12 mb-md-5 mb-3 mt-3">
+      <ul class="nav nav-tabs w-100">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='used-cars' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','used-cars')"
+            >Used Cars</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='motorcycles' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','motorcycles')"
+            >Motorcycle</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='boats' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','boats')"
+            >Boats</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='trucks' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','trucks')"
+            >Truck</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='number-plates' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','number-plates')"
+            >Number Plate</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            :class="page=='classifieds' && type=='accessories' && 'active'"
+            href="#"
+            @click="getNonApprovedPosts('classifieds','accessories')"
+            >Accessories</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 mb-5 no-post-cont" v-if="!nonApprovedPostList">
+      <h3 class="">No Posts available to approve/decline</h3>
+    </div>
+    <div class="col-12 mb-5" v-else>
+      <div
+        class="border-bottom border-primary pb-4 table table-main"
+        v-for="post,index in nonApprovedPostList"
+        :data-count="index+1"
+      >
+        <div v-for="key in Object.entries(post)" class="table-row">
+          <div class="d-flex" v-if="key[0] == 'thumb'">
+            <div class="w-50 p-0 d-flex py-1">{{key[0]}}:</div>
+            <div class="w-50 p-0 d-flex py-1">
+              <img
+                :src="getImagePath(key[1],post.imageFolder)"
+                class="w-25 h-100"
+              />
+            </div>
+          </div>
+          <div class="d-flex" v-else-if="key[0] == 'gallery'">
+            <div class="w-50 p-0 d-flex py-1">{{key[0]}}:</div>
+            <div class="w-50 p-0 d-flex py-1 flex-wrap">
+              <img
+                v-for="item in key[1].split(',')"
+                :src="getImagePath(item,post.imageFolder)"
+                class="w-25"
+              />
+            </div>
+          </div>
+          <div class="d-flex" v-else>
+            <div class="w-50 p-0 py-1">{{key[0]}}:</div>
+            <div class="w-50 p-0 py-1">{{key[1]}}</div>
+          </div>
+        </div>
+        <div class="d-flex mt-4 mb-2">
+          <!-- prettier-ignore -->
+          <Button type="red" width="100%" text="Decline" @click="decline(post.id)" class="mr-2" />
+          <!-- prettier-ignore -->
+          <Button type="green" width="100%" text="Approve" @click="approve(post.id)" class="ml-2" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

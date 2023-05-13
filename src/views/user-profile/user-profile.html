@@ -1,4 +1,5 @@
 <div class="container profile-wrapper my-4">
+  {{userInfo}}
   <div class="row" v-if="!userInfo">
     <div class="col-12 mb-5 p-0">
       <h5 class="d-flex justify-content-center align-items-center">
@@ -10,11 +11,20 @@
     <div class="col-12 px-lg-0 px-3">
       <div class="profile-content mb-3 mt-3">
         <div class="row justify-content-center">
-          <div class="col-lg-6 col-12 text-center profile-wrapper"
-            v-if="selectedUserType === userTypes.individual.title">
-            <img class="img-fluid profile" :src="`${baseURL}/upload/${userInfo.imageFolder}/${userInfo.displayPicture}`"
-              v-if="Boolean(userInfo.displayPicture)" />
-            <img class="img-fluid profile" src="../../assets/user-profile.png" v-else />
+          <div
+            class="col-lg-8 col-12 text-center profile-wrapper"
+            v-if="selectedUserType === userTypes.individual.title"
+          >
+            <img
+              class="img-fluid profile"
+              :src="`${baseURL}/upload/${userInfo.imageFolder}/${userInfo.displayPicture}`"
+              v-if="Boolean(userInfo.displayPicture)"
+            />
+            <img
+              class="img-fluid profile"
+              src="../../assets/user-profile.png"
+              v-else
+            />
             <h3 class="my-3">
               {{ `${userInfo.firstName} ${userInfo.lastName}` }}
             </h3>
@@ -52,20 +62,36 @@
 
               <div>
                 <label>Newsletter</label>
-                <p>{{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not Subscribed'}}</p>
+                <p>
+                  {{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not
+                  Subscribed'}}
+                </p>
               </div>
 
-              <div>
+              <div class="d-flex">
                 <!-- prettier-ignore -->
-                <Button type="red" width="100%" text="Logout" @click="logout" />
+                <Button type="hollow" width="100%" text="Edit Profile" class="mr-2" @click="editProfile" />
+                <!-- prettier-ignore -->
+                <Button type="" width="100%" text="My Ads" class="mx-2" @click="showMyAds" />
+                <!-- prettier-ignore -->
+                <Button type="red" width="100%" text="Logout" class="ml-2" @click="logout" />
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-12 text-center profile-wrapper" v-if="selectedUserType === userTypes.company.title">
-            <img class="img-fluid profile"
+          <div
+            class="col-lg-8 col-12 text-center profile-wrapper"
+            v-if="selectedUserType === userTypes.company.title"
+          >
+            <img
+              class="img-fluid profile"
               :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${userInfo.logo}`"
-              v-if="Boolean(userInfo.logo)" />
-            <img class="img-fluid profile" src="../../assets/user-profile.png" v-else />
+              v-if="Boolean(userInfo.logo)"
+            />
+            <img
+              class="img-fluid profile"
+              src="../../assets/user-profile.png"
+              v-else
+            />
             <h3 class="my-3">
               {{ `${userInfo.firstName} ${userInfo.lastName}` }}
             </h3>
@@ -107,17 +133,29 @@
 
               <div v-if="userInfo.facebook">
                 <label>Facebook</label>
-                <p><a :href="userInfo.facebook" target="_blank">{{userInfo.facebook}}</a></p>
+                <p>
+                  <a :href="userInfo.facebook" target="_blank"
+                    >{{userInfo.facebook}}</a
+                  >
+                </p>
               </div>
 
               <div v-if="userInfo.linkedin">
                 <label>LinkedIn</label>
-                <p><a :href="userInfo.linkedin" target="_blank">{{userInfo.linkedin}}</a></p>
+                <p>
+                  <a :href="userInfo.linkedin" target="_blank"
+                    >{{userInfo.linkedin}}</a
+                  >
+                </p>
               </div>
 
               <div v-if="userInfo.instagram">
                 <label>Instagram</label>
-                <p><a :href="userInfo.instagram" target="_blank">{{userInfo.instagram}}</a></p>
+                <p>
+                  <a :href="userInfo.instagram" target="_blank"
+                    >{{userInfo.instagram}}</a
+                  >
+                </p>
               </div>
 
               <div>
@@ -127,26 +165,41 @@
 
               <div v-if="Boolean(userInfo.tradeLicense)">
                 <label>Trade License</label>
-                <p><img class="img-fluid"
-                    :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${userInfo.tradeLicense}`" />
+                <p>
+                  <img
+                    class="img-fluid"
+                    :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${userInfo.tradeLicense}`"
+                  />
                 </p>
               </div>
               <div v-if="Boolean(userInfo.sliderImages)">
                 <label>Slider Images</label>
                 <p class="d-flex">
-                  <span class="mr-2" v-for="image in getSliderImages(userInfo.sliderImages)"><img class="img-fluid"
-                      :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${image}`" /></span>
+                  <span
+                    class="mr-2"
+                    v-for="image in getSliderImages(userInfo.sliderImages)"
+                    ><img
+                      class="img-fluid"
+                      :src="`${baseURL}/upload/${getImageFolderName(userInfo.imageFolder)}/${image}`"
+                  /></span>
                 </p>
               </div>
 
               <div>
                 <label>Newsletter</label>
-                <p>{{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not Subscribed'}}</p>
+                <p>
+                  {{!!Number(userInfo.newsletter) ? 'Subscribed' : 'Not
+                  Subscribed'}}
+                </p>
               </div>
 
-              <div>
+              <div class="d-flex">
                 <!-- prettier-ignore -->
-                <Button type="red" width="100%" text="Logout" @click="logout" />
+                <Button type="hollow" width="100%" text="Edit Profile" class="mr-2" @click="editProfile" />
+                <!-- prettier-ignore -->
+                <Button type="" width="100%" text="My Ads" class="mx-2" @click="showMyAds" />
+                <!-- prettier-ignore -->
+                <Button type="red" width="100%" text="Logout" class="ml-2" @click="logout" />
               </div>
             </div>
           </div>

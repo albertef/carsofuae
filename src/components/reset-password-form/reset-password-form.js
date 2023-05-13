@@ -83,9 +83,7 @@ export default {
     validateResetPasswordForm() {
       this.resetPasswordValidation = {
         ...this.resetPasswordValidation,
-        newPassword:
-          !this.resetValues.newPassword ||
-          this.resetValues.newPassword !== this.resetValues.confirmNewPassword,
+        newPassword: !this.resetValues.newPassword,
         confirmNewPassword:
           !this.resetValues.confirmNewPassword ||
           this.resetValues.newPassword !== this.resetValues.confirmNewPassword,

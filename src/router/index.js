@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/home/home.vue";
 import Login from "@/views/login/login.vue";
+import SuperLogin from "@/views/super-login/super-login.vue";
 import Register from "@/views/register/register.vue";
 import PostDetails from "@/views/post-details/post-details.vue";
 import Garages from "@/views/garages/garages.vue";
@@ -23,6 +24,9 @@ import AddNewLease from "@/views/new-lease/new-lease.vue";
 import ForgotPassword from "@/views/forgot-password/forgot-password.vue";
 import ResetPassword from "@/views/reset-password/reset-password.vue";
 import VerifyEmail from "@/views/verify-email/verify-email.vue";
+import SuperDashboard from "@/views/super-dashboard/super-dashboard.vue";
+import MyAds from "@/views/my-ads/my-ads.vue";
+import UserProfileEdit from "@/views/user-profile-edit/user-profile-edit.vue";
 
 Vue.use(Router);
 
@@ -43,6 +47,18 @@ const router = new Router({
       name: "Login",
       component: Login,
       meta: { title: "Login" },
+    },
+    {
+      path: "/couae-super-admin",
+      name: "SuperLogin",
+      component: SuperLogin,
+      meta: { title: "Super Login" },
+    },
+    {
+      path: "/super-dashboard",
+      name: "SuperDashboard",
+      component: SuperDashboard,
+      meta: { title: "Super Dashboard" },
     },
     {
       path: "/register",
@@ -174,6 +190,18 @@ const router = new Router({
       name: "UserProfile",
       component: UserProfile,
       meta: { title: "UserProfile" },
+    },
+    {
+      path: "/user-profile-edit",
+      name: "UserProfileEdit",
+      component: UserProfileEdit,
+      meta: { title: "User Profile Edit" },
+    },
+    {
+      path: "/my-ads",
+      name: "MyAds",
+      component: MyAds,
+      meta: { title: "My Ads" },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

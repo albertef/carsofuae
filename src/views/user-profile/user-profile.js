@@ -63,6 +63,16 @@ export default {
     getSliderImages(value) {
       return value.split(",");
     },
+    editProfile() {
+      router.push({
+        name: "UserProfileEdit",
+      });
+    },
+    showMyAds() {
+      router.push({
+        name: "MyAds",
+      });
+    },
   },
 
   async mounted() {

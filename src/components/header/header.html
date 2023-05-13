@@ -63,21 +63,21 @@
                   <li>
                     <router-link
                       class="nav-link"
+                      to="/my-ads"
+                      data-toggle="collapse"
+                      data-target="#navbarNav"
+                      >My Ads</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link
+                      class="nav-link"
                       to="/profile"
                       data-toggle="collapse"
                       data-target="#navbarNav"
                       >My Profile</router-link
                     >
                   </li>
-                  <!-- <li>
-                    <router-link
-                      class="nav-link"
-                      to="/login"
-                      data-toggle="collapse"
-                      data-target="#navbarNav"
-                      >Settings</router-link
-                    >
-                  </li> -->
                   <li>
                     <a href="#" class="nav-link" @click="logout">Logout</a>
                   </li>
@@ -102,7 +102,7 @@
 
               <li class="nav-item d-none d-lg-block">
                 <!-- prettier-ignore -->
-                <Button type="primary" text="sell your car" @click="newPost()" class="ml-2" />
+                <Button type="primary" text="sell" @click="newPost()" class="ml-2" />
               </li>
             </ul>
           </div>

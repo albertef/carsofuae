@@ -20,10 +20,10 @@
     </div>
     <template v-if="!getSelectedCarMake">
       <div
-        class="col-xs-12 col-lg-2 my-3 car-list-cont"
+        class="col-xs-12 col-lg-2 my-3 car-list-cont d-flex"
         v-for="make in getCarMakes"
       >
-        <div @click="getCarModels(make)" class="car-list">
+        <div @click="getCarModels(make)" class="car-list w-100">
           <img :src="`/img/${formatTitle(make)}.png`" />
           <p>{{make}}</p>
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
@@ -32,10 +32,10 @@
     </template>
     <template v-else>
       <div
-        class="col-xs-12 col-lg-2 my-3 car-list-cont"
+        class="col-xs-12 col-lg-2 my-3 car-list-cont d-flex"
         v-for="model in getAllModels"
       >
-        <div @click="getposts(model)" class="car-list">
+        <div @click="getposts(model)" class="car-list w-100">
           {{model}}
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
         </div>

@@ -3,26 +3,32 @@ export const META = {
     {
       name: "Used Cars",
       image: "car.png",
+      id: "used-cars",
     },
     {
       name: "Motorcycles",
       image: "bike.png",
+      id: "motorcycles",
     },
     {
       name: "Truck",
       image: "truck.png",
+      id: "trucks",
     },
     {
       name: "Boats",
       image: "boat.png",
+      id: "boats",
     },
     {
       name: "Number Plates",
       image: "license-plate.png",
+      id: "number-plates",
     },
     {
       name: "Accessories and Parts",
       image: "accessories.png",
+      id: "accessories",
     },
   ],
   serviceList: [

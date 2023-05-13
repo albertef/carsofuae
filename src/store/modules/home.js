@@ -1,5 +1,10 @@
 import { axiosInstance } from "@/utility/axios.js";
-import { setLogin, clearLogin } from "@/utility/helper";
+import {
+  setLogin,
+  clearLogin,
+  setSuperLogin,
+  clearSuperLogin,
+} from "@/utility/helper";
 import { UTILS } from "@/utility/utils.js";
 
 const state = {
@@ -21,7 +26,6 @@ const state = {
   leaseData: [],
   selectedLease: null,
   spareList: [],
-  //update by jesmi
   accessoriesList: [],
   selectedSpareType: "",
   selectedSpareCategory: "",
@@ -41,6 +45,7 @@ const state = {
     id: null,
     userType: "",
   },
+  superLoginInfo: {},
   registerInfo: {},
   imageUploadInfo: {},
   userDetails: {},
@@ -69,6 +74,11 @@ const state = {
   forgotPasswordInfo: {},
   resetPasswordInfo: {},
   verifyEmailInfo: {},
+  nonApprovedPostList: {},
+  postApproval: {},
+  postDecline: {},
+  myAds: {},
+  deleteMyAd: {},
 };
 
 const actions = {
@@ -77,6 +87,13 @@ const actions = {
       url = "/carsofuae-server/users/login.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateLoginInfo", dataset);
+    return dataset;
+  },
+  async superUserLogin({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/super_login.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateSuperLoginInfo", dataset);
     return dataset;
   },
   async forgotPassword({ commit }, params) {
@@ -114,6 +131,20 @@ const actions = {
     commit("updateRegisterInfo", dataset);
     return dataset;
   },
+  async individualUserUpdate({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/individual_update.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateRegisterInfo", dataset);
+    return dataset;
+  },
+  async companyUserUpdate({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/users/company_update.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateRegisterInfo", dataset);
+    return dataset;
+  },
   async imageUpload({ commit }, params) {
     let dataset = {},
       url = "/carsofuae-server/file-upload/image-upload.php";
@@ -126,6 +157,20 @@ const actions = {
       url = "/carsofuae-server/users/user_details.php";
     dataset = await axiosInstance.post(url, params);
     commit("updateUserDetails", dataset);
+    return dataset;
+  },
+  async getMyAds({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/get_my_ads.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateMyAds", dataset.posts);
+    return dataset;
+  },
+  async deleteMyAd({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/delete_my_ad.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateDeleteMyAd", dataset);
     return dataset;
   },
   async newClassifiedPost({ commit }, params) {
@@ -336,6 +381,27 @@ const actions = {
     commit("updatePostedByList", dataset);
     return dataset;
   },
+  async getNonApprovedPosts({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/get_non_approved_posts.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNonApprovedPostList", dataset.posts);
+    return dataset;
+  },
+  async approvePost({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/approve_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updatePostApproval", dataset);
+    return dataset;
+  },
+  async declinePost({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/decline_post.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updatePostDecline", dataset);
+    return dataset;
+  },
 };
 
 const getters = {
@@ -478,6 +544,15 @@ const mutations = {
         userType: "",
       };
       clearLogin();
+    }
+  },
+  updateSuperLoginInfo(state, dataset) {
+    if (dataset) {
+      state.superLoginInfo = dataset;
+      setSuperLogin(JSON.stringify(state.superLoginInfo));
+    } else {
+      state.superLoginInfo = null;
+      clearSuperLogin();
     }
   },
   updateForgotPasswordInfo(state, dataset) {
@@ -649,6 +724,21 @@ const mutations = {
   },
   updateSelectedSubcategory(state, value) {
     state.selectedSubcategory = value;
+  },
+  updateNonApprovedPostList(state, dataset) {
+    state.nonApprovedPostList = dataset;
+  },
+  updatePostApproval(state, dataset) {
+    state.postApproval = dataset;
+  },
+  updatePostDecline(state, dataset) {
+    state.postDecline = dataset;
+  },
+  updateMyAds(state, dataset) {
+    state.myAds = dataset;
+  },
+  updateDeleteMyAd(state, dataset) {
+    state.deleteMyAd = dataset;
   },
 };
 
