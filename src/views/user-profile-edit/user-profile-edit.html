@@ -51,7 +51,7 @@
             </div>
             <div class="col-12 mb-4">
               <Checkbox
-                :value="individualUserDetails.nl"
+                :value="Boolean(Number(individualUserDetails.nl))"
                 label="I want to receive the newsletter"
                 @change="updateUserDetails('nl', Number($event.value))"
               />
@@ -181,7 +181,7 @@
 
             <div class="col-12 mb-4">
               <Checkbox
-                :value="companyUserDetails.nl"
+                :value="Boolean(Number(companyUserDetails.nl))"
                 label="I want to receive the newsletter"
                 @change="updateUserDetails('nl', Number($event.value))"
               />
@@ -194,6 +194,14 @@
               <!-- prettier-ignore -->
               <Button type="primary" text="Update Profile" @click="submitLogin()" />
             </div>
+          </div>
+          <div class="col-12 mt-3 mb-5">
+            <label class="text-danger font-italic"
+              ><font-awesome-icon :icon="['fas', 'info-circle']" /> Your current
+              session will be logged out after the updation. You have to verify
+              your email once the profile is updated to login and access the
+              profile again.</label
+            >
           </div>
         </div>
       </div>

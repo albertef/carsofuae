@@ -131,12 +131,16 @@
         <div class="col-12">
           <h5>Overview</h5>
           <PostDetailTable :data="postData" />
-          <div class="user-desc mb-4" @click="openStore(postData.postedBy)">
+          <div
+            class="user-desc mb-4"
+            :class="!postData.video && 'mb-5'"
+            @click="openStore(postData.postedBy)"
+          >
             <img src="../../assets/user-profile.png" />
             <p><span>{{postedByName}}'s Take</span>{{postData.desc}}</p>
           </div>
           <h5 v-if="postData.video">Video</h5>
-          <div v-if="postData.video" class="video-wrapper my-3">
+          <div v-if="postData.video" class="video-wrapper mt-3 mb-5">
             <iframe
               width="100%"
               height="100%"

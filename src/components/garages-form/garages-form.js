@@ -39,7 +39,7 @@ export default {
         postedBy: "",
         services: "",
         openTimes: "",
-        postedBy: "",
+        userType: "",
         facebook: "",
         instagram: "",
         linkedin: "",
@@ -63,6 +63,9 @@ export default {
     },
     garageServiceList() {
       return garageServiceList;
+    },
+    locationOptions() {
+      return UTILS.emiratesLocationList();
     },
   },
   methods: {
@@ -112,7 +115,11 @@ export default {
     },
     async submitPost() {
       if (this.validateNewGarageForm()) {
-        let params = { ...this.newGarage, postedBy: this.loginInfo?.id };
+        let params = {
+          ...this.newGarage,
+          postedBy: this.loginInfo?.id,
+          userType: this.loginInfo?.userType,
+        };
         store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(

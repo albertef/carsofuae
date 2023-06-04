@@ -128,6 +128,8 @@
     </div>
     <div class="col-12 col-lg-4">
       <div class="shadow-container p-3 mb-3">
+        <!-- prettier-ignore -->
+        <GarageDeal :garageId="Number(getSingleGarageDetails.id)" :userId="getSingleGarageDetails.postedBy" />
         <div class="open-times mb-4">
           <h5 class="mb-3">Opening Hours</h5>
           <div
@@ -143,7 +145,7 @@
           </div>
         </div>
         <!-- prettier-ignore -->
-        <Button type="hollow" text="Add Your Garage" width="100%" class="mr-3 mb-4" @click="addGarage()" />
+        <Button type="green" text="Add Your Garage" width="100%" class="mr-3 mb-4" @click="addGarage()" />
         <div class="about">
           <h5>About Us</h5>
           <div v-html="getSingleGarageDetails.description" class="my-3"></div>

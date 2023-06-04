@@ -42,6 +42,7 @@ export default {
         mechanicalCondition: "",
         sellerType: "",
         postedBy: "",
+        userType: "",
       },
       newPostValidation: {},
     };
@@ -114,7 +115,11 @@ export default {
     },
     async submitPost() {
       if (this.validateNewPostForm()) {
-        let params = { ...this.newPost, postedBy: this.loginInfo?.id };
+        let params = {
+          ...this.newPost,
+          postedBy: this.loginInfo?.id,
+          userType: this.loginInfo?.userType,
+        };
         store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(

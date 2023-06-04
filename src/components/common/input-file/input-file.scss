@@ -61,8 +61,8 @@
       box-shadow: $shadow-error;
     }
   }
-  #image,
-  #image-multiple {
+  div[id*="image"],
+  div[id*="image-multiple"] {
     display: flex;
     flex-wrap: wrap;
     .img {

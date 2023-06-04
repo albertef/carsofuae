@@ -1,12 +1,12 @@
 <div class="container profile-wrapper my-4">
   <div class="row">
-    <div class="col-12 mb-3 p-0">
+    <div class="col-12 mb-3 p-md-0">
       <label>Select Category <span>*</span></label>
       <!-- prettier-ignore -->
       <Select :options="mainCategoryList"
         default="Select Category" @selectValue="setPageCategory($event)" />
     </div>
-    <div class="col-12 mb-md-5 mb-3 mt-3 p-0">
+    <div class="col-12 mb-md-5 mb-3 mt-3 p-md-0">
       <ul class="nav nav-tabs w-100" v-if="page == 'classifieds'">
         <li class="nav-item" v-for="item in classifiedsCategoryList">
           <a
@@ -28,12 +28,12 @@
         </li>
       </ul>
     </div>
-    <div class="col-12 mb-5 p-0" v-if="!adInfo">
+    <div class="col-12 mb-5 p-md-0" v-if="!adInfo">
       <h5 class="d-flex justify-content-center align-items-center">
         {{page && type ? 'No Ads Found!!!' : 'Select any category to see the ads you posted!' }}
       </h5>
     </div>
-    <div class="col-12 px-lg-0 px-3" v-else>
+    <div class="col-12 px-lg-0 px-3 table-wrapper mb-5" v-else>
       <table class="table table-striped">
         <thead>
           <tr>

@@ -45,11 +45,10 @@
               default="Select Make" @selectValue="updateLeaseData('make', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Place <span>*</span></label>
+            <label>Location <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newLeaseValidation.place" errorText="Enter Place"
-              placeholder="Enter Place" id="place" :value="newLease.place"
-              @value="updateLeaseData('place', $event)" />
+            <Select :options="utils.emiratesLocationList()" :error="newLeaseValidation.place" errorText="Select Location"
+              default="Select Location" @selectValue="updateLeaseData('place', $event)" />
           </div>
           <div class="col-12 mb-3 mt-3">
             <label>Price <span>*</span></label>
@@ -80,6 +79,14 @@
             <InputText class="inputText" :error="newLeaseValidation.phone" errorText="Enter Phone Number"
               placeholder="Enter Phone Number" id="phone" :value="newLease.phone"
               @value="updateLeaseData('phone', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Whatsapp Number <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newLeaseValidation.whatsappNumber"
+              errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number with Country Code"
+              id="whatsappNumber" :value="newLease.whatsappNumber"
+              @value="updateLeaseData('whatsappNumber', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Email <span>*</span></label>
@@ -114,7 +121,7 @@
             <InputText class="inputText" :error="newLeaseValidation.minAge" errorText="Enter Valid Minimum Age"
               placeholder="Enter Minimum Age" id="minAge" :value="newLease.minAge"
               @value="updateLeaseData('minAge', $event)" />
-          </div>        
+          </div>
           <div class="col-12 mb-3">
             <label>Security Deposit <span>*</span></label>
             <!-- prettier-ignore -->
@@ -125,9 +132,8 @@
           <div class="col-12 mb-3">
             <label>Accepted In <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newLeaseValidation.acceptedIn" errorText="Enter Accepted In"
-              placeholder="Enter Accepted In" id="acceptedIn" :value="newLease.acceptedIn"
-              @value="updateLeaseData('acceptedIn', $event)" />
+            <Select :options="utils.acceptedInList()" :error="newLeaseValidation.acceptedIn" errorText="Select Accepted In"
+            default="Select Accepted In" @selectValue="updateLeaseData('acceptedIn', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Additional Driver Insurance <span>*</span></label>
@@ -256,8 +262,8 @@
               @value="updateLeaseData('linkedin', $event)"
             />
           </div>
-            <div class="col-12 mb-3">
-            <label>Dealer Name <span>*</span></label> 
+          <div class="col-12 mb-3">
+            <label>Dealer Name <span>*</span></label>
             <!-- prettier-ignore -->
             <InputText class="inputText" :error="newLeaseValidation.dealerName" errorText="Enter Dealer Name"
               placeholder="Enter Dealer Name" id="dealerName" :value="newLease.dealerName"
@@ -272,7 +278,9 @@
               @value="updateLeaseData('dealerLogo', $event)" />
           </div>
           <div class="col-12 mb-3">
-            <label>Enter specifications separated using comma<span>*</span></label>
+            <label
+              >Enter specifications separated using comma<span>*</span></label
+            >
             <!-- prettier-ignore -->
             <TextArea
               class="inputText"

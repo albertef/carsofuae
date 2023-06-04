@@ -20,7 +20,6 @@ export default {
     },
     date: {
       type: Date,
-      default: () => new Date(),
     },
     error: {
       type: Boolean,

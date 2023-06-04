@@ -41,6 +41,7 @@ export default {
         imageFolder: "",
         openTimes: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         mileageLimit: "",
         additionalMileageCharge: "",
@@ -68,6 +69,7 @@ export default {
         listBullets: "",
         descDetails: "",
         postedBy: "",
+        userType: "",
       },
       newLeaseValidation: {},
       selectedFeatures: [],
@@ -137,6 +139,9 @@ export default {
         galleryImages: !this.newLease.galleryImages,
         openTimes: !this.newLease.openTimes,
         phone: !this.newLease.phone || !UTILS.isValidPhone(this.newLease.phone),
+        whatsappNumber:
+          !this.newLease.whatsappNumber ||
+          !UTILS.isValidPhone(this.newLease.whatsappNumber),
         email: !this.newLease.email || !UTILS.isValidEmail(this.newLease.email),
         mileageLimit:
           !this.newLease.mileageLimit || isNaN(this.newLease.mileageLimit),
@@ -177,7 +182,11 @@ export default {
     },
     async submitLease() {
       if (this.validateNewLeaseForm()) {
-        let params = { ...this.newLease, postedBy: this.loginInfo?.id };
+        let params = {
+          ...this.newLease,
+          postedBy: this.loginInfo?.id,
+          userType: this.loginInfo?.userType,
+        };
         store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(

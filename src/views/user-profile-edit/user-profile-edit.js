@@ -51,6 +51,8 @@ export default {
       if (this.selectedUserType === this.userTypes.individual.title) {
         this.individualUserDetails = {
           ...this.individualUserDetails,
+          id: Number(this.loginInfo?.id),
+          username: this.userInfo.username,
           firstname: this.userInfo.firstName,
           lastname: this.userInfo.lastName,
           email: this.userInfo.email,
@@ -61,6 +63,8 @@ export default {
       } else if (this.selectedUserType === this.userTypes.company.title) {
         this.companyUserDetails = {
           ...this.companyUserDetails,
+          id: Number(this.loginInfo?.id),
+          username: this.userInfo.username,
           firstname: this.userInfo.firstName,
           lastname: this.userInfo.lastName,
           businessName: this.userInfo.businessName,
@@ -92,6 +96,9 @@ export default {
     },
     loginInfo() {
       return store.state.home.loginInfo;
+    },
+    registerInfo() {
+      return store.state.home.registerInfo;
     },
   },
   methods: {
@@ -155,6 +162,14 @@ export default {
         : false;
     },
 
+    logout() {
+      store.commit("updateLoginInfo", null);
+      store.commit("updateUserDetails", null);
+      router.push({
+        name: "Login",
+      });
+    },
+
     async submitLogin() {
       if (this.validateRegisterForm()) {
         let params = null;
@@ -166,6 +181,7 @@ export default {
           params = this.companyUserDetails;
           await this.$store.dispatch("companyUserUpdate", params);
         }
+
         store.commit("updateLoader", false);
         if (this.registerInfo.status) {
           const alert = {
@@ -174,7 +190,7 @@ export default {
             message: this.registerInfo.message || META.commonErrorMessage,
           };
           store.commit("updateAlert", alert);
-          this.$router.go(-1);
+          this.logout();
         } else {
           const alert = {
             show: true,

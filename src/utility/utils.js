@@ -64,7 +64,7 @@ export const UTILS = {
 
   yearDropdownValues() {
     const max = new Date().getFullYear(),
-      min = max - 20,
+      min = max - 30,
       arr = [];
 
     for (var i = min; i <= max; i++) {
@@ -336,6 +336,10 @@ export const UTILS = {
       "Umm Al Quwain",
       "Ras Al Khaima",
       "Fujairah",
+      "Al Ain",
     ].sort();
+  },
+  acceptedInList() {
+    return ["Cash", "Cheque", "Card"].sort();
   },
 };

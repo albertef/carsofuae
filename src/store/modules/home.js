@@ -64,6 +64,7 @@ const state = {
   newGarageInfo: {},
   newReviewInfo: {},
   newFAQInfo: {},
+  newDealInfo: {},
   reviewList: [],
   faqList: [],
   newRentalInfo: {},
@@ -257,6 +258,13 @@ const actions = {
     commit("updateNewFAQInfo", dataset);
     return dataset;
   },
+  async addNewDeal({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/new_garage_deal.php";
+    dataset = await axiosInstance.post(url, params);
+    commit("updateNewDealInfo", dataset);
+    return dataset;
+  },
   async getFAQList({ commit }, params) {
     let dataset = {},
       url = `/carsofuae-server/data/get_faq.php?pageType=${params.pageType}&pageId=${params.pageId}`;
@@ -446,6 +454,8 @@ const getters = {
       data = state.carData;
     } else if (state.selectedClassifiedCategory === "motorcycles") {
       data = state.motorCycleData;
+    } else {
+      data = state.carData;
     }
     return [...new Set(data?.map((make) => make.make))].sort();
   },
@@ -456,6 +466,8 @@ const getters = {
         data = state.carData;
       } else if (state.selectedClassifiedCategory === "motorcycles") {
         data = state.motorCycleData;
+      } else {
+        data = state.carData;
       }
       return [
         ...new Set(
@@ -471,6 +483,8 @@ const getters = {
         data = state.carData;
       } else if (state.selectedClassifiedCategory === "motorcycles") {
         data = state.motorCycleData;
+      } else {
+        data = state.carData;
       }
       return [
         ...new Set(
@@ -620,6 +634,9 @@ const mutations = {
   },
   updateNewFAQInfo(state, dataset) {
     state.newFAQInfo = dataset;
+  },
+  updateNewDealInfo(state, dataset) {
+    state.newDealInfo = dataset;
   },
   updatePostList(state, dataset) {
     state.postList = dataset;

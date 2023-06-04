@@ -60,6 +60,7 @@ export default {
         page: this.page,
         type: this.type,
         id: Number(this.loginInfo?.id),
+        userType: this.loginInfo?.userType,
       };
       router.push({
         query: {
@@ -78,6 +79,7 @@ export default {
         page: this.page,
         type: this.type,
         id: id,
+        userType: this.loginInfo?.userType,
       };
       await store.dispatch("deleteMyAd", params);
       if (this.deleteMyAdInfo.status) {

@@ -450,13 +450,13 @@ export const META = {
   ],
   genderOptions: ["Male", "Female"],
   locationOptions: [
-    "Abu Dhabi",
     "Dubai",
+    "Abu Dhabi",
     "Sharjah",
     "Ajman",
-    "Umm Al-Quwain",
+    "Umm Al Quwain",
+    "Ras Al Khaima",
     "Fujairah",
-    "RAK",
     "Al Ain",
   ],
   businessTypeOptions: [

@@ -247,10 +247,7 @@
     @selectValue="updatePostData('steeringSide', $event)" />
   </div>
   <div class="col-12 mb-3">
-    <label>
-      Video Link
-      <span>*</span>
-    </label>
+    <label> Video Link </label>
     <!-- prettier-ignore -->
     <InputText class="inputText" :error="newPostValidation.video" errorText="Enter valid youtube video link"
     placeholder="Enter youtube video link" id="video" :value="newPost.video" @value="updatePostData('video', $event)" />

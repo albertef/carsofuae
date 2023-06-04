@@ -42,6 +42,7 @@ export default {
         imageFolder: "",
         openTimes: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         mileageLimit: "",
         additionalMileageCharge: "",
@@ -68,13 +69,14 @@ export default {
         dealerLogo: "",
         listBullets: "",
         postedBy: "",
+        userType: "",
       },
       newRentalValidation: {},
       selectedFeatures: [],
     };
   },
   async mounted() {
-    await store.dispatch("getCarList");
+    await store.dispatch("getCarList", true);
   },
   computed: {
     loginInfo() {
@@ -138,6 +140,9 @@ export default {
         openTimes: !this.newRental.openTimes,
         phone:
           !this.newRental.phone || !UTILS.isValidPhone(this.newRental.phone),
+        whatsappNumber:
+          !this.newRental.whatsappNumber ||
+          !UTILS.isValidPhone(this.newRental.whatsappNumber),
         email:
           !this.newRental.email || !UTILS.isValidEmail(this.newRental.email),
         mileageLimit:
@@ -178,7 +183,11 @@ export default {
     },
     async submitRental() {
       if (this.validateNewRentalForm()) {
-        let params = { ...this.newRental, postedBy: this.loginInfo?.id };
+        let params = {
+          ...this.newRental,
+          postedBy: this.loginInfo?.id,
+          userType: this.loginInfo?.userType,
+        };
         store.commit("updateLoader", true);
 
         const galleryImageUploadResponse = await this.$store.dispatch(

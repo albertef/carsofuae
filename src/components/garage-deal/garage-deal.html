@@ -1,0 +1,45 @@
+<div class="faq-wrapper">
+  <!-- prettier-ignore -->
+  <Button type="red" v-if="isCurrentUser" width="100%" text="Add A Deal" @click="openAddDeal" class="my-4" />
+  <Modal v-if="isAddDeal" class="medium">
+    <template v-slot:header>
+      Add A Deal
+      <span @click="closeAddDeal"
+        ><font-awesome-icon :icon="['fas', 'times']" /></span
+    ></template>
+    <template v-slot:body>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mb-3 p-0">
+            <label>Start Date <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputDate class="inputText" :error="newDealValidation.start" errorText="Select the start date of deal"
+      placeholder="Select the start date of deal" id="start" :value="newDeal.start"
+      @value="updateDealData('start', $event)" />
+
+            <label>End Date <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputDate class="inputText" :error="newDealValidation.end" errorText="Select the end date of deal"
+      placeholder="Select the end date of deal" id="start" :value="newDeal.end"
+      @value="updateDealData('end', $event)" />
+
+            <label>Deal banner image</label>
+            <!-- prettier-ignore -->
+            <InputFile class="inputText" :error="newDealValidation.dealBanner"
+          errorText="Choose a valid deal banner" type="file" accept="image/*" placeholder="Choose a deal banner"
+          name="dealBanner" id="dealBanner" :value="newDeal.dealBanner"
+          @value="updateDealData('dealBanner', $event)" />
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:footer>
+      <div class="col-12 p-0 mt-4 d-flex">
+        <!-- prettier-ignore -->
+        <Button type="hollow" width="100%" text="Cancel" @click="closeAddDeal" class="mr-2" />
+        <!-- prettier-ignore -->
+        <Button type="primary" width="100%" text="Submit Deal" @click="addDeal" class="ml-2" />
+      </div>
+    </template>
+  </Modal>
+</div>

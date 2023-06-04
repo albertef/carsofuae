@@ -84,6 +84,12 @@
     <Select :options="utils.numPlatesDigitsList()" :error="newPostValidation.digits" errorText="Select No of Digits" default="Select No of Digits"
     @selectValue="updatePostData('digits', $event)" />
   </div>
+  <div class="col-12 mb-3">
+    <label> Video Link </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.video" errorText="Enter valid youtube video link"
+    placeholder="Enter youtube video link" id="video" :value="newPost.video" @value="updatePostData('video', $event)" />
+  </div>
   <div
     class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
   >

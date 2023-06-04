@@ -85,7 +85,7 @@ export default {
       return META.genderOptions;
     },
     locationOptions() {
-      return META.locationOptions;
+      return UTILS.emiratesLocationList();
     },
     businessTypeOptions() {
       return META.businessTypeOptions;

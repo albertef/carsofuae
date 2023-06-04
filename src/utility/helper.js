@@ -18,6 +18,7 @@ export function setAuth(auth) {
 
 export function setLogin(value) {
   sessionStorage.setItem(LOGIN_INFO, value);
+  localStorage.setItem(LOGIN_INFO, value);
 }
 
 export function getLogin() {
@@ -35,6 +36,7 @@ export function clearLogin() {
 
 export function setSuperLogin(value) {
   sessionStorage.setItem(SUPER_LOGIN_INFO, value);
+  localStorage.setItem(SUPER_LOGIN_INFO, value);
 }
 
 export function getSuperLogin() {

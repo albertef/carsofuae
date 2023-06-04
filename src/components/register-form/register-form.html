@@ -223,7 +223,7 @@
               <label>Trade License <span>*</span></label>
               <!-- prettier-ignore -->
               <InputFile class="inputText" :error="registerValidation.tradeLicense"
-                errorText="Choose your trade license image" type="file" accept="image/*" name="tradeLicense"
+                errorText="Choose your trade license image" type="file" accept="image/*,application/pdf" name="tradeLicense"
                 id="tradeLicense" :value="companyUserDetails.tradeLicense"
                 @value="updateUserDetails('tradeLicense', $event)" />
             </div>

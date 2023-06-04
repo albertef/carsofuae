@@ -27,11 +27,10 @@
             />
           </div>
           <div class="col-12 mb-3">
-            <label>Place <span>*</span></label>
+            <label>Location <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newGarageValidation.place" errorText="Enter Place"
-              placeholder="Enter Place" id="place" :value="newGarage.place"
-              @value="updateGarageData('place', $event)" />
+            <Select :options="locationOptions" :error="newGarageValidation.place" errorText="Select your location"
+                default="Select Location" @selectValue="updateGarageData('place', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Phone <span>*</span></label>

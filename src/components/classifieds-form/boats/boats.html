@@ -63,6 +63,15 @@
   </div>
   <div class="col-12 mb-3">
     <label>
+      Select Year
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year" errorText="Select year" default="Select year"
+    @selectValue="updatePostData('year', $event)" id="year" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
       Upload 10 gallery images (Minimum of 1 image)
       <span>*</span>
     </label>
@@ -129,14 +138,12 @@
     <InputText class="inputText" :error="newPostValidation.price" errorText="Enter Price"
     placeholder="Enter Price" id="price" :value="newPost.price" @value="updatePostData('price', $event)" type="number" />
   </div>
+
   <div class="col-12 mb-3">
-    <label>
-      Select Year
-      <span>*</span>
-    </label>
+    <label> Video Link </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year" errorText="Select year" default="Select year"
-    @selectValue="updatePostData('year', $event)" id="year" />
+    <InputText class="inputText" :error="newPostValidation.video" errorText="Enter valid youtube video link"
+    placeholder="Enter youtube video link" id="video" :value="newPost.video" @value="updatePostData('video', $event)" />
   </div>
   <div
     class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"

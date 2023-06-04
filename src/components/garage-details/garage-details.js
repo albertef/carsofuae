@@ -5,6 +5,7 @@ import Button from "@/components/common/button/button.vue";
 import garageServiceList from "@/meta/services.json";
 import { Carousel, Slide } from "vue-carousel";
 import { UTILS } from "@/utility/utils.js";
+import GarageDeal from "@/components/garage-deal/garage-deal.vue";
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
@@ -21,6 +22,7 @@ export default {
     Button,
     Carousel,
     Slide,
+    GarageDeal,
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
@@ -109,10 +111,11 @@ export default {
       );
     },
     openEmail(email) {
+      debugger;
       window.location.href = `mailto:${email}`;
     },
     socialOpen(link) {
-      let formattedLink = "";
+      let formattedLink = link;
       if (!link.includes("http")) {
         formattedLink = `https://${link}`;
       }

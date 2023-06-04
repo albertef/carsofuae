@@ -12,12 +12,12 @@
   <span v-if="error">{{errorText}}</span>
   <!-- <div v-for="file in fileList" class="image-list">{{file.name}}</div> -->
   <div class="image-info" v-if="fileList.length">
-    <font-awesome-icon :icon="['fas', 'info-circle']" />Only images shown here
+    <font-awesome-icon :icon="['fas', 'info-circle']" />Only files shown here
     will be uploaded. If you can't find any image you have selected, it is not
     valid.
   </div>
   <div
     v-show="fileList.length"
-    :id="multiple ? 'image-multiple' : 'image'"
+    :id="multiple ? `image-multiple-${id}` : `image-${id}`"
   ></div>
 </div>

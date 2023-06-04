@@ -1,11 +1,14 @@
 .profile-wrapper {
   min-height: 500px;
-  table {
-    td,
-    th {
-      vertical-align: middle;
-      &.action {
-        display: inline-flex;
+  .table-wrapper {
+    overflow-x: auto;
+    table {
+      td,
+      th {
+        vertical-align: middle;
+        &.action {
+          display: inline-flex;
+        }
       }
     }
   }

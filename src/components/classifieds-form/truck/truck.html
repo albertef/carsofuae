@@ -36,6 +36,16 @@
   </div>
   <div class="col-12 mb-3">
     <label>
+      Select Year
+      <span>*</span>
+    </label>
+    <!-- prettier-ignore -->
+    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year"
+    errorText="Select Year" default="Select Year"
+    @selectValue="updatePostData('year', $event)" />
+  </div>
+  <div class="col-12 mb-3">
+    <label>
       Location
       <span>*</span>
     </label>
@@ -103,30 +113,26 @@
     @selectValue="updatePostData('warranty', $event)" />
   </div>
   <div class="col-12 mb-3">
-    <label>Select Price</label>
+    <label>Price <span>*</span></label>
     <!-- prettier-ignore -->
-    <Select :options="utils.PriceToPriceList()" :error="newPostValidation.price" errorText="Select Price" default="Select Price"
-    @selectValue="updatePostData('price', $event)" />
+    <InputText class="inputText" :error="newPostValidation.price" errorText="Enter Price" placeholder="Enter Price"
+    id="price" :value="newPost.price" @value="updatePostData('price', $event)" type="number" />
   </div>
+
   <div class="col-12 mb-3">
     <label>
-      Select Year
+      Mileage
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year"
-    errorText="Select Year" default="Select Year"
-    @selectValue="updatePostData('year', $event)" />
+    <InputText class="inputText" :error="newPostValidation.kilometers" errorText="Enter Mileage"
+    placeholder="Enter Mileage" id="kilometers" :value="newPost.kilometers" @value="updatePostData('kilometers', $event)" type="number" />
   </div>
   <div class="col-12 mb-3">
-    <label>
-      Select Kilometers
-      <span>*</span>
-    </label>
+    <label> Video Link </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.truckKmList()" :error="newPostValidation.kilometers"
-    errorText="Select Kilometers" default="Select Kilometers"
-    @selectValue="updatePostData('kilometers', $event)" />
+    <InputText class="inputText" :error="newPostValidation.video" errorText="Enter valid youtube video link"
+    placeholder="Enter youtube video link" id="video" :value="newPost.video" @value="updatePostData('video', $event)" />
   </div>
   <div
     class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
