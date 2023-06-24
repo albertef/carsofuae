@@ -147,6 +147,9 @@
       font-size: 0.875rem;
     }
   }
+  ::v-deep .VueCarousel {
+    width: 100%;
+  }
   ::v-deep .VueCarousel-pagination {
     > div {
       margin-top: 0 !important;

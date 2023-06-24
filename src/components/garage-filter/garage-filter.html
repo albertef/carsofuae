@@ -5,21 +5,17 @@
         <h5>Select Filter Options</h5>
         <font-awesome-icon :icon="['fas', 'times']" @click="closeFilter" />
       </div>
-      <div class="col-12 col-lg-4 filter-column">
+      <!-- <div class="col-12 col-lg-4 filter-column">
         <label>Location</label>
-        <!-- prettier-ignore -->
+        
         <Select :options="locationList" default="Select Location" @selectValue="updateGarageFilterDetails('location', $event)" />
       </div>
       <div class="col-12 col-lg-4 filter-column">
         <label>Rating</label>
-        <!-- prettier-ignore -->
+        
         <Select :options="[1,2,3,4,5]" default="Select Rating" @selectValue="updateGarageFilterDetails('rating', $event)" />
       </div>
-      <!-- <div class="col-12 col-lg-4 filter-column">
-        <label>Deals</label>
-        <Radio :selected="false" value="With Deals" name="deals" />
-        <Radio :selected="true" value="Without Deals" name="deals" />
-      </div> -->
+
       <div class="col-12 col-lg-4 filter-column">
         <Radio
           :value="'With Deals'"
@@ -35,7 +31,7 @@
           :selected="filterData.deals === false"
           @change="e => updateGarageFilterDetails('deals',false)"
         />
-      </div>
+      </div> -->
       <div class="col-12 col-lg-12 filter-column">
         <label>Services Offered</label>
         <div class="service-choices">

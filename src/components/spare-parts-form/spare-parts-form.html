@@ -12,11 +12,11 @@
             <Select :options="sparePartsCategoryList"
               default="Select Type" @selectValue="getCategoryOptions($event)" />
           </div>
-          <Cars v-if="selectedSpareType==='Cars'"/>
-          <Bikes v-if="selectedSpareType==='Bikes'"/>
-          <Apparels v-if="selectedSpareType==='Apparel'"/>
-          <Hobbyist v-if="selectedSpareType==='Hobbyist'"/>
-          <HeavyVehicles v-if="selectedSpareType==='Heavy'"/> 
+          <Cars v-if="selectedSpareType==='cars'" />
+          <Bikes v-if="selectedSpareType==='bikes'" />
+          <Apparels v-if="selectedSpareType==='apparel'" />
+          <Hobbyist v-if="selectedSpareType==='hobbyist'" />
+          <HeavyVehicles v-if="selectedSpareType==='heavy'" />
         </div>
       </div>
     </div>

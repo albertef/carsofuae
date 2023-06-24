@@ -1,0 +1,21 @@
+.profile-wrapper {
+  min-height: 500px;
+  .table-wrapper {
+    overflow-x: auto;
+    table {
+      td,
+      th {
+        vertical-align: middle;
+        &.action {
+          display: inline-flex;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .ads-wrapper {
+    margin-top: 40px !important;
+  }
+}

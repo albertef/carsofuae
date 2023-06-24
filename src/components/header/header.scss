@@ -31,9 +31,17 @@ nav {
             color: $purple;
           }
         }
+        &.search {
+          > .nav-link {
+            padding: 20px 10px;
+            svg {
+              display: block;
+            }
+          }
+        }
         &.login {
           > .nav-link {
-            padding: 20px;
+            padding: 20px 10px;
             color: $purple;
             svg {
               display: block;
@@ -182,14 +190,15 @@ nav {
         &:first-child {
           border-top-left-radius: 30px;
         }
-        &:nth-last-child(3) {
+        &:nth-last-child(4) {
           border-bottom-left-radius: 30px;
           border-bottom-right-radius: 30px;
         }
         button {
           margin: 15px;
         }
-        &.login {
+        &.login,
+        &.search {
           display: none !important;
         }
         a {

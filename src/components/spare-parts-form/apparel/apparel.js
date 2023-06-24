@@ -33,9 +33,11 @@ export default {
         galleryImages: "",
         warranty: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         postedBy: "",
         userType: "",
+        video: "",
       },
       newPostValidation: {},
     };
@@ -93,14 +95,17 @@ export default {
         description: !this.newPost.description,
         // type: !this.newPost.type,
         category: !this.newPost.category,
-        subcategory: !this.newPost.subcategory,
-        spareItem: !this.newPost.spareItem,
+        // subcategory: !this.newPost.subcategory,
+        // spareItem: !this.newPost.spareItem,
         partNo: !this.newPost.partNo,
         price: !this.newPost.price,
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
         warranty: !this.newPost.warranty,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        whatsappNumber:
+          !this.newPost.whatsappNumber ||
+          !UTILS.isValidPhone(this.newPost.whatsappNumber),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
       };
 

@@ -17,7 +17,10 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch("getSpareList");
-    await this.$store.dispatch("getSpareItemList");
+    // const params = {
+    //   type: this.getSelectedSpareType || this.$route.query.type || "cars",
+    // };
+    // await this.$store.dispatch("getSpareItemList", params);
   },
   computed: {
     getSpareItemList() {

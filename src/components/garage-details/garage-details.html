@@ -31,7 +31,7 @@
               type="green"
               text="Whatsapp"
               :icon="['fab', 'whatsapp']"
-              @click="openWhatsapp(getSingleGarageDetails.phone)"
+              @click="openWhatsapp(getSingleGarageDetails.whatsappNumber)"
             />
             <!-- prettier-ignore -->
             <Button
@@ -104,7 +104,7 @@
             loading="lazy"
           ></iframe>
         </div>
-        <div class="deals mt-4" v-if="getSingleGarageDetails.isDeals">
+        <div class="deals mt-4" v-if="isDeals">
           <h5 class="mb-3">
             <font-awesome-icon :icon="['fas','bolt']" class="bolt-icon" /> Our
             Deals
@@ -116,11 +116,11 @@
             :autoplay="true"
             :navigationEnabled="true"
           >
-            <Slide
-              v-for="image, index in getSingleGarageDetails.deals"
-              v-bind:key="index"
-            >
-              <img :src="image.poster" class="img-fluid" />
+            <Slide v-for="deal, index in garageDeals" v-bind:key="index">
+              <img
+                :src="getImagePath(deal.dealBanner, deal.imageFolder)"
+                class="img-fluid"
+              />
             </Slide>
           </Carousel>
         </div>

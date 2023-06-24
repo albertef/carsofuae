@@ -33,7 +33,7 @@
   <div class="col-12 mb-3">
     <label>
       Select SubCategory
-      <span>*</span>
+      
     </label>
     <!-- prettier-ignore -->
     <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
@@ -99,6 +99,14 @@
     placeholder="Enter Phone Number with Country Code" id="phone" :value="newPost.phone" @value="updatePostData('phone', $event)" />
   </div>
   <div class="col-12 mb-3">
+    <label>Whatsapp Number <span>*</span></label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.whatsappNumber"
+      errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number with Country Code"
+      id="whatsappNumber" :value="newPost.whatsappNumber"
+      @value="updatePostData('whatsappNumber', $event)" />
+  </div>
+  <div class="col-12 mb-3">
     <label>
       Email
       <span>*</span>
@@ -107,8 +115,14 @@
     <InputText class="inputText" :error="newPostValidation.email" errorText="Enter Email Address"
     placeholder="Enter Email Address" id="email" :value="newPost.email" @value="updatePostData('email', $event)" />
   </div>
+  <div class="col-12 mb-3">
+    <label> Video Link </label>
+    <!-- prettier-ignore -->
+    <InputText class="inputText" :error="newPostValidation.video" errorText="Enter valid youtube video link"
+    placeholder="Enter youtube video link" id="video" :value="newPost.video" @value="updatePostData('video', $event)" />
+  </div>
   <div
-    class="col-12 mt-3 mb-5 d-flex justify-content-between align-items-center button-wrapper"
+    class="col-12 mt-4 mb-5 d-flex justify-content-between align-items-center button-wrapper"
   >
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />

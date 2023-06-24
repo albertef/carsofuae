@@ -11,7 +11,7 @@
     </span>
   </div>
   <SpareCategorySelect
-    v-if="!queryParams.type || (!getSelectedSpareType && (!getSelectedSpareCategory || !getSelectedSpareSubCategory || getSelectedSpareItem))"
+    v-if="(!queryParams.type || !getSelectedSpareType) || (!getSelectedSpareType && (!getSelectedSpareCategory || !getSelectedSpareSubCategory || getSelectedSpareItem))"
   />
   <SpareList
     v-if="getSelectedSpareType && (!getSelectedSpareCategory || !getSelectedSpareSubCategory || !getSelectedSpareItem)"

@@ -183,13 +183,7 @@
               <Select :options="utils.numberUpto10DropdownValues()" :error="newRentalValidation.seats" errorText="Select No.of Seats"
               default="Select No.of Seats" @selectValue="updateRentalData('seats', $event)" />
             </div>
-            <div class="col-12 mb-3">
-              <label>Luggage <span>*</span></label>
-              <!-- prettier-ignore -->
-              <InputText class="inputText" :error="newRentalValidation.luggage" errorText="Enter Luggage"
-              placeholder="Enter Luggage" id="luggage" :value="newRental.luggage"
-              @value="updateRentalData('luggage', $event)" />
-            </div>
+           
             <div class="col-12 mb-3">
               <label>Why Choose This Car <span>*</span></label>
               <!-- prettier-ignore -->

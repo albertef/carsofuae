@@ -30,6 +30,7 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
+    await this.$store.dispatch("getDealsList");
     this.$store.commit("updateGarageCategory", this.$route.query.category);
   },
   computed: {
@@ -38,6 +39,9 @@ export default {
     },
     garageList() {
       return this.$store.state.home.garageList.garages;
+    },
+    garageDeals() {
+      return this.$store.state.home.garageDeals.deals;
     },
     dealsList() {
       let dealsArray = [];
@@ -71,6 +75,10 @@ export default {
           category: value,
         },
       });
+    },
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     getServiceList(value) {
       return garageServiceList.filter((item) => value.includes(item.id));

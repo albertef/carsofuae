@@ -11,6 +11,12 @@
       <div class="container">
         <div class="row">
           <div class="col-12 mb-3 p-0">
+            <label>Deal Title <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newDealValidation.title" errorText="Enter title for the deal"
+      placeholder="Enter title for the deal" id="title" :value="newDeal.title"
+      @value="updateDealData('title', $event)" />
+
             <label>Start Date <span>*</span></label>
             <!-- prettier-ignore -->
             <InputDate class="inputText" :error="newDealValidation.start" errorText="Select the start date of deal"

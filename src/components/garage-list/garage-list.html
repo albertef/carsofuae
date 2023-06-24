@@ -77,20 +77,24 @@
     >
       <div
         class="col-12 col-md-6 mb-3 mb-md-4 pb-1 d-flex"
-        v-for="deal,index in dealsList"
+        v-for="deal,index in garageDeals"
       >
-        <div class="garage-list p-3" @click="garageDetails(deal.id)">
+        <div class="garage-list p-3" @click="garageDetails(deal.garageId)">
           <h5 class="mb-1">
             <em>{{deal.title}}</em>
-            <span
-              ><font-awesome-icon
+            <span>
+              <font-awesome-icon
                 :icon="['far', 'calendar-alt']"
                 class="mr-1"
-              />{{formatDate(deal.date)}}</span
+              />{{formatDate(deal.start)}}
+              <strong>to</strong> {{formatDate(deal.end)}}</span
             >
           </h5>
           <div class="deal-poster mt-2">
-            <img :src="deal.poster" class="img-fluid" />
+            <img
+              :src="getImagePath(deal.dealBanner, deal.imageFolder)"
+              class="img-fluid"
+            />
           </div>
         </div>
       </div>

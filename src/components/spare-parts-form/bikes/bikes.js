@@ -36,15 +36,17 @@ export default {
         galleryImages: "",
         warranty: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         postedBy: "",
         userType: "",
+        video: "",
       },
       newPostValidation: {},
     };
   },
   async mounted() {
-    await store.dispatch("getCarList");
+    await store.dispatch("getMotorCycleList");
   },
   computed: {
     loginInfo() {
@@ -54,10 +56,10 @@ export default {
       return store.state.home.newSpareBikesInfo;
     },
     brandsList() {
-      return store.getters.getAllCarMakes;
+      return store.getters.getAllMakes;
     },
     modelsList() {
-      return store.getters.getAllCarModels(this.newPost.brand);
+      return store.getters.getAllModels(this.newPost.brand);
     },
     trimList() {
       return store.getters.getTrimList(this.newPost.brand, this.newPost.model);
@@ -108,14 +110,17 @@ export default {
         model: !this.newPost.model,
         year: !this.newPost.year,
         category: !this.newPost.category,
-        subcategory: !this.newPost.subcategory,
-        spareItem: !this.newPost.spareItem,
+        // subcategory: !this.newPost.subcategory,
+        // spareItem: !this.newPost.spareItem,
         partNo: !this.newPost.partNo,
         price: !this.newPost.price,
         displayPicture: !this.newPost.displayPicture,
         galleryImages: !this.newPost.galleryImages,
         warranty: !this.newPost.warranty,
         phone: !this.newPost.phone || !UTILS.isValidPhone(this.newPost.phone),
+        whatsappNumber:
+          !this.newPost.whatsappNumber ||
+          !UTILS.isValidPhone(this.newPost.whatsappNumber),
         email: !this.newPost.email || !UTILS.isValidEmail(this.newPost.email),
       };
 

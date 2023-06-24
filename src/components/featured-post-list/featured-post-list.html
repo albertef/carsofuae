@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row featured-wrapper mt-5" v-if="featuredPostData.length">
-            <div class="col-12 mb-5 p-0">
-              <h3 class="heading">Featured <span>posts</span></h3>
-            </div>
+        <div class="row mt-5">
+          <div class="col-12 mb-5 p-0">
+            <h3 class="heading">Featured <span>posts</span></h3>
+          </div>
+        </div>
+          <div class="row featured-wrapper" v-if="featuredPostData.length">
             <Carousel
             id="featured-list-carousel"
             :per-page="3"

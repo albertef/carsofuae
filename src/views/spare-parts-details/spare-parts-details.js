@@ -25,11 +25,17 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await this.$store.dispatch("getSpareItemList");
+    const params = {
+      type: this.getSelectedSpareType || this.$route.query.type || "cars",
+    };
+    await this.$store.dispatch("getSpareItemList", params);
     await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
   },
   computed: {
+    getSelectedSpareType() {
+      return this.$store.state.home.selectedSpareType;
+    },
     getPostId() {
       return this.$route.query.id;
     },
@@ -43,8 +49,26 @@ export default {
           ?.name || "Guest"
       );
     },
+    galleryImages() {
+      return [
+        this.postData.displayPicture,
+        ...this.postData.galleryImages.split(","),
+      ];
+    },
+    getVideoId() {
+      return UTILS.isValidYTLink(this.postData.video);
+    },
   },
   methods: {
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
+    createLightBoxImage(image, folder) {
+      const images = [this.postData.displayPicture, ...image.split(",")];
+      const imageArr = images.map((item) => this.getImagePath(item, folder));
+      return imageArr;
+    },
     leftArrowClick() {
       this.$refs.scroller.scrollLeft -= 1250;
     },
@@ -55,14 +79,15 @@ export default {
       document.location.href = `tel:${num}`;
     },
     openWhatsapp(num) {
-      window.open(
-        `https://wa.me/${num.replace(
-          /[^\d\+]/g,
-          ""
-        )}?text=Hey! I am Interested in your ad. ${encodeURIComponent(
-          window.location.href
-        )}`
-      );
+      num &&
+        window.open(
+          `https://wa.me/${num.replace(
+            /[^\d\+]/g,
+            ""
+          )}?text=Hey! I am Interested in your ad. ${encodeURIComponent(
+            window.location.href
+          )}`
+        );
     },
     openEmail(email) {
       window.location.href = `mailto:${email}`;

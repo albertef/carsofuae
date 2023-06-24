@@ -6,10 +6,12 @@ import {
   clearSuperLogin,
 } from "@/utility/helper";
 import { UTILS } from "@/utility/utils.js";
+import { META } from "@/meta/common.js";
 
 const state = {
   postList: [],
   garageList: [],
+  garageDeals: [],
   garageCategory: "browse",
   garageDetailsEnabled: false,
   selectedGarage: null,
@@ -80,6 +82,8 @@ const state = {
   postDecline: {},
   myAds: {},
   deleteMyAd: {},
+  isFilterApplied: false,
+  searchData: {},
 };
 
 const actions = {
@@ -277,7 +281,6 @@ const actions = {
       url = `/carsofuae-server/data/get_posts.php?category=${UTILS.formatTitle(
         params.category
       )}`;
-    // url = "/mocks/posts.json";
     dataset = await axiosInstance.get(url);
     commit("updatePostList", dataset.post);
     return dataset;
@@ -288,6 +291,13 @@ const actions = {
     //url = `/mocks/garages.json`;
     dataset = await axiosInstance.get(url);
     commit("updateGarageList", dataset);
+    return dataset;
+  },
+  async getDealsList({ commit }) {
+    let dataset = {},
+      url = `/carsofuae-server/data/get_garage_deals.php`;
+    dataset = await axiosInstance.get(url);
+    commit("updateGarageDeals", dataset);
     return dataset;
   },
   async getCarList({ commit }, refresh = false) {
@@ -340,11 +350,13 @@ const actions = {
     commit("updateAccessoriesList", dataset);
     return dataset;
   },
-  async getSpareItemList({ commit }) {
+  async getSpareItemList({ commit }, params) {
     let dataset = {},
-      url = "/mocks/spare-post-items.json";
+      url = `/carsofuae-server/data/get_spare_posts.php?type=${UTILS.formatTitle(
+        params.type
+      )}`;
     dataset = await axiosInstance.get(url);
-    commit("updateSpareItemList", dataset);
+    commit("updateSpareItemList", dataset.post);
     return dataset;
   },
   async newSpareCarPost({ commit }, params) {
@@ -410,6 +422,14 @@ const actions = {
     commit("updatePostDecline", dataset);
     return dataset;
   },
+  async search({ commit }, params) {
+    let dataset = {},
+      url = "/carsofuae-server/data/get_search_data.php";
+    dataset = await axiosInstance.post(url, params);
+    debugger;
+    commit("updateSearchData", dataset?.data);
+    return dataset;
+  },
 };
 
 const getters = {
@@ -444,15 +464,21 @@ const getters = {
   getSingleSpareData(state) {
     return function (id) {
       return state.spareItemList.find((post) => {
-        return post.id === Number(id);
+        return Number(post.id) === Number(id);
       });
     };
   },
   getAllMakes(state) {
     let data = null;
-    if (state.selectedClassifiedCategory === "used-cars") {
+    if (
+      state.selectedClassifiedCategory === "used-cars" ||
+      state.selectedSpareType === "cars"
+    ) {
       data = state.carData;
-    } else if (state.selectedClassifiedCategory === "motorcycles") {
+    } else if (
+      state.selectedClassifiedCategory === "motorcycles" ||
+      state.selectedSpareType === "bikes"
+    ) {
       data = state.motorCycleData;
     } else {
       data = state.carData;
@@ -462,9 +488,15 @@ const getters = {
   getAllModels(state) {
     return function (make) {
       let data = null;
-      if (state.selectedClassifiedCategory === "used-cars") {
+      if (
+        state.selectedClassifiedCategory === "used-cars" ||
+        state.selectedSpareType === "cars"
+      ) {
         data = state.carData;
-      } else if (state.selectedClassifiedCategory === "motorcycles") {
+      } else if (
+        state.selectedClassifiedCategory === "motorcycles" ||
+        state.selectedSpareType === "bikes"
+      ) {
         data = state.motorCycleData;
       } else {
         data = state.carData;
@@ -479,9 +511,15 @@ const getters = {
   getTrimList(state) {
     return function (make, model) {
       let data = null;
-      if (state.selectedClassifiedCategory === "used-cars") {
+      if (
+        state.selectedClassifiedCategory === "used-cars" ||
+        state.selectedSpareType === "cars"
+      ) {
         data = state.carData;
-      } else if (state.selectedClassifiedCategory === "motorcycles") {
+      } else if (
+        state.selectedClassifiedCategory === "motorcycles" ||
+        state.selectedSpareType === "bikes"
+      ) {
         data = state.motorCycleData;
       } else {
         data = state.carData;
@@ -533,6 +571,16 @@ const getters = {
       ?.filter((elem) => elem.sub === state.selectedAccessorySubCategory)
       ?.map((el) => el.item);
     return [...new Set(item)].sort().filter(Boolean);
+  },
+  getSearchData(state) {
+    const data =
+      state.searchData && Object.keys(state.searchData).length
+        ? state.searchData?.map((item, index) => {
+            const type = META.classifiedsCategories[index].id;
+            return JSON.parse(`{ "${type}": ${JSON.stringify(item)} }`);
+          })
+        : [];
+    return data;
   },
 };
 
@@ -643,6 +691,9 @@ const mutations = {
   },
   updateGarageList(state, dataset) {
     state.garageList = dataset;
+  },
+  updateGarageDeals(state, dataset) {
+    state.garageDeals = dataset;
   },
   updateReviewsList(state, dataset) {
     state.reviewList = dataset;
@@ -756,6 +807,12 @@ const mutations = {
   },
   updateDeleteMyAd(state, dataset) {
     state.deleteMyAd = dataset;
+  },
+  updateIsFilterApplied(state, value) {
+    state.isFilterApplied = value;
+  },
+  updateSearchData(state, dataset) {
+    state.searchData = dataset;
   },
 };
 

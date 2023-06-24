@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row latest-posts" v-if="postData && postData.length">
+          <div class="row latest-posts">
             <div class="col-12 px-lg-0 px-3 py-2 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
               <h3 class="heading" v-html="title"></h3>
               <div class="right-column">
+                <!-- prettier-ignore -->
+                <Button type="hollow small" text="Clear Filter" @click="clearFilter" v-if="isFilter" class="mr-3" />
                 <div class="sort-wrapper" title="Sort Options">
                   <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
                   <Sort :data="postData"  @close="sortToggle"  v-if="sortEnabled" />
@@ -13,7 +15,7 @@
                 </div>
                 <div class="filter-wrapper" title="Filter Options">
                   <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                  <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
+                  <PostFilter :data="postData"  @close="filterToggle" @filteredData="updatePostData($event)" v-if="filterEnabled" />
                 </div>
                 <div class="view-wrapper">
                   <span :class="!listView && 'active'" @click="viewToggle('grid')" title="Grid View">
@@ -25,6 +27,7 @@
                 </div>
               </div>
             </div>
+            <section class="col-12 d-flex p-0 flex-wrap" v-if="postData && postData.length">
             <div :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'" v-for="post in postData">
               <div
                 class="card"
@@ -90,7 +93,7 @@
                       text="Whatsapp"
                       class="flex-fill mr-1"
                       :icon="['fab', 'whatsapp']"
-                      @click="openWhatsapp(post.phone)"
+                      @click="openWhatsapp(post.whatsappNumber)"
                     />
                     <!-- prettier-ignore -->
                     <Button
@@ -115,12 +118,14 @@
               <!-- prettier-ignore -->
               <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
             </div>
-          </div>
-          <div v-else class="d-flex flex-column justify-content-center align-items-center no-result">
+          </section>
+          <div v-else class="col-12 d-flex flex-column justify-content-center align-items-center no-result">
             <img src="../../assets/no-results.png" class="img-fluid" />
             <h6>No Results Found</h6>
             <p class="my-2">try changing the filters or search term</p>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>

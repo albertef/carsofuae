@@ -32,6 +32,7 @@ export default {
         description: "",
         place: "",
         phone: "",
+        whatsappNumber: "",
         email: "",
         profilePicture: "",
         galleryImages: "",
@@ -102,6 +103,9 @@ export default {
           !this.newGarage.openTimes || this.newGarage.openTimes.length < 7,
         phone:
           !this.newGarage.phone || !UTILS.isValidPhone(this.newGarage.phone),
+        whatsappNumber:
+          !this.newGarage.whatsappNumber ||
+          !UTILS.isValidPhone(this.newGarage.whatsappNumber),
         profilePicture: !this.newGarage.profilePicture,
         galleryImages: !this.newGarage.galleryImages,
       };

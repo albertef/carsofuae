@@ -1,95 +1,116 @@
 <div class="post-filter-wrapper container-fluid mb-5 p-4 pb-5">
   <div class="container p-0 pb-4">
     <div class="row">
-      <div class="col-12 mb-3 heading">
+      <div class="col-12 mb-5 heading">
         <h5>Select Filter Options</h5>
         <font-awesome-icon :icon="['fas', 'times']" @click="closeFilter" />
       </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles'"
-      >
-        <label>Sub Category</label>
-        <!-- prettier-ignore -->
-        <Select :options="getCarMakes" default="Select Brand" @selectValue="updateSelectedCarMake" />
-      </div>
-
-      <div class="col-12 col-lg-3 filter-column">
-        <label>Brand</label>
-        <!-- prettier-ignore -->
-        <Select :options="getCarMakes" default="Select Brand" @selectValue="updateSelectedCarMake" />
-      </div>
-
-      <div class="col-12 col-lg-3 filter-column">
-        <label>Model</label>
-        <!-- prettier-ignore -->
-        <Select :options="getAllModels" default="Select Model" @selectValue="getSelectInput" />
-      </div>
-
-      <div class="col-12 col-lg-3 filter-column">
-        <label>Year</label>
-        <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Trim</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Trim" @selectValue="getSelectInput" />
-      </div>
-
-      <div class="col-12 col-lg-3 filter-column">
-        <label>Kilometers</label>
-        <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles'"
-      >
-        <label>Final Drive System</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Final Drive System" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles'"
-      >
-        <label>Wheels</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Wheels" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory==='motorcycles'"
-      >
-        <label>Engine Size</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Engine Size" @selectValue="getSelectInput" />
-      </div>
-
+    </div>
+    <div class="row" v-if="getCategory=='used-cars'">
       <div class="col-12 col-lg-3 filter-column">
         <label>Regional Specs</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Regional Specs" @selectValue="getSelectInput" />
+        <Select :options="utils.regionalspecsDropDownValues()" default="Select Regional Specs" @selectValue="updateFilterData('regionalSpecs', $event)" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
+      <div class="col-12 col-lg-3 filter-column">
         <label>Body Type</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Body Type" @selectValue="getSelectInput" />
+        <Select :options="utils.bodyType()" default="Select Body Type" @selectValue="updateFilterData('bodyType', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.yesNoDropdownValues()" default="Select Warranty" @selectValue="updateFilterData('warranty', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>No.of Cylinders</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.numberOfCylinderDropdownValues()" default="Select No.of Cylinders" @selectValue="updateFilterData('cylinders', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Transmission Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.transmissionTypes()" default="Select Transmission Type" @selectValue="updateFilterData('transmission', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Horse Power</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.horsePowerOptions()" default="Select Horse Power" @selectValue="updateFilterData('horsePower', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Fuel Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.fuelTypes()" default="Select Fuel Type" @selectValue="updateFilterData('fuel', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Steering Side</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.steeringSideOptions()" default="Select Steering Side" @selectValue="updateFilterData('steeringSide', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Exterior Color</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.colorDropDownValues()" default="Select Exterior Color" @selectValue="updateFilterData('exteriorColor', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Interior Color</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.colorDropDownValues()" default="Select Interior Color" @selectValue="updateFilterData('interiorColor', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Doors</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.numberOfDoorDropdownValues()" default="Select Doors" @selectValue="updateFilterData('doors', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Body Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.bodyConditionDropDownValues()" default="Select Body Condition" @selectValue="updateFilterData('bodyCondition', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Mechanical Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.mechanicalConditionDropDownValues()" default="Select Mechanical Condition" @selectValue="updateFilterData('mechanicalCondition', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Seller Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.sellerTypes()" default="Select Seller Type" @selectValue="updateFilterData('sellerType', $event)" />
+      </div>
+    </div>
+
+    <!--MOTORCYCLES FILTERS-->
+
+    <div class="row" v-if="getCategory=='motorcycles'">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Sub Category</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.motorcycleSubcateList()" default="Select Sub Category" @selectValue="updateFilterData('subcategory', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Final Drive System</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.motorCyclefDSystemList()" default="Select Final Drive System" @selectValue="updateFilterData('finalDriveSystem', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Wheels</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.wheelsDropdownValues()" default="Select Wheels" @selectValue="updateFilterData('wheels', $event)" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
@@ -99,108 +120,226 @@
         <InputText class="inputText" placeholder="max" @value="" />
       </div>
 
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Warranty</label>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Engine Size</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Warranty" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>No.of Cylinders</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select No.of Cylinders" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Transmission Type</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Transmission Type" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Horse Power</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Horse Power" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Fuel Type</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Fuel Type" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Steering Side</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Steering Side" @selectValue="getSelectInput" />
+        <Select :options="utils.motorCycleEngineSizeList()" default="Select Engine Size" @selectValue="updateFilterData('engineSize', $event)" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
-        <label>Exterior Color</label>
+        <label>Regional spec</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Exterior Color" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Interior Color</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Interior Color" @selectValue="getSelectInput" />
-      </div>
-
-      <div
-        class="col-12 col-lg-3 filter-column"
-        v-if="getCategory!=='motorcycles'"
-      >
-        <label>Doors</label>
-        <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Doors" @selectValue="getSelectInput" />
+        <Select :options="utils.motorCycleRegionalSpecList()" default="Select Regional spec" @selectValue="updateFilterData('regionalSpec', $event)" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
-        <label>Body Condition</label>
+        <label>Exterior color</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Body Condition" @selectValue="getSelectInput" />
+        <Select :options="utils.colorDropDownValues()" default="Select Exterior color" @selectValue="updateFilterData('exteriorColor', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Body condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.bodyConditionDropDownValues()" default="Select Body condition" @selectValue="updateFilterData('bodyCondition', $event)" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Mechanical Condition</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Mechanical Condition" @selectValue="getSelectInput" />
+        <Select :options="utils.mechanicalConditionDropDownValues()" default="Select Mechanical Condition" @selectValue="updateFilterData('mechanicalCondition', $event)" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
-        <label>Seller Type</label>
+        <label>Seller type </label>
         <!-- prettier-ignore -->
-        <Select :options="[]" default="Select Seller Type" @selectValue="getSelectInput" />
+        <Select :options="utils.sellerTypes()" default="Select Seller type" @selectValue="updateFilterData('sellerType', $event)" />
+      </div>
+    </div>
+
+    <!--BOATS FILTERS-->
+
+    <div class="row" v-if="getCategory=='boats'">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Sub Category</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.subcategoryDropDownValues('boats')" default="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" />
       </div>
 
-      <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Age</label>
         <!-- prettier-ignore -->
-        <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
-        <!-- prettier-ignore -->
-        <Button type="primary" text="Apply" @click="closeFilter" />
+        <Select :options="utils.ageDropDownValues()" default="Select Age" @selectValue="updateFilterData('age', $event)" />
       </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.boatConditionDropdownValues()" default="Select Condition" @selectValue="updateFilterData('boatCondition', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>History</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.boatHistoryDropdownValues()" default="Select History" @selectValue="updateFilterData('boatHistory', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Length</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.lengthDropdownValues()" default="Select Length" @selectValue="updateFilterData('length', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.yesNoDropdownValues()" default="Select Warranty" @selectValue="updateFilterData('warranty', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Seller type </label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.sellerTypes()" default="Select Seller type" @selectValue="updateFilterData('sellerType', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Price</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Year</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+    </div>
+
+    <!--TRUCKS FILTERS-->
+
+    <div class="row" v-if="getCategory=='truck'">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Sub Category</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.truckSubCategoryList()" default="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>No of Cylinders</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.numberOfCylinderDropdownValues()" default="Select No of Cylinders" @selectValue="updateFilterData('cylinders', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Horse Power</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.truckHorsPowrList()" default="Select Horse Power" @selectValue="updateFilterData('horsePower', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Price</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Year</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Mileage</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Fuel Type</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.fuelTypes()" default="Select Fuel Type" @selectValue="updateFilterData('fuel', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.yesNoDropdownValues()" default="Select Warranty" @selectValue="updateFilterData('warranty', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Seller type </label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.sellerTypes()" default="Select Seller type" @selectValue="updateFilterData('sellerType', $event)" />
+      </div>
+    </div>
+
+    <!--NUMBERPLATES FILTERS-->
+
+    <div class="row" v-if="getCategory=='number-plates'">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Sub Category</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.numPlatesSubCatList()" default="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Emirate</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.emiratesLocationList()" default="Select Final Drive System" @selectValue="updateFilterData('emirate', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>No of Digits</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.numPlatesDigitsList()" default="Select Wheels" @selectValue="updateFilterData('digits', $event)" />
+      </div>
+    </div>
+
+    <!--ACCESSORIES FILTERS-->
+
+    <div class="row" v-if="getCategory=='accessories-and-parts'">
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Condition</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.boatConditionDropdownValues()" default="Select Condition" @selectValue="updateFilterData('accessoriesCondition', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>History</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.boatHistoryDropdownValues()" default="Select History" @selectValue="updateFilterData('accessoriesUsage', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.yesNoDropdownValues()" default="Select Warranty" @selectValue="updateFilterData('warranty', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Seller type </label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.sellerTypes()" default="Select Seller type" @selectValue="updateFilterData('sellerType', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Price</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" @value="" />
+        <InputText class="inputText" placeholder="max" @value="" />
+      </div>
+    </div>
+
+    <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+      <!-- prettier-ignore -->
+      <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
+      <!-- prettier-ignore -->
+      <Button type="primary" text="Apply" @click="applyFilter" />
     </div>
   </div>
 </div>

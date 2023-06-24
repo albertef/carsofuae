@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     getCategoryOptions(type) {
-      store.commit("updateSelectedSpareType", type);
+      store.commit("updateSelectedSpareType", type.toLowerCase());
     },
     updatePostData(key, e) {
       this.newPost = {

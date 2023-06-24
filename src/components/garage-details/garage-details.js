@@ -26,6 +26,7 @@ export default {
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
+    await this.$store.dispatch("getDealsList");
     this.$store.commit("updateGarageCategory", this.$route.query.category);
     router
       .push({
@@ -58,10 +59,25 @@ export default {
     loginInfo() {
       return this.$store.state.home.loginInfo;
     },
+    garageDeals() {
+      const deals = this.$store.state.home.garageDeals?.deals;
+      const sort = deals?.filter(
+        (item) =>
+          Number(this.getSingleGarageDetails?.id) === Number(item.garageId)
+      );
+      return sort;
+    },
+    isDeals() {
+      return this.garageDeals?.length;
+    },
   },
   methods: {
     getServiceList(value) {
       return garageServiceList.filter((item) => value.includes(item.id));
+    },
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     backToGarageList() {
       this.$store.commit("updateSelectedGarage", null);
@@ -111,7 +127,6 @@ export default {
       );
     },
     openEmail(email) {
-      debugger;
       window.location.href = `mailto:${email}`;
     },
     socialOpen(link) {

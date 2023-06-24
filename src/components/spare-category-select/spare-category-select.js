@@ -17,7 +17,7 @@ export default {
     };
   },
   async mounted() {
-    store.commit("updateSelectedSpareType", this.queryParams.type || "");
+    store.commit("updateSelectedSpareType", this.queryParams.type);
   },
   computed: {
     getSelectedSpareType() {
@@ -45,8 +45,9 @@ export default {
     },
   },
   methods: {
-    getCategoryOptions(type) {
+    async getCategoryOptions(type) {
       store.commit("updateSelectedSpareType", type);
+      await this.$store.dispatch("getSpareItemList", { type: type });
       router.push({
         query: {
           ...this.queryParams,

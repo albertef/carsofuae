@@ -89,5 +89,9 @@ export default {
     openEmail(email) {
       window.location.href = `mailto:${email}`;
     },
+    getGalleryImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
   },
 };

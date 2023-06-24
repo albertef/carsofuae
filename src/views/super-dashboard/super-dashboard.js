@@ -62,7 +62,7 @@ export default {
       } else if (this.page === "spare-parts") {
         this.type = "cars";
       } else {
-        this.type = "null";
+        this.type = "other";
       }
       this.getNonApprovedPosts(this.type);
     },

@@ -2,6 +2,7 @@ import Modal from "@/components/common/modal/modal.vue";
 import Button from "@/components/common/button/button.vue";
 import InputDate from "@/components/common/input-date/input-date.vue";
 import InputFile from "@/components/common/input-file/input-file.vue";
+import InputText from "@/components/common/input-text/input-text.vue";
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -23,6 +24,7 @@ export default {
     Button,
     InputDate,
     InputFile,
+    InputText,
   },
   data() {
     return {
@@ -32,6 +34,7 @@ export default {
         end: "",
         dealBanner: "",
         garageId: "",
+        title: "",
       },
       newDealValidation: {},
       isAddDeal: false,
@@ -46,7 +49,7 @@ export default {
     },
     isCurrentUser() {
       const currentUserId = this.loginInfo?.id;
-      return this.userId === currentUserId;
+      return Number(this.userId) === Number(currentUserId);
     },
   },
   methods: {
@@ -71,6 +74,7 @@ export default {
     validateNewDealForm() {
       this.newDealValidation = {
         ...this.newDealValidation,
+        title: !this.newDeal.title,
         start: !this.newDeal.start,
         end: !this.newDeal.end,
         dealBanner: !this.newDeal.dealBanner,
@@ -86,13 +90,11 @@ export default {
           userId: this.loginInfo?.id,
           garageId: this.garageId,
         };
-        debugger;
         store.commit("updateLoader", true);
         const dealBannerUploadResponse = await this.$store.dispatch(
           "imageUpload",
           params.dealBanner
         );
-        debugger;
         if (dealBannerUploadResponse.status) {
           params = {
             ...params,

@@ -35,9 +35,17 @@
           <div class="col-12 mb-3">
             <label>Phone <span>*</span></label>
             <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newGarageValidation.phone" errorText="Enter Phone Number"
-              placeholder="Enter Phone Number" id="phone" :value="newGarage.phone"
+            <InputText class="inputText" :error="newGarageValidation.phone" errorText="Enter Phone Number with Country Code"
+              placeholder="Enter Phone Number with Country Code" id="phone" :value="newGarage.phone"
               @value="updateGarageData('phone', $event)" />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Whatsapp Number <span>*</span></label>
+            <!-- prettier-ignore -->
+            <InputText class="inputText" :error="newGarageValidation.whatsappNumber"
+              errorText="Enter valid Whatsapp Number with country code" placeholder="Enter Whatsapp Number with Country Code"
+              id="whatsappNumber" :value="newGarage.whatsappNumber"
+              @value="updateGarageData('whatsappNumber', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label>Email <span>*</span></label>
@@ -65,6 +73,13 @@
               errorText="Choose gallery images (minimum 1)" type="file" accept="image/*" multiple
               name="galleryImages[]" id="galleryImages" :value="newGarage.galleryImages"
               @value="updateGarageData('galleryImages', $event)" />
+          </div>
+
+          <div class="col-12 mb-3 mt-3">
+            <label>Open Times <span>*</span></label>
+            <!-- prettier-ignore -->
+            <OpenTimes :error="newGarageValidation.openTimes"
+            errorText="Choose timings for all days" @value="updateGarageData('openTimes', $event)" />
           </div>
 
           <div class="col-12 mb-3">
@@ -96,12 +111,6 @@
               :value="newGarage.linkedin"
               @value="updateGarageData('linkedin', $event)"
             />
-          </div>
-          <div class="col-12 mb-3 mt-3">
-            <label>Open Times <span>*</span></label>
-            <!-- prettier-ignore -->
-            <OpenTimes :error="newGarageValidation.openTimes"
-            errorText="Choose timings for all days" @value="updateGarageData('openTimes', $event)" />
           </div>
 
           <div

@@ -32,21 +32,21 @@
             />
           </div>
           <CoolLightBox
-            :items="postData.gallery"
+            :items="createLightBoxImage(postData.galleryImages, postData.imageFolder)"
             :index="index"
             @close="index = null"
           >
           </CoolLightBox>
-          <div class="image-wrapper" v-if="postData.gallery">
+          <div class="image-wrapper" v-if="galleryImages">
             <div
-              v-for="(image, imageIndex) in postData.gallery"
-              :data-count="postData.gallery.length"
+              v-for="(image, imageIndex) in galleryImages"
+              :data-count="galleryImages.length"
               :key="imageIndex"
               @click="index = imageIndex"
-              :style="{ backgroundImage: 'url(' + image + ')' }"
-              :class="postData.gallery.length === 1 && 'w-100'"
+              :style="{ backgroundImage: 'url(' + getImagePath(image,postData.imageFolder) + ')' }"
+              :class="galleryImages.length === 1 && 'w-100'"
             >
-              <img :src="image" />
+              <img :src="getImagePath(image,postData.imageFolder)" />
             </div>
           </div>
           <span @click="sharePage" class="shareIcon">
@@ -94,7 +94,7 @@
               text="Whatsapp"
               class="flex-fill ml-1"
               :icon="['fab', 'whatsapp']"
-              @click="openWhatsapp(postData.phone)"
+              @click="openWhatsapp(postData.whatsappNumber)"
             />
             <!-- prettier-ignore -->
             <Button
@@ -115,18 +115,18 @@
             <img src="../../assets/user-profile.png" />
             <p><span>{{postedByName}}'s Take</span></p>
           </div>
-          <!-- <h5>Video</h5>
-          <div class="video-wrapper my-3">
+          <h5 v-if="postData.video">Video</h5>
+          <div class="video-wrapper my-3" v-if="postData.video">
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/mPaUWBjxAHw"
+              :src="`https://www.youtube.com/embed/${getVideoId}`"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          </div> -->
+          </div>
         </div>
         <!-- <template>
           <section class="comments" aria-labelledby="comment">

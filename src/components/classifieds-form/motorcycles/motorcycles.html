@@ -114,12 +114,7 @@
     <Select :options="utils.motorCycleEngineSizeList()" :error="newPostValidation.engineSize" errorText="Select Engine Size " default="Select Engine Size "
     @selectValue="updatePostData('engineSize', $event)" id="engineSize" />
   </div>
-  <div class="col-12 mb-3">
-    <label>Select Sub Specification </label>
-    <!-- prettier-ignore -->
-    <Select :options="utils.motorCycleSubSpecList()" :error="newPostValidation.subSpecification" errorText="Select Sub Specification " default="Select Sub Specification "
-    @selectValue="updatePostData('subSpecification', $event)" id="subSpecification" />
-  </div>
+
   <div class="col-12 mb-3">
     <label>Select Regional spec </label>
     <!-- prettier-ignore -->

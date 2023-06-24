@@ -1,6 +1,4 @@
 import Button from "@/components/common/button/button.vue";
-import Checkbox from "@/components/common/checkbox/checkbox.vue";
-import Radio from "@/components/common/radio/radio.vue";
 import Select from "@/components/common/select/select.vue";
 import InputText from "@/components/common/input-text/input-text.vue";
 import { UTILS } from "@/utility/utils.js";
@@ -9,52 +7,56 @@ export default {
   name: "PostFilter",
   components: {
     Button,
-    Checkbox,
-    Radio,
     Select,
     InputText,
   },
-  data() {
-    return {
-      carMake: this.getCarMakes ? this.getCarMakes[0] : null,
-    };
-  },
+
   props: {
     data: {
       type: Array,
       default: [],
     },
   },
+  data() {
+    return {
+      filterData: {},
+    };
+  },
   computed: {
     getCategory() {
-      return this.$route.query.category;
+      return (
+        this.$route.query.category ||
+        this.$store.state.home.selectedClassifiedCategory ||
+        "used-cars"
+      );
     },
     fullPostData() {
       return this.data;
     },
-    getCarMakes() {
-      return this.$store.getters.getAllMakes;
-    },
-    getAllModels() {
-      return this.$store.getters.getAllModels(this.carMake);
-    },
-    yearDropdownValues() {
-      return UTILS.yearDropdownValues;
+    utils() {
+      return UTILS;
     },
   },
   methods: {
-    filterToggle() {
-      this.filterEnabled = !this.filterEnabled;
+    updateFilterData(key, e) {
+      this.filterData = {
+        ...this.filterData,
+        [key]: e,
+      };
     },
-    isSelected(value) {
-      return value ? 1 : 0;
+
+    applyFilter() {
+      const filteredData = this.fullPostData.filter((item) => {
+        return Object.entries(this.filterData).every(([key, value]) => {
+          return item.hasOwnProperty(key) && item[key] === value;
+        });
+      });
+
+      this.$emit("filteredData", filteredData);
+      this.$store.commit("updateIsFilterApplied", true);
+      this.closeFilter();
     },
-    getSelectInput(e) {
-      console.log(e);
-    },
-    updateSelectedCarMake(make) {
-      this.carMake = make;
-    },
+
     closeFilter() {
       this.$emit("close");
     },

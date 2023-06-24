@@ -27,6 +27,7 @@ import VerifyEmail from "@/views/verify-email/verify-email.vue";
 import SuperDashboard from "@/views/super-dashboard/super-dashboard.vue";
 import MyAds from "@/views/my-ads/my-ads.vue";
 import UserProfileEdit from "@/views/user-profile-edit/user-profile-edit.vue";
+import Search from "@/views/search/search.vue";
 
 Vue.use(Router);
 
@@ -182,7 +183,7 @@ const router = new Router({
     {
       path: "/search",
       name: "Search",
-      component: ComingSoon,
+      component: Search,
       meta: { title: "Search" },
     },
     {

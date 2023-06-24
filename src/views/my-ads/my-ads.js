@@ -109,7 +109,7 @@ export default {
           query: {
             id: id,
             category: this.type,
-            title: this.adInfo.desc,
+            title: this.adInfo[0].desc,
           },
         });
       } else if (this.page == "rental") {
@@ -118,7 +118,7 @@ export default {
           name: "RentalDetails",
           query: {
             id: id,
-            title: this.adInfo.desc,
+            title: this.adInfo[0].desc,
           },
         });
       } else if (this.page == "lease-a-car") {
@@ -127,7 +127,7 @@ export default {
           name: "LeaseACarDetails",
           query: {
             id: id,
-            title: this.adInfo.desc,
+            title: this.adInfo[0].desc,
           },
         });
       } else if (this.page == "garages") {
@@ -136,10 +136,21 @@ export default {
           name: "Garages",
           query: {
             id: id,
-            name: this.adInfo.name,
+            name: this.adInfo[0].name,
           },
         });
       } else if (this.page == "spare-parts") {
+        await this.$store.dispatch("getSpareItemList", { type: this.type });
+        router.push({
+          name: "SparePartsDetails",
+          query: {
+            id: id,
+            type: this.type,
+            title: `${UTILS.formatTitle(
+              this.adInfo[0].name
+            )}-${UTILS.formatTitle(this.adInfo[0].description)}`,
+          },
+        });
       }
 
       //await store.commit("updateSelectedClassifiedCategory", this.type);

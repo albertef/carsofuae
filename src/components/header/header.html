@@ -51,9 +51,9 @@
                   {{service.name}}</router-link
                 >
               </li>
-              <li class="nav-item login" v-if="loginInfo.isLoggedIn">
+              <li class="nav-item login mx-1" v-if="loginInfo.isLoggedIn">
                 <a class="nav-link" href="#"
-                  ><font-awesome-icon :icon="['fas','user-alt']" class="mr-2"
+                  ><font-awesome-icon :icon="['fas','user-alt']"
                 /></a>
 
                 <ul>
@@ -92,6 +92,15 @@
                 >
                   Login</router-link
                 >
+              </li>
+              <li class="nav-item search mx-1">
+                <router-link
+                  class="nav-link"
+                  to="/search"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  ><font-awesome-icon :icon="['fas','search']"
+                /></router-link>
               </li>
               <!-- HIDING FOR NOW. MIGHT ENABLE LATER 
                 <li class="nav-item d-none d-lg-block">
