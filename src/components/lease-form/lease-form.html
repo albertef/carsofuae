@@ -30,25 +30,25 @@
             <label>Select Company <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="companyList" :error="newLeaseValidation.company" errorText="Select Company"
-              default="Select Company" @selectValue="updateLeaseData('company', $event)" />
+              placeholder="Select Company" @selectValue="updateLeaseData('company', $event)" :selected="newLease.company" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Model <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="modelsList" :error="newLeaseValidation.model" errorText="Select Model"
-              default="Select Model" @selectValue="updateLeaseData('model', $event)" />
+              placeholder="Select Model" @selectValue="updateLeaseData('model', $event)" :selected="newLease.model" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Make <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.yearDropdownValues()" :error="newLeaseValidation.make" errorText="Select Make"
-              default="Select Make" @selectValue="updateLeaseData('make', $event)" />
+              placeholder="Select Make" @selectValue="updateLeaseData('make', $event)" :selected="newLease.make" />
           </div>
           <div class="col-12 mb-3">
             <label>Location <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.emiratesLocationList()" :error="newLeaseValidation.place" errorText="Select Location"
-              default="Select Location" @selectValue="updateLeaseData('place', $event)" />
+              placeholder="Select Location" @selectValue="updateLeaseData('place', $event)" :selected="newLease.place" />
           </div>
           <div class="col-12 mb-3 mt-3">
             <label>Price <span>*</span></label>
@@ -113,7 +113,7 @@
             <label>Select Insurance <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.insuranceList()" :error="newLeaseValidation.insurance" errorText="Select Insurance"
-              default="Select Insurance" @selectValue="updateLeaseData('insurance', $event)" />
+              placeholder="Select Insurance" @selectValue="updateLeaseData('insurance', $event)" :selected="newLease.insurance" />
           </div>
           <div class="col-12 mb-3">
             <label>Minimum Age <span>*</span></label>
@@ -133,13 +133,13 @@
             <label>Accepted In <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.acceptedInList()" :error="newLeaseValidation.acceptedIn" errorText="Select Accepted In"
-            default="Select Accepted In" @selectValue="updateLeaseData('acceptedIn', $event)" />
+            placeholder="Select Accepted In" @selectValue="updateLeaseData('acceptedIn', $event)" :selected="newLease.acceptedIn" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Additional Driver Insurance <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.additionalDriverInsuranceOptions()" :error="newLeaseValidation.additionalDriverInsurance" errorText="Select Additional Driver Insurance"
-              default="Select Additional Driver Insurance" @selectValue="updateLeaseData('additionalDriverInsurance', $event)" />
+              placeholder="Select Additional Driver Insurance" @selectValue="updateLeaseData('additionalDriverInsurance', $event)" :selected="newLease.additionalDriverInsurance" />
           </div>
           <div class="col-12 mb-3">
             <label>Excess Claim <span>*</span></label>
@@ -169,19 +169,19 @@
             <label>Type <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="getLeaseTypes" :error="newLeaseValidation.type" errorText="Select Type"
-              default="Select Type" @selectValue="updateLeaseData('type', $event)" />
+              placeholder="Select Type" @selectValue="updateLeaseData('type', $event)" :selected="newLease.type" />
           </div>
           <div class="col-12 mb-3">
             <label>Select No.of Doors <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.numberUpto10DropdownValues()" :error="newLeaseValidation.doors" errorText="Select No.of Doors"
-              default="Select No.of Doors" @selectValue="updateLeaseData('doors', $event)" />
+              placeholder="Select No.of Doors" @selectValue="updateLeaseData('doors', $event)" :selected="newLease.doors" />
           </div>
           <div class="col-12 mb-3">
             <label>Select No.of Seats <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.numberUpto10DropdownValues()" :error="newLeaseValidation.seats" errorText="Select No.of Seats"
-              default="Select No.of Seats" @selectValue="updateLeaseData('seats', $event)" />
+              placeholder="Select No.of Seats" @selectValue="updateLeaseData('seats', $event)" :selected="newLease.seats" />
           </div>
 
           <div class="col-12 mb-3">
@@ -255,21 +255,6 @@
               :value="newLease.linkedin"
               @value="updateLeaseData('linkedin', $event)"
             />
-          </div>
-          <div class="col-12 mb-3">
-            <label>Dealer Name <span>*</span></label>
-            <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newLeaseValidation.dealerName" errorText="Enter Dealer Name"
-              placeholder="Enter Dealer Name" id="dealerName" :value="newLease.dealerName"
-              @value="updateLeaseData('dealerName', $event)" />
-          </div>
-          <div class="col-12 mb-3">
-            <label>Dealer Logo</label>
-            <!-- prettier-ignore -->
-            <InputFile class="inputText" :error="newLeaseValidation.dealerLogo"
-              errorText="Choose a Dealer Logo" type="file" accept="image/*" placeholder="Select a Dealer Logo"
-              name="dealerLogo" id="dealerLogo" :value="newLease.dealerLogo"
-              @value="updateLeaseData('dealerLogo', $event)" />
           </div>
           <div class="col-12 mb-3">
             <label

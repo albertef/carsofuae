@@ -2,51 +2,51 @@
   <div>
     <span>Monday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('monday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('monday','start', $event)" :selected="selectedTime('monday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('monday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('monday','end', $event)" :selected="selectedTime('monday', 'end')" />
   </div>
   <div>
     <span>Tuesday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('tuesday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('tuesday','start', $event)" :selected="selectedTime('tuesday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('tuesday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('tuesday','end', $event)" :selected="selectedTime('tuesday', 'end')" />
   </div>
   <div>
     <span>Wednesday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('wednesday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('wednesday','start', $event)" :selected="selectedTime('wednesday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('wednesday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('wednesday','end', $event)" :selected="selectedTime('wednesday', 'end')" />
   </div>
   <div>
     <span>Thursday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('thursday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('thursday','start', $event)" :selected="selectedTime('thursday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('thursday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('thursday','end', $event)" :selected="selectedTime('thursday', 'end')" />
   </div>
   <div>
     <span>Friday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('friday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('friday','start', $event)" :selected="selectedTime('friday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('friday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('friday','end', $event)" :selected="selectedTime('friday', 'end')" />
   </div>
   <div>
     <span>Saturday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('saturday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('saturday','start', $event)" :selected="selectedTime('saturday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('saturday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('saturday','end', $event)" :selected="selectedTime('saturday', 'end')" />
   </div>
   <div>
     <span>Sunday</span>
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('sunday','start', $event)" />
+    <Select :options="times" @selectValue="updateTimes('sunday','start', $event)" :selected="selectedTime('sunday', 'start')" />
     <!-- prettier-ignore -->
-    <Select :options="times" @selectValue="updateTimes('sunday','end', $event)" />
+    <Select :options="times" @selectValue="updateTimes('sunday','end', $event)" :selected="selectedTime('sunday', 'end')" />
   </div>
   <span v-if="error">Select the timings for all days</span>
 </div>

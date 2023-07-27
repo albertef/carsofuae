@@ -86,11 +86,16 @@ export default {
     // },
     updatePostData(key, e) {
       if (key === "category") {
+        this.newPost.subcategory = "";
+        this.newPost.spareItem = "";
         store.commit("updateSelectedSpareCategory", e);
       } else if (key === "subcategory") {
+        this.newPost.spareItem = "";
         store.commit("updateSelectedSpareSubCategory", e);
       } else if (key === "spareItem") {
         store.commit("updateSelectedSpareItem", e);
+      } else if (key === "brand") {
+        this.newPost.model = "";
       }
       this.newPost = {
         ...this.newPost,

@@ -4,7 +4,7 @@ export default {
       type: Array,
       required: true,
     },
-    default: {
+    placeholder: {
       type: String,
       required: false,
       default: "Select",
@@ -17,23 +17,25 @@ export default {
       type: String,
       default: "",
     },
+    selected: {
+      type: String | Number | Boolean,
+    },
   },
   data() {
     return {
-      selected: this.default
-        ? this.default
-        : this.options.length > 0
-        ? this.options[0]
-        : null,
       open: false,
       selectRef: null,
     };
   },
   mounted() {
     document.addEventListener("click", this.detectClick);
-    this.$emit("input", this.selected);
+    //this.$emit("input", this.selected);
   },
   methods: {
+    selectOption(option) {
+      this.open = false;
+      this.$emit("selectValue", option);
+    },
     detectClick(e) {
       let el = this.$refs["selectRef"];
       let target = e.target;

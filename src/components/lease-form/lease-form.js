@@ -63,8 +63,6 @@ export default {
         facebook: "",
         instagram: "",
         linkedin: "",
-        dealerName: "",
-        dealerLogo: "",
         listBullets: "",
         descDetails: "",
         postedBy: "",
@@ -108,6 +106,9 @@ export default {
   },
   methods: {
     updateLeaseData(key, e) {
+      if (key === "company") {
+        this.newLease.model = "";
+      }
       this.newLease = {
         ...this.newLease,
         [key]: e,
@@ -165,8 +166,6 @@ export default {
         whyUs: !this.newLease.whyUs,
         canDeliver: !this.newLease.canDeliver,
         note: !this.newLease.note,
-        dealerName: !this.newLease.dealerName,
-        dealerLogo: !this.newLease.dealerLogo,
         listBullets: !this.newLease.listBullets,
         descDetails: !this.newLease.descDetails,
       };
@@ -214,30 +213,9 @@ export default {
             imageFolder: galleryImageUploadResponse.folderName,
           };
         }
-        const dealerLogoUploadResponse = await this.$store.dispatch(
-          "imageUpload",
-          params.dealerLogo
-        );
 
-        if (
-          (response || galleryImageUploadResponse.status) &&
-          dealerLogoUploadResponse.status
-        ) {
-          params = {
-            ...params,
-            dealerLogo: dealerLogoUploadResponse.fileName,
-          };
+        if (response || galleryImageUploadResponse.status) {
           await this.$store.dispatch("addNewLease", params);
-        } else {
-          const alert = {
-            show: true,
-            type: "error",
-            message:
-              this.newLeaseInfo.message ||
-              galleryImageUploadResponse ||
-              META.commonErrorMessage,
-          };
-          store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
@@ -250,10 +228,15 @@ export default {
           store.commit("updateAlert", alert);
           router.go(-1);
         } else {
+          const errorMessage = this.newLeaseInfo.message
+            ? this.newLeaseInfo.message
+            : !response || galleryImageUploadResponse.status
+            ? galleryImageUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.newLeaseInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

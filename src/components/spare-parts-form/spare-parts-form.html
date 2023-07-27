@@ -10,7 +10,7 @@
             <label>Select Spare Type <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="sparePartsCategoryList"
-              default="Select Type" @selectValue="getCategoryOptions($event)" />
+              placeholder="Select Type" @selectValue="getCategoryOptions($event)" :selected="selectedSpareType" />
           </div>
           <Cars v-if="selectedSpareType==='cars'" />
           <Bikes v-if="selectedSpareType==='bikes'" />

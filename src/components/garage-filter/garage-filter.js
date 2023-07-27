@@ -25,7 +25,7 @@ export default {
     },
   },
   mounted() {
-    this.filterData = { ...this.filterData, deals: "With Deals" };
+    //this.filterData = { ...this.filterData, deals: "With Deals" };
   },
   computed: {
     fullGarageData() {
@@ -34,43 +34,32 @@ export default {
     garageServiceList() {
       return garageServiceList;
     },
-    yeardropdownValues() {
-      const max = new Date().getFullYear(),
-        min = max - 20,
-        arr = [];
+    // yeardropdownValues() {
+    //   const max = new Date().getFullYear(),
+    //     min = max - 20,
+    //     arr = [];
 
-      for (var i = min; i <= max; i++) {
-        arr.push(i);
-      }
-      return arr;
-    },
-    //update by jesmi
-    garageList() {
-      return this.$store.state.home.garageList.garages;
-    },
-    locationList() {
-      return this.garageList.map((item) => item.place);
-    },
-    fullPostData() {
-      return this.garageList.filter((item) => {
-        return (
-          item.place?.toLowerCase() ===
-            this.filterData.location?.toLowerCase() &&
-          Boolean(Number(item.deals)) === this.filterData.deals
-        );
-      });
-    },
+    //   for (var i = min; i <= max; i++) {
+    //     arr.push(i);
+    //   }
+    //   return arr;
+    // },
   },
   methods: {
-    isSelected(value) {
-      return value ? 1 : 0;
+    applyFilter() {
+      if (Object.keys(this.filterData).length) {
+        const filteredItems = this.fullGarageData.filter((item) => {
+          const itemServices = item.services;
+          return this.filterData.services.every((service) =>
+            itemServices.includes(service)
+          );
+        });
+        this.$emit("filteredData", filteredItems);
+        this.$store.commit("updateIsFilterApplied", true);
+      }
+      this.closeFilter();
     },
-    getSelectInput(e) {
-      console.log(e);
-    },
-    updateSelectedCarMake(make) {
-      this.carMake = make;
-    },
+
     closeFilter() {
       this.$emit("close");
     },

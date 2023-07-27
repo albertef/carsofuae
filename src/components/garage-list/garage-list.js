@@ -26,19 +26,29 @@ export default {
   data() {
     return {
       filterEnabled: false,
+      fullGarageData: [],
     };
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
     await this.$store.dispatch("getDealsList");
     this.$store.commit("updateGarageCategory", this.$route.query.category);
+    this.fullGarageData = this.garageListData;
   },
   computed: {
     garageCategory() {
       return this.$store.state.home.garageCategory;
     },
-    garageList() {
+    garageListData() {
       return this.$store.state.home.garageList.garages;
+    },
+    garageList: {
+      get() {
+        return this.fullGarageData;
+      },
+      set(filteredData) {
+        this.fullGarageData = filteredData;
+      },
     },
     garageDeals() {
       return this.$store.state.home.garageDeals.deals;
@@ -64,6 +74,9 @@ export default {
     },
     showNewPost() {
       return this.loginInfo.userType === this.userTypes.company.title;
+    },
+    isFilter() {
+      return this.$store.state.home.isFilterApplied;
     },
   },
   methods: {
@@ -110,6 +123,13 @@ export default {
           name: "Login",
         });
       }
+    },
+    updatePostData(data) {
+      this.fullGarageData = data;
+    },
+    clearFilter() {
+      this.fullGarageData = this.garageListData;
+      this.$store.commit("updateIsFilterApplied", false);
     },
   },
 };

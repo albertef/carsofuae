@@ -8,12 +8,12 @@
       <!-- <div class="col-12 col-lg-4 filter-column">
         <label>Location</label>
         
-        <Select :options="locationList" default="Select Location" @selectValue="updateGarageFilterDetails('location', $event)" />
+        <Select :options="locationList" placeholder="Select Location" @selectValue="updateGarageFilterDetails('location', $event)" />
       </div>
       <div class="col-12 col-lg-4 filter-column">
         <label>Rating</label>
         
-        <Select :options="[1,2,3,4,5]" default="Select Rating" @selectValue="updateGarageFilterDetails('rating', $event)" />
+        <Select :options="[1,2,3,4,5]" placeholder="Select Rating" @selectValue="updateGarageFilterDetails('rating', $event)" />
       </div>
 
       <div class="col-12 col-lg-4 filter-column">
@@ -48,7 +48,7 @@
         <!-- prettier-ignore -->
         <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
         <!-- prettier-ignore -->
-        <Button type="primary" text="Apply" @click="closeFilter" />
+        <Button type="primary" text="Apply" @click="applyFilter" />
       </div>
     </div>
   </div>

@@ -78,5 +78,15 @@ export default {
       });
       this.$emit("value", formatted);
     },
+
+    selectedTime(day, time) {
+      const dayObject = this.selected.find(
+        (item) => item.day === day.toLowerCase()
+      );
+
+      if (dayObject) {
+        return dayObject[time];
+      }
+    },
   },
 };

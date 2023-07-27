@@ -4,7 +4,7 @@
       <label>Select Category <span>*</span></label>
       <!-- prettier-ignore -->
       <Select :options="mainCategoryList"
-        default="Select Category" @selectValue="setPageCategory($event)" />
+        placeholder="Select Category" @selectValue="setPageCategory($event)" :selected="page" />
     </div>
     <div class="col-12 mb-md-5 mb-3 mt-3 p-md-0">
       <ul class="nav nav-tabs w-100" v-if="page == 'classifieds'">

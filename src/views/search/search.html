@@ -11,25 +11,44 @@
       <label>Select Category <span>*</span></label>
       <!-- prettier-ignore -->
       <Select :options="mainCategoryList" :error="searchValidation.category" errorText="Select any category to search"
-        default="Select Category" @selectValue="updateSearchData('category', $event)" />
+        placeholder="Select Category" @selectValue="updateSearchData('category', $event)" :selected="search.category" />
     </div>
     <div class="col-12 col-md-2 mb-3 mt-2 p-md-0">
       <label class="d-none d-md-inline-block"></label>
       <!-- prettier-ignore -->
       <Button type="primary" text="Search" width="100%" @click="submitPost()" />
     </div>
-    <div class="col-12 mb-3 mt-2 p-md-0" v-if="getSearchData.length">
+    <div class="col-12 mb-3 mt-2 p-md-0" v-if="isSearchData">
       <div v-for="item in getSearchData">
-        <div v-if="search.category =='classifieds'">
-          <h6>{{Object.keys(item)[0]}}</h6>
-          <div>{{item}}</div>
-        </div>
-        <div v-else-if="search.category =='spare-parts'">
-          <h6>{{Object.keys(item)[0]}}</h6>
-          <div>{{item}}</div>
-        </div>
-        <div v-else>
-          <div>{{item}}</div>
+        <div
+          v-if="item[Object.keys(item)[0]] && item[Object.keys(item)[0]].length"
+        >
+          <div class="my-4">
+            <h6 class="mb-2">{{Object.keys(item)[0]}}</h6>
+            <div
+              v-for="elem in item[Object.keys(item)[0]]"
+              class="mb-2 d-flex item-wrapper"
+              @click="viewPost(elem.id, Object.keys(item)[0])"
+            >
+              <img
+                :src="getImagePath(elem.displayPicture || elem.dealerLogo || elem.profilePicture,elem.imageFolder)"
+                class="display-image"
+              />
+              <div>
+                <p>
+                  Posted On: <span>{{utils.formatDate(elem.created)}}</span>
+                </p>
+                <p v-if="elem.name">Name: <span>{{elem.name}}</span></p>
+                <p v-if="elem.description">
+                  Description: <span>{{elem.description}}</span>
+                </p>
+                <p v-if="elem.brand || elem.company">
+                  Brand: <span>{{elem.brand || elem.company}}</span>
+                </p>
+                <p v-if="elem.model">Model: <span>{{elem.model}}</span></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,6 +61,5 @@
       <h6>No Results Found</h6>
       <p class="my-2">try changing the search term</p>
     </div>
-    <div class="col-12 px-lg-0 px-3 mb-5"></div>
   </div>
 </div>

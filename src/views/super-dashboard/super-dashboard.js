@@ -50,6 +50,9 @@ export default {
     spareCategoryList() {
       return META.spareCategoryFormat;
     },
+    garageCategoryList() {
+      return META.garageCategoryFormat;
+    },
     classifiedsCategoryList() {
       return META.classifiedsCategories;
     },
@@ -61,6 +64,8 @@ export default {
         this.type = "used-cars";
       } else if (this.page === "spare-parts") {
         this.type = "cars";
+      } else if (this.page === "garages") {
+        this.type = "garages";
       } else {
         this.type = "other";
       }

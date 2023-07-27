@@ -89,10 +89,14 @@
                   </div>
                   <div class="dealer">
                     <img
-                      :src="getDealerLogo(post.dealerLogo, post.imageFolder)"
+                      :src="getDealerLogo(post.dealerLogo, post.dealerImageFolder)"
                     />
                     <ul>
-                      <li v-for="list in getBulletFeaturesList(post.features).slice(0,4)">{{list.title}}</li>
+                      <li
+                        v-for="list in getBulletFeaturesList(post.features).slice(0,4)"
+                      >
+                        {{list.title}}
+                      </li>
                     </ul>
                   </div>
                 </div>

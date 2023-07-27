@@ -6,7 +6,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="accessoriesTypeList" :error="newPostValidation.type" errorText="Select Type"
-      default="Select Type" @selectValue="updatePostData('type', $event)" />
+      placeholder="Select Type" @selectValue="updatePostData('type', $event)" :selected="newPost.type" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -15,7 +15,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="accessoriesCategoryList" :error="newPostValidation.category" errorText="Select Category"
-      default="Select Category" @selectValue="updatePostData('category', $event)" />
+      placeholder="Select Category" @selectValue="updatePostData('category', $event)" :selected="newPost.category" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -24,16 +24,13 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select Sub Category"
-      default="Select Sub Category" @selectValue="updatePostData('subcategory', $event)" />
+      placeholder="Select Sub Category" @selectValue="updatePostData('subcategory', $event)" :selected="newPost.subcategory" />
   </div>
   <div class="col-12 mb-3">
-    <label>
-      Select Item
-      <span>*</span>
-    </label>
+    <label> Select Item </label>
     <!-- prettier-ignore -->
-    <Select :options="accessoryItemList" :error="newPostValidation.accessoryItem" errorText="Select Item"
-      default="Select Item" @selectValue="updatePostData('accessoryItem', $event)" />
+    <Select :options="accessoryItemList"
+      placeholder="Select Item" @selectValue="updatePostData('accessoryItem', $event)" :selected="newPost.accessoryItem" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -51,7 +48,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type"
-      default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" />
+      placeholder="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" :selected="newPost.sellerType" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -60,7 +57,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.boatConditionDropdownValues()" :error="newPostValidation.accessoriesCondition"
-      errorText="Select Condition" default="Select Condition" @selectValue="updatePostData('accessoriesCondition', $event)" />
+      errorText="Select Condition" placeholder="Select Condition" @selectValue="updatePostData('accessoriesCondition', $event)" :selected="newPost.accessoriesCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -69,7 +66,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.boatHistoryDropdownValues()" :error="newPostValidation.accessoriesUsage" errorText="Select Usage"
-      default="Select Usage" @selectValue="updatePostData('accessoriesUsage', $event)" />
+      placeholder="Select Usage" @selectValue="updatePostData('accessoriesUsage', $event)" :selected="newPost.accessoriesUsage" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -78,7 +75,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty"
-      default="Select Warranty" @selectValue="updatePostData('warranty', $event)" />
+      placeholder="Select Warranty" @selectValue="updatePostData('warranty', $event)" :selected="newPost.warranty" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -87,7 +84,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-      default="Select Place" @selectValue="updatePostData('place', $event)" />
+      placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>

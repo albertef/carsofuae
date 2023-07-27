@@ -41,8 +41,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year"
-    errorText="Select Year" default="Select Year"
-    @selectValue="updatePostData('year', $event)" />
+    errorText="Select Year" placeholder="Select Year"
+    @selectValue="updatePostData('year', $event)" :selected="newPost.year" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -51,7 +51,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-      default="Select Place" @selectValue="updatePostData('place', $event)" />
+      placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>Display Picture<span>*</span></label>
@@ -76,8 +76,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.truckSubCategoryList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
-    @selectValue="updatePostData('subcategory', $event)" />
+    <Select :options="utils.truckSubCategoryList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" placeholder="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" :selected="newPost.subcategory" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -86,31 +86,31 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType " errorText="Select Seller Type"
-    default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" />
+    placeholder="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" :selected="newPost.sellerType" />
   </div>
   <div class="col-12 mb-3">
     <label>Select No of Cylinders</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.numberOfCylinderDropdownValues()" :error="newPostValidation.cylinders" errorText="Select No of Cylinders" default="Select No of Cylinders"
-    @selectValue="updatePostData('cylinders', $event)" />
+    <Select :options="utils.numberOfCylinderDropdownValues()" :error="newPostValidation.cylinders" errorText="Select No of Cylinders" placeholder="Select No of Cylinders"
+    @selectValue="updatePostData('cylinders', $event)" :selected="newPost.cylinders" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Horse Power</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.truckHorsPowrList()" :error="newPostValidation.horsePower" errorText="Select Horse Power" default="Select Horse Power"
-    @selectValue="updatePostData('horsePower', $event)" />
+    <Select :options="utils.truckHorsPowrList()" :error="newPostValidation.horsePower" errorText="Select Horse Power" placeholder="Select Horse Power"
+    @selectValue="updatePostData('horsePower', $event)" :selected="newPost.horsePower" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Fuel Type</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.fuelTypes()" :error="newPostValidation.fuel" errorText="Select Fuel Type" default="Select Fuel Type"
-    @selectValue="updatePostData('fuel', $event)" />
+    <Select :options="utils.fuelTypes()" :error="newPostValidation.fuel" errorText="Select Fuel Type" placeholder="Select Fuel Type"
+    @selectValue="updatePostData('fuel', $event)" :selected="newPost.fuel" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Warranty</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty" default="Select Warranty"
-    @selectValue="updatePostData('warranty', $event)" />
+    <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty" placeholder="Select Warranty"
+    @selectValue="updatePostData('warranty', $event)" :selected="newPost.warranty" />
   </div>
   <div class="col-12 mb-3">
     <label>Price <span>*</span></label>

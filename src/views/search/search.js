@@ -30,10 +30,16 @@ export default {
       return META.serviceList.map((item) => item.name);
     },
     getSearchData() {
-      return store.getters.getSearchData;
+      return store.getters.getSearchData(this.search.category);
     },
     getClassifiedsCategories() {
       return META.classifiedsCategories;
+    },
+    utils() {
+      return UTILS;
+    },
+    isSearchData() {
+      return this.getSearchData?.some((item) => item.length);
     },
   },
 
@@ -71,15 +77,61 @@ export default {
         store.commit("updateLoader", false);
       }
     },
+
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
+
+    async viewPost(id, category = null) {
+      if (this.search.category == "classifieds") {
+        await this.$store.dispatch("getPostList", { category: category });
+        router.push({
+          name: "PostDetails",
+          query: {
+            id: id,
+            category: category,
+          },
+        });
+      } else if (this.search.category == "rental") {
+        await this.$store.dispatch("getRentalList");
+        router.push({
+          name: "RentalDetails",
+          query: {
+            id: id,
+          },
+        });
+      } else if (this.search.category == "lease-a-car") {
+        await this.$store.dispatch("getLeaseList");
+        router.push({
+          name: "LeaseACarDetails",
+          query: {
+            id: id,
+          },
+        });
+      } else if (this.search.category == "garages") {
+        await this.$store.dispatch("getGarageList");
+        router.push({
+          name: "Garages",
+          query: {
+            id: id,
+          },
+        });
+      } else if (this.search.category == "spare-parts") {
+        await this.$store.dispatch("getSpareItemList", { type: category });
+        router.push({
+          name: "SparePartsDetails",
+          query: {
+            id: id,
+            type: category,
+          },
+        });
+      }
+      store.commit("updateSearchData", {});
+    },
   },
 
   async mounted() {
-    // if (!this.loginInfo.isLoggedIn) {
-    //   router.push({
-    //     name: "Login",
-    //   });
-    // } else {
-    //   this.getMyAds(this.type);
-    // }
+    store.commit("updateSearchData", {});
   },
 };

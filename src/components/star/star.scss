@@ -1,6 +1,9 @@
 .star-wrapper {
   section {
     cursor: pointer;
+    .review-link {
+      color: $purple;
+    }
   }
 
   span {

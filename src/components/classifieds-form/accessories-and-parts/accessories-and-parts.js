@@ -81,10 +81,16 @@ export default {
     updatePostData(key, e) {
       if (key === "type") {
         store.commit("updateSelectedAccessoriesType", e);
+        this.newPost.category = "";
+        this.newPost.subcategory = "";
+        this.newPost.accessoryItem = "";
       } else if (key === "category") {
         store.commit("updateSelectedAccessoriesCategory", e);
+        this.newPost.subcategory = "";
+        this.newPost.accessoryItem = "";
       } else if (key === "subcategory") {
         store.commit("updateSelectedAccessoriesSubCategory", e);
+        this.newPost.accessoryItem = "";
       } else if (key === "accessoryItem") {
         store.commit("updateSelectedAccessoriesItem", e);
       }
@@ -103,7 +109,6 @@ export default {
         type: !this.newPost.type,
         category: !this.newPost.category,
         subcategory: !this.newPost.subcategory,
-        accessoryItem: !this.newPost.accessoryItem,
         price: !this.newPost.price,
         sellerType: !this.newPost.sellerType,
         accessoriesCondition: !this.newPost.accessoriesCondition,

@@ -178,12 +178,13 @@
     <div class="col-12 col-lg-4">
       <div class="shadow-container right p-3 mb-3">
         <div
-          class="dealer-logo mb-4 mt-2"
+          class="dealer-logo mb-4 mt-2 flex-column align-items-center"
           @click="openStore(rentalData.postedBy)"
         >
           <img
-            :src="getDealerLogo(rentalData.dealerLogo, rentalData.imageFolder)"
+            :src="getDealerLogo(rentalData.dealerLogo, rentalData.dealerImageFolder)"
           />
+          <h6 class="text-center w-100">{{rentalData.dealerName}}</h6>
         </div>
 
         <div class="open-times mb-4">

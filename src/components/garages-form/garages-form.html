@@ -30,7 +30,7 @@
             <label>Location <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="locationOptions" :error="newGarageValidation.place" errorText="Select your location"
-                default="Select Location" @selectValue="updateGarageData('place', $event)" />
+                placeholder="Select Location" @selectValue="updateGarageData('place', $event)" :selected="newGarage.place" />
           </div>
           <div class="col-12 mb-3">
             <label>Phone <span>*</span></label>

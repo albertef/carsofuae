@@ -74,6 +74,13 @@ export default {
   },
   methods: {
     updatePostData(key, e) {
+      if (key === "brand") {
+        this.newPost.model = "";
+        this.newPost.trim = "";
+      }
+      if (key === "model") {
+        this.newPost.trim = "";
+      }
       this.newPost = {
         ...this.newPost,
         [key]: e,

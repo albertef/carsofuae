@@ -97,7 +97,8 @@
   }
 
   @media screen and (max-width: 991px) {
-    &.small {
+    &.small,
+    &.medium {
       .popup-wrapper {
         .popup-container {
           width: 100%;

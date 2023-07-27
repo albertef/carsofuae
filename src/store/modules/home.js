@@ -426,7 +426,6 @@ const actions = {
     let dataset = {},
       url = "/carsofuae-server/data/get_search_data.php";
     dataset = await axiosInstance.post(url, params);
-    debugger;
     commit("updateSearchData", dataset?.data);
     return dataset;
   },
@@ -573,14 +572,27 @@ const getters = {
     return [...new Set(item)].sort().filter(Boolean);
   },
   getSearchData(state) {
-    const data =
-      state.searchData && Object.keys(state.searchData).length
-        ? state.searchData?.map((item, index) => {
-            const type = META.classifiedsCategories[index].id;
-            return JSON.parse(`{ "${type}": ${JSON.stringify(item)} }`);
-          })
-        : [];
-    return data;
+    return function (category) {
+      const data =
+        state.searchData && Object.keys(state.searchData).length
+          ? state.searchData?.map((item, index) => {
+              const type =
+                category == "classifieds"
+                  ? META.classifiedsCategories[index].id
+                  : category == "spare-parts"
+                  ? META.spareCategoryFormat[index].id
+                  : category == "rental"
+                  ? "rental"
+                  : category == "lease-a-car"
+                  ? "lease"
+                  : category == "garages"
+                  ? "garages"
+                  : "";
+              return JSON.parse(`{ "${type}": ${JSON.stringify(item)} }`);
+            })
+          : [];
+      return data;
+    };
   },
 };
 

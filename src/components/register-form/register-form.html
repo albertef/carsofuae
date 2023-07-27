@@ -38,13 +38,13 @@
               <label>Gender <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="genderOptions" :error="registerValidation.gender" errorText="Select your gender"
-                default="Select Gender" @selectValue="updateUserDetails('gender', $event)" />
+                placeholder="Select Gender" @selectValue="updateUserDetails('gender', $event)" :selected="individualUserDetails.gender" />
             </div>
             <div class="col-12 mb-3">
               <label>Location</label>
               <!-- prettier-ignore -->
               <Select :options="locationOptions" :error="registerValidation.location" errorText="Select your location"
-                default="Select Location" @selectValue="updateUserDetails('location', $event)" />
+                placeholder="Select Location" @selectValue="updateUserDetails('location', $event)" :selected="individualUserDetails.location" />
             </div>
             <div class="col-12 mb-3">
               <label>Email <span>*</span></label>
@@ -216,8 +216,8 @@
               <label>Type of business <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="businessTypeOptions" :error="registerValidation.businessType"
-                errorText="Select the business type" default="Select Type of business"
-                @selectValue="updateUserDetails('businessType', $event)" />
+                errorText="Select the business type" placeholder="Select Type of business"
+                @selectValue="updateUserDetails('businessType', $event)" :selected="companyUserDetails.businessType" />
             </div>
             <div class="col-12 mb-3">
               <label>Trade License <span>*</span></label>

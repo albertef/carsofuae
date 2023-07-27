@@ -46,14 +46,16 @@ export default {
     },
 
     applyFilter() {
-      const filteredData = this.fullPostData.filter((item) => {
-        return Object.entries(this.filterData).every(([key, value]) => {
-          return item.hasOwnProperty(key) && item[key] === value;
+      if (Object.keys(this.filterData).length) {
+        const filteredData = this.fullPostData.filter((item) => {
+          return Object.entries(this.filterData).every(([key, value]) => {
+            return item.hasOwnProperty(key) && item[key] === value;
+          });
         });
-      });
 
-      this.$emit("filteredData", filteredData);
-      this.$store.commit("updateIsFilterApplied", true);
+        this.$emit("filteredData", filteredData);
+        this.$store.commit("updateIsFilterApplied", true);
+      }
       this.closeFilter();
     },
 

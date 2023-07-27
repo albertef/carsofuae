@@ -7,7 +7,7 @@
   <template v-slot:body>
     <label>Select Rating</label>
     <!-- prettier-ignore -->
-    <Select :options="ratingOptions" default="Select Rating" @selectValue="updateReviewData('rating', $event)" :error="newReviewValidation.rating" errorText="Select Rating" />
+    <Select :options="ratingOptions" placeholder="Select Rating" @selectValue="updateReviewData('rating', $event)" :selected="newReview.rating" :error="newReviewValidation.rating" errorText="Select Rating" />
 
     <label>Review</label>
     <!-- prettier-ignore -->

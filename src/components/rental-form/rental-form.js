@@ -64,8 +64,6 @@ export default {
         facebook: "",
         instagram: "",
         linkedin: "",
-        dealerName: "",
-        dealerLogo: "",
         listBullets: "",
         postedBy: "",
         userType: "",
@@ -108,6 +106,10 @@ export default {
   },
   methods: {
     updateRentalData(key, e) {
+      if (key === "brand") {
+        this.newRental.model = "";
+      }
+
       this.newRental = {
         ...this.newRental,
         [key]: e,
@@ -167,8 +169,6 @@ export default {
         whyUs: !this.newRental.whyUs,
         canDeliver: !this.newRental.canDeliver,
         note: !this.newRental.note,
-        dealerName: !this.newRental.dealerName,
-        dealerLogo: !this.newRental.dealerLogo,
         listBullets: !this.newRental.listBullets,
       };
 
@@ -215,30 +215,9 @@ export default {
             imageFolder: galleryImageUploadResponse.folderName,
           };
         }
-        const dealerLogoUploadResponse = await this.$store.dispatch(
-          "imageUpload",
-          params.dealerLogo
-        );
 
-        if (
-          (response || galleryImageUploadResponse.status) &&
-          dealerLogoUploadResponse.status
-        ) {
-          params = {
-            ...params,
-            dealerLogo: dealerLogoUploadResponse.fileName,
-          };
+        if (response || galleryImageUploadResponse.status) {
           await this.$store.dispatch("addNewRental", params);
-        } else {
-          const alert = {
-            show: true,
-            type: "error",
-            message:
-              this.newRentalInfo.message ||
-              galleryImageUploadResponse ||
-              META.commonErrorMessage,
-          };
-          store.commit("updateAlert", alert);
         }
 
         store.commit("updateLoader", false);
@@ -251,10 +230,15 @@ export default {
           store.commit("updateAlert", alert);
           router.go(-1);
         } else {
+          const errorMessage = this.newRentalInfo.message
+            ? this.newRentalInfo.message
+            : !response || galleryImageUploadResponse.status
+            ? galleryImageUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.newRentalInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

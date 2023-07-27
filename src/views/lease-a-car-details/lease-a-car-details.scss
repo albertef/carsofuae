@@ -338,9 +338,17 @@
     .dealer-logo {
       display: flex;
       justify-content: center;
+      cursor: pointer;
       img {
-        max-width: 50%;
-        cursor: pointer;
+        width: 50%;
+        height: 100px;
+        object-fit: cover;
+      }
+      h6 {
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: $purple;
       }
     }
   }

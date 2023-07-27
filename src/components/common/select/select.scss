@@ -16,6 +16,7 @@
     box-shadow: $shadow-small;
     width: 100%;
     position: relative;
+    text-transform: capitalize;
     &:after {
       position: absolute;
       content: "";

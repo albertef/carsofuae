@@ -28,7 +28,7 @@ export const META = {
     {
       name: "Accessories and Parts",
       image: "accessories.png",
-      id: "accessories",
+      id: "accessories-and-parts",
     },
   ],
   serviceList: [
@@ -412,6 +412,16 @@ export const META = {
       id: "heavy",
       title: "Heavy",
       image: "truck.png",
+    },
+  ],
+  garageCategoryFormat: [
+    {
+      id: "garages",
+      title: "Garages",
+    },
+    {
+      id: "deals",
+      title: "Garage Deals",
     },
   ],
   accessoriesTypeFormat: [

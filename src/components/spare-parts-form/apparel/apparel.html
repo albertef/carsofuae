@@ -27,23 +27,20 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="categoryList" :error="newPostValidation.category" errorText="Select Category" default="Select Category"
-    @selectValue="updatePostData('category', $event)" />
+    <Select :options="categoryList" :error="newPostValidation.category" errorText="Select Category" placeholder="Select Category"
+    @selectValue="updatePostData('category', $event)" :selected="newPost.category" />
   </div>
   <div class="col-12 mb-3">
-    <label>
-      Select SubCategory
-      
-    </label>
+    <label> Select SubCategory </label>
     <!-- prettier-ignore -->
-    <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
-    @selectValue="updatePostData('subcategory', $event)" />
+    <Select :options="subCategoryList" :error="newPostValidation.subcategory" errorText="Select SubCategory" placeholder="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" :selected="newPost.subcategory" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Item</label>
     <!-- prettier-ignore -->
-    <Select :options="spareItemList" :error="newPostValidation.spareItem" errorText="Select Item" default="Select Item"
-    @selectValue="updatePostData('spareItem', $event)" />
+    <Select :options="spareItemList" :error="newPostValidation.spareItem" errorText="Select Item" placeholder="Select Item"
+    @selectValue="updatePostData('spareItem', $event)" :selected="newPost.spareItem" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -87,7 +84,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty"
-    default="Select Warranty" @selectValue="updatePostData('warranty', $event)" />
+    placeholder="Select Warranty" @selectValue="updatePostData('warranty', $event)" :selected="newPost.warranty" />
   </div>
   <div class="col-12 mb-3">
     <label>

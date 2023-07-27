@@ -1,21 +1,35 @@
-.profile-wrapper {
-  min-height: 500px;
-  .table-wrapper {
-    overflow-x: auto;
-    table {
-      td,
-      th {
-        vertical-align: middle;
-        &.action {
-          display: inline-flex;
-        }
+.search-wrapper {
+  h6 {
+    text-transform: capitalize;
+  }
+  .item-wrapper {
+    background-color: rgba($purple, 0.05);
+    padding: 10px;
+    transition: 0.3s ease;
+    border-bottom: 1px dashed rgba($black, 0.2);
+    border-top: 1px dashed rgba($black, 0.2);
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($purple, 0.1);
+      border-bottom: 1px dashed rgba($black, 0.4);
+      border-top: 1px dashed rgba($black, 0.4);
+    }
+    p {
+      margin: 0;
+      font-size: 0.875rem;
+      span {
+        color: $purple;
+        font-weight: 700;
       }
+    }
+    .display-image {
+      max-width: 100px;
+      height: fit-content;
+      margin-right: 20px;
     }
   }
 }
 
 @media screen and (max-width: 991px) {
-  .ads-wrapper {
-    margin-top: 40px !important;
-  }
 }

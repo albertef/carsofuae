@@ -5,22 +5,14 @@
   ref="selectRef"
 >
   <div class="selected" :class="{ open: open }" @click="open = !open">
-    {{ selected }}
+    {{ selected || placeholder }}
   </div>
   <div
     class="items"
     :class="{ selectHide: !open }"
     v-if="options && options.length"
   >
-    <div
-      v-for="(option, i) of options"
-      :key="i"
-      @click="
-        selected = option;
-        open = false;
-        $emit('selectValue', option);
-      "
-    >
+    <div v-for="(option, i) of options" :key="i" @click="selectOption(option)">
       {{ option }}
     </div>
   </div>

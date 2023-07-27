@@ -5,8 +5,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.subcategoryDropDownValues(getSelectedClassifiedCategory)" :error="newPostValidation.subCategory" errorText="Select Sub Category" default="Select Sub Category"
-    @selectValue="updatePostData('subCategory', $event)" id="subCategory" />
+    <Select :options="utils.subcategoryDropDownValues(getSelectedClassifiedCategory)" :error="newPostValidation.subCategory" errorText="Select Sub Category" placeholder="Select Sub Category"
+    @selectValue="updatePostData('subCategory', $event)" id="subCategory" :selected="newPost.subCategory" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -23,8 +23,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.ageDropDownValues()" :error="newPostValidation.age" errorText="Select Age" default="Select Age"
-    @selectValue="updatePostData('age', $event)" id="age" />
+    <Select :options="utils.ageDropDownValues()" :error="newPostValidation.age" errorText="Select Age" placeholder="Select Age"
+    @selectValue="updatePostData('age', $event)" id="age" :selected="newPost.age" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -59,7 +59,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-   default="Select Place" @selectValue="updatePostData('place', $event)" />
+   placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -67,8 +67,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year" errorText="Select year" default="Select year"
-    @selectValue="updatePostData('year', $event)" id="year" />
+    <Select :options="utils.yearDropdownValues()" :error="newPostValidation.year" errorText="Select year" placeholder="Select year"
+    @selectValue="updatePostData('year', $event)" id="year" :selected="newPost.year" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -94,13 +94,13 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.boatConditionDropdownValues()" :error="newPostValidation.boatCondition" errorText="Select Boat Condition"
-    default="Select Boat Condition" @selectValue="updatePostData('boatCondition', $event)" id="boatCondition" />
+    placeholder="Select Boat Condition" @selectValue="updatePostData('boatCondition', $event)" id="boatCondition" :selected="newPost.boatCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Boat History</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.boatHistoryDropdownValues()" :error="newPostValidation.boatHistory" errorText="Select Boat History" default="Select Boat History"
-    @selectValue="updatePostData('boatHistory', $event)" id="boatHistory" />
+    <Select :options="utils.boatHistoryDropdownValues()" :error="newPostValidation.boatHistory" errorText="Select Boat History" placeholder="Select Boat History"
+    @selectValue="updatePostData('boatHistory', $event)" id="boatHistory" :selected="newPost.boatHistory" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -108,8 +108,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.lengthDropdownValues()" :error="newPostValidation.length" errorText="Select Length" default="Select Length"
-    @selectValue="updatePostData('length', $event)" id="length" />
+    <Select :options="utils.lengthDropdownValues()" :error="newPostValidation.length" errorText="Select Length" placeholder="Select Length"
+    @selectValue="updatePostData('length', $event)" id="length" :selected="newPost.length" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -117,8 +117,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty" default="Select Warranty"
-    @selectValue="updatePostData('warranty', $event)" id="warranty" />
+    <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty" placeholder="Select Warranty"
+    @selectValue="updatePostData('warranty', $event)" id="warranty" :selected="newPost.warranty" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -126,8 +126,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type" default="Select Seller Type"
-    @selectValue="updatePostData('sellerType', $event)" id="sellerType" />
+    <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type" placeholder="Select Seller Type"
+    @selectValue="updatePostData('sellerType', $event)" id="sellerType" :selected="newPost.sellerType" />
   </div>
   <div class="col-12 mb-3">
     <label>

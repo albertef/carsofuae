@@ -5,8 +5,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="brandsList" :error="newPostValidation.brand" errorText="Select Brand" default="Select Brand"
-    @selectValue="updatePostData('brand', $event)" id="brand" />
+    <Select :options="brandsList" :error="newPostValidation.brand" errorText="Select Brand" placeholder="Select Brand"
+    @selectValue="updatePostData('brand', $event)" id="brand" :selected="newPost.brand" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -14,8 +14,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="modelsList" :error="newPostValidation.model" errorText="Select Model" default="Select Model"
-    @selectValue="updatePostData('model', $event)" id="model" />
+    <Select :options="modelsList" :error="newPostValidation.model" errorText="Select Model" placeholder="Select Model"
+    @selectValue="updatePostData('model', $event)" id="model" :selected="newPost.model" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -24,13 +24,13 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.yearDropdownValues()" :error="newPostValidation.make" errorText="Select Make"
-    default="Select Make" @selectValue="updatePostData('make', $event)" id="make" />
+    placeholder="Select Make" @selectValue="updatePostData('make', $event)" id="make" :selected="newPost.make" />
   </div>
   <div class="col-12 mb-3">
     <label>Select Trim</label>
     <!-- prettier-ignore -->
-    <Select :options="trimList" :error="newPostValidation.trim" errorText="Select Trim" default="Select Trim"
-    @selectValue="updatePostData('trim', $event)" />
+    <Select :options="trimList" :error="newPostValidation.trim" errorText="Select Trim" placeholder="Select Trim"
+    @selectValue="updatePostData('trim', $event)" :selected="newPost.trim" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -49,7 +49,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-      default="Select Place" @selectValue="updatePostData('place', $event)" />
+      placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -119,8 +119,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.colorDropDownValues()" :error="newPostValidation.exteriorColor"
-    errorText="Select Exterior Color" default="Select Exterior Color"
-    @selectValue="updatePostData('exteriorColor', $event)" />
+    errorText="Select Exterior Color" placeholder="Select Exterior Color"
+    @selectValue="updatePostData('exteriorColor', $event)" :selected="newPost.exteriorColor" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -129,8 +129,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.colorDropDownValues()" :error="newPostValidation.interiorColor"
-    errorText="Select Interior Color" default="Select Interior Color"
-    @selectValue="updatePostData('interiorColor', $event)" />
+    errorText="Select Interior Color" placeholder="Select Interior Color"
+    @selectValue="updatePostData('interiorColor', $event)" :selected="newPost.interiorColor" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -139,8 +139,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.bodyConditionDropDownValues()" :error="newPostValidation.bodyCondition"
-    errorText="Select Body Condition" default="Select Body Condition"
-    @selectValue="updatePostData('bodyCondition', $event)" />
+    errorText="Select Body Condition" placeholder="Select Body Condition"
+    @selectValue="updatePostData('bodyCondition', $event)" :selected="newPost.bodyCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -149,8 +149,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.mechanicalConditionDropDownValues()" :error="newPostValidation.mechanicalCondition"
-    errorText="Select Mechanical Condition" default="Select Mechanical Condition"
-    @selectValue="updatePostData('mechanicalCondition', $event)" />
+    errorText="Select Mechanical Condition" placeholder="Select Mechanical Condition"
+    @selectValue="updatePostData('mechanicalCondition', $event)" :selected="newPost.mechanicalCondition" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -159,7 +159,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.yesNoDropdownValues()" :error="newPostValidation.warranty" errorText="Select Warranty"
-    default="Select Warranty" @selectValue="updatePostData('warranty', $event)" />
+    placeholder="Select Warranty" @selectValue="updatePostData('warranty', $event)" :selected="newPost.warranty" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -168,7 +168,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.numberOfDoorDropdownValues()" :error="newPostValidation.doors" errorText="Select No.of Doors"
-    default="Select No.of Doors" @selectValue="updatePostData('doors', $event)" />
+    placeholder="Select No.of Doors" @selectValue="updatePostData('doors', $event)" :selected="newPost.doors" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -177,7 +177,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type"
-    default="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" />
+    placeholder="Select Seller Type" @selectValue="updatePostData('sellerType', $event)" :selected="newPost.sellerType" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -186,7 +186,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.bodyType()" :error="newPostValidation.bodyType" errorText="Select Body Type"
-    default="Select Body Type" @selectValue="updatePostData('bodyType', $event)" />
+    placeholder="Select Body Type" @selectValue="updatePostData('bodyType', $event)" :selected="newPost.bodyType" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -195,8 +195,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.numberOfCylinderDropdownValues()" :error="newPostValidation.cylinders"
-    errorText="Select No.of Cylinders" default="Select No.of Cylinders"
-    @selectValue="updatePostData('cylinders', $event)" />
+    errorText="Select No.of Cylinders" placeholder="Select No.of Cylinders"
+    @selectValue="updatePostData('cylinders', $event)" :selected="newPost.cylinders" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -205,8 +205,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.transmissionTypes()" :error="newPostValidation.transmission"
-    errorText="Select Transmission type" default="Select Transmission type"
-    @selectValue="updatePostData('transmission', $event)" />
+    errorText="Select Transmission type" placeholder="Select Transmission type"
+    @selectValue="updatePostData('transmission', $event)" :selected="newPost.transmission" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -215,8 +215,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.regionalspecsDropDownValues()" :error="newPostValidation.regionalSpecs"
-    errorText="Select Regional Specifications" default="Select Regional Specifications"
-    @selectValue="updatePostData('regionalSpecs', $event)" />
+    errorText="Select Regional Specifications" placeholder="Select Regional Specifications"
+    @selectValue="updatePostData('regionalSpecs', $event)" :selected="newPost.regionalSpecs" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -225,7 +225,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.fuelTypes()" :error="newPostValidation.fuel" errorText="Select Fuel type"
-    default="Select Fuel type" @selectValue="updatePostData('fuel', $event)" />
+    placeholder="Select Fuel type" @selectValue="updatePostData('fuel', $event)" :selected="newPost.fuel" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -234,7 +234,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.horsePowerOptions()" :error="newPostValidation.horsePower" errorText="Select Horse Power"
-    default="Select Horse Power" @selectValue="updatePostData('horsePower', $event)" />
+    placeholder="Select Horse Power" @selectValue="updatePostData('horsePower', $event)" :selected="newPost.horsePower" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -243,8 +243,8 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.steeringSideOptions()" :error="newPostValidation.steeringSide"
-    errorText="Select Steering Side" default="Select Steering Side"
-    @selectValue="updatePostData('steeringSide', $event)" />
+    errorText="Select Steering Side" placeholder="Select Steering Side"
+    @selectValue="updatePostData('steeringSide', $event)" :selected="newPost.steeringSide" />
   </div>
   <div class="col-12 mb-3">
     <label> Video Link </label>

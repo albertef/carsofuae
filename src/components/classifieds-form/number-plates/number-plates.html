@@ -41,7 +41,7 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-      default="Select Place" @selectValue="updatePostData('place', $event)" />
+      placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>Display Picture<span>*</span></label>
@@ -66,8 +66,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.numPlatesSubCatList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" default="Select SubCategory"
-    @selectValue="updatePostData('subcategory', $event)" />
+    <Select :options="utils.numPlatesSubCatList()" :error="newPostValidation.subcategory" errorText="Select SubCategory" placeholder="Select SubCategory"
+    @selectValue="updatePostData('subcategory', $event)" :selected="newPost.subcategory" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -76,13 +76,13 @@
     </label>
     <!-- prettier-ignore -->
     <Select :options="utils.emiratesLocationList()" :error="newPostValidation.emirate" errorText="Select Emirate"
-    default="Select Emirate" @selectValue="updatePostData('emirate', $event)" />
+    placeholder="Select Emirate" @selectValue="updatePostData('emirate', $event)" :selected="newPost.emirate" />
   </div>
   <div class="col-12 mb-3">
     <label>Select No of Digits</label>
     <!-- prettier-ignore -->
-    <Select :options="utils.numPlatesDigitsList()" :error="newPostValidation.digits" errorText="Select No of Digits" default="Select No of Digits"
-    @selectValue="updatePostData('digits', $event)" />
+    <Select :options="utils.numPlatesDigitsList()" :error="newPostValidation.digits" errorText="Select No of Digits" placeholder="Select No of Digits"
+    @selectValue="updatePostData('digits', $event)" :selected="newPost.digits" />
   </div>
   <div class="col-12 mb-3">
     <label> Video Link </label>

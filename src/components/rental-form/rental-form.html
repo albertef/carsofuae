@@ -30,25 +30,25 @@
             <label>Select Brand <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="brandsList" :error="newRentalValidation.brand" errorText="Select Brand"
-              default="Select Brand" @selectValue="updateRentalData('brand', $event)" />
+              placeholder="Select Brand" @selectValue="updateRentalData('brand', $event)" :selected="newRental.brand" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Model <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="modelsList" :error="newRentalValidation.model" errorText="Select Model"
-              default="Select Model" @selectValue="updateRentalData('model', $event)" />
+              placeholder="Select Model" @selectValue="updateRentalData('model', $event)" :selected="newRental.model" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Make <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.yearDropdownValues()" :error="newRentalValidation.make" errorText="Select Make"
-              default="Select Make" @selectValue="updateRentalData('make', $event)" />
+              placeholder="Select Make" @selectValue="updateRentalData('make', $event)" :selected="newRental.make" />
           </div>
           <div class="col-12 mb-3">
             <label>Location <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="utils.emiratesLocationList()" :error="newRentalValidation.place" errorText="Select Location"
-              default="Select Location" @selectValue="updateRentalData('place', $event)" />
+              placeholder="Select Location" @selectValue="updateRentalData('place', $event)" :selected="newRental.place" />
               </div>
             <div class="col-12 mb-3 mt-3">
               <label>Price <span>*</span></label>
@@ -113,7 +113,7 @@
               <label>Select Insurance <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="utils.insuranceList()" :error="newRentalValidation.insurance" errorText="Select Insurance"
-              default="Select Insurance" @selectValue="updateRentalData('insurance', $event)" />
+              placeholder="Select Insurance" @selectValue="updateRentalData('insurance', $event)" :selected="newRental.insurance" />
             </div>
             <div class="col-12 mb-3">
               <label>Minimum Age <span>*</span></label>
@@ -133,13 +133,13 @@
               <label>Accepted In <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="utils.acceptedInList()" :error="newRentalValidation.acceptedIn" errorText="Select Accepted In"
-                default="Select Accepted In" @selectValue="updateRentalData('acceptedIn', $event)" />
+                placeholder="Select Accepted In" @selectValue="updateRentalData('acceptedIn', $event)" :selected="newRental.acceptedIn" />
             </div>
             <div class="col-12 mb-3">
               <label>Select Additional Driver Insurance <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="utils.additionalDriverInsuranceOptions()" :error="newRentalValidation.additionalDriverInsurance" errorText="Select Additional Driver Insurance"
-              default="Select Additional Driver Insurance" @selectValue="updateRentalData('additionalDriverInsurance', $event)" />
+              placeholder="Select Additional Driver Insurance" @selectValue="updateRentalData('additionalDriverInsurance', $event)" :selected="newRental.additionalDriverInsurance" />
             </div>
             <div class="col-12 mb-3">
               <label>Excess Claim <span>*</span></label>
@@ -169,19 +169,19 @@
               <label>Type <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="getRentalTypes" :error="newRentalValidation.type" errorText="Select Type"
-              default="Select Type" @selectValue="updateRentalData('type', $event)" />
+              placeholder="Select Type" @selectValue="updateRentalData('type', $event)" :selected="newRental.type" />
             </div>
             <div class="col-12 mb-3">
               <label>Select No.of Doors <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="utils.numberUpto10DropdownValues()" :error="newRentalValidation.doors" errorText="Select No.of Doors"
-              default="Select No.of Doors" @selectValue="updateRentalData('doors', $event)" />
+              placeholder="Select No.of Doors" @selectValue="updateRentalData('doors', $event)" :selected="newRental.doors" />
             </div>
             <div class="col-12 mb-3">
               <label>Select No.of Seats <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="utils.numberUpto10DropdownValues()" :error="newRentalValidation.seats" errorText="Select No.of Seats"
-              default="Select No.of Seats" @selectValue="updateRentalData('seats', $event)" />
+              placeholder="Select No.of Seats" @selectValue="updateRentalData('seats', $event)" :selected="newRental.seats" />
             </div>
            
             <div class="col-12 mb-3">
@@ -255,21 +255,6 @@
                 :value="newRental.linkedin"
                 @value="updateRentalData('linkedin', $event)"
               />
-            </div>
-            <div class="col-12 mb-3">
-              <label>Dealer Name <span>*</span></label>
-              <!-- prettier-ignore -->
-              <InputText class="inputText" :error="newRentalValidation.dealerName" errorText="Enter Dealer Name"
-              placeholder="Enter Dealer Name" id="dealerName" :value="newRental.dealerName"
-              @value="updateRentalData('dealerName', $event)" />
-            </div>
-            <div class="col-12 mb-3">
-              <label>Dealer Logo</label>
-              <!-- prettier-ignore -->
-              <InputFile class="inputText" :error="newRentalValidation.dealerLogo"
-              errorText="Choose a Dealer Logo" type="file" accept="image/*" placeholder="Select a Dealer Logo"
-              name="dealerLogo" id="dealerLogo" :value="newRental.dealerLogo"
-              @value="updateRentalData('dealerLogo', $event)" />
             </div>
             <div class="col-12 mb-3">
               <label

@@ -25,7 +25,7 @@ export default {
   },
   async created() {
     store.commit("updateLoader", true);
-    if (!this.postList.length) {
+    if (!this.postList?.length) {
       const params = {
         category:
           this.getSelectedClassifiedCategory ||

@@ -10,7 +10,7 @@
             <label>Select Main Category <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="categoryList"
-              default="Select Category" @selectValue="getCategoryOptions($event)" />
+              placeholder="Select Category" :selected="selectedCategory" @selectValue="getCategoryOptions($event)" />
           </div>
           <UsedCars v-if="selectedCategory==='used-cars'" />
           <Boats v-if="selectedCategory==='boats'" />

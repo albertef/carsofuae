@@ -196,7 +196,7 @@ export default {
         store.commit("updateLoader", true);
         if (this.selectedUserType === this.userTypes?.individual?.title) {
           params = this.individualUserDetails;
-          const imageUploadResponse = await this.$store.dispatch(
+          var imageUploadResponse = await this.$store.dispatch(
             "imageUpload",
             params.displayPicture
           );
@@ -210,11 +210,11 @@ export default {
           }
         } else if (this.selectedUserType === this.userTypes?.company?.title) {
           params = this.companyUserDetails;
-          const sliderImageUploadResponse = await this.$store.dispatch(
+          var sliderImageUploadResponse = await this.$store.dispatch(
             "imageUpload",
             params.sliderImages
           );
-          let response = null;
+          var response = null;
           if (sliderImageUploadResponse.length > 1) {
             response = sliderImageUploadResponse.find(
               (item) => item.status === false
@@ -237,11 +237,11 @@ export default {
               imageFolder: sliderImageUploadResponse.folderName,
             };
           }
-          const logoImageUploadResponse = await this.$store.dispatch(
+          var logoImageUploadResponse = await this.$store.dispatch(
             "imageUpload",
             params.logo
           );
-          const tradeImageUploadResponse = await this.$store.dispatch(
+          var tradeImageUploadResponse = await this.$store.dispatch(
             "imageUpload",
             params.tradeLicense
           );
@@ -268,10 +268,22 @@ export default {
           store.commit("updateAlert", alert);
           this.$router.go(-1);
         } else {
+          debugger;
+          const errorMessage = this.registerInfo.message
+            ? this.registerInfo.message
+            : !response || sliderImageUploadResponse.status
+            ? sliderImageUploadResponse.message
+            : !logoImageUploadResponse.status
+            ? logoImageUploadResponse.message
+            : !tradeImageUploadResponse.status
+            ? tradeImageUploadResponse.message
+            : !imageUploadResponse.status
+            ? imageUploadResponse.message
+            : META.commonErrorMessage;
           const alert = {
             show: true,
             type: "error",
-            message: this.registerInfo.message || META.commonErrorMessage,
+            message: errorMessage,
           };
           store.commit("updateAlert", alert);
         }

@@ -133,10 +133,13 @@
       </div>
       <div class="col-12 col-lg-4">
         <div class="shadow-container right p-3 mb-3">
-          <div class="dealer-logo mb-4 mt-2"  @click="openStore(leaseData.postedBy)">
+          <div class="dealer-logo mb-4 mt-2 flex-column align-items-center"  @click="openStore(leaseData.postedBy)">
             <img
             :src="getDealerLogo(leaseData.dealerLogo, leaseData.imageFolder)"
           />
+          <h6 class="text-center w-100">
+            {{leaseData.dealerName}}
+          </h6>
           </div>
           <div class="open-times mb-4">
             <p
