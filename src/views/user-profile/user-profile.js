@@ -87,7 +87,7 @@ export default {
       if (!this.userInfo?.id) {
         store.commit("updateLoader", true);
         const usernameParams = {
-          username: this.loginInfo?.username,
+          //username: this.loginInfo?.username,
           id: Number(this.loginInfo?.id),
           userType: this.loginInfo.userType,
         };

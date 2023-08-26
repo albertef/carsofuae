@@ -17,17 +17,21 @@ export default {
     return {};
   },
   async mounted() {
+    await this.$store.dispatch("getCarList");
     await this.$store.dispatch("getLeaseList");
-    !this.queryParams
-      ? router
-          .push({
-            name: "LeaseACar",
-          })
-          .catch(() => {})
-      : store.commit(
-          "updateSelectedLeaseCategory",
-          this.queryParams.category || ""
-        );
+    if (!this.queryParams) {
+      router
+        .push({
+          name: "LeaseACar",
+        })
+        .catch(() => {});
+    } else {
+      store.commit(
+        "updateSelectedLeaseCategory",
+        this.queryParams.category || ""
+      );
+      store.commit("updateSelectedLeaseBrand", this.queryParams.brand || "");
+    }
   },
   computed: {
     getLeaseData() {
@@ -39,12 +43,49 @@ export default {
     getSelectedLeaseCategory() {
       return this.$store.state.home.selectedLeaseCategory;
     },
+    getSelectedLeaseBrand() {
+      return this.$store.state.home.selectedLeaseBrand;
+    },
+    currentQuery() {
+      return Object.keys(this.$route.query).length;
+    },
     queryParams() {
       if (!this.$route.query.category) {
         store.commit("updateSelectedLeaseCategory", "");
       }
+      if (!this.$route.query.brand) {
+        store.commit("updateSelectedLeaseBrand", "");
+      }
       return this.$route.query;
     },
+    getCarMakes() {
+      store.commit("updateSelectedClassifiedCategory", "used-cars");
+      return store.getters.getAllMakes;
+    },
   },
-  methods: {},
+  watch: {
+    currentQuery: {
+      handler(newVal) {
+        if (newVal === 0) {
+          store.commit("updateSelectedRentalCategory", "");
+          store.commit("updateSelectedLeaseBrand", "");
+        }
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    formatTitle(value) {
+      return UTILS.formatTitle(value);
+    },
+    getLeaseCarList(make) {
+      store.commit("updateSelectedLeaseBrand", UTILS.formatTitle(make));
+      router.push({
+        query: {
+          ...router.query,
+          brand: UTILS.formatTitle(make),
+        },
+      });
+    },
+  },
 };

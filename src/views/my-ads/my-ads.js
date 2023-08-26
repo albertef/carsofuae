@@ -39,6 +39,9 @@ export default {
     deleteMyAdInfo() {
       return store.state.home.deleteMyAd;
     },
+    garageCategoryList() {
+      return META.garageCategoryFormat;
+    },
   },
 
   methods: {
@@ -48,6 +51,8 @@ export default {
         this.type = "used-cars";
       } else if (this.page === "spare-parts") {
         this.type = "cars";
+      } else if (this.page === "garages") {
+        this.type = "garages";
       } else {
         this.type = "null";
       }
@@ -131,14 +136,23 @@ export default {
           },
         });
       } else if (this.page == "garages") {
-        await this.$store.dispatch("getGarageList");
-        router.push({
-          name: "Garages",
-          query: {
-            id: id,
-            name: this.adInfo[0].name,
-          },
-        });
+        if (this.type == "garages") {
+          await this.$store.dispatch("getGarageList");
+          router.push({
+            name: "Garages",
+            query: {
+              id: id,
+              name: this.adInfo[0].name,
+            },
+          });
+        } else {
+          router.push({
+            name: "Garages",
+            query: {
+              category: "deals",
+            },
+          });
+        }
       } else if (this.page == "spare-parts") {
         await this.$store.dispatch("getSpareItemList", { type: this.type });
         router.push({

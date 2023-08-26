@@ -1,0 +1,32 @@
+::v-deep .popup-header {
+  display: flex;
+  justify-content: space-between;
+  h5 {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  span {
+    font-size: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover {
+      color: $purple;
+      transform: rotate(360deg);
+    }
+  }
+}
+::v-deep .popup-body {
+  text-align: left;
+  max-height: 600px;
+  overflow: auto;
+  > ol {
+    padding-left: 20px;
+    li {
+      margin: 10px 0;
+      img {
+        margin: 10px 0;
+      }
+    }
+  }
+}

@@ -111,7 +111,10 @@
         <div class="col-12">
           <h5>Details</h5>
           <SpareDetailTable :data="postData" />
-          <div class="user-desc mb-4" @click="openStore(postData.postedBy)">
+          <div
+            class="user-desc mb-4"
+            @click="openStore(postData.postedBy, postData.userType)"
+          >
             <img src="../../assets/user-profile.png" />
             <p><span>{{postedByName}}'s Take</span></p>
           </div>

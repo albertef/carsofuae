@@ -88,6 +88,7 @@ export default {
         let params = {
           ...this.newDeal,
           userId: this.loginInfo?.id,
+          userType: this.loginInfo?.userType,
           garageId: this.garageId,
         };
         store.commit("updateLoader", true);

@@ -1,4 +1,5 @@
 <div class="container store-wrapper my-4">
+  {{postedByData}}
   <div class="row" v-if="!postedByData">
     <div class="col-12 mb-5 p-0">
       <h3 class="d-flex justify-content-center align-items-center">
@@ -13,8 +14,13 @@
           <div class="col-lg-3 col-12">
             <img
               class="img-fluid profile"
-              :src="require(`../../assets/${postedByData.image}`)"
-              v-if="Boolean(postedByData.image)"
+              :src="getImagePath(postedByData.logo,postedByData.imageFolder)"
+              v-if="Boolean(postedByData.logo)"
+            />
+            <img
+              class="img-fluid profile"
+              :src="getImagePath(postedByData.displayPicture,postedByData.imageFolder)"
+              v-else-if="Boolean(postedByData.displayPicture)"
             />
             <img
               class="img-fluid profile"
@@ -23,27 +29,33 @@
             />
           </div>
           <div class="col-lg-9 col-12">
-            <h3 class="my-3">{{postedByData.name}}</h3>
+            <h3 class="my-3" v-if="postedByData.name">{{postedByData.name}}</h3>
+            <h3
+              class="my-3"
+              v-else-if="postedByData.firstName && postedByData.lastName"
+            >
+              {{postedByData.firstName}} {{postedByData.lastName}}
+            </h3>
 
             <div class="social-wrapper mb-3">
               <div class="social">
                 <img
                   src="../../assets/facebook.png"
                   class="icon facebook"
-                  v-if="postedByData.social.facebook"
-                  @click="socialOpen(postedByData.social.facebook)"
+                  v-if="postedByData.facebook"
+                  @click="socialOpen(postedByData.facebook)"
                 />
                 <img
                   src="../../assets/linkedin.png"
                   class="icon linkedin"
-                  v-if="postedByData.social.linkedin"
-                  @click="socialOpen(postedByData.social.linkedin)"
+                  v-if="postedByData.linkedin"
+                  @click="socialOpen(postedByData.linkedin)"
                 />
                 <img
                   src="../../assets/instagram.png"
                   class="icon instagram"
-                  v-if="postedByData.social.instagram"
-                  @click="socialOpen(postedByData.social.instagram)"
+                  v-if="postedByData.instagram"
+                  @click="socialOpen(postedByData.instagram)"
                 />
               </div>
               <div class="social-rating">
@@ -58,7 +70,7 @@
                 text="Call"
                 class="flex-fill"
                 :icon="['fas', 'phone']"
-                @click="openPhone(postedByData.phone)"
+                @click="openPhone(postedByData.contactNumber)"
                 width= "100%"
               />
               <!-- prettier-ignore -->
@@ -85,7 +97,7 @@
       </div>
       <div class="map-and-hours pt-2">
         <div class="row">
-          <div class="col-lg-8 col-12">
+          <div class="col-lg-8 col-12" v-if="postedByData.sliderImages">
             <div class="slider mt-lg-0 mt-3">
               <Carousel
                 id="store-carousel"
@@ -95,15 +107,18 @@
                 :navigationEnabled="true"
               >
                 <Slide
-                  v-for="image, index in postedByData.gallery"
+                  v-for='(image, index) in postedByData.sliderImages.split(",")'
                   v-bind:key="index"
                 >
-                  <img :src="image" class="img-fluid" />
+                  <img
+                    :src="getImagePath(image,postedByData.imageFolder)"
+                    class="img-fluid"
+                  />
                 </Slide>
               </Carousel>
             </div>
           </div>
-          <div class="col-lg-4 col-12">
+          <div class="col-lg-4 col-12" v-if="postedByData.openTimes">
             <div class="open-times mb-4 mt-lg-0 mt-4">
               <h5 class="mb-3 pb-2">Opening <span>Hours</span></h5>
               <div v-for="item in postedByData.openTimes" class="py-1 px-2">
@@ -114,11 +129,11 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-12" v-if="postedByData.locationMap">
             <div class="map mt-2 mb-4">
               <h5 class="mb-3 pb-2">Location <span>Map</span></h5>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1786541313772!2d55.27437637712276!3d25.19719697699969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sin!4v1626510499995!5m2!1sen!2sin"
+                :src="postedByData.locationMap"
                 width="100%"
                 height="400"
                 style="border: 0"
@@ -132,7 +147,7 @@
     </div>
     <PostList
       :data="filteredData"
-      :title="`Ads By <span>${postedByData.name}</span>`"
+      :title="`Ads By <span>${postedByData.firstName} ${postedByData.lastName} </span>`"
       :featured="false"
       v-if="type ==='classifieds' && filteredData"
     />

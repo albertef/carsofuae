@@ -15,7 +15,6 @@ import Accordion from "@/components/common/accordion/accordion.vue";
 import AccordionItem from "@/components/common/accordion/accordion-item.vue";
 import rentalFeaturesList from "@/meta/features.json";
 
-
 export default {
   name: "post-details",
   components: {
@@ -181,11 +180,12 @@ export default {
     socialOpen(link) {
       window.open(link);
     },
-    openStore(id) {
+    openStore(id, userType) {
       router.push({
         name: "StoreProfile",
         query: {
           id: id,
+          userType: userType,
           type: "rental",
           user: `${UTILS.formatTitle(this.postedByName)}`,
         },

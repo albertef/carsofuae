@@ -6,7 +6,6 @@ import PostFilter from "@/components/post-filter/post-filter.vue";
 import Sort from "@/components/sort/sort.vue";
 import rentalBulletsFeaturesList from "@/meta/features.json";
 
-
 const LOAD_COUNT = 9;
 
 export default {
@@ -45,10 +44,21 @@ export default {
     getSelectedRentalCategory() {
       return this.$store.state.home.selectedRentalCategory;
     },
+    getSelectedRentalBrand() {
+      return this.$store.state.home.selectedRentalBrand;
+    },
     fullPostData() {
       if (this.getSelectedRentalCategory) {
         return this.data.filter(
-          (item) => item.type?.toLowerCase() === this.getSelectedRentalCategory.toLowerCase()
+          (item) =>
+            item.type?.toLowerCase() ===
+            this.getSelectedRentalCategory.toLowerCase()
+        );
+      } else if (this.getSelectedRentalBrand) {
+        return this.data.filter(
+          (item) =>
+            UTILS.formatTitle(item.brand) ===
+            UTILS.formatTitle(this.getSelectedRentalBrand)
         );
       }
       return this.data;
@@ -62,7 +72,9 @@ export default {
           : this.fullPostData.length;
     },
     getBulletFeaturesList(value) {
-      return rentalBulletsFeaturesList.filter((item) => value.includes(item.id));
+      return rentalBulletsFeaturesList.filter((item) =>
+        value.includes(item.id)
+      );
     },
     formatDistance(num, digits) {
       return UTILS.formatDistance(num, digits);

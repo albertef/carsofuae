@@ -128,7 +128,9 @@ export default {
     },
     checkOpenTime(data) {
       const today = dayjs().format("dddd");
-      const newData = data.filter((item) => item.day.toLowerCase() === today.toLowerCase());
+      const newData = data.filter(
+        (item) => item.day.toLowerCase() === today.toLowerCase()
+      );
       const times = newData[0]?.time?.split(" - ");
       if (times[0] === "Closed") {
         return {
@@ -165,11 +167,12 @@ export default {
     socialOpen(link) {
       window.open(link);
     },
-    openStore(id) {
+    openStore(id, userType) {
       router.push({
         name: "StoreProfile",
         query: {
           id: id,
+          userType: userType,
           type: "lease",
           user: `${UTILS.formatTitle(this.postedByName)}`,
         },

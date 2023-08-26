@@ -21,6 +21,8 @@ const state = {
   selectedCarModel: "",
   selectedClassifiedCategory: "",
   selectedRentalCategory: "",
+  selectedRentalBrand: "",
+  selectedLeaseBrand: "",
   postView: false,
   rentalData: [],
   selectedRental: null,
@@ -825,6 +827,12 @@ const mutations = {
   },
   updateSearchData(state, dataset) {
     state.searchData = dataset;
+  },
+  updateSelectedRentalBrand(state, value) {
+    state.selectedRentalBrand = value;
+  },
+  updateSelectedLeaseBrand(state, value) {
+    state.selectedLeaseBrand = value;
   },
 };
 

@@ -33,6 +33,12 @@ export const UTILS = {
     return dayjs(date).format("DD-MMM-YYYY");
   },
 
+  formatMapSrc(value) {
+    var myRegex = /(?<=src=").*?(?=[\"])/g;
+    const iframeValues = myRegex.exec(value);
+    return iframeValues?.length && iframeValues[0];
+  },
+
   calculateStarValue(value = []) {
     let starValue = 0;
     for (const index of value) {

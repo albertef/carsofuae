@@ -33,6 +33,27 @@
                 placeholder="Select Location" @selectValue="updateGarageData('place', $event)" :selected="newGarage.place" />
           </div>
           <div class="col-12 mb-3">
+            <label
+              >Location Map
+              <span
+                class="map-instructions"
+                role="button"
+                @click="showLocationInstructions"
+                >How To Get Map?</span
+              ></label
+            >
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Location Map"
+              :error="newGarageValidation.locationMap"
+              errorText="Enter Valid Location Map"
+              @value="updateGarageData('locationMap', $event)"
+              id="locationMap"
+              :value="newGarage.locationMap"
+            />
+          </div>
+          <div class="col-12 mb-3">
             <label>Phone <span>*</span></label>
             <!-- prettier-ignore -->
             <InputText class="inputText" :error="newGarageValidation.phone" errorText="Enter Phone Number with Country Code"
@@ -125,4 +146,9 @@
       </div>
     </div>
   </div>
+  <LocationMapInstructions
+    class="medium"
+    v-if="showLocationModal"
+    @close="closeReviewModal"
+  />
 </div>

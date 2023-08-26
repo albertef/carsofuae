@@ -14,20 +14,26 @@ export default {
     Modal,
   },
   data() {
-    return {};
+    return {
+      popularBrand: null,
+    };
   },
   async mounted() {
+    await this.$store.dispatch("getCarList");
     await this.$store.dispatch("getRentalList");
-    !this.queryParams
-      ? router
-          .push({
-            name: "Rental",
-          })
-          .catch(() => {})
-      : store.commit(
-          "updateSelectedRentalCategory",
-          this.queryParams.category || ""
-        );
+    if (!this.queryParams) {
+      router
+        .push({
+          name: "Rental",
+        })
+        .catch(() => {});
+    } else {
+      store.commit(
+        "updateSelectedRentalCategory",
+        this.queryParams.category || ""
+      );
+      store.commit("updateSelectedRentalBrand", this.queryParams.brand || "");
+    }
   },
   computed: {
     getRentalData() {
@@ -39,12 +45,49 @@ export default {
     getSelectedRentalCategory() {
       return this.$store.state.home.selectedRentalCategory;
     },
+    getSelectedRentalBrand() {
+      return this.$store.state.home.selectedRentalBrand;
+    },
+    currentQuery() {
+      return Object.keys(this.$route.query).length;
+    },
     queryParams() {
       if (!this.$route.query.category) {
         store.commit("updateSelectedRentalCategory", "");
       }
+      if (!this.$route.query.brand) {
+        store.commit("updateSelectedRentalBrand", "");
+      }
       return this.$route.query;
     },
+    getCarMakes() {
+      store.commit("updateSelectedClassifiedCategory", "used-cars");
+      return store.getters.getAllMakes;
+    },
   },
-  methods: {},
+  watch: {
+    currentQuery: {
+      handler(newVal) {
+        if (newVal === 0) {
+          store.commit("updateSelectedRentalCategory", "");
+          store.commit("updateSelectedRentalBrand", "");
+        }
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    formatTitle(value) {
+      return UTILS.formatTitle(value);
+    },
+    getRentalCarList(make) {
+      store.commit("updateSelectedRentalBrand", UTILS.formatTitle(make));
+      router.push({
+        query: {
+          ...router.query,
+          brand: UTILS.formatTitle(make),
+        },
+      });
+    },
+  },
 };

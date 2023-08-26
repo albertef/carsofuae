@@ -6,7 +6,6 @@ import PostFilter from "@/components/post-filter/post-filter.vue";
 import Sort from "@/components/sort/sort.vue";
 import leaseBulletsFeaturesList from "@/meta/features.json";
 
-
 const LOAD_COUNT = 9;
 
 export default {
@@ -45,10 +44,21 @@ export default {
     getSelectedLeaseCategory() {
       return this.$store.state.home.selectedLeaseCategory;
     },
+    getSelectedLeaseBrand() {
+      return this.$store.state.home.selectedLeaseBrand;
+    },
     fullPostData() {
       if (this.getSelectedLeaseCategory) {
         return this.data.filter(
-          (item) => item.type?.toLowerCase() === this.getSelectedLeaseCategory.toLowerCase()
+          (item) =>
+            item.type?.toLowerCase() ===
+            this.getSelectedLeaseCategory.toLowerCase()
+        );
+      } else if (this.getSelectedLeaseBrand) {
+        return this.data.filter(
+          (item) =>
+            UTILS.formatTitle(item.company) ===
+            UTILS.formatTitle(this.getSelectedLeaseBrand)
         );
       }
       return this.data;

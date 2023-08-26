@@ -13,5 +13,8 @@ export default {
     getPostId() {
       return this.$route.query.id;
     },
+    getUserType() {
+      return this.$route.query.userType;
+    },
   },
 };

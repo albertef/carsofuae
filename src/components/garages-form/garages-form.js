@@ -11,6 +11,7 @@ import { UTILS } from "@/utility/utils.js";
 import garageServiceList from "@/meta/services.json";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 import OpenTimes from "@/components/common/open-times/open-times.vue";
+import LocationMapInstructions from "@/components/location-map-instructions/location-map-instructions.vue";
 
 export default {
   name: "ClassifiedsForm",
@@ -23,6 +24,7 @@ export default {
     TextArea,
     Checkbox,
     OpenTimes,
+    LocationMapInstructions,
   },
 
   data() {
@@ -44,9 +46,11 @@ export default {
         facebook: "",
         instagram: "",
         linkedin: "",
+        locationMap: "",
       },
       newGarageValidation: {},
       selectedServices: [],
+      showLocationModal: false,
     };
   },
   async mounted() {
@@ -71,6 +75,9 @@ export default {
   },
   methods: {
     updateGarageData(key, e) {
+      if (key === "locationMap") {
+        e = UTILS.formatMapSrc(e);
+      }
       this.newGarage = {
         ...this.newGarage,
         [key]: e,
@@ -88,6 +95,14 @@ export default {
 
     resetValidation() {
       this.newGarageValidation = {};
+    },
+
+    showLocationInstructions() {
+      this.showLocationModal = true;
+    },
+
+    closeReviewModal() {
+      this.showLocationModal = false;
     },
 
     validateNewGarageForm() {

@@ -8,7 +8,7 @@
     </div>
     <div class="col-12 mb-md-5 mb-3 mt-3 p-md-0">
       <ul class="nav nav-tabs w-100" v-if="page == 'classifieds'">
-        <li class="nav-item" v-for="item in classifiedsCategoryList">
+        <li class="nav-item" role="button" v-for="item in classifiedsCategoryList">
           <a
             class="nav-link"
             :class="item.id==type && 'active'"
@@ -18,7 +18,17 @@
         </li>
       </ul>
       <ul class="nav nav-tabs w-100" v-else-if="page == 'spare-parts'">
-        <li class="nav-item" v-for="item in spareCategoryList">
+        <li class="nav-item" role="button" v-for="item in spareCategoryList">
+          <a
+            class="nav-link"
+            :class="item.id==type && 'active'"
+            @click="getMyAds(item.id)"
+            >{{item.title}}</a
+          >
+        </li>
+      </ul>
+      <ul class="nav nav-tabs w-100" v-else-if="page == 'garages'">
+        <li class="nav-item" role="button" v-for="item in garageCategoryList">
           <a
             class="nav-link"
             :class="item.id==type && 'active'"

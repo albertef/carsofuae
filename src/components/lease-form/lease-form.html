@@ -50,6 +50,27 @@
             <Select :options="utils.emiratesLocationList()" :error="newLeaseValidation.place" errorText="Select Location"
               placeholder="Select Location" @selectValue="updateLeaseData('place', $event)" :selected="newLease.place" />
           </div>
+          <div class="col-12 mb-3">
+            <label
+              >Location Map
+              <span
+                class="map-instructions"
+                role="button"
+                @click="showLocationInstructions"
+                >How To Get Map?</span
+              ></label
+            >
+            <!-- prettier-ignore -->
+            <TextArea
+              class="inputText"
+              placeholder="Enter Location Map"
+              :error="newLeaseValidation.locationMap"
+              errorText="Enter Valid Location Map"
+              @value="updateLeaseData('locationMap', $event)"
+              id="locationMap"
+              :value="newLease.locationMap"
+            />
+          </div>
           <div class="col-12 mb-3 mt-3">
             <label>Price <span>*</span></label>
             <!-- prettier-ignore -->
@@ -296,5 +317,10 @@
         </div>
       </div>
     </div>
+    <LocationMapInstructions
+      class="medium"
+      v-if="showLocationModal"
+      @close="closeReviewModal"
+    />
   </div>
 </div>

@@ -31,6 +31,10 @@ export default {
       type: Number | null,
       default: null,
     },
+    userType: {
+      type: String | null,
+      default: null,
+    },
   },
   data() {
     return {
@@ -40,6 +44,13 @@ export default {
   },
   async mounted() {
     store.commit("updateLoader", true);
+    const usernameParams = {
+      //username: this.loginInfo?.username,
+      id: this.id,
+      userType: this.userType,
+    };
+    await this.$store.dispatch("userDetails", usernameParams);
+
     if (this.type === "classifieds") {
       const params = {
         category:
@@ -53,7 +64,7 @@ export default {
     } else if (this.type === "spare") {
       await this.$store.dispatch("getSpareItemList");
     }
-    await this.$store.dispatch("getPostedByList");
+    //await this.$store.dispatch("getPostedByList");
     store.commit("updateLoader", false);
   },
   computed: {
@@ -61,8 +72,8 @@ export default {
       return this.$store.state.home.selectedClassifiedCategory;
     },
     postedByData() {
-      const postedByList = this.$store?.state.home.postedByList;
-      return postedByList?.find((item) => item.id === Number(this.id));
+      return this.$store?.state.home.userDetails;
+      //return postedByList?.find((item) => item.id === Number(this.id));
     },
     filteredData() {
       let data = null;
@@ -71,16 +82,24 @@ export default {
       } else if (this.type === "rental") {
         data = this.$store?.state.home.rentalData.rental;
       } else if (this.type === "lease") {
-        data = this.$store?.state.home.leaseData;
+        data = this.$store?.state.home.leaseData.lease;
       } else if (this.type === "spare") {
         data = this.$store?.state.home.spareItemList;
       }
-      return data?.filter((item) => item.postedBy === Number(this.id));
+      console.log("data: ", data);
+      console.log(
+        data?.filter((item) => Number(item.postedBy) === Number(this.id))
+      );
+      return data?.filter((item) => Number(item.postedBy) === Number(this.id));
     },
   },
   methods: {
     openPhone(num) {
       document.location.href = `tel:${num}`;
+    },
+    getImagePath(image, folder) {
+      const folderPath = folder?.split(",")[0];
+      return `${this.$baseURL}upload/${folderPath}/${image}`;
     },
     openWhatsapp(num) {
       window.open(
@@ -117,6 +136,13 @@ export default {
     },
     calculateStarValue(value) {
       return UTILS.calculateStarValue(value);
+    },
+    socialOpen(link) {
+      let formattedLink = link;
+      if (!link.includes("http")) {
+        formattedLink = `https://${link}`;
+      }
+      window.open(formattedLink);
     },
   },
 };

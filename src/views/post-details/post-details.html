@@ -134,7 +134,7 @@
           <div
             class="user-desc mb-4"
             :class="!postData.video && 'mb-5'"
-            @click="openStore(postData.postedBy)"
+            @click="openStore(postData.postedBy, postData.userType)"
           >
             <img src="../../assets/user-profile.png" />
             <p><span>{{postedByName}}'s Take</span>{{postData.desc}}</p>

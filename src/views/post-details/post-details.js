@@ -119,11 +119,12 @@ export default {
     hideModal() {
       this.modalDisplay = false;
     },
-    openStore(id) {
+    openStore(id, userType) {
       router.push({
         name: "StoreProfile",
         query: {
           id: id,
+          userType: userType,
           type: "classifieds",
           user: `${UTILS.formatTitle(this.postedByName)}`,
         },

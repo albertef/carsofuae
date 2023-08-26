@@ -8,6 +8,7 @@ import TextArea from "@/components/common/text-area/text-area.vue";
 import RentalPrice from "@/components/common/rental-price/rental-price.vue";
 import rentalFeaturesList from "@/meta/features.json";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
+import LocationMapInstructions from "@/components/location-map-instructions/location-map-instructions.vue";
 
 import store from "@/store";
 import router from "@/router";
@@ -26,6 +27,7 @@ export default {
     TextArea,
     RentalPrice,
     Checkbox,
+    LocationMapInstructions,
   },
 
   data() {
@@ -67,9 +69,11 @@ export default {
         listBullets: "",
         postedBy: "",
         userType: "",
+        locationMap: "",
       },
       newRentalValidation: {},
       selectedFeatures: [],
+      showLocationModal: false,
     };
   },
   async mounted() {
@@ -109,7 +113,9 @@ export default {
       if (key === "brand") {
         this.newRental.model = "";
       }
-
+      if (key === "locationMap") {
+        e = UTILS.formatMapSrc(e);
+      }
       this.newRental = {
         ...this.newRental,
         [key]: e,
@@ -125,6 +131,14 @@ export default {
     },
     resetValidation() {
       this.newRentalValidation = {};
+    },
+
+    showLocationInstructions() {
+      this.showLocationModal = true;
+    },
+
+    closeReviewModal() {
+      this.showLocationModal = false;
     },
 
     validateNewRentalForm() {

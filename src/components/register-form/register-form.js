@@ -5,6 +5,8 @@ import InputDate from "@/components/common/input-date/input-date.vue";
 import Button from "@/components/common/button/button.vue";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 import Select from "@/components/common/select/select.vue";
+import TextArea from "@/components/common/text-area/text-area.vue";
+import LocationMapInstructions from "@/components/location-map-instructions/location-map-instructions.vue";
 import store from "@/store";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
@@ -20,6 +22,8 @@ export default {
     Button,
     Checkbox,
     Select,
+    TextArea,
+    LocationMapInstructions,
   },
 
   data() {
@@ -64,12 +68,14 @@ export default {
         linkedin: "",
         sliderImages: "",
         imageFolder: "",
+        locationMap: "",
         tc: false,
         nl: true,
       },
       // selectedUserType: null,
       date: new Date(),
       registerValidation: {},
+      showLocationModal: false,
     };
   },
   mounted() {
@@ -105,6 +111,9 @@ export default {
   },
   methods: {
     updateUserDetails(key, e) {
+      if (key === "locationMap") {
+        e = UTILS.formatMapSrc(e);
+      }
       if (this.selectedUserType === this.userTypes?.individual?.title) {
         this.individualUserDetails = {
           ...this.individualUserDetails,
@@ -116,6 +125,14 @@ export default {
           [key]: e,
         };
       }
+    },
+
+    showLocationInstructions() {
+      this.showLocationModal = true;
+    },
+
+    closeReviewModal() {
+      this.showLocationModal = false;
     },
 
     resetValidation() {
@@ -268,7 +285,6 @@ export default {
           store.commit("updateAlert", alert);
           this.$router.go(-1);
         } else {
-          debugger;
           const errorMessage = this.registerInfo.message
             ? this.registerInfo.message
             : !response || sliderImageUploadResponse.status

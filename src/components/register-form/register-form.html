@@ -47,6 +47,19 @@
                 placeholder="Select Location" @selectValue="updateUserDetails('location', $event)" :selected="individualUserDetails.location" />
             </div>
             <div class="col-12 mb-3">
+              <label>Location Map <span class="map-instructions" role="button" @click="showLocationInstructions">How To Get Map?</span></label>
+              <!-- prettier-ignore -->
+              <TextArea
+                class="inputText"
+                placeholder="Enter Location Map"
+                :error="registerValidation.locationMap"
+                errorText="Enter Valid Location Map"
+                @value="updateUserDetails('locationMap', $event)"
+                id="locationMap"
+                :value="individualUserDetails.locationMap"
+              />
+            </div>
+            <div class="col-12 mb-3">
               <label>Email <span>*</span></label>
               <!-- prettier-ignore -->
               <InputText class="inputText" :error="registerValidation.email" errorText="Enter valid email address"
@@ -100,6 +113,7 @@
                 name="displayPicture" id="displayPicture" :value="individualUserDetails.displayPicture"
                 @value="updateUserDetails('displayPicture', $event)" />
             </div>
+            
             <div class="col-12 mt-4 mb-3">
               <Checkbox :value="individualUserDetails.tc" label="I agree with terms and conditions"
                 @change="updateUserDetails('tc', $event.value)" :error="registerValidation.tc"
@@ -213,6 +227,19 @@
                 @value="updateUserDetails('postalCode', $event)" />
             </div>
             <div class="col-12 mb-3">
+              <label>Location Map <span class="map-instructions" role="button" @click="showLocationInstructions">How To Get Map?</span></label>
+              <!-- prettier-ignore -->
+              <TextArea
+                class="inputText"
+                placeholder="Enter Location Map"
+                :error="registerValidation.locationMap"
+                errorText="Enter Valid Location Map"
+                @value="updateUserDetails('locationMap', $event)"
+                id="locationMap"
+                :value="companyUserDetails.locationMap"
+              />
+            </div>
+            <div class="col-12 mb-3">
               <label>Type of business <span>*</span></label>
               <!-- prettier-ignore -->
               <Select :options="businessTypeOptions" :error="registerValidation.businessType"
@@ -281,4 +308,10 @@
       </div>
     </div>
   </div>
+
+  <LocationMapInstructions
+    class="medium"
+    v-if="showLocationModal"
+    @close="closeReviewModal"
+  />
 </div>

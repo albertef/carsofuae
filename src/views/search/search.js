@@ -39,7 +39,9 @@ export default {
       return UTILS;
     },
     isSearchData() {
-      return this.getSearchData?.some((item) => item.length);
+      return this.getSearchData?.some(
+        (item) => item.length || item[Object.keys(item)].length
+      );
     },
   },
 

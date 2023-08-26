@@ -12,6 +12,7 @@ import router from "@/router";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
+import LocationMapInstructions from "@/components/location-map-instructions/location-map-instructions.vue";
 
 export default {
   name: "LeaseForm",
@@ -25,6 +26,7 @@ export default {
     TextArea,
     LeasePrice,
     Checkbox,
+    LocationMapInstructions,
   },
 
   data() {
@@ -67,9 +69,11 @@ export default {
         descDetails: "",
         postedBy: "",
         userType: "",
+        locationMap: "",
       },
       newLeaseValidation: {},
       selectedFeatures: [],
+      showLocationModal: false,
     };
   },
   async mounted() {
@@ -109,6 +113,9 @@ export default {
       if (key === "company") {
         this.newLease.model = "";
       }
+      if (key === "locationMap") {
+        e = UTILS.formatMapSrc(e);
+      }
       this.newLease = {
         ...this.newLease,
         [key]: e,
@@ -124,6 +131,14 @@ export default {
     },
     resetValidation() {
       this.newLeaseValidation = {};
+    },
+
+    showLocationInstructions() {
+      this.showLocationModal = true;
+    },
+
+    closeReviewModal() {
+      this.showLocationModal = false;
     },
 
     validateNewLeaseForm() {
