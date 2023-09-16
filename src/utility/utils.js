@@ -70,7 +70,7 @@ export const UTILS = {
 
   yearDropdownValues() {
     const max = new Date().getFullYear(),
-      min = max - 30,
+      min = 1950,
       arr = [];
 
     for (var i = min; i <= max; i++) {
@@ -81,25 +81,38 @@ export const UTILS = {
 
   colorDropDownValues() {
     return [
-      "Beige",
-      "Black",
-      "Blue",
-      "Brown",
-      "Burgundy",
-      "Chrome",
-      "Gold",
-      "Green",
-      "Grey",
-      "Orange",
-      "Pink",
-      "Purple",
       "Red",
-      "Silver",
-      "Tan",
-      "Teal",
-      "White",
+      "Blue",
       "Yellow",
-      "Other",
+      "Black",
+      "Brown",
+      "White",
+      "Silver",
+      "Off White",
+      "Orange",
+      "Gray",
+      "Dark Gray",
+      "Green",
+      "Champagne Gold",
+      "Light Green",
+      "Maroon",
+      "Bronze",
+      "Burgundy",
+      "Purple",
+      "Pink",
+      "Matte Gray",
+      "Matte Black",
+      "Matte Black",
+      "Matte Red",
+      "Lemon Yellow",
+      "Turquoise",
+      "Matte Blue",
+      "Sapphire Blue",
+      "Metallic Silver",
+      "Metallic Red",
+      "Metallic Grey",
+      "Beige",
+      "Golden",
     ].sort();
   },
 
@@ -130,8 +143,8 @@ export const UTILS = {
     return ["Gasoline", "Diesel", "Hybrid", "Electric"].sort();
   },
 
-  sellerTypes(type) {
-    if (type === "We're a Company") {
+  sellerTypes() {
+    if (store.state.home?.loginInfo?.userType === "We're a Company") {
       return ["Dealer"];
     }
     return ["Owner", "Dealer"].sort();
@@ -174,7 +187,7 @@ export const UTILS = {
     return ["Left Hand Drive", "Right Hand Drive"];
   },
   insuranceList() {
-    return ["Basic", "Advanced"];
+    return ["Comprehensive (Full Insurance)", "Third Party Only"];
   },
   additionalDriverInsuranceOptions() {
     return ["Yes", "No"];
@@ -209,7 +222,7 @@ export const UTILS = {
   },
   subcategoryDropDownValues(category) {
     return category === "boats"
-      ? ["Motorboats", "Sailboats", "Row/Paddleboats"]
+      ? ["Motorboats", "Sailboats", "Row / Paddleboats"]
       : category === "truck"
       ? [
           "Trucks",
@@ -347,5 +360,23 @@ export const UTILS = {
   },
   acceptedInList() {
     return ["Cash", "Cheque", "Card"].sort();
+  },
+
+  carSpecs() {
+    return [
+      "Cruise Control",
+      "Reverse Camera Parking",
+      "Sensors",
+      "Leather Seats",
+      "Power Windows",
+      "Power Mirrors",
+      "Android/Apple Car Play",
+      "Navigation",
+      "Alloy Wheels",
+      "Sunroof",
+      "LCD Screen",
+      "USB",
+      "Bluetooth",
+    ];
   },
 };

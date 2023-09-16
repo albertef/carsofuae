@@ -337,6 +337,13 @@
       color: rgba($black, 0.6) !important;
       font-size: 0.95rem;
       line-height: 140%;
+      span {
+        &:last-child {
+          text-align: right;
+          font-weight: 700;
+          color: $black;
+        }
+      }
     }
     .dealer-logo {
       display: flex;

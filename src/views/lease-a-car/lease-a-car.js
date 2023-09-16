@@ -67,7 +67,7 @@ export default {
     currentQuery: {
       handler(newVal) {
         if (newVal === 0) {
-          store.commit("updateSelectedRentalCategory", "");
+          store.commit("updateSelectedLeaseCategory", "");
           store.commit("updateSelectedLeaseBrand", "");
         }
       },

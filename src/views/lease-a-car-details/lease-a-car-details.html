@@ -135,7 +135,7 @@
         <div class="shadow-container right p-3 mb-3">
           <div class="dealer-logo mb-4 mt-2 flex-column align-items-center"  @click="openStore(leaseData.postedBy, leaseData.userType)">
             <img
-            :src="getDealerLogo(leaseData.dealerLogo, leaseData.imageFolder)"
+            :src="getDealerLogo(leaseData.dealerLogo, leaseData.dealerImageFolder)"
           />
           <h6 class="text-center w-100">
             {{leaseData.dealerName}}
@@ -199,7 +199,7 @@
           />
           </div>
 
-          <div class="map mt-4">
+          <div class="map mt-4" v-if="leaseData.locationMap">
             <iframe
             :src="leaseData.locationMap"
               width="100%"

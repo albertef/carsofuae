@@ -65,9 +65,11 @@
             <td>{{Boolean(Number(ad.approved)) ? "Approved" : "Not Approved"}}</th>
             <td class="action">
               <!-- prettier-ignore -->
-              <Button v-if="Boolean(Number(ad.approved))" type="small" text="View Ad" @click="viewAd(ad.id)" class="mr-2" />
+              <Button v-if="Boolean(Number(ad.approved))" type="small hollow" text="View" @click="viewAd(ad.id)" class="mr-2" />
               <!-- prettier-ignore -->
-              <Button type="red small" text="Delete " @click="deleteAd(ad.id)" class="mr-2" />
+              <Button type="small" text="Edit" @click="editAd(ad.id)" class="mr-2" />
+              <!-- prettier-ignore -->
+              <Button type="red small" text="Delete" @click="deleteAd(ad.id)" class="mr-2" />
             </td>
           </tr>
         </tbody>

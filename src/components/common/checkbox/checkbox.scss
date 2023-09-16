@@ -3,8 +3,8 @@
   user-select: none;
   align-content: center;
   text-align: center;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: nowrap;
 
   .icon {
     color: rgba($black, 0.2);
@@ -37,6 +37,8 @@
     font-size: 0.875rem;
     line-height: 1rem;
     padding-left: 10px;
+    word-break: break-word;
+    text-align: left;
     span {
       color: $red;
     }

@@ -5,6 +5,7 @@ import Select from "@/components/common/select/select.vue";
 import InputText from "@/components/common/input-text/input-text.vue";
 import { UTILS } from "@/utility/utils.js";
 import { META } from "@/meta/common.js";
+import TextArea from "@/components/common/text-area/text-area.vue";
 
 export default {
   name: "search",
@@ -12,6 +13,7 @@ export default {
     Button,
     Select,
     InputText,
+    TextArea,
   },
   data() {
     return {

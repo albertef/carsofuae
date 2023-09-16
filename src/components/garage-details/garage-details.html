@@ -12,12 +12,14 @@
     <div class="col-12 col-lg-8">
       <div class="shadow-container p-3 mb-3">
         <div class="header">
-          <img
-            v-if="getSingleGarageDetails.profilePicture"
-            :src="getProfilePic(getSingleGarageDetails)"
-            class="garage-dp img-fluid"
-          />
-          <h4>{{getSingleGarageDetails.name}}</h4>
+          <div>
+            <img
+              v-if="getSingleGarageDetails.profilePicture"
+              :src="getProfilePic(getSingleGarageDetails)"
+              class="garage-dp img-fluid"
+            />
+            <h5>{{getSingleGarageDetails.name}}</h5>
+          </div>
           <div class="phone">
             <!-- prettier-ignore -->
             <Button
@@ -94,7 +96,7 @@
             <p>{{service.title}}</p>
           </div>
         </div>
-        <div class="map mt-4">
+        <div class="map mt-4" v-if="getSingleGarageDetails.locationMap">
           <iframe
             :src="getSingleGarageDetails.locationMap"
             width="100%"

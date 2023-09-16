@@ -58,8 +58,8 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Place"
-   placeholder="Select Place" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
+    <Select :options="utils.emiratesLocationList()" :error="newPostValidation.place" errorText="Select Location"
+   placeholder="Select Location" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
     <label>
@@ -126,7 +126,7 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <Select :options="utils.sellerTypes(loginInfo.userType)" :error="newPostValidation.sellerType" errorText="Select Seller Type" placeholder="Select Seller Type"
+    <Select :options="utils.sellerTypes()" :error="newPostValidation.sellerType" errorText="Select Seller Type" placeholder="Select Seller Type"
     @selectValue="updatePostData('sellerType', $event)" id="sellerType" :selected="newPost.sellerType" />
   </div>
   <div class="col-12 mb-3">

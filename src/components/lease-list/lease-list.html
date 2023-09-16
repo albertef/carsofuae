@@ -2,26 +2,45 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
-              <h3 class="heading" v-html="title"></h3>
-              <div class="right-column">
-                <div class="sort-wrapper" title="Sort Options">
-                  <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
-                  <Sort :data="postData"  @close="sortToggle"  v-if="sortEnabled" />
-                  <div class="overlay" @click="sortToggle" v-if="sortEnabled"></div>
-                </div>
-                <div class="filter-wrapper" title="Filter Options">
-                  <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                  <PostFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
-                </div>
+        <div class="row latest-posts">
+          <div class="col-12 my-3 heading-wrapper mt-lg-5 mb-lg-4">
+            <h5 class="heading" v-html="title"></h5>
+            <div class="right-column">
+              <!-- prettier-ignore -->
+              <Button type="hollow small" text="Clear Filter" @click="clearFilter" v-if="isFilter" class="mr-3" />
+              <div class="sort-wrapper" title="Sort Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sort']"
+                  @click="sortToggle"
+                />
+                <Sort :data="postData" @close="sortToggle" v-if="sortEnabled" />
+                <div
+                  class="overlay"
+                  @click="sortToggle"
+                  v-if="sortEnabled"
+                ></div>
+              </div>
+              <div class="filter-wrapper" title="Filter Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sliders-h']"
+                  @click="filterToggle"
+                />
+                <RentalFilter
+                  :data="postData"
+                  @close="filterToggle"
+                  v-if="filterEnabled"
+                  @filteredData="updatePostData($event)"
+                />
               </div>
             </div>
-            <div class="col-12 col-lg-6 py-3" v-for="post in postData">
-              <div
-                class="card"
-                :class="post.featured && 'featured'"
-              >
+          </div>
+        </div>
+        <section
+          class="row d-flex p-0 flex-wrap"
+          v-if="postData && postData.length"
+        >
+          <div class="col-12 col-lg-6 py-3" v-for="post in postData">
+            <div class="card" :class="post.featured && 'featured'">
               <div class="thumb-wrapper">
                 <Carousel
                   id="post-list-carousel"
@@ -30,82 +49,87 @@
                   easing="ease-out"
                   class="post-list-carousel"
                 >
-                <Slide
-                v-for="(image, index) in post.gallery.split(',')"
-                v-bind:key="index"
-              >
-                <span class="gallery-counter"
-                  >{{index+1}}/{{post.gallery.split(',').length}}</span
-                >
-                <img
-                  :src="getGalleryImagePath(image,post.imageFolder) "
-                  class="img-fluid"
-                />
-              </Slide>
+                  <Slide
+                    v-for="(image, index) in post.gallery.split(',')"
+                    v-bind:key="index"
+                  >
+                    <span class="gallery-counter"
+                      >{{index+1}}/{{post.gallery.split(',').length}}</span
+                    >
+                    <img
+                      :src="getGalleryImagePath(image,post.imageFolder) "
+                      class="img-fluid"
+                    />
+                  </Slide>
                 </Carousel>
               </div>
 
-                <div class="post-details" @click="viewPostDetails(post)">
-                  <div>
-                    <h5 :title="`${post.make} ${post.company} ${post.model}`">
-                      <span>{{ post.make }} {{ post.company }} {{ post.model }}</span>
-                      <em></em>
-                    </h5>
-                    <div class="list-view-price mt-3">
-                        <div v-for="val in post.price">
-                          <span>{{ val.per }} year</span>
-                          <span>AED {{ val.price }}</span>
-                          <span>{{ val.km }} kms</span>
-                        </div>
-                      </div>
-                    
-                    <div class="tags">
-                      <span class="tag">
-                        {{post.type}}
-                      </span>
-                      <span class="tag">
-                        <img src="../../assets/car-door.png" />
-                        {{post.doors}}
-                      </span>
-                      <span class="tag">
-                        <img src="../../assets/car-seat.png" />
-                        {{post.seats}}
-                      </span>
-                      <span class="tag">
-                        <font-awesome-icon :icon="['fas', 'suitcase']" />
-                        {{post.luggage}}
-                      </span>
-                    </div>
-                    <div class="dealer">
-                      <img
-                      :src="getDealerLogo(post.dealerLogo, post.dealerImageFolder)"
-                    />
-                      <ul>
-                        <li v-for="list in getBulletFeaturesList(post.features).slice(0,4)">{{list.title}}</li>
-                      </ul>
+              <div class="post-details" @click="viewPostDetails(post)">
+                <div>
+                  <h5 :title="`${post.make} ${post.company} ${post.model}`">
+                    <span
+                      >{{ post.make }} {{ post.company }} {{ post.model }}</span
+                    >
+                    <em></em>
+                  </h5>
+                  <div class="list-view-price mt-3">
+                    <div v-for="val in post.price">
+                      <span>{{ val.per }} year</span>
+                      <span>AED {{ val.price }}</span>
+                      <span>{{ val.km }} kms</span>
                     </div>
                   </div>
-                
+
+                  <div class="tags">
+                    <span class="tag"> {{post.type}} </span>
+                    <span class="tag">
+                      <img src="../../assets/car-door.png" />
+                      {{post.doors}}
+                    </span>
+                    <span class="tag">
+                      <img src="../../assets/car-seat.png" />
+                      {{post.seats}}
+                    </span>
+                    <span class="tag">
+                      <font-awesome-icon :icon="['fas', 'suitcase']" />
+                      {{post.luggage}}
+                    </span>
+                  </div>
+                  <div class="dealer">
+                    <img
+                      :src="getDealerLogo(post.dealerLogo, post.dealerImageFolder)"
+                    />
+                    <ul>
+                      <li
+                        v-for="list in getBulletFeaturesList(post.features).slice(0,4)"
+                      >
+                        {{list.title}}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <span
-                  class="featured-icon"
-                  title="Featured Post"
-                  v-if="post.featured"
-                >
-                  <img src="../../assets/featured.png" class="img-fluid" />
-                </span>
               </div>
-            </div>
-            <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
-              <!-- prettier-ignore -->
-              <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
+              <span
+                class="featured-icon"
+                title="Featured Post"
+                v-if="post.featured"
+              >
+                <img src="../../assets/featured.png" class="img-fluid" />
+              </span>
             </div>
           </div>
-          <div v-else class="d-flex flex-column justify-content-center align-items-center no-result">
-            <img src="../../assets/no-results.png" class="img-fluid" />
-            <h6>No Results Found</h6>
-            <p class="my-2">try changing the filters or search term</p>
+          <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
+            <!-- prettier-ignore -->
+            <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
           </div>
+        </section>
+        <div
+          v-else
+          class="d-flex flex-column justify-content-center align-items-center no-result"
+        >
+          <img src="../../assets/no-results.png" class="img-fluid" />
+          <h6>No Results Found</h6>
+          <p class="my-2">try changing the filters or search term</p>
         </div>
       </div>
     </div>

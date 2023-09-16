@@ -3,6 +3,13 @@
     &:nth-child(odd) {
       background-color: rgba($purple, 0.05);
     }
+    > div {
+      > div {
+        &:last-child {
+          word-wrap: break-word;
+        }
+      }
+    }
   }
   .no-post-cont {
     height: calc(100vh - 500px);

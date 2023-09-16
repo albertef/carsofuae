@@ -86,10 +86,6 @@ export default {
       } else if (this.type === "spare") {
         data = this.$store?.state.home.spareItemList;
       }
-      console.log("data: ", data);
-      console.log(
-        data?.filter((item) => Number(item.postedBy) === Number(this.id))
-      );
       return data?.filter((item) => Number(item.postedBy) === Number(this.id));
     },
   },

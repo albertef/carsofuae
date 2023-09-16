@@ -31,7 +31,7 @@
               @click="viewPost(elem.id, Object.keys(item)[0])"
             >
               <img
-                :src="getImagePath(elem.displayPicture || elem.dealerLogo || elem.profilePicture,elem.imageFolder)"
+                :src="getImagePath(elem.displayPicture || elem.dealerLogo || elem.profilePicture || elem.galleryImages && elem.galleryImages.split(',')[0],elem.imageFolder)"
                 class="display-image"
               />
               <div>

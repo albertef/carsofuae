@@ -28,13 +28,13 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>No.of Cylinders</label>
         <!-- prettier-ignore -->
-        <Select :options="utils.numberOfCylinderDropdownValues()" placeholder="Select No.of Cylinders" @selectValue="updateFilterData('cylinders', $event)" :selected="filterData.cylinders" />
+        <Select :options="utils.numberOfCylinderDropdownValues()" placeholder="Select No.of Cylinders" @selectValue="updateFilterData('noOfCylinders', $event)" :selected="filterData.noOfCylinders" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Transmission Type</label>
         <!-- prettier-ignore -->
-        <Select :options="utils.transmissionTypes()" placeholder="Select Transmission Type" @selectValue="updateFilterData('transmission', $event)" :selected="filterData.transmission" />
+        <Select :options="utils.transmissionTypes()" placeholder="Select Transmission Type" @selectValue="updateFilterData('transmissionType', $event)" :selected="filterData.transmissionType" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
@@ -46,7 +46,7 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>Fuel Type</label>
         <!-- prettier-ignore -->
-        <Select :options="utils.fuelTypes()" placeholder="Select Fuel Type" @selectValue="updateFilterData('fuel', $event)" :selected="filterData.fuel" />
+        <Select :options="utils.fuelTypes()" placeholder="Select Fuel Type" @selectValue="updateFilterData('fuelType', $event)" :selected="filterData.fuelType" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
@@ -116,8 +116,15 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>Price</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
@@ -205,15 +212,29 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>Price</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Year</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minYear" :value="filterData.minYear" @value="updateFilterData('minYear', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxYear"
+          :value="filterData.maxYear"
+          @value="updateFilterData('maxYear', $event)"
+          type="number"
+        />
       </div>
     </div>
 
@@ -241,22 +262,43 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>Price</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Year</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minYear" :value="filterData.minYear" @value="updateFilterData('minYear', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxYear"
+          :value="filterData.maxYear"
+          @value="updateFilterData('maxYear', $event)"
+          type="number"
+        />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Mileage</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minMileage" :value="filterData.minMileage" @value="updateFilterData('minMileage', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxMileage"
+          :value="filterData.maxMileage"
+          @value="updateFilterData('maxMileage', $event)"
+          type="number"
+        />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
@@ -288,15 +330,21 @@
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
+        <label>Location</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.emiratesLocationList()" placeholder="Select Location" @selectValue="updateFilterData('place', $event)" :selected="filterData.place" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
         <label>Emirate</label>
         <!-- prettier-ignore -->
-        <Select :options="utils.emiratesLocationList()" placeholder="Select Final Drive System" @selectValue="updateFilterData('emirate', $event)" :selected="filterData.emirate" />
+        <Select :options="removeAlAinList" placeholder="Select Emirate" @selectValue="updateFilterData('emirate', $event)" :selected="filterData.emirate" />
       </div>
 
       <div class="col-12 col-lg-3 filter-column">
         <label>No of Digits</label>
         <!-- prettier-ignore -->
-        <Select :options="utils.numPlatesDigitsList()" placeholder="Select Wheels" @selectValue="updateFilterData('digits', $event)" :selected="filterData.digits" />
+        <Select :options="utils.numPlatesDigitsList()" placeholder="Select No.Of Digits" @selectValue="updateFilterData('digits', $event)" :selected="filterData.digits" />
       </div>
     </div>
 
@@ -330,8 +378,15 @@
       <div class="col-12 col-lg-3 filter-column">
         <label>Price</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
       </div>
     </div>
 

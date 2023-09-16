@@ -27,10 +27,10 @@
             />
           </div>
           <div class="col-12 mb-3">
-            <label>Select Company <span>*</span></label>
+            <label>Select Brand <span>*</span></label>
             <!-- prettier-ignore -->
-            <Select :options="companyList" :error="newLeaseValidation.company" errorText="Select Company"
-              placeholder="Select Company" @selectValue="updateLeaseData('company', $event)" :selected="newLease.company" />
+            <Select :options="companyList" :error="newLeaseValidation.company" errorText="Select Brand"
+              placeholder="Select Brand" @selectValue="updateLeaseData('company', $event)" :selected="newLease.company" />
           </div>
           <div class="col-12 mb-3">
             <label>Select Model <span>*</span></label>

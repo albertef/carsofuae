@@ -1,5 +1,4 @@
 <div class="container store-wrapper my-4">
-  {{postedByData}}
   <div class="row" v-if="!postedByData">
     <div class="col-12 mb-5 p-0">
       <h3 class="d-flex justify-content-center align-items-center">
@@ -153,13 +152,13 @@
     />
     <RentalList
       :data="filteredData"
-      :title="`Ads By <span>${postedByData.name}</span>`"
+      :title="`Ads By <span>${postedByData.firstName} ${postedByData.lastName} </span>`"
       :featured="false"
       v-if="type ==='rental' && filteredData"
     />
     <LeaseList
       :data="filteredData"
-      :title="`Ads By <span>${postedByData.name}</span>`"
+      :title="`Ads By <span>${postedByData.firstName} ${postedByData.lastName} </span>`"
       :featured="false"
       v-if="type ==='lease' && filteredData"
     />

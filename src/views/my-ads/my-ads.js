@@ -169,6 +169,9 @@ export default {
 
       //await store.commit("updateSelectedClassifiedCategory", this.type);
     },
+    editAd(id) {
+      alert(`Post ID: ${id} editing development is In Progress`);
+    },
     formatDate(date) {
       return UTILS.formatDate(date);
     },

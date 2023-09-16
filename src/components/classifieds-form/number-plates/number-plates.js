@@ -61,6 +61,10 @@ export default {
     utils() {
       return UTILS;
     },
+    removeAlAinList() {
+      const locationList = this.utils.emiratesLocationList();
+      return locationList.filter((item) => item != "Al Ain");
+    },
   },
   methods: {
     updatePostData(key, e) {

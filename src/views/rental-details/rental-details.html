@@ -245,7 +245,7 @@
           />
         </div>
 
-        <div class="map mt-4">
+        <div class="map mt-4" v-if="rentalData.locationMap">
           <iframe
             :src="rentalData.locationMap"
             width="100%"

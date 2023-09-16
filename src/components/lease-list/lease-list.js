@@ -2,7 +2,7 @@ import Button from "@/components/common/button/button.vue";
 import { Carousel, Slide } from "vue-carousel";
 import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
-import PostFilter from "@/components/post-filter/post-filter.vue";
+import RentalFilter from "@/components/rental-filter/rental-filter.vue";
 import Sort from "@/components/sort/sort.vue";
 import leaseBulletsFeaturesList from "@/meta/features.json";
 
@@ -14,7 +14,7 @@ export default {
     Button,
     Carousel,
     Slide,
-    PostFilter,
+    RentalFilter,
     Sort,
   },
   data() {
@@ -22,6 +22,8 @@ export default {
       postCount: LOAD_COUNT,
       filterEnabled: false,
       sortEnabled: false,
+      fullPostData: null,
+      filteredData: null,
     };
   },
   props: {
@@ -34,11 +36,26 @@ export default {
       default: "Latest <span>Lease Cars</span>",
     },
   },
+  async mounted() {
+    await this.getPostData();
+  },
+  watch: {
+    data: {
+      handler(newVal) {
+        this.getPostData();
+      },
+      immediate: true,
+    },
+  },
   computed: {
     isPostlength() {
       return this.fullPostData.length > this.postCount;
     },
+    isFilter() {
+      return this.$store.state.home.isFilterApplied;
+    },
     postData() {
+      this.getPostData();
       return this.fullPostData?.slice(0, this.postCount);
     },
     getSelectedLeaseCategory() {
@@ -47,24 +64,50 @@ export default {
     getSelectedLeaseBrand() {
       return this.$store.state.home.selectedLeaseBrand;
     },
-    fullPostData() {
-      if (this.getSelectedLeaseCategory) {
-        return this.data.filter(
+    // fullPostData() {
+    //   if (this.getSelectedLeaseCategory) {
+    //     return this.data.filter(
+    //       (item) =>
+    //         item.type?.toLowerCase() ===
+    //         this.getSelectedLeaseCategory.toLowerCase()
+    //     );
+    //   } else if (this.getSelectedLeaseBrand) {
+    //     return this.data.filter(
+    //       (item) =>
+    //         UTILS.formatTitle(item.company) ===
+    //         UTILS.formatTitle(this.getSelectedLeaseBrand)
+    //     );
+    //   }
+    //   return this.data;
+    // },
+  },
+  methods: {
+    async getPostData() {
+      if (this.data?.length && this.filteredData?.length) {
+        this.fullPostData = this.filteredData;
+      } else if (this.data?.length && this.getSelectedLeaseCategory) {
+        this.fullPostData = this.data.filter(
           (item) =>
             item.type?.toLowerCase() ===
             this.getSelectedLeaseCategory.toLowerCase()
         );
-      } else if (this.getSelectedLeaseBrand) {
-        return this.data.filter(
+      } else if (this.data?.length && this.getSelectedLeaseBrand) {
+        this.fullPostData = this.data?.filter(
           (item) =>
             UTILS.formatTitle(item.company) ===
             UTILS.formatTitle(this.getSelectedLeaseBrand)
         );
+      } else if (
+        this.data?.length &&
+        !this.getSelectedLeaseBrand &&
+        !this.getSelectedLeaseCategory &&
+        !this.isFilter
+      ) {
+        this.fullPostData = this.data;
+      } else {
+        this.fullPostData = [];
       }
-      return this.data;
     },
-  },
-  methods: {
     loadMore() {
       this.postCount =
         this.fullPostData.length > this.postCount
@@ -118,6 +161,16 @@ export default {
           window.location.href
         )}`
       );
+    },
+
+    updatePostData(data) {
+      this.filteredData = data?.length ? data : null;
+    },
+
+    async clearFilter() {
+      await this.getPostData();
+      this.filteredData = null;
+      this.$store.commit("updateIsFilterApplied", false);
     },
   },
 };
