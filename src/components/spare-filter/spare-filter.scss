@@ -5,7 +5,7 @@
   background-color: $white;
   top: 100px;
   left: 0;
-  z-index: 99;
+  z-index: 9;
   overflow-y: auto;
   .heading {
     display: flex;
@@ -23,17 +23,16 @@
       color: $black;
       width: 100%;
     }
-    .inputText {
-      width: 48%;
-      box-sizing: border-box;
-      &:nth-child(2) {
-        margin-right: 2%;
-      }
-      &:nth-child(3) {
-        margin-left: 2%;
-      }
-      &.fullWidth {
-        width: 100%;
+    &.two-column {
+      .inputText {
+        width: 48%;
+        box-sizing: border-box;
+        &:nth-child(2) {
+          margin-right: 2%;
+        }
+        &:nth-child(3) {
+          margin-left: 2%;
+        }
       }
     }
   }

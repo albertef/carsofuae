@@ -18,6 +18,13 @@ export default {
     InputFile,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newPost: {
@@ -59,6 +66,9 @@ export default {
   },
   async mounted() {
     await store.dispatch("getCarList");
+    if (this.action === "edit") {
+      await this.getPostData();
+    }
   },
   computed: {
     loginInfo() {
@@ -79,8 +89,33 @@ export default {
     utils() {
       return UTILS;
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getPostData() {
+      const data = await this.$store.dispatch("getPostList", {
+        category: this.queryParams?.type,
+      });
+      const originalData = data.post?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+
+      this.newPost = {
+        ...originalData,
+        description: originalData.desc,
+        cylinders: originalData.noOfCylinders,
+        transmission: originalData.transmissionType,
+        fuel: originalData.fuelType,
+      };
+
+      delete this.newPost.desc;
+      delete this.newPost.noOfCylinders;
+      delete this.newPost.transmissionType;
+      delete this.newPost.fuelType;
+    },
+
     updatePostData(key, e) {
       if (key === "brand") {
         this.newPost.model = "";
@@ -187,6 +222,12 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
+          if (this.action === "edit") {
+            params = {
+              ...params,
+              id: this.queryParams?.id,
+            };
+          }
           await this.$store.dispatch("newClassifiedPost", params);
         }
 

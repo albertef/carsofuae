@@ -21,6 +21,8 @@ export default {
       postCount: LOAD_COUNT,
       filterEnabled: false,
       sortEnabled: false,
+      fullPostData: null,
+      filteredData: null,
     };
   },
   props: {
@@ -29,21 +31,53 @@ export default {
       default: [],
     },
   },
+  async mounted() {
+    await this.getPostData();
+  },
   computed: {
     isPostlength() {
       return this.fullPostData.length > this.postCount;
     },
-    postData() {
-      return this.fullPostData?.slice(0, this.postCount);
+    // postData() {
+    //   return this.fullPostData?.slice(0, this.postCount);
+    // },
+    postData: {
+      get() {
+        return this.fullPostData?.slice(0, this.postCount);
+      },
+      set(filteredData) {
+        this.fullPostData = filteredData;
+      },
     },
-    fullPostData() {
-      return this.data;
-    },
+    // fullPostData() {
+    //   return this.data;
+    // },
     listView() {
       return this.$store.state.home.postView;
     },
+    isFilter() {
+      return this.$store.state.home.isFilterApplied;
+    },
+  },
+  watch: {
+    data: {
+      handler(newVal) {
+        this.getPostData();
+      },
+      immediate: true,
+    },
   },
   methods: {
+    async getPostData() {
+      debugger;
+      if (this.data?.length && this.filteredData?.length) {
+        this.fullPostData = this.filteredData;
+      } else if (this.data?.length && !this.isFilter) {
+        this.fullPostData = this.data;
+      } else {
+        this.fullPostData = [];
+      }
+    },
     loadMore() {
       this.postCount =
         this.fullPostData.length > this.postCount
@@ -92,6 +126,16 @@ export default {
     getGalleryImagePath(image, folder) {
       const folderPath = folder?.split(",")[0];
       return `${this.$baseURL}upload/${folderPath}/${image}`;
+    },
+
+    updatePostData(data) {
+      this.postData = data?.length ? data : null;
+    },
+
+    async clearFilter() {
+      this.$store.commit("updateIsFilterApplied", false);
+      await this.getPostData();
+      this.filteredData = null;
     },
   },
 };

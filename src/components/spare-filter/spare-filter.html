@@ -1,48 +1,113 @@
 <div class="post-filter-wrapper container-fluid mb-5 p-4 pb-5">
   <div class="container p-0 pb-4">
     <div class="row">
-      <div class="col-12 mb-3 heading">
+      <div class="col-12 mb-5 heading">
         <h5>Select Filter Options</h5>
         <font-awesome-icon :icon="['fas', 'times']" @click="closeFilter" />
       </div>
+    </div>
+    getCategory: {{getCategory}}
+    <div class="row" v-if="getCategory=='cars' || getCategory=='bikes'">
       <div class="col-12 col-lg-3 filter-column">
         <label>Brand</label>
         <!-- prettier-ignore -->
-        <Select :options="getCarMakes" placeholder="Select Brand" @selectValue="updateSelectedCarMake" :selected="filterData.brand" />
+        <Select :options="brandsList" placeholder="Select Brand" @selectValue="updateFilterData('brand', $event)" :selected="filterData.brand" />
       </div>
+
       <div class="col-12 col-lg-3 filter-column">
-        <label>Model</label>
+        <label>Model (Select Brand First)</label>
         <!-- prettier-ignore -->
-        <Select :options="getAllModels" placeholder="Select Model" @selectValue="getSelectInput" :selected="filterData.model" />
+        <Select :options="modelsList" placeholder="Select Model" @selectValue="updateFilterData('model', $event)" :selected="filterData.model" />
       </div>
+
       <div class="col-12 col-lg-3 filter-column">
-        <label>Year of Make</label>
+        <label>Name</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="from" @value="" />
-        <InputText class="inputText" placeholder="to" @value="" />
+        <InputText width="100%" class="inputText" placeholder="Enter Name" id="name" :value="filterData.name" @value="updateFilterData('name', $event)" />
       </div>
-      <div class="col-12 col-lg-3 filter-column">
-        <label>Price</label>
-        <!-- prettier-ignore -->
-        <InputText class="inputText" placeholder="min" @value="" />
-        <InputText class="inputText" placeholder="max" @value="" />
-      </div>
+
       <div class="col-12 col-lg-3 filter-column">
         <label>Part Number</label>
         <!-- prettier-ignore -->
-        <InputText class="inputText fullWidth" placeholder="Enter Part No" @value="" />
+        <InputText width="100%" class="inputText" placeholder="Enter Part Number" id="partNo" :value="filterData.partNo" @value="updateFilterData('partNo', $event)" />
       </div>
+
+      <div class="col-12 col-lg-3 filter-column two-column">
+        <label>Price</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column two-column">
+        <label>Year</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" id="minYear" :value="filterData.minYear" @value="updateFilterData('minYear', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxYear"
+          :value="filterData.maxYear"
+          @value="updateFilterData('maxYear', $event)"
+          type="number"
+        />
+      </div>
+
       <div class="col-12 col-lg-3 filter-column">
         <label>Warranty</label>
         <!-- prettier-ignore -->
-        <Select :options="[]" placeholder="Select Warranty" @selectValue="getSelectInput" :selected="filterData.warranty" />
+        <Select :options="utils.yesNoDropdownValues()" placeholder="Select Warranty" @selectValue="updateFilterData('warranty', $event)" :selected="filterData.warranty" />
       </div>
-      <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+    </div>
+
+    <!--Other FILTERS-->
+
+    <div class="row" v-else>
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Name</label>
         <!-- prettier-ignore -->
-        <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
-        <!-- prettier-ignore -->
-        <Button type="primary" text="Apply" @click="closeFilter" />
+        <InputText width="100%" class="inputText" placeholder="Enter Name" id="name" :value="filterData.name" @value="updateFilterData('name', $event)" />
       </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Part Number</label>
+        <!-- prettier-ignore -->
+        <InputText width="100%" class="inputText" placeholder="Enter Part Number" id="partNo" :value="filterData.partNo" @value="updateFilterData('partNo', $event)" />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column two-column">
+        <label>Price</label>
+        <!-- prettier-ignore -->
+        <InputText class="inputText" placeholder="min" id="minPrice" :value="filterData.minPrice" @value="updateFilterData('minPrice', $event)" type="number" />
+        <InputText
+          class="inputText"
+          placeholder="max"
+          id="maxPrice"
+          :value="filterData.maxPrice"
+          @value="updateFilterData('maxPrice', $event)"
+          type="number"
+        />
+      </div>
+
+      <div class="col-12 col-lg-3 filter-column">
+        <label>Warranty</label>
+        <!-- prettier-ignore -->
+        <Select :options="utils.yesNoDropdownValues()" placeholder="Select Warranty" @selectValue="updateFilterData('warranty', $event)" :selected="filterData.warranty" />
+      </div>
+    </div>
+
+    <div class="col-12 button-wrapper d-flex justify-content-end my-3">
+      <!-- prettier-ignore -->
+      <Button type="hollow" text="Cancel" class="mr-3" @click="closeFilter" />
+      <!-- prettier-ignore -->
+      <Button type="primary" text="Apply" @click="applyFilter" />
     </div>
   </div>
 </div>

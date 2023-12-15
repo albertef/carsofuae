@@ -4,20 +4,30 @@
       <div class="container">
         <div class="row">
           <div class="col-12 mb-3">
-            <h5 class="mt-5 mb-4">Post a new Ad</h5>
+            <h5 class="mt-5 mb-4" v-if="!action && !category">Post a new Ad</h5>
+            <h5 class="mt-5 mb-4" v-else>Edit your post</h5>
           </div>
-          <div class="col-12 mb-3">
+          <div class="col-12 mb-3" v-if="!action && !category">
             <label>Select Main Category <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="categoryList"
               placeholder="Select Category" :selected="selectedCategory" @selectValue="getCategoryOptions($event)" />
           </div>
-          <UsedCars v-if="selectedCategory==='used-cars'" />
-          <Boats v-if="selectedCategory==='boats'" />
-          <Motorcycles v-if="selectedCategory==='motorcycles'" />
-          <Truck v-if="selectedCategory==='truck'" />
-          <NumberPlates v-if="selectedCategory==='number-plates'" />
-          <Accessories v-if="selectedCategory==='accessories-and-parts'" />
+          <UsedCars v-if="selectedCategory==='used-cars'" :action="action" />
+          <Boats v-if="selectedCategory==='boats'" :action="action" />
+          <Motorcycles
+            v-if="selectedCategory==='motorcycles'"
+            :action="action"
+          />
+          <Truck v-if="selectedCategory==='truck'" :action="action" />
+          <NumberPlates
+            v-if="selectedCategory==='number-plates'"
+            :action="action"
+          />
+          <Accessories
+            v-if="selectedCategory==='accessories-and-parts'"
+            :action="action"
+          />
         </div>
       </div>
     </div>

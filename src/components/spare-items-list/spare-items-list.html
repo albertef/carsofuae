@@ -1,36 +1,75 @@
-<div class="post-list-wrapper container-fluid mb-5 pb-5" :class="listView && 'list-view'">
+<div
+  class="post-list-wrapper container-fluid mb-5 pb-5"
+  :class="listView && 'list-view'"
+>
   <div class="row">
     <div class="col-12">
       <div class="container">
-          <div class="row latest-posts" v-if="postData.length">
-            <div class="col-12 px-lg-0 px-3 py-2 my-3 heading-wrapper" :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'">
-              <h3 class="heading">Latest <span> posts</span></h3>
-              <div class="right-column">
-                <div class="sort-wrapper" title="Sort Options">
-                  <font-awesome-icon :icon="['fas', 'sort']" @click="sortToggle" />
-                  <Sort :data="postData"  @close="sortToggle"  v-if="sortEnabled" />
-                  <div class="overlay" @click="sortToggle" v-if="sortEnabled"></div>
-                </div>
-                <div class="filter-wrapper" title="Filter Options">
-                  <font-awesome-icon :icon="['fas', 'sliders-h']" @click="filterToggle" />
-                  <SpareFilter :data="postData"  @close="filterToggle"  v-if="filterEnabled" />
-                </div>
-                <div class="view-wrapper">
-                  <span :class="!listView && 'active'" @click="viewToggle('grid')" title="Grid View">
-                    <font-awesome-icon :icon="['fas', 'grip-horizontal']" />
-                  </span>
-                  <span :class="listView && 'active'" @click="viewToggle('list')" title="List View">
-                    <font-awesome-icon :icon="['fas', 'grip-lines']" />
-                  </span>
-                </div>
+        <div class="row latest-posts">
+          <div
+            class="col-12 px-lg-0 px-3 py-2 my-3 heading-wrapper"
+            :class="listView ? 'mt-lg-5 mb-lg-4' : 'my-lg-5'"
+          >
+            <h3 class="heading">Latest <span> posts</span></h3>
+            <div class="right-column">
+              <!-- prettier-ignore -->
+              <Button type="hollow small" text="Clear Filter" @click="clearFilter" v-if="isFilter" class="mr-3" />
+              <div class="sort-wrapper" title="Sort Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sort']"
+                  @click="sortToggle"
+                />
+                <Sort :data="postData" @close="sortToggle" v-if="sortEnabled" />
+                <div
+                  class="overlay"
+                  @click="sortToggle"
+                  v-if="sortEnabled"
+                ></div>
+              </div>
+              <div class="filter-wrapper" title="Filter Options">
+                <font-awesome-icon
+                  :icon="['fas', 'sliders-h']"
+                  @click="filterToggle"
+                />
+                <SpareFilter
+                  :data="postData"
+                  @close="filterToggle"
+                  @filteredData="updatePostData($event)"
+                  v-if="filterEnabled"
+                />
+              </div>
+              <div class="view-wrapper">
+                <span
+                  :class="!listView && 'active'"
+                  @click="viewToggle('grid')"
+                  title="Grid View"
+                >
+                  <font-awesome-icon :icon="['fas', 'grip-horizontal']" />
+                </span>
+                <span
+                  :class="listView && 'active'"
+                  @click="viewToggle('list')"
+                  title="List View"
+                >
+                  <font-awesome-icon :icon="['fas', 'grip-lines']" />
+                </span>
               </div>
             </div>
-            <div :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'" v-for="post in postData">
-              <div
-                class="card"
-                :class="post.featured && 'featured'"
-                @click="listView ? '' : viewPostDetails(post)"
-              >
+          </div>
+        </div>
+        <section
+          class="col-12 d-flex p-0 flex-wrap"
+          v-if="postData && postData.length"
+        >
+          <div
+            :class="listView ? 'col-12 py-3 px-0' : 'col-4 col-md-3 p-0'"
+            v-for="post in postData"
+          >
+            <div
+              class="card"
+              :class="post.featured && 'featured'"
+              @click="listView ? '' : viewPostDetails(post)"
+            >
               <div class="thumb-wrapper">
                 <Carousel
                   id="post-list-carousel"
@@ -43,84 +82,106 @@
                     v-for="(image, index) in post.galleryImages.split(',')"
                     v-bind:key="index"
                   >
-                    <span class="gallery-counter">{{index+1}}/{{post.galleryImages.split(',').length}}</span>
-                    <img :src="getGalleryImagePath(image,post.imageFolder)" class="img-fluid" />
+                    <span class="gallery-counter"
+                      >{{index+1}}/{{post.galleryImages.split(',').length}}</span
+                    >
+                    <img
+                      :src="getGalleryImagePath(image,post.imageFolder)"
+                      class="img-fluid"
+                    />
                   </Slide>
                 </Carousel>
-                <img :src="getGalleryImagePath(post.displayPicture,post.imageFolder)" class="img-fluid post-list-image" @click="listView ? viewPostDetails(post) : ''" />
+                <img
+                  :src="getGalleryImagePath(post.displayPicture,post.imageFolder)"
+                  class="img-fluid post-list-image"
+                  @click="listView ? viewPostDetails(post) : ''"
+                />
               </div>
 
-                <div class="post-details">
-                  <div @click="listView ? viewPostDetails(post) : ''">
-                    <p class="grid-hide list-view-price">
-                      <span class="price">
-                        <em>Selling Price</em>
-                        <span>AED {{ post.price }}</span>
-                      </span>
-                      <span class="date"><font-awesome-icon :icon="['far', 'calendar-alt']" class="mr-1" /> {{post.date}}</span></p>
-                    <h5
-                      class="my-2"
-                      :title="`${post.brand} ${post.model} ${post.name}`"
+              <div class="post-details">
+                <div @click="listView ? viewPostDetails(post) : ''">
+                  <p class="grid-hide list-view-price">
+                    <span class="price">
+                      <em>Selling Price</em>
+                      <span>AED {{ post.price }}</span>
+                    </span>
+                    <span class="date"
+                      ><font-awesome-icon
+                        :icon="['far', 'calendar-alt']"
+                        class="mr-1"
+                      />
+                      {{post.date}}</span
                     >
-                      <span
-                        >{{ post.brand }} {{ post.model }} {{ post.name }}</span
-                      >
+                  </p>
+                  <h5
+                    class="my-2"
+                    :title="`${post.brand} ${post.model} ${post.name}`"
+                  >
+                    <span
+                      >{{ post.brand }} {{ post.model }} {{ post.name }}</span
+                    >
+                    <em></em>
+                  </h5>
+                  <p class="grid-hide desc">{{post.desc}}</p>
+                  <div class="distance-price">
+                    <p class="distance"></p>
+                    <p class="price">
                       <em></em>
-                    </h5>
-                    <p class="grid-hide desc">{{post.desc}}</p>
-                    <div class="distance-price">
-                      <p class="distance">
-                        
-                      </p>
-                      <p class="price"><em></em> <span>{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span></p>
-                    </div>
+                      <span
+                        >{{listView ? 'Price: ' : ''}}AED {{ post.price }}</span
+                      >
+                    </p>
                   </div>
-                  <div class="phone px-lg-0 mt-2 grid-hide">
-                    <!-- prettier-ignore -->
-                    <Button
+                </div>
+                <div class="phone px-lg-0 mt-2 grid-hide">
+                  <!-- prettier-ignore -->
+                  <Button
                       type="green"
                       text="Call"
                       class="flex-fill mr-1"
                       :icon="['fas', 'phone']"
                       @click="openPhone(post.phone)"
                     />
-                    <!-- prettier-ignore -->
-                    <Button
+                  <!-- prettier-ignore -->
+                  <Button
                       type="green"
                       text="Whatsapp"
                       class="flex-fill mr-1"
                       :icon="['fab', 'whatsapp']"
                       @click="openWhatsapp(post.whatsappNumber)"
                     />
-                    <!-- prettier-ignore -->
-                    <Button
+                  <!-- prettier-ignore -->
+                  <Button
                       type="green"
                       text="Email"
                       class="flex-fill"
                       :icon="['fas', 'envelope']"
                       @click="openEmail(post.email)"
                     />
-                  </div>
                 </div>
-                <span
-                  class="featured-icon"
-                  title="Featured Post"
-                  v-if="post.featured"
-                >
-                  <img src="../../assets/featured.png" class="img-fluid" />
-                </span>
               </div>
-            </div>
-            <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
-              <!-- prettier-ignore -->
-              <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
+              <span
+                class="featured-icon"
+                title="Featured Post"
+                v-if="post.featured"
+              >
+                <img src="../../assets/featured.png" class="img-fluid" />
+              </span>
             </div>
           </div>
-          <div v-else class="d-flex flex-column justify-content-center align-items-center no-result">
-            <img src="../../assets/no-results.png" class="img-fluid" />
-            <h6>No Results Found</h6>
-            <p class="my-2">try changing the filters or search term</p>
+          <div class="col-12 p-0 my-4 px-3" v-if="isPostlength">
+            <!-- prettier-ignore -->
+            <Button type="hollow" width="100%" text="Load More" @click="loadMore" />
           </div>
+        </section>
+
+        <div
+          v-else
+          class="d-flex flex-column justify-content-center align-items-center no-result"
+        >
+          <img src="../../assets/no-results.png" class="img-fluid" />
+          <h6>No Results Found</h6>
+          <p class="my-2">try changing the filters or search term</p>
         </div>
       </div>
     </div>

@@ -1,3 +1,9 @@
-.boat-wrapper{
+.boat-wrapper {
   width: 100%;
+
+  label {
+    em {
+      color: $red;
+    }
+  }
 }

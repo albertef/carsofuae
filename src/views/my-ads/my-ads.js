@@ -170,7 +170,14 @@ export default {
       //await store.commit("updateSelectedClassifiedCategory", this.type);
     },
     editAd(id) {
-      alert(`Post ID: ${id} editing development is In Progress`);
+      router.push({
+        name: "PostEdit",
+        query: {
+          page: this.page,
+          type: this.type,
+          id: id,
+        },
+      });
     },
     formatDate(date) {
       return UTILS.formatDate(date);

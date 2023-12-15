@@ -18,6 +18,13 @@ export default {
     InputFile,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newPost: {
@@ -51,6 +58,9 @@ export default {
   },
   async mounted() {
     await store.dispatch("getMotorCycleList");
+    if (this.action === "edit") {
+      await this.getPostData();
+    }
   },
   computed: {
     loginInfo() {
@@ -71,8 +81,26 @@ export default {
     utils() {
       return UTILS;
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getPostData() {
+      const data = await this.$store.dispatch("getPostList", {
+        category: this.queryParams?.type,
+      });
+      const originalData = data.post?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+      this.newPost = {
+        ...originalData,
+        priceToPrice: originalData.price,
+      };
+
+      delete this.newPost.price;
+    },
+
     updatePostData(key, e) {
       if (key === "brand") {
         this.newPost.model = "";
@@ -173,6 +201,12 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
+          if (this.action === "edit") {
+            params = {
+              ...params,
+              id: this.queryParams?.id,
+            };
+          }
           await this.$store.dispatch("newMotorCyclesPost", params);
         }
 

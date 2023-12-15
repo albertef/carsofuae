@@ -57,7 +57,7 @@ export default {
         "minYear",
         "maxYear",
         "minMileage",
-        "maxMileAge",
+        "maxMileage",
       ];
       if (Object.keys(this.filterData).length) {
         this.filteredData = this.fullPostData.filter((item) => {
@@ -69,15 +69,17 @@ export default {
         });
 
         if (this.filterData.minPrice && this.filterData.maxPrice) {
-          this.filteredData = this.filteredData.filter(
-            (item) =>
+          this.filteredData = this.filteredData.filter((item) => {
+            debugger;
+            return (
               Number(item.price) >= Number(this.filterData.minPrice) &&
               Number(item.price) <= Number(this.filterData.maxPrice)
-          );
+            );
+          });
         } else if (!this.filterData.minPrice && this.filterData.maxPrice) {
-          this.filteredData = this.filteredData.filter(
-            (item) => Number(item.price) <= Number(this.filterData.maxPrice)
-          );
+          this.filteredData = this.filteredData.filter((item) => {
+            return Number(item.price) <= Number(this.filterData.maxPrice);
+          });
         } else if (this.filterData.minPrice && !this.filterData.maxPrice) {
           this.filteredData = this.filteredData.filter(
             (item) => Number(item.price) >= Number(this.filterData.minPrice)
@@ -87,32 +89,40 @@ export default {
         if (this.filterData.minYear && this.filterData.maxYear) {
           this.filteredData = this.filteredData.filter(
             (item) =>
-              Number(item.price) >= Number(this.filterData.minYear) &&
-              Number(item.price) <= Number(this.filterData.maxYear)
+              Number(item.year) >= Number(this.filterData.minYear) &&
+              Number(item.year) <= Number(this.filterData.maxYear)
           );
         } else if (!this.filterData.minYear && this.filterData.maxYear) {
           this.filteredData = this.filteredData.filter(
-            (item) => Number(item.price) <= Number(this.filterData.maxYear)
+            (item) => Number(item.year) <= Number(this.filterData.maxYear)
           );
         } else if (this.filterData.minYear && !this.filterData.maxYear) {
           this.filteredData = this.filteredData.filter(
-            (item) => Number(item.price) >= Number(this.filterData.minYear)
+            (item) => Number(item.year) >= Number(this.filterData.minYear)
           );
         }
 
-        if (this.filterData.minMileage && this.filterData.maxMileAge) {
+        if (this.filterData.minMileage && this.filterData.maxMileage) {
           this.filteredData = this.filteredData.filter(
             (item) =>
-              Number(item.price) >= Number(this.filterData.minMileage) &&
-              Number(item.price) <= Number(this.filterData.maxMileAge)
+              (Number(item.kilometers) || Number(item.distance)) >=
+                Number(this.filterData.minMileage) &&
+              (Number(item.kilometers) || Number(item.distance)) <=
+                Number(this.filterData.maxMileage)
           );
-        } else if (!this.filterData.minMileage && this.filterData.maxMileAge) {
+        } else if (!this.filterData.minMileage && this.filterData.maxMileage) {
+          this.filteredData = this.filteredData.filter((item) => {
+            debugger;
+            return (
+              (Number(item.kilometers) || Number(item.distance)) <=
+              Number(this.filterData.maxMileage)
+            );
+          });
+        } else if (this.filterData.minMileage && !this.filterData.maxMileage) {
           this.filteredData = this.filteredData.filter(
-            (item) => Number(item.price) <= Number(this.filterData.maxMileAge)
-          );
-        } else if (this.filterData.minMileage && !this.filterData.maxMileAge) {
-          this.filteredData = this.filteredData.filter(
-            (item) => Number(item.price) >= Number(this.filterData.minMileage)
+            (item) =>
+              (Number(item.kilometers) || Number(item.distance)) >=
+              Number(this.filterData.minMileage)
           );
         }
 

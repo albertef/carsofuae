@@ -18,6 +18,13 @@ export default {
     InputFile,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newPost: {

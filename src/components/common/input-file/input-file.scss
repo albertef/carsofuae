@@ -61,6 +61,12 @@
       box-shadow: $shadow-error;
     }
   }
+  &.disabled {
+    input {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
   div[id*="image"],
   div[id*="image-multiple"] {
     display: flex;

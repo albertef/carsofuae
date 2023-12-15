@@ -21,12 +21,34 @@ export default {
     Accessories,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+    category: {
+      type: String,
+      default: "",
+    },
+  },
+
+  async mounted() {
+    if (this.category) {
+      getCategoryOptions(this.category);
+    }
+  },
+
   computed: {
     categoryList() {
       return META.classifiedsCategories.map((item) => item.name);
     },
     selectedCategory() {
-      return store.state.home.selectedClassifiedCategory;
+      return (
+        this.queryParams?.type || store.state.home.selectedClassifiedCategory
+      );
+    },
+    queryParams() {
+      return this.$route.query;
     },
   },
   methods: {

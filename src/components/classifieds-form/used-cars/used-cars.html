@@ -96,7 +96,10 @@
     placeholder="Enter Email Address" id="email" :value="newPost.email" @value="updatePostData('email', $event)" />
   </div>
   <div class="col-12 mb-3">
-    <label>Display Picture<span>*</span></label>
+    <label
+      >Display Picture<span>*</span>
+      <em v-if="action==='edit'">(Images will be replaced)</em></label
+    >
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
@@ -105,7 +108,7 @@
   <div class="col-12 mb-3">
     <label>
       Upload 10 gallery images (Minimum of 1 image)
-      <span>*</span>
+      <span>*</span> <em v-if="action==='edit'">(Images will be replaced)</em>
     </label>
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.galleryImages" errorText="Choose gallery images (minimum 1)"
@@ -258,6 +261,6 @@
     <!-- prettier-ignore -->
     <Button type="hollow" text="Cancel" class="mr-3" @click="cancelPost()" />
     <!-- prettier-ignore -->
-    <Button type="primary" text="Submit Post" @click="submitPost()" />
+    <Button type="primary" :text="action === 'edit' ? 'Update Post' : 'Submit Post'" @click="submitPost()" />
   </div>
 </div>

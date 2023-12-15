@@ -28,6 +28,7 @@ import SuperDashboard from "@/views/super-dashboard/super-dashboard.vue";
 import MyAds from "@/views/my-ads/my-ads.vue";
 import UserProfileEdit from "@/views/user-profile-edit/user-profile-edit.vue";
 import Search from "@/views/search/search.vue";
+import PostEdit from "@/views/post-edit/post-edit.vue";
 
 Vue.use(Router);
 
@@ -203,6 +204,12 @@ const router = new Router({
       name: "MyAds",
       component: MyAds,
       meta: { title: "My Ads" },
+    },
+    {
+      path: "/post-edit",
+      name: "PostEdit",
+      component: PostEdit,
+      meta: { title: "Post Edit" },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

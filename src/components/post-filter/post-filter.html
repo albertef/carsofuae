@@ -167,11 +167,11 @@
     <!--BOATS FILTERS-->
 
     <div class="row" v-if="getCategory=='boats'">
-      <div class="col-12 col-lg-3 filter-column">
+      <!-- <div class="col-12 col-lg-3 filter-column">
         <label>Sub Category</label>
-        <!-- prettier-ignore -->
+        <!-- prettier-ignore 
         <Select :options="utils.subcategoryDropDownValues('boats')" placeholder="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" :selected="filterData.subCategory" />
-      </div>
+      </div> -->
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Age</label>
@@ -241,11 +241,11 @@
     <!--TRUCKS FILTERS-->
 
     <div class="row" v-if="getCategory=='truck'">
-      <div class="col-12 col-lg-3 filter-column">
+      <!-- <div class="col-12 col-lg-3 filter-column">
         <label>Sub Category</label>
-        <!-- prettier-ignore -->
+        <!-- prettier-ignore 
         <Select :options="utils.truckSubCategoryList()" placeholder="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" :selected="filterData.subCategory" />
-      </div>
+      </div> -->
 
       <div class="col-12 col-lg-3 filter-column">
         <label>No of Cylinders</label>
@@ -323,11 +323,11 @@
     <!--NUMBERPLATES FILTERS-->
 
     <div class="row" v-if="getCategory=='number-plates'">
-      <div class="col-12 col-lg-3 filter-column">
+      <!-- <div class="col-12 col-lg-3 filter-column">
         <label>Sub Category</label>
-        <!-- prettier-ignore -->
+        <!-- prettier-ignore 
         <Select :options="utils.numPlatesSubCatList()" placeholder="Select Sub Category" @selectValue="updateFilterData('subCategory', $event)" :selected="filterData.subCategory" />
-      </div>
+      </div> -->
 
       <div class="col-12 col-lg-3 filter-column">
         <label>Location</label>

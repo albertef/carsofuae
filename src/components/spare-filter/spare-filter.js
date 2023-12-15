@@ -1,63 +1,148 @@
 import Button from "@/components/common/button/button.vue";
-import Checkbox from "@/components/common/checkbox/checkbox.vue";
-import Radio from "@/components/common/radio/radio.vue";
 import Select from "@/components/common/select/select.vue";
 import InputText from "@/components/common/input-text/input-text.vue";
+import { UTILS } from "@/utility/utils.js";
+import store from "@/store";
 
 export default {
   name: "PostFilter",
   components: {
     Button,
-    Checkbox,
-    Radio,
     Select,
     InputText,
   },
-  data() {
-    return {
-      carMake: this.getCarMakes ? this.getCarMakes[0] : null,
-    };
-  },
+
   props: {
     data: {
       type: Array,
       default: [],
     },
   },
+  data() {
+    return {
+      filterData: {},
+      filteredData: [],
+    };
+  },
+  async mounted() {
+    await store.dispatch("getCarList");
+    await store.dispatch("getMotorCycleList");
+  },
   computed: {
+    getCategory() {
+      return (
+        this.$route.query.type ||
+        this.$store.state.home.selectedSpareType ||
+        "cars"
+      );
+    },
     fullPostData() {
       return this.data;
     },
-    getCarMakes() {
-      return this.$store.getters.getAllMakes;
+    utils() {
+      return UTILS;
     },
-    getAllModels() {
-      return this.$store.getters.getAllModels(this.carMake);
+    removeAlAinList() {
+      const locationList = this.utils.emiratesLocationList();
+      return locationList.filter((item) => item != "Al Ain");
     },
-    yeardropdownValues() {
-      const max = new Date().getFullYear(),
-        min = max - 20,
-        arr = [];
-
-      for (var i = min; i <= max; i++) {
-        arr.push(i);
-      }
-      return arr;
+    brandsList() {
+      return store.getters.getAllMakes;
+    },
+    modelsList() {
+      return store.getters.getAllModels(this.filterData.brand);
     },
   },
   methods: {
-    filterToggle() {
-      this.filterEnabled = !this.filterEnabled;
+    updateFilterData(key, e) {
+      this.filterData = {
+        ...this.filterData,
+        [key]: e,
+      };
     },
-    isSelected(value) {
-      return value ? 1 : 0;
+
+    applyFilter() {
+      const textboxValues = [
+        "minPrice",
+        "maxPrice",
+        "minYear",
+        "maxYear",
+        "minMileage",
+        "maxMileage",
+      ];
+      if (Object.keys(this.filterData).length) {
+        this.filteredData = this.fullPostData.filter((item) => {
+          return Object.entries(this.filterData)
+            .filter((item) => !textboxValues.includes(item[0]))
+            .every(([key, value]) => {
+              return item.hasOwnProperty(key) && item[key] == value;
+            });
+        });
+
+        if (this.filterData.minPrice && this.filterData.maxPrice) {
+          this.filteredData = this.filteredData.filter((item) => {
+            debugger;
+            return (
+              Number(item.price) >= Number(this.filterData.minPrice) &&
+              Number(item.price) <= Number(this.filterData.maxPrice)
+            );
+          });
+        } else if (!this.filterData.minPrice && this.filterData.maxPrice) {
+          this.filteredData = this.filteredData.filter((item) => {
+            return Number(item.price) <= Number(this.filterData.maxPrice);
+          });
+        } else if (this.filterData.minPrice && !this.filterData.maxPrice) {
+          this.filteredData = this.filteredData.filter(
+            (item) => Number(item.price) >= Number(this.filterData.minPrice)
+          );
+        }
+
+        if (this.filterData.minYear && this.filterData.maxYear) {
+          this.filteredData = this.filteredData.filter(
+            (item) =>
+              Number(item.year) >= Number(this.filterData.minYear) &&
+              Number(item.year) <= Number(this.filterData.maxYear)
+          );
+        } else if (!this.filterData.minYear && this.filterData.maxYear) {
+          this.filteredData = this.filteredData.filter(
+            (item) => Number(item.year) <= Number(this.filterData.maxYear)
+          );
+        } else if (this.filterData.minYear && !this.filterData.maxYear) {
+          this.filteredData = this.filteredData.filter(
+            (item) => Number(item.year) >= Number(this.filterData.minYear)
+          );
+        }
+
+        if (this.filterData.minMileage && this.filterData.maxMileage) {
+          this.filteredData = this.filteredData.filter(
+            (item) =>
+              (Number(item.kilometers) || Number(item.distance)) >=
+                Number(this.filterData.minMileage) &&
+              (Number(item.kilometers) || Number(item.distance)) <=
+                Number(this.filterData.maxMileage)
+          );
+        } else if (!this.filterData.minMileage && this.filterData.maxMileage) {
+          this.filteredData = this.filteredData.filter((item) => {
+            debugger;
+            return (
+              (Number(item.kilometers) || Number(item.distance)) <=
+              Number(this.filterData.maxMileage)
+            );
+          });
+        } else if (this.filterData.minMileage && !this.filterData.maxMileage) {
+          this.filteredData = this.filteredData.filter(
+            (item) =>
+              (Number(item.kilometers) || Number(item.distance)) >=
+              Number(this.filterData.minMileage)
+          );
+        }
+
+        this.$emit("filteredData", this.filteredData);
+        this.$store.commit("updateIsFilterApplied", true);
+      }
+      this.closeFilter();
     },
-    getSelectInput(e) {
-      console.log(e);
-    },
-    updateSelectedCarMake(make) {
-      this.carMake = make;
-    },
+
     closeFilter() {
       this.$emit("close");
     },
