@@ -1,4 +1,8 @@
 import ClassifiedsForm from "@/components/classifieds-form/classifieds-form.vue";
+import RentalForm from "@/components/rental-form/rental-form.vue";
+import LeaseForm from "@/components/lease-form/lease-form.vue";
+import GaragesForm from "@/components/garages-form/garages-form.vue";
+import SparePartsForm from "@/components/spare-parts-form/spare-parts-form.vue";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
@@ -8,6 +12,10 @@ export default {
   name: "PostEdit",
   components: {
     ClassifiedsForm,
+    RentalForm,
+    LeaseForm,
+    GaragesForm,
+    SparePartsForm,
   },
 
   data() {

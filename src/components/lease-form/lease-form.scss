@@ -20,6 +20,10 @@
           font-size: 12px;
         }
       }
+      em {
+        color: $red;
+        font-weight: normal;
+      }
     }
 
     .button-wrapper {

@@ -30,6 +30,13 @@ export default {
     LocationMapInstructions,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newRental: {
@@ -78,6 +85,10 @@ export default {
   },
   async mounted() {
     await store.dispatch("getCarList", true);
+    if (this.action === "edit") {
+      await this.getRentalData();
+      this.selectedFeatures = this.newRental?.features;
+    }
   },
   computed: {
     loginInfo() {
@@ -107,8 +118,20 @@ export default {
     getRentalTypes() {
       return META.rentalCarTypes.map((item) => item.name);
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getRentalData() {
+      const data = await this.$store.dispatch("getRentalList");
+      this.newRental = data.rental?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+
+      delete this.newRental.galleryImages;
+    },
+
     updateRentalData(key, e) {
       if (key === "brand") {
         this.newRental.model = "";
@@ -120,14 +143,17 @@ export default {
         ...this.newRental,
         [key]: e,
       };
-      this.validateNewRentalForm();
+      //this.validateNewRentalForm();
     },
     updateRentalFeaturesList(id) {
       this.selectedFeatures = [...this.selectedFeatures, id];
       this.updateRentalData("features", this.selectedFeatures);
     },
     isSelected(id) {
-      return this.selectedFeatures.length && this.selectedFeatures.includes(id);
+      return (
+        (this.selectedFeatures.length && this.selectedFeatures.includes(id)) ||
+        this.newRental.features.includes(id)
+      );
     },
     resetValidation() {
       this.newRentalValidation = {};
@@ -208,7 +234,7 @@ export default {
         );
         let response = null;
         if (galleryImageUploadResponse.length > 1) {
-          response = galleryImageUploadResponse.find(
+          response = galleryImageUploadResponse?.find(
             (item) => item.status === false
           )
             ? false
@@ -227,6 +253,13 @@ export default {
             ...params,
             galleryImages: galleryImageUploadResponse.fileName,
             imageFolder: galleryImageUploadResponse.folderName,
+          };
+        }
+
+        if (this.action === "edit") {
+          params = {
+            ...params,
+            id: this.queryParams?.id,
           };
         }
 

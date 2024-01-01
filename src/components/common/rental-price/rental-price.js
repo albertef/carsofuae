@@ -13,6 +13,9 @@ export default {
       type: String,
       default: "",
     },
+    selectedValue: {
+      type: Array | String,
+    },
   },
   data() {
     return {
@@ -49,6 +52,19 @@ export default {
         };
       });
       this.$emit("value", formatted);
+    },
+
+    getSelectedValues(per, value) {
+      const matchingItem =
+        this.selectedValue &&
+        this.selectedValue.length &&
+        this.selectedValue?.find((item) => item.per === per);
+
+      if (matchingItem) {
+        return matchingItem[value];
+      } else {
+        return null;
+      }
     },
   },
 };

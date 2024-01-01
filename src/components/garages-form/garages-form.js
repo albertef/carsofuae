@@ -27,6 +27,13 @@ export default {
     LocationMapInstructions,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newGarage: {
@@ -54,7 +61,11 @@ export default {
     };
   },
   async mounted() {
-    await store.dispatch("getCarList");
+    //await store.dispatch("getCarList");
+    if (this.action === "edit") {
+      await this.getGarageData();
+      this.selectedServices = this.newGarage?.services;
+    }
   },
   computed: {
     loginInfo() {
@@ -72,8 +83,21 @@ export default {
     locationOptions() {
       return UTILS.emiratesLocationList();
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getGarageData() {
+      const data = await this.$store.dispatch("getGarageList");
+      this.newGarage = data.garages?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+
+      delete this.newGarage.galleryImages;
+      delete this.newGarage.profilePicture;
+    },
+
     updateGarageData(key, e) {
       if (key === "locationMap") {
         e = UTILS.formatMapSrc(e);
@@ -90,7 +114,10 @@ export default {
     },
 
     isSelected(id) {
-      return this.selectedServices.length && this.selectedServices.includes(id);
+      return (
+        (this.selectedServices.length && this.selectedServices.includes(id)) ||
+        this.newGarage.services.includes(id)
+      );
     },
 
     resetValidation() {
@@ -147,7 +174,7 @@ export default {
         );
         let response = null;
         if (galleryImageUploadResponse.length > 1) {
-          response = galleryImageUploadResponse.find(
+          response = galleryImageUploadResponse?.find(
             (item) => item.status === false
           )
             ? false
@@ -168,6 +195,14 @@ export default {
             imageFolder: galleryImageUploadResponse.folderName,
           };
         }
+
+        if (this.action === "edit") {
+          params = {
+            ...params,
+            id: this.queryParams?.id,
+          };
+        }
+
         const displayPictureUploadResponse = await this.$store.dispatch(
           "imageUpload",
           params.profilePicture

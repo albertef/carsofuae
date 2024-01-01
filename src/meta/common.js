@@ -13,7 +13,7 @@ export const META = {
     {
       name: "Truck",
       image: "truck.png",
-      id: "trucks",
+      id: "truck",
     },
     {
       name: "Boats",

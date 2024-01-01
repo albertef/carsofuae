@@ -1,3 +1,27 @@
 <div class="post-edit-wrapper container-fluid p-0">
-  <ClassifiedsForm :selectedCategory="selectedCategory" action="edit" />
+  <ClassifiedsForm
+    :selectedCategory="selectedCategory"
+    action="edit"
+    v-if="selectedType==='classifieds'"
+  />
+  <RentalForm
+    :selectedCategory="selectedCategory"
+    action="edit"
+    v-if="selectedType==='rental'"
+  />
+  <LeaseForm
+    :selectedCategory="selectedCategory"
+    action="edit"
+    v-if="selectedType==='lease-a-car'"
+  />
+  <GaragesForm
+    :selectedCategory="selectedCategory"
+    action="edit"
+    v-if="selectedType==='garages'"
+  />
+  <SparePartsForm
+    :selectedCategory="selectedCategory"
+    action="edit"
+    v-if="selectedType==='spare-parts'"
+  />
 </div>

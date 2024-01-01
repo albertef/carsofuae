@@ -2,33 +2,36 @@
   <div class="col-12 mb-3 p-0">
     <label>Day <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateRentalPrice('day','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('day', 'price')" @value="updateRentalPrice('day','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
+      :value="getSelectedValues('day', 'km')"
       @value="updateRentalPrice('day','kilometer', $event)"
     />
   </div>
   <div class="col-12 mb-3 p-0">
     <label>Week <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateRentalPrice('week','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('week', 'price')" @value="updateRentalPrice('week','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
+      :value="getSelectedValues('week', 'km')"
       @value="updateRentalPrice('week','kilometer', $event)"
     />
   </div>
   <div class="col-12 mb-3 p-0">
     <label>Month <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateRentalPrice('month','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('month', 'price')" @value="updateRentalPrice('month','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
+      :value="getSelectedValues('month', 'km')"
       @value="updateRentalPrice('month','kilometer', $event)"
     />
   </div>

@@ -47,7 +47,10 @@ export default {
     };
   },
   async mounted() {
-    await store.dispatch("getCarList");
+    //await store.dispatch("getCarList");
+    if (this.action === "edit") {
+      await this.getPostData();
+    }
   },
   computed: {
     loginInfo() {
@@ -72,8 +75,26 @@ export default {
       const locationList = this.utils.emiratesLocationList();
       return locationList.filter((item) => item != "Al Ain");
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getPostData() {
+      const data = await this.$store.dispatch("getPostList", {
+        category: this.queryParams?.type,
+      });
+      const originalData = data.post?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+      this.newPost = {
+        ...originalData,
+        subcategory: originalData.subCategory,
+      };
+
+      delete this.newPost.subCategory;
+    },
+
     updatePostData(key, e) {
       this.newPost = {
         ...this.newPost,
@@ -158,6 +179,12 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
+          if (this.action === "edit") {
+            params = {
+              ...params,
+              id: this.queryParams?.id,
+            };
+          }
           await this.$store.dispatch("newNumberPlatesPost", params);
         }
 

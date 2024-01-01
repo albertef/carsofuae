@@ -2,41 +2,59 @@
   <div class="col-12 mb-3 p-0">
     <label>1 Year <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateLeasePrice('1','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('1', 'price')" @value="updateLeasePrice('1','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
       @value="updateLeasePrice('1','kilometer', $event)"
+      :value="getSelectedValues('1', 'km')"
     />
-    <InputText class="inputText" id="downPayment" placeholder="Down Payment" @value="updateLeasePrice('1','downPayment', $event)" />
-
+    <InputText
+      class="inputText"
+      id="downPayment"
+      placeholder="Down Payment"
+      :value="getSelectedValues('1', 'down')"
+      @value="updateLeasePrice('1','downPayment', $event)"
+    />
   </div>
   <div class="col-12 mb-3 p-0">
     <label>2 Year <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateLeasePrice('2','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('2', 'price')" @value="updateLeasePrice('2','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
       @value="updateLeasePrice('2','kilometer', $event)"
+      :value="getSelectedValues('2', 'km')"
     />
-    <InputText class="inputText" id="downPayment" placeholder="Down Payment" @value="updateLeasePrice('2','downPayment', $event)" />
-
+    <InputText
+      class="inputText"
+      id="downPayment"
+      placeholder="Down Payment"
+      @value="updateLeasePrice('2','downPayment', $event)"
+      :value="getSelectedValues('2', 'down')"
+    />
   </div>
   <div class="col-12 mb-3 p-0">
     <label>3 Year <span>*</span></label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" id="price" placeholder="Price" @value="updateLeasePrice('3','price', $event)" />
+    <InputText class="inputText" id="price" placeholder="Price" :value="getSelectedValues('3', 'price')" @value="updateLeasePrice('3','price', $event)" />
     <InputText
       class="inputText"
       id="kilometer"
       placeholder="Kilometers"
       @value="updateLeasePrice('3','kilometer', $event)"
+      :value="getSelectedValues('3', 'km')"
     />
-    <InputText class="inputText" id="downPayment" placeholder="Down Payment" @value="updateLeasePrice('3','downPayment', $event)" />
-
+    <InputText
+      class="inputText"
+      id="downPayment"
+      placeholder="Down Payment"
+      @value="updateLeasePrice('3','downPayment', $event)"
+      :value="getSelectedValues('3', 'down')"
+    />
   </div>
   <span v-if="error">Select price and kilometers for day, week and month</span>
 </div>

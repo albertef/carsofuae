@@ -54,7 +54,10 @@
       placeholder="Select Location" @selectValue="updatePostData('place', $event)" :selected="newPost.place" />
   </div>
   <div class="col-12 mb-3">
-    <label>Display Picture<span>*</span></label>
+    <label
+      >Display Picture<span>*</span>
+      <em v-if="action==='edit'">(Images will be replaced)</em></label
+    >
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.displayPicture" errorText="Choose a valid display picture"
     type="file" accept="image/*" placeholder="Select a Display picture" name="displayPicture" id="displayPicture"
@@ -63,7 +66,7 @@
   <div class="col-12 mb-3">
     <label>
       Upload 10 gallery images (Minimum of 1 image)
-      <span>*</span>
+      <span>*</span> <em v-if="action==='edit'">(Images will be replaced)</em>
     </label>
     <!-- prettier-ignore -->
     <InputFile class="inputText" :error="newPostValidation.galleryImages" errorText="Choose gallery images (minimum 1)"

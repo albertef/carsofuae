@@ -70,7 +70,6 @@ export default {
 
         if (this.filterData.minPrice && this.filterData.maxPrice) {
           this.filteredData = this.filteredData.filter((item) => {
-            debugger;
             return (
               Number(item.price) >= Number(this.filterData.minPrice) &&
               Number(item.price) <= Number(this.filterData.maxPrice)
@@ -112,7 +111,6 @@ export default {
           );
         } else if (!this.filterData.minMileage && this.filterData.maxMileage) {
           this.filteredData = this.filteredData.filter((item) => {
-            debugger;
             return (
               (Number(item.kilometers) || Number(item.distance)) <=
               Number(this.filterData.maxMileage)

@@ -53,6 +53,9 @@ export default {
   },
   async mounted() {
     await store.dispatch("getAccessoriesList");
+    if (this.action === "edit") {
+      await this.getPostData();
+    }
   },
   computed: {
     loginInfo() {
@@ -83,8 +86,28 @@ export default {
     accessoryItemList() {
       return store.getters.getAccessoriesItemList;
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getPostData() {
+      const data = await this.$store.dispatch("getPostList", {
+        category: this.queryParams?.type,
+      });
+      const originalData = data.post?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+      this.newPost = {
+        ...originalData,
+        subcategory: originalData.subCategory,
+        accessoryItem: originalData.item,
+      };
+
+      delete this.newPost.subCategory;
+      delete this.newPost.item;
+    },
+
     updatePostData(key, e) {
       if (key === "type") {
         store.commit("updateSelectedAccessoriesType", e);
@@ -188,6 +211,12 @@ export default {
             ...params,
             displayPicture: displayPictureUploadResponse.fileName,
           };
+          if (this.action === "edit") {
+            params = {
+              ...params,
+              id: this.queryParams?.id,
+            };
+          }
           await this.$store.dispatch("newAccessoriesPost", params);
         }
 

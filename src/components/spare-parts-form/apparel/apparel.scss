@@ -1,3 +1,10 @@
 .apparel-wrapper {
- width: 100%;
+  width: 100%;
+
+  label {
+    em {
+      color: $red;
+      font-weight: normal;
+    }
+  }
 }

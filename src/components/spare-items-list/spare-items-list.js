@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     async getPostData() {
-      debugger;
       if (this.data?.length && this.filteredData?.length) {
         this.fullPostData = this.filteredData;
       } else if (this.data?.length && !this.isFilter) {

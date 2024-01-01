@@ -12,6 +12,9 @@ export default {
       type: String,
       default: "",
     },
+    selectedValue: {
+      type: Array | String,
+    },
   },
   data() {
     return {
@@ -46,6 +49,30 @@ export default {
     };
   },
 
+  async mounted() {},
+
+  watch: {
+    selectedValue: {
+      handler(newVal) {
+        this.selected =
+          newVal &&
+          newVal.length &&
+          newVal.map((item) => {
+            const timeArr =
+              item.time === "Closed"
+                ? ["Closed", "Closed"]
+                : item.time?.split(" - ");
+            item.start = timeArr?.length ? timeArr[0] : item.start;
+            item.end = timeArr?.length ? timeArr[1] : item.end;
+            item.time = item.time;
+            //delete item.time;
+            return item;
+          });
+      },
+      immediate: true,
+    },
+  },
+
   methods: {
     updateTimes(day, time, selected) {
       const selectedTimes = {
@@ -53,20 +80,20 @@ export default {
         start: (time === "start" && selected) || null,
         end: (time === "end" && selected) || null,
       };
-      const isExist = this.selected.filter((item) => item.day === day);
+      const isExist = this.selected?.filter((item) => item.day === day);
       if (isExist.length) {
         isExist[0] =
           time === "start"
             ? { ...isExist[0], start: selected }
             : { ...isExist[0], end: selected };
         this.selected = [
-          ...this.selected.filter((item) => item.day !== day),
+          ...this.selected?.filter((item) => item.day !== day),
           isExist[0],
         ];
       } else {
         this.selected = [...this.selected, selectedTimes];
       }
-      const formatted = this.selected.map((el) => {
+      const formatted = this.selected?.map((el) => {
         return {
           day: el.day,
           time:
@@ -80,9 +107,10 @@ export default {
     },
 
     selectedTime(day, time) {
-      const dayObject = this.selected.find(
-        (item) => item.day === day.toLowerCase()
-      );
+      const dayObject =
+        this.selected &&
+        this.selected.length &&
+        this.selected?.find((item) => item.day === day.toLowerCase());
 
       if (dayObject) {
         return dayObject[time];

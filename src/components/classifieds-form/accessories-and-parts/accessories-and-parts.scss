@@ -1,3 +1,9 @@
-.accessories-wrapper{
+.accessories-wrapper {
   width: 100%;
+
+  label {
+    em {
+      color: $red;
+    }
+  }
 }

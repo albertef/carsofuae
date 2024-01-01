@@ -18,6 +18,13 @@ export default {
     TextArea,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newPost: {
@@ -47,6 +54,9 @@ export default {
   },
   async mounted() {
     await store.dispatch("getCarList");
+    if (this.action === "edit") {
+      await this.getPostData();
+    }
   },
   computed: {
     loginInfo() {
@@ -79,11 +89,26 @@ export default {
     spareItemList() {
       return store.getters.getSpareItemList;
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
     // getCategoryOptions(type) {
     //   store.commit("updateSelectedSpareType", type);
     // },
+    async getPostData() {
+      const data = await this.$store.dispatch("getSpareItemList", {
+        type: this.queryParams.type,
+      });
+      this.newPost = data.post?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+
+      //delete this.newGarage.galleryImages;
+      //delete this.newGarage.profilePicture;
+    },
+
     updatePostData(key, e) {
       if (key === "category") {
         this.newPost.subcategory = "";
@@ -171,6 +196,14 @@ export default {
             imageFolder: galleryImageUploadResponse.folderName,
           };
         }
+
+        if (this.action === "edit") {
+          params = {
+            ...params,
+            id: this.queryParams?.id,
+          };
+        }
+
         const displayPictureUploadResponse = await this.$store.dispatch(
           "imageUpload",
           params.displayPicture

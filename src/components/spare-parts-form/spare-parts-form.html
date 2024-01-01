@@ -4,19 +4,20 @@
       <div class="container">
         <div class="row">
           <div class="col-12 mb-3">
-            <h5 class="mt-5 mb-4">Post A New Ad</h5>
+            <h5 class="mt-5 mb-4" v-if="!action && !category">Post a new Ad</h5>
+            <h5 class="mt-5 mb-4" v-else>Edit your post</h5>
           </div>
-          <div class="col-12 mb-3">
+          <div class="col-12 mb-3" v-if="!action && !category">
             <label>Select Spare Part Type <span>*</span></label>
             <!-- prettier-ignore -->
             <Select :options="sparePartsCategoryList"
               placeholder="Select Type" @selectValue="getCategoryOptions($event)" :selected="selectedSpareType" />
           </div>
-          <Cars v-if="selectedSpareType==='cars'" />
-          <Bikes v-if="selectedSpareType==='bikes'" />
-          <Apparels v-if="selectedSpareType==='apparel'" />
-          <Hobbyist v-if="selectedSpareType==='hobbyist'" />
-          <HeavyVehicles v-if="selectedSpareType==='heavy'" />
+          <Cars v-if="selectedSpareType==='cars'" :action="action" />
+          <Bikes v-if="selectedSpareType==='bikes'" :action="action" />
+          <Apparels v-if="selectedSpareType==='apparel'" :action="action" />
+          <Hobbyist v-if="selectedSpareType==='hobbyist'" :action="action" />
+          <HeavyVehicles v-if="selectedSpareType==='heavy'" :action="action" />
         </div>
       </div>
     </div>

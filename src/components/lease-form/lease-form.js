@@ -29,6 +29,13 @@ export default {
     LocationMapInstructions,
   },
 
+  props: {
+    action: {
+      type: String,
+      default: "",
+    },
+  },
+
   data() {
     return {
       newLease: {
@@ -77,7 +84,11 @@ export default {
     };
   },
   async mounted() {
-    await store.dispatch("getCarList");
+    await store.dispatch("getCarList", true);
+    if (this.action === "edit") {
+      await this.getLeaseData();
+      this.selectedFeatures = this.newLease?.features;
+    }
   },
   computed: {
     loginInfo() {
@@ -107,8 +118,25 @@ export default {
     utils() {
       return UTILS;
     },
+    queryParams() {
+      return this.$route.query;
+    },
   },
   methods: {
+    async getLeaseData() {
+      const data = await this.$store.dispatch("getLeaseList");
+      const originalData = data.lease?.find(
+        (item) => Number(item.id) === Number(this.queryParams?.id)
+      );
+      this.newLease = {
+        ...originalData,
+        description: originalData.desc,
+      };
+
+      delete this.newLease.desc;
+      delete this.newRental.galleryImages;
+    },
+
     updateLeaseData(key, e) {
       if (key === "company") {
         this.newLease.model = "";
@@ -127,7 +155,10 @@ export default {
       this.updateLeaseData("features", this.selectedFeatures);
     },
     isSelected(id) {
-      return this.selectedFeatures.length && this.selectedFeatures.includes(id);
+      return (
+        (this.selectedFeatures.length && this.selectedFeatures.includes(id)) ||
+        this.newLease.features.includes(id)
+      );
     },
     resetValidation() {
       this.newLeaseValidation = {};
@@ -226,6 +257,13 @@ export default {
             ...params,
             galleryImages: galleryImageUploadResponse.fileName,
             imageFolder: galleryImageUploadResponse.folderName,
+          };
+        }
+
+        if (this.action === "edit") {
+          params = {
+            ...params,
+            id: this.queryParams?.id,
           };
         }
 

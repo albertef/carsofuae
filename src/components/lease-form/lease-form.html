@@ -75,12 +75,12 @@
             <label>Price <span>*</span></label>
             <!-- prettier-ignore -->
             <LeasePrice :error="newLeaseValidation.price"
-            errorText="Choose Lease Price and Kilometers" @value="updateLeaseData('price', $event)" />
+            errorText="Choose Lease Price and Kilometers" @value="updateLeaseData('price', $event)" :selectedValue="newLease.price" />
           </div>
           <div class="col-12 mb-3">
             <label
-              >Upload 10 gallery images (Minimum of 1 image)
-              <span>*</span></label
+              >Upload 10 gallery images (Minimum of 1 image) <span>*</span>
+              <em v-if="action==='edit'">(Images will be replaced)</em></label
             >
             <!-- prettier-ignore -->
             <InputFile class="inputText" :error="newLeaseValidation.galleryImages"
@@ -92,7 +92,7 @@
             <label>Open Times <span>*</span></label>
             <!-- prettier-ignore -->
             <OpenTimes :error="newLeaseValidation.openTimes"
-            errorText="Choose timings for all days" @value="updateLeaseData('openTimes', $event)" />
+            errorText="Choose timings for all days" @value="updateLeaseData('openTimes', $event)" :selectedValue="newLease.openTimes" />
           </div>
           <div class="col-12 mb-3">
             <label>Phone <span>*</span></label>

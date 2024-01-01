@@ -72,7 +72,6 @@ export default {
     },
     async postData() {
       this.newPost = await this.getPostData();
-      debugger;
       return this.newPost;
     },
     brandsList() {
