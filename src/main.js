@@ -12,10 +12,12 @@ import Loader from "@/components/common/loader/loader.vue";
 import Alert from "@/components/common/alert/alert.vue";
 import VCalendar from "v-calendar";
 import { CONSTANTS } from "@/utility/constants.js";
+import VueSocialSharing from "vue-social-sharing";
 
 Vue.use(VueCarousel);
 Vue.use(dayjs);
 Vue.use(VCalendar);
+Vue.use(VueSocialSharing);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.component("Loader", Loader);
 Vue.component("Alert", Alert);

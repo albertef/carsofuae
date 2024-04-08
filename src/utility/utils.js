@@ -150,6 +150,10 @@ export const UTILS = {
     return ["Owner", "Dealer"].sort();
   },
 
+  filterSellerTypes() {
+    return ["Owner", "Dealer"].sort();
+  },
+
   bodyType() {
     return [
       "Coupe",
@@ -359,7 +363,7 @@ export const UTILS = {
     ].sort();
   },
   acceptedInList() {
-    return ["Cash", "Cheque", "Card"].sort();
+    return ["Cash", "Cheque", "Card", "Any"].sort();
   },
 
   carSpecs() {

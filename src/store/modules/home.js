@@ -86,6 +86,7 @@ const state = {
   deleteMyAd: {},
   isFilterApplied: false,
   searchData: {},
+  sortCriteria: "new",
 };
 
 const actions = {
@@ -833,6 +834,9 @@ const mutations = {
   },
   updateSelectedLeaseBrand(state, value) {
     state.selectedLeaseBrand = value;
+  },
+  updateSortCriteria(state, value) {
+    state.sortCriteria = value;
   },
 };
 

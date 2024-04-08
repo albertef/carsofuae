@@ -38,9 +38,15 @@
       <span>*</span>
     </label>
     <!-- prettier-ignore -->
-    <InputText class="inputText" :error="newPostValidation.description" errorText="Enter Description"
-    placeholder="Enter Description" id="description" :value="newPost.description"
-    @value="updatePostData('description', $event)" />
+    <TextArea
+      class="inputText"
+      placeholder="Enter Description"
+      :error="newPostValidation.description"
+      errorText="Enter Description"
+      @value="updatePostData('description', $event)"
+      id="description"
+      :value="newPost.description"
+    />
   </div>
   <div class="col-12 mb-3">
     <label>

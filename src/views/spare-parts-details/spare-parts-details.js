@@ -21,6 +21,7 @@ export default {
     return {
       index: null,
       modalDisplay: false,
+      shareUrl: "",
     };
   },
   async mounted() {
@@ -29,7 +30,11 @@ export default {
       type: this.getSelectedSpareType || this.$route.query.type || "cars",
     };
     await this.$store.dispatch("getSpareItemList", params);
-    await this.$store.dispatch("getPostedByList");
+    const usernameParams = {
+      id: this.postData?.postedBy,
+      userType: this.postData?.userType,
+    };
+    await this.$store.dispatch("userDetails", usernameParams);
     store.commit("updateLoader", false);
   },
   computed: {
@@ -43,11 +48,14 @@ export default {
       return this.$store?.getters.getSingleSpareData(this.getPostId);
     },
     postedByName() {
-      const postedByList = this.$store?.state.home.postedByList;
-      return (
-        postedByList?.find((item) => item.id === Number(this.postData.postedBy))
-          ?.name || "Guest"
-      );
+      const postedByData = this.$store?.state.home.userDetails;
+      return postedByData?.firstName && postedByData?.lastName
+        ? `${postedByData?.firstName} ${postedByData?.lastName}`
+        : postedByData?.firstName && !postedByData?.lastName
+        ? `${postedByData?.firstName}`
+        : !postedByData?.firstName && postedByData?.lastName
+        ? `${postedByData?.lastName}`
+        : "Guest";
     },
     galleryImages() {
       return [
@@ -106,6 +114,7 @@ export default {
         if (err.toString().includes("AbortError")) {
           return;
         }
+        this.shareUrl = decodeURIComponent(window.location.href);
         this.modalDisplay = true;
       }
     },

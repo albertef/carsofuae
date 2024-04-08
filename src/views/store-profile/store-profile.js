@@ -14,7 +14,10 @@ export default {
       return this.$route.query.id;
     },
     getUserType() {
-      return this.$route.query.userType;
+      return this.queryParams.userType || store.state.home.loginInfo?.userType;
+    },
+    queryParams() {
+      return this.$route.query;
     },
   },
 };

@@ -33,6 +33,7 @@ export default {
     return {
       index: null,
       modalDisplay: false,
+      shareUrl: "",
       timing: false,
     };
   },
@@ -109,6 +110,7 @@ export default {
         if (err.toString().includes("AbortError")) {
           return;
         }
+        this.shareUrl = decodeURIComponent(window.location.href);
         this.modalDisplay = true;
       }
     },

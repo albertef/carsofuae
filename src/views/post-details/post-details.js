@@ -21,9 +21,10 @@ export default {
     return {
       index: null,
       modalDisplay: false,
+      shareUrl: "",
     };
   },
-  async created() {
+  async mounted() {
     store.commit("updateLoader", true);
     if (!this.postList?.length) {
       const params = {
@@ -33,8 +34,12 @@ export default {
           "used-cars",
       };
       await this.$store.dispatch("getPostList", params);
-      await this.$store.dispatch("getPostedByList");
     }
+    const usernameParams = {
+      id: this.postData?.postedBy,
+      userType: this.postData?.userType,
+    };
+    await this.$store.dispatch("userDetails", usernameParams);
     store.commit("updateLoader", false);
   },
   computed: {
@@ -54,11 +59,14 @@ export default {
       );
     },
     postedByName() {
-      const postedByList = this.$store?.state.home.postedByList;
-      return (
-        postedByList?.find((item) => item.id === Number(this.postData.postedBy))
-          ?.name || "Guest"
-      );
+      const postedByData = this.$store?.state.home.userDetails;
+      return postedByData?.firstName && postedByData?.lastName
+        ? `${postedByData?.firstName} ${postedByData?.lastName}`
+        : postedByData?.firstName && !postedByData?.lastName
+        ? `${postedByData?.firstName}`
+        : !postedByData?.firstName && postedByData?.lastName
+        ? `${postedByData?.lastName}`
+        : "Guest";
     },
     galleryImages() {
       return [this.postData.thumb, ...this.postData.gallery.split(",")];
@@ -113,6 +121,7 @@ export default {
         if (err.toString().includes("AbortError")) {
           return;
         }
+        this.shareUrl = decodeURIComponent(window.location.href);
         this.modalDisplay = true;
       }
     },
@@ -127,6 +136,8 @@ export default {
           userType: userType,
           type: "classifieds",
           user: `${UTILS.formatTitle(this.postedByName)}`,
+          category:
+            this.getSelectedClassifiedCategory || this.$route.query.category,
         },
       });
     },

@@ -10,6 +10,10 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     config.data = config.data || {};
+    const jwt = localStorage.getItem("login_info")
+      ? JSON.parse(localStorage.getItem("login_info"))
+      : "";
+    config.headers["Authorization"] = `Bearer ${jwt && jwt.jwtToken}`;
     updateLoader(true);
     return config;
   },

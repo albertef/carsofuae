@@ -155,4 +155,31 @@
       </div>
     </div>
   </div>
+  <span @click="sharePage" class="shareIcon">
+    <font-awesome-icon :icon="['fas', 'share-alt']" />
+  </span>
+  <Modal class="small share-modal" @escape="hideModal" v-if="modalDisplay">
+    <template v-slot:header>
+      <div>
+        <h5>Share to</h5>
+        <font-awesome-icon :icon="['fas', 'times']" @click="hideModal" />
+      </div>
+    </template>
+    <template v-slot:body>
+      <div class="icon-wrapper">
+        <ShareNetwork network="facebook" :url="shareUrl">
+          <img src="../../assets/facebook.png" class="icon facebook" />
+        </ShareNetwork>
+        <ShareNetwork network="twitter" :url="shareUrl">
+          <img src="../../assets/twitter.png" class="icon twitter" />
+        </ShareNetwork>
+        <ShareNetwork network="whatsapp" :url="shareUrl">
+          <img src="../../assets/whatsapp.png" class="icon whatsapp" />
+        </ShareNetwork>
+        <ShareNetwork network="linkedin" :url="shareUrl">
+          <img src="../../assets/linkedin.png" class="icon linkedin" />
+        </ShareNetwork>
+      </div>
+    </template>
+  </Modal>
 </div>

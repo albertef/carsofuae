@@ -13,7 +13,12 @@
                   :icon="['fas', 'sort']"
                   @click="sortToggle"
                 />
-                <Sort :data="postData" @close="sortToggle" v-if="sortEnabled" />
+                <Sort
+                  :data="postData"
+                  @close="sortToggle"
+                  v-if="sortEnabled"
+                  @sortedData="updatePostData($event)"
+                />
                 <div
                   class="overlay"
                   @click="sortToggle"

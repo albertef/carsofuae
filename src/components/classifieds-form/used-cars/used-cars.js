@@ -3,6 +3,7 @@ import InputText from "@/components/common/input-text/input-text.vue";
 import InputFile from "@/components/common/input-file/input-file.vue";
 import Button from "@/components/common/button/button.vue";
 import Select from "@/components/common/select/select.vue";
+import TextArea from "@/components/common/text-area/text-area.vue";
 import store from "@/store";
 import router from "@/router";
 import { META } from "@/meta/common.js";
@@ -16,6 +17,7 @@ export default {
     Button,
     Select,
     InputFile,
+    TextArea,
   },
 
   props: {

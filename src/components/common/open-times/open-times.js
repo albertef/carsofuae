@@ -77,10 +77,13 @@ export default {
     updateTimes(day, time, selected) {
       const selectedTimes = {
         day: day,
-        start: (time === "start" && selected) || null,
-        end: (time === "end" && selected) || null,
+        start: (time === "start" && selected) || "",
+        end: (time === "end" && selected) || "",
       };
-      const isExist = this.selected?.filter((item) => item.day === day);
+      const isExist =
+        this.selected &&
+        this.selected.length &&
+        this.selected?.filter((item) => item.day === day);
       if (isExist.length) {
         isExist[0] =
           time === "start"

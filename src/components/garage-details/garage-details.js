@@ -6,6 +6,7 @@ import garageServiceList from "@/meta/services.json";
 import { Carousel, Slide } from "vue-carousel";
 import { UTILS } from "@/utility/utils.js";
 import GarageDeal from "@/components/garage-deal/garage-deal.vue";
+import Modal from "@/components/common/modal/modal.vue";
 
 const utc = require("dayjs/plugin/utc");
 dayjs.extend(utc);
@@ -23,6 +24,13 @@ export default {
     Carousel,
     Slide,
     GarageDeal,
+    Modal,
+  },
+  data() {
+    return {
+      modalDisplay: false,
+      shareUrl: "",
+    };
   },
   async mounted() {
     await this.$store.dispatch("getGarageList");
@@ -135,6 +143,27 @@ export default {
         formattedLink = `https://${link}`;
       }
       window.open(formattedLink);
+    },
+    async sharePage() {
+      const shareData = {
+        title: "Cars Of UAE",
+        text: "Cars Of UAE",
+        url: decodeURIComponent(window.location.href),
+      };
+
+      try {
+        await navigator.share(shareData);
+        alert("Page Shared successfully");
+      } catch (err) {
+        if (err.toString().includes("AbortError")) {
+          return;
+        }
+        this.shareUrl = decodeURIComponent(window.location.href);
+        this.modalDisplay = true;
+      }
+    },
+    hideModal() {
+      this.modalDisplay = false;
     },
   },
 };

@@ -6,13 +6,7 @@
           <div class="col-12 mb-3">
             <h5 class="mt-5 mb-4">Post a new Rental</h5>
           </div>
-          <div class="col-12 mb-3">
-            <label>Name <span>*</span></label>
-            <!-- prettier-ignore -->
-            <InputText class="inputText" :error="newRentalValidation.name" errorText="Enter Name"
-              placeholder="Enter Name" id="name" :value="newRental.name"
-              @value="updateRentalData('name', $event)" />
-          </div>
+          
           <div class="col-12 mb-3">
             <label>Description <span>*</span></label>
             <!-- prettier-ignore -->
@@ -89,7 +83,7 @@
               @value="updateRentalData('galleryImages', $event)" />
           </div>
           <div class="col-12 mb-3 mt-3">
-            <label>Open Times <span>*</span></label>
+            <label>Working Hours <span>*</span></label>
             <!-- prettier-ignore -->
             <OpenTimes :error="newRentalValidation.openTimes"
             errorText="Choose timings for all days" :selectedValue="newRental.openTimes" @value="updateRentalData('openTimes', $event)" />

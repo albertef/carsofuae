@@ -7,11 +7,30 @@
       </div>
       <div class="col-12">
         <ul class="sort-options m-0">
-          <li class="active">Default</li>
-          <li>Newest to Oldest</li>
-          <li>Oldest to Newest</li>
-          <li>Price Highest to Lowest</li>
-          <li>Price Lowest to Highest</li>
+          <li
+            @click="applySort('old')"
+            :class="sortCriteria === 'old' && 'active'"
+          >
+            Oldest to Newest
+          </li>
+          <li
+            @click="applySort('new')"
+            :class="sortCriteria === 'new' && 'active'"
+          >
+            Newest to Oldest
+          </li>
+          <li
+            @click="applySort('high')"
+            :class="sortCriteria === 'high' && 'active'"
+          >
+            Price Highest to Lowest
+          </li>
+          <li
+            @click="applySort('low')"
+            :class="sortCriteria === 'low' && 'active'"
+          >
+            Price Lowest to Highest
+          </li>
         </ul>
       </div>
     </div>

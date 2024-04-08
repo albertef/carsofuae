@@ -39,7 +39,6 @@ export default {
   data() {
     return {
       newLease: {
-        name: "",
         description: "",
         company: "",
         model: "",
@@ -175,7 +174,6 @@ export default {
     validateNewLeaseForm() {
       this.newLeaseValidation = {
         ...this.newLeaseValidation,
-        name: !this.newLease.name,
         description: !this.newLease.description,
         company: !this.newLease.company,
         model: !this.newLease.model,

@@ -33,12 +33,13 @@ export default {
     return {
       index: null,
       modalDisplay: false,
+      shareUrl: "",
       timing: false,
     };
   },
   async mounted() {
     store.commit("updateLoader", true);
-    await store.dispatch("getPostedByList");
+    //await store.dispatch("getPostedByList");
     await store.dispatch("getRentalList");
     store.commit("updateSelectedRental", this.$route.query.id);
     router
@@ -122,6 +123,7 @@ export default {
         if (err.toString().includes("AbortError")) {
           return;
         }
+        this.shareUrl = decodeURIComponent(window.location.href);
         this.modalDisplay = true;
       }
     },

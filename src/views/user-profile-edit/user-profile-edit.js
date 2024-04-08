@@ -5,10 +5,12 @@ import InputDate from "@/components/common/input-date/input-date.vue";
 import Button from "@/components/common/button/button.vue";
 import Checkbox from "@/components/common/checkbox/checkbox.vue";
 import Select from "@/components/common/select/select.vue";
+import TextArea from "@/components/common/text-area/text-area.vue";
 import store from "@/store";
 import { META } from "@/meta/common.js";
 import { UTILS } from "@/utility/utils.js";
 import router from "@/router";
+import LocationMapInstructions from "@/components/location-map-instructions/location-map-instructions.vue";
 
 export default {
   name: "UserProfileEdit",
@@ -20,6 +22,8 @@ export default {
     Button,
     Checkbox,
     Select,
+    TextArea,
+    LocationMapInstructions,
   },
 
   data() {
@@ -27,6 +31,7 @@ export default {
       individualUserDetails: {},
       companyUserDetails: {},
       registerValidation: {},
+      showLocationModal: false,
     };
   },
   async mounted() {
@@ -59,6 +64,7 @@ export default {
           contactNumber: this.userInfo.contactNumber,
           whatsappNumber: this.userInfo.whatsappNumber,
           nl: this.userInfo.newsletter,
+          locationMap: this.userInfo.locationMap,
         };
       } else if (this.selectedUserType === this.userTypes.company.title) {
         this.companyUserDetails = {
@@ -80,6 +86,7 @@ export default {
           instagram: this.userInfo.instagram,
           linkedin: this.userInfo.linkedin,
           nl: this.userInfo.newsletter,
+          locationMap: this.userInfo.locationMap,
         };
       }
     }
@@ -103,6 +110,9 @@ export default {
   },
   methods: {
     updateUserDetails(key, e) {
+      if (key === "locationMap") {
+        e = UTILS.formatMapSrc(e);
+      }
       if (this.selectedUserType === this.userTypes?.individual?.title) {
         this.individualUserDetails = {
           ...this.individualUserDetails,
@@ -212,6 +222,14 @@ export default {
 
     cancelLogin() {
       router.go(-1);
+    },
+
+    showLocationInstructions() {
+      this.showLocationModal = true;
+    },
+
+    closeReviewModal() {
+      this.showLocationModal = false;
     },
   },
 };

@@ -40,7 +40,6 @@ export default {
   data() {
     return {
       newRental: {
-        name: "",
         description: "",
         brand: "",
         model: "",
@@ -170,7 +169,6 @@ export default {
     validateNewRentalForm() {
       this.newRentalValidation = {
         ...this.newRentalValidation,
-        name: !this.newRental.name,
         description: !this.newRental.description,
         brand: !this.newRental.brand,
         model: !this.newRental.model,

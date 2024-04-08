@@ -4,7 +4,7 @@
       {
         "category": "Filters",
         "sub": "AC Filter",
-        "item": "test"
+        "item": ""
       },
       {
         "category": "Filters",
@@ -1652,8 +1652,8 @@
     "apparel": [
       {
         "category": "Tops",
-        "sub": "test",
-        "item": "itemtest"
+        "sub": "",
+        "item": ""
       },
       {
         "category": "Bottoms",
@@ -1694,8 +1694,8 @@
     "hobbyist": [
       {
         "category": "Die-Cast Models",
-        "sub": "test",
-        "item": "itemtest"
+        "sub": "",
+        "item": ""
       },
       {
         "category": "Posters",
